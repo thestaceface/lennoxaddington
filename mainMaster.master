@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mainMaster.master.cs" Inherits="MasterPage" %>
+<%-- Master page template for all other pages --%>
+<%--  It contains header image, main top menu, and footer for every page --%>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" href="App_Themes/MyTheme/Styles.css" type="text/css" />
+    <title>Lennox Addington</title>
+    <asp:ContentPlaceHolder id="cph_head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+  <div id="pagewrap">
+    <form id="form1" runat="server">
+        <div id="header">
+
+            <div id="logo">
+               <asp:Image ID="img_logo" runat="server" ImageUrl="~/Images/Logo.jpg" AlternateText="Logo" />                  </div><%--Logo --%>
+
+            <div id="address">
+                  <asp:Label ID="lbl_address" runat="server" Text="(613) 354 - 3301<br/><span>8 Richmond Park Drive,Napane</span>" />
+            </div><%--address --%>
+
+            <div class="clear" />
+
+            <div id="search">       
+                <asp:Label ID="lbl_search" runat="server" Text="search...." />       
+    <asp:Image ID="img_search" runat="server" ImageUrl="~/Images/Search_Button.png" ImageAlign="Right" AlternateText="SearchImage" Height="30px" /><br /><br />
+            </div><%--search --%>
+             
+
+        </div><%--header --%>
+
+        <div id="navigation">           
+            <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
+            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" StaticHoverStyle-Font-Underline="true" DynamicHoverStyle-BackColor="#004059" />
+        </div>       <%--navigation --%>         
+                     
+
+        <div id="content">      
+            <div id="content_main">
+
+                <div  id="slider"><asp:ContentPlaceHolder id="cph_content" runat="server"></asp:ContentPlaceHolder></div>
+
+            </div> <%--content-main --%>
+                  
+            <div id="aside"> 
+               <div id="aside1">
+                  <asp:Label ID="lbl_text" runat="server" Text="Keeping You Informed!"  CssClass="lbl_text" /><br /><br />
+                <hr style="color:#7dc6cc"; />
+            </div> <%--aside1 --%>           
+                <div class="clear" />
+
+            <div id="aside2">
+                <asp:Label ID="lbl_faq" runat="server" Text="F.A.Q"  Font-Size="20px" />
+            </div> <%--aside2 --%>  
+                                                   
+            <div id="aside3">
+                <asp:Label ID="lbl_doctor" runat="server" Text="Find a Clinic"  Font-Size="20px" />
+            </div> <%--aside3 --%> 
+                  
+            <div id="aside4">
+                <asp:Label ID="lbl_events" runat="server" Text="New Events"  Font-Size="20px" />
+            </div><%--aside4 --%>  
+            
+            </div><%--aside --%>              
+                
+         </div><%--content --%>
+        <div class="clear" />
+    
+        <div id="footer">
+            <div id="footer_jobs">
+                <asp:Label ID="lbl_jobs" runat="server" Text="Jobs" /><br /><br />
+                    <hr />
+               <asp:HyperLink ID="lnk_jobs" runat="server" ImageUrl="~/Images/employment-icon.png" />
+            </div><%--footer_jobs --%>  
+
+            <div id="footer_services">
+                <asp:Label ID="lbl_hours" runat="server" Text="Services" /><br /><br />
+                <hr /><br />
+                <asp:HyperLink ID="lnk_feedback" runat="server" Text="Feedback"  /><br /><br />
+                 <asp:HyperLink ID="lnk_staff" runat="server" Text="Thank a staff member"  /><br /><br />
+                 <asp:HyperLink ID="lnk_appointment" runat="server" Text="Book an Appointment"  /><br /><br />
+                 <asp:HyperLink ID="lnk_ecard" runat="server" Text="Send an E-Card"  /><br /><br />
+            </div><%--footer_services --%>  
+
+            <div id="footer_links">
+                <asp:Label ID="lbl_links" runat="server" Text="Useful Links" /><br /><br /><hr />
+                <br />
+                <asp:HyperLink ID="lnk_direction" runat="server" Text="Directions"  /><br /><br />
+                <asp:HyperLink ID="lnk_suggest" runat="server" Text="Suggestions"  /><br /><br />                                <asp:HyperLink ID="lnk_resource" runat="server" Text="Resources"  /><br /><br />
+            </div><%--footer_links --%>  
+
+            <div id="footer_contact">
+                <asp:Label ID="lbl_contact" runat="server" Text="Contact" /><br /><br /><hr /><br />
+                <asp:Label ID="lbl_add" runat="server" Text="8 Richmond Park Drive<br>Napanee,K7R 2Z4<br>(613)-354-3301" /><br /><br />
+                <asp:Label ID="lbl_visitinghours" runat="server" Text="Visiting Hours" /><br /><br />
+                <asp:Label ID="lbl_time" runat="server" Text="2:00 p.m. - 8:00 p.m." /><br /><br />
+            </div><%--footer_contact --%>  
+
+            <div id="footer_copyright">
+              <asp:Label ID="lbl_footer" runat="server" Text="Copyright &copy 2014 Lennox & Addington County General Hospital " />              
+            </div><%--footer_copyright--%>  
+
+             <div id="footer_icons">
+                <asp:Image ID="img_facebook" runat="server" ImageUrl="~/Images/Facebook_Icon.png"  />
+                <asp:Image ID="img_twitter" runat="server" ImageUrl="~/Images/Twitter_Icon.jpg" />
+            </div><%--footer_icons --%>  
+           
+        </div><%--footer--%>  
+    </form>
+  </div><%--pagewrap --%>
+</body>
+</html>
