@@ -13,61 +13,203 @@ body {
 }
 #header {
     height:160px;
-    border :1px solid #000;
+    border :0px solid #000;
     font-family: Arial, Tahoma, 'Trebuchet MS';
     width:1100px;
+    background-color:#8ed1e4;
+    
+   
 }
 #logo {
     height:80px;
-    border:1px solid #ff6a00;
+    border:0px solid #ff6a00;
     width:300px;
     float:left;
     margin:30px 0px 0px 30px;
 }
-#search {
-    height:40px;
-    border:1px solid #ff6a00;
-    width:300px;
+#address {
+    height:50px;
+    border:0px solid #ff6a00;
+    width:250px;
     float:right;
-    margin:60px 30px 0px 30px;
+    margin:30px 30px 0px 30px;
+    color:#606465;
+    
+}
+
+#search {
+    text-align:center;
+    height:30px;
+    border:0px solid #ff6a00;
+    width:250px;
+    float:right;
+    margin:0px 30px 20px 30px;
+    background-color:#6aabbf;
+    color:#ececec;
 }
 .clear {
     clear: both;
 }
 
+
 #navigation {
     text-align:center;
     height:50px;
-    border :1px solid #4cff00;
+    border :0px solid #4cff00;
     width:1100px;
-
+    background-color:#6aabbf;
+    float:left;
+    padding-top:30px;
+    color:#ececec;
+         
 
 }
 #content {
-    width:800px;
-    border :1px solid #000;
-    min-height:500px;
+    min-height:800px;
+    width:1100px;
+    background:#ececec;
+     border :0px solid red;
+     float:left;
+}
+
+#content_main {
+   width:730px;
+    border :0px solid #000;
+    min-height:740px;
     float:left;
+    margin-top:10px;
+    margin-left:30px;
+
+   
 
 }
 
-#right_col {
-    width:280px;
-    border :1px solid #000;
-    min-height:500px;
+#slider {
+     width:730px;
+    border :0px solid #000;
+    min-height:200px;
+}
+#aside {
+    width:296px;
+    margin-top:10px;
+    margin-right:20px;
+    border :0px solid #000;
+    min-height:800px;
     float:right;
+    background-color:white;
+    
+}
+#aside1 {
+    min-height:100px;
+      width:296px;
+     border :0px solid green;  
+    float:right;
+
+}
+#lbl_text {
+    padding-top:50px;   
+    font-size:24px;
+    color:#606465;
+}
+#aside2 {
+     min-height:233px;
+      width:296px;
+    border :1px solid green;
+    color:#949899;
+    text-align:center;
+   
+  
+}
+#aside3 {
+     min-height:233px;
+      width:296px;
+    border :1px solid green;
+    color:#949899;
+    text-align:center;
+ 
+}
+#aside4 {
+     min-height:233px;
+      width:296px;
+    border :1px solid green;
+    color:#949899;
+    text-align:center;
+    
 }
 #box {
     height:1039px;
     width:712px;
-       border :1px solid #000;
+    border :1px solid #000;
 
 }
 
 #footer {
     width:1100px;
-    height:100px;
-    border:1px solid #ff0000;
+    height:300px;
+    border:0px solid #ff0000;
+    background-color:#202020;
+   
 
     
+}
+#footer_jobs {
+    width:180px;
+    height:200px;
+    border:0px solid green;
+    float:left;
+    margin-top:30px;
+    margin-left:80px;
+    color:white;
+   
+}
+#footer_services {
+     width:180px;
+    height:200px;
+    border:dashed solid green;
+    float:left;
+     margin-top:30px;
+    margin-left:70px;
+    color:white;
+    
+}
+#footer_links {
+     width:180px;
+    height:200px;
+    border:0px solid green;
+    float:left;
+     margin-top:30px;
+     margin-left:70px;
+    margin-right:10px;
+    color:white;
+}
+#footer_contact {
+     width:180px;
+    height:200px;
+    border:0px solid green;
+    float:left;
+     margin-top:30px;
+     margin-left:70px;
+    margin-right:10px;
+    color:white;
+}
+
+#footer_copyright {
+     width:500px;
+     height:20px;
+     border:0px solid green;
+     text-align:center;
+     padding-top:35px;
+     margin-left:70px;
+     color:#454545;
+     float:left;
+}
+#footer_icons {
+     border:0px solid green;
+     width:100px;
+     min-height:20px;     
+     float:right;
+     margin-top:30px;
+     margin-right:40px;
+     
+        
 }
