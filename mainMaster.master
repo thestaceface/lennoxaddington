@@ -33,8 +33,8 @@
         </div><%--header --%>
 
         <div id="navigation">           
-            <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
-            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" StaticHoverStyle-Font-Underline="true" DynamicHoverStyle-BackColor="#004059" />
+            <%--<asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
+            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" StaticHoverStyle-Font-Underline="true" DynamicHoverStyle-BackColor="#004059" />--%>
         </div>       <%--navigation --%>         
                      
 
