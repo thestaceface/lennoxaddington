@@ -6,6 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="App_Themes/MyTheme/Styles.css" type="text/css" />
+    <link rel="stylesheet" href="App_Themes/MyTheme/responsive.css" type="text/css" />
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
     <title>Lennox Addington</title>
     <asp:ContentPlaceHolder id="cph_head" runat="server">
     </asp:ContentPlaceHolder>
@@ -19,7 +26,7 @@
                <asp:Image ID="img_logo" runat="server" ImageUrl="~/Images/Logo.jpg" AlternateText="Logo" />                  </div><%--Logo --%>
 
             <div id="address">
-                  <asp:Label ID="lbl_address" runat="server" Text="(613) 354 - 3301<br/><span>8 Richmond Park Drive,Napane</span>" />
+                  <asp:Label ID="lbl_address" runat="server" Text="(613) 354 - 3301<br/><span>8 Richmond Park Drive,Napanee</span>" />
             </div><%--address --%>
 
             <div class="clear" />
@@ -28,7 +35,10 @@
                 <asp:Label ID="lbl_search" runat="server" Text="search...." />       
     <asp:Image ID="img_search" runat="server" ImageUrl="~/Images/Search_Button.png" ImageAlign="Right" AlternateText="SearchImage" Height="30px" /><br /><br />
             </div><%--search --%>
-             
+         
+        <div id="mobilemenu">
+            <p>Mobile menu</p>
+        </div>
 
         </div><%--header --%>
 
@@ -39,9 +49,18 @@
                      
 
         <div id="content">      
+            <div id="mobilebuttons">
+                <asp:LinkButton ID="lnk_findus" runat="server" Text="Find Us" PostBackUrl="#"  /><br />
+                <asp:LinkButton ID="lnk_er" runat="server" Text="ER Wait Time" PostBackUrl="#"  /><br />
+                <asp:LinkButton ID="lnk_visit" runat="server" Text="Visiting Hours" PostBackUrl="#"  /><br />
+                <asp:LinkButton ID="lnk_directory" runat="server" Text="Directory" PostBackUrl="#"  /><br />
+                </div>
+
             <div id="content_main">
 
                 <div  id="slider"><asp:ContentPlaceHolder id="cph_content" runat="server"></asp:ContentPlaceHolder></div>
+
+                
 
             </div> <%--content-main --%>
                   
@@ -67,7 +86,8 @@
             </div><%--aside --%>              
                 
          </div><%--content --%>
-        <div class="clear" />
+        
+        <div class="clear"></div>
     
         <div id="footer">
             <div id="footer_jobs">

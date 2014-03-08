@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="lennox" Class="lennoxdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=lennox.db.8184438.hostedresource.com;Initial Catalog=lennox;Persist Security Info=True;User ID=lennox" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="lennoxConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="us_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="us_last" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="us_first" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="us_middle" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="us_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="us_pw" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="us_dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="us_tel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="us_cell" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="us_street" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="us_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="us_city" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="us_province" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="us_country" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="us_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="us_type" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="us_updateby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_userlog" Member="userlogs" ThisKey="us_id" OtherKey="ul_id" Type="userlog" />
+      <Association Name="User_permission" Member="permissions" ThisKey="us_id" OtherKey="ps_u_id" Type="permission" />
+      <Association Name="User_employee" Member="employees" ThisKey="us_id" OtherKey="em_u_id" Type="employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.userlog" Member="userlogs">
+    <Type Name="userlog">
+      <Column Name="ul_number" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ul_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ul_logdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ul_logtime" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ul_access" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="User_userlog" Member="User" ThisKey="ul_id" OtherKey="us_id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.permissions" Member="permissions">
+    <Type Name="permission">
+      <Column Name="ps_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ps_u_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ps_type" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ps_utype" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ps_from" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ps_f_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ps_abilities" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ps_upto" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="User_permission" Member="User" ThisKey="ps_u_id" OtherKey="us_id" Type="User" IsForeignKey="true" />
+      <Association Name="feature_permission" Member="feature" ThisKey="ps_f_id" OtherKey="fs_id" Type="feature" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.features" Member="features">
+    <Type Name="feature">
+      <Column Name="fs_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fs_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="fs_type" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="feature_permission" Member="permissions" ThisKey="fs_id" OtherKey="ps_f_id" Type="permission" />
+    </Type>
+  </Table>
+  <Table Name="dbo.employee" Member="employees">
+    <Type Name="employee">
+      <Column Name="em_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="em_u_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="em_last" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="em_first" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="em_middle" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="em_dob" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="em_gender" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="em_doj" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="em_tel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="em_fax" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="em_cell" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="em_street" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="em_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="em_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="em_province" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="em_country" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="em_status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="em_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="em_type" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="em_d_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="em_position" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="em_s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="em_updateby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="employee_empreport" Member="empreports" ThisKey="em_id" OtherKey="er_e_id" Type="empreport" />
+      <Association Name="employee_patientvisit" Member="patientvisits" ThisKey="em_id" OtherKey="pv_e_id1" Type="patientvisit" />
+      <Association Name="employee_patientvisit1" Member="patientvisits1" ThisKey="em_id" OtherKey="pv_e_id2" Type="patientvisit" />
+      <Association Name="employee_appointment" Member="appointments" ThisKey="em_id" OtherKey="at_e_id" Type="appointment" />
+      <Association Name="User_employee" Member="User" ThisKey="em_u_id" OtherKey="us_id" Type="User" IsForeignKey="true" />
+      <Association Name="department_employee" Member="department" ThisKey="em_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
+      <Association Name="position_employee" Member="position" ThisKey="em_position" OtherKey="pn_id" Type="position" IsForeignKey="true" />
+      <Association Name="position_employee1" Member="position1" ThisKey="em_position" OtherKey="pn_id" Type="position" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.empreports" Member="empreports">
+    <Type Name="empreport">
+      <Column Name="er_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="er_e_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="er_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="er_name" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="er_type" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="er_attach" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="employee_empreport" Member="employee" ThisKey="er_e_id" OtherKey="em_id" Type="employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.department" Member="departments">
+    <Type Name="department">
+      <Column Name="dp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dp_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="dp_head" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="dp_location" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Association Name="department_employee" Member="employees" ThisKey="dp_id" OtherKey="em_d_id" Type="employee" />
+      <Association Name="department_office" Member="offices" ThisKey="dp_id" OtherKey="of_dept_id" Type="office" />
+      <Association Name="department_sysinfo" Member="sysinfos" ThisKey="dp_id" OtherKey="si_d_id" Type="sysinfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.offices" Member="offices">
+    <Type Name="office">
+      <Column Name="of_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="of_dept_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="of_title" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="of_contacttype" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="of_contact" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="of_tel" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="of_fax" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="of_email" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="of_location" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="department_office" Member="department" ThisKey="of_dept_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.patients" Member="patients">
+    <Type Name="patient">
+      <Column Name="pt_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pt_custom_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pt_last" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_first" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_dob" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="pt_gender" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_mother" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_father" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_tel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="pt_cell" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="pt_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pt_street" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="pt_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_province" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_country" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_hcard" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_version" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_hcexpiry" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="pt_famdoc" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pt_doctel" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="pt_weight" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_height" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="pt_preg" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="pt_npreg" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pt_children" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pt_bgroup" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="pt_alergy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="pt_alergytype" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pt_updateby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pt_lupdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="patient_patientvisit" Member="patientvisits" ThisKey="pt_id" OtherKey="pv_p_id" Type="patientvisit" />
+      <Association Name="patient_patreport" Member="patreports" ThisKey="pt_custom_id" OtherKey="pr_p_id" Type="patreport" />
+      <Association Name="patient_appointment" Member="appointments" ThisKey="pt_id" OtherKey="at_p_id" Type="appointment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.patientvisit" Member="patientvisits">
+    <Type Name="patientvisit">
+      <Column Name="pv_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pv_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pv_visitdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="pv_admitted" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="pv_admdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="pv_reldate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="pv_roomward" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="pv_bed" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="pv_e_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pv_e_id2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pv_r_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pv_appointment" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="employee_patientvisit" Member="employee" ThisKey="pv_e_id1" OtherKey="em_id" Type="employee" IsForeignKey="true" />
+      <Association Name="employee_patientvisit1" Member="employee1" ThisKey="pv_e_id2" OtherKey="em_id" Type="employee" IsForeignKey="true" />
+      <Association Name="patient_patientvisit" Member="patient" ThisKey="pv_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
+      <Association Name="patreport_patientvisit" Member="patreport" ThisKey="pv_r_id" OtherKey="pr_id" Type="patreport" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.patreports" Member="patreports">
+    <Type Name="patreport">
+      <Column Name="pr_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pr_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pr_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="pr_name" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="pr_type" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pr_attach" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="patreport_patientvisit" Member="patientvisits" ThisKey="pr_id" OtherKey="pv_r_id" Type="patientvisit" />
+      <Association Name="patreport_appointment" Member="appointments" ThisKey="pr_id" OtherKey="at_reason" Type="appointment" />
+      <Association Name="patient_patreport" Member="patient" ThisKey="pr_p_id" OtherKey="pt_custom_id" Type="patient" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.appointment" Member="appointments">
+    <Type Name="appointment">
+      <Column Name="at_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="at_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="at_apptdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="at_clinic" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="at_e_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="at_reason" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="at_appt_next" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="employee_appointment" Member="employee" ThisKey="at_e_id" OtherKey="em_id" Type="employee" IsForeignKey="true" />
+      <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
+      <Association Name="patreport_appointment" Member="patreport" ThisKey="at_reason" OtherKey="pr_id" Type="patreport" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.applicants" Member="applicants">
+    <Type Name="applicant">
+      <Column Name="ap_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ap_last" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ap_first" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ap_dob" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ap_gender" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="ap_tel" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_cell" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_street" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="ap_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="ap_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_province" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_country" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ap_type" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_pn_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ap_qualification" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_requirements" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_education" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_experience" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="ap_specialities" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_upload" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="position_applicant" Member="position" ThisKey="ap_pn_id" OtherKey="pn_id" Type="position" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.positions" Member="positions">
+    <Type Name="position">
+      <Column Name="pn_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pn_desc" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="pn_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="pn_type" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="pn_s_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="pn_qualification" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="pn_requirements" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="pn_education" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="pn_experience" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="pn_specialities" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Association Name="position_employee" Member="employees" ThisKey="pn_id" OtherKey="em_position" Type="employee" />
+      <Association Name="position_employee1" Member="employees1" ThisKey="pn_id" OtherKey="em_position" Type="employee" />
+      <Association Name="position_applicant" Member="applicants" ThisKey="pn_id" OtherKey="ap_pn_id" Type="applicant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.syscontrol" Member="syscontrols">
+    <Type Name="syscontrol">
+      <Column Name="sc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sc_desc" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="sc_name" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="sc_type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="sc_geninquiry" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sc_serviceimp" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sc_websiteimp" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sc_complains" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sc_othfeedback" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sysinfo" Member="sysinfos">
+    <Type Name="sysinfo">
+      <Column Name="si_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="si_desc" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="si_numdoctor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_avgtime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="si_numregistered" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_numattended" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_today" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="si_waittime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="si_numwaiting" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_d_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="si_lupdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="si_message" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="si_updateby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="department_sysinfo" Member="department" ThisKey="si_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.news" Member="news">
+    <Type Name="news">
+      <Column Name="nw_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nw_title" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="nw_pubdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nw_expiry" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nw_article" Type="System.String" DbType="VarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="nw_lupdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nw_updateby" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.feedback" Member="feedbacks">
+    <Type Name="feedback">
+      <Column Name="fd_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fd_category" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_subject" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_last" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_first" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_tel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fd_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fd_street" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="fd_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_province" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_country" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_message" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.faqanswers" Member="faqanswers">
+    <Type Name="faqanswer">
+      <Column Name="fa_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fa_category" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fa_question" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="fa_answer" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.extlinks" Member="extlinks">
+    <Type Name="extlink">
+      <Column Name="el_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="el_category" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="el_name" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="el_link" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Events" Member="Events">
+    <Type Name="Event">
+      <Column Name="ev_id" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ev_title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ev_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ev_desc" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ev_media" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ev_body" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Donation" Member="Donations">
+    <Type Name="Donation">
+      <Column Name="dn_id" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dn_last" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dn_first" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dn_middle" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="dn_dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="dn_gender" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dn_tel" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="dn_cell" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="dn_street" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="dn_apt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="dn_city" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dn_province" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="dn_country" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="dn_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="dn_amount" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="dn_method" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sliderimage" Member="sliderimages">
+    <Type Name="sliderimage">
+      <Column Name="sl_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sl_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sl_path" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

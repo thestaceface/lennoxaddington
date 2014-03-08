@@ -1,0 +1,58 @@
+﻿@media screen and (max-width: 500px) {
+
+    #pagewrap {
+		width: 98%;
+	}
+
+    #content {
+		width: 100%;
+	}
+
+    #mobilebuttons {
+        display:inline-block;
+        width:100%;
+    }
+
+    #lnk_findus, #lnk_directory, #lnk_er, #lnk_visit {
+        border: 1px solid black;
+        padding: 20px;
+        background-color: lightblue;
+        width:60%;
+    }
+
+    #lnk_directory {
+        width:80%;
+    }
+
+
+    .clear {
+        clear:both;
+    }
+
+    #aside, #aside1, #aside2, #aside3, #aside4, #search, #address, #content_main, #navigation, #footer_jobs, #footer_services, #footer_links, #footer_contact, #footer_copyright, #footer_icons, #slider, #box {
+        display:none;
+    }
+
+    #header {
+        width:100%;
+    }
+
+    #logo {
+        height:45%;
+    }
+
+    #mobilemenu {
+        display:block;
+        float:right;
+    }
+
+    #img_logo {
+        width:50%;
+        height:50%;
+    }
+
+    #footer {
+        clear:both;
+        display:none;
+    }
+}

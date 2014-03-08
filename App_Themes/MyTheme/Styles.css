@@ -51,6 +51,9 @@ body {
     clear: both;
 }
 
+#mobilemenu {
+    display:none;
+}
 
 #navigation {
     text-align:center;
@@ -74,14 +77,15 @@ body {
 
 #content_main {
    width:730px;
-    border :0px solid #000;
+    border:1px solid #000;
     min-height:740px;
     float:left;
     margin-top:10px;
     margin-left:30px;
+}
 
-   
-
+#mobilebuttons {
+    display:none;
 }
 
 #slider {
