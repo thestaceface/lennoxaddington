@@ -111,6 +111,7 @@
       <Association Name="department_employee" Member="employees" ThisKey="dp_id" OtherKey="em_d_id" Type="employee" />
       <Association Name="department_office" Member="offices" ThisKey="dp_id" OtherKey="of_dept_id" Type="office" />
       <Association Name="department_sysinfo" Member="sysinfos" ThisKey="dp_id" OtherKey="si_d_id" Type="sysinfo" />
+      <Association Name="department_doctor" Member="doctors" ThisKey="dp_id" OtherKey="doc_dept" Type="doctor" />
     </Type>
   </Table>
   <Table Name="dbo.offices" Member="offices">
@@ -368,6 +369,16 @@
       <Column Name="sl_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="sl_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="sl_path" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.doctors" Member="doctors">
+    <Type Name="doctor">
+      <Column Name="doc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="doc_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="doc_bio" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="doc_img" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="doc_dept" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="department_doctor" Member="department" ThisKey="doc_dept" OtherKey="dp_id" Type="department" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

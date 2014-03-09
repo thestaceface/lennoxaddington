@@ -98,6 +98,9 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
   partial void Insertsliderimage(sliderimage instance);
   partial void Updatesliderimage(sliderimage instance);
   partial void Deletesliderimage(sliderimage instance);
+  partial void Insertdoctor(doctor instance);
+  partial void Updatedoctor(doctor instance);
+  partial void Deletedoctor(doctor instance);
   #endregion
 	
 	public lennoxdbDataContext() : 
@@ -311,6 +314,14 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<sliderimage>();
+		}
+	}
+	
+	public System.Data.Linq.Table<doctor> doctors
+	{
+		get
+		{
+			return this.GetTable<doctor>();
 		}
 	}
 }
@@ -2599,6 +2610,8 @@ public partial class department : INotifyPropertyChanging, INotifyPropertyChange
 	
 	private EntitySet<sysinfo> _sysinfos;
 	
+	private EntitySet<doctor> _doctors;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2618,6 +2631,7 @@ public partial class department : INotifyPropertyChanging, INotifyPropertyChange
 		this._employees = new EntitySet<employee>(new Action<employee>(this.attach_employees), new Action<employee>(this.detach_employees));
 		this._offices = new EntitySet<office>(new Action<office>(this.attach_offices), new Action<office>(this.detach_offices));
 		this._sysinfos = new EntitySet<sysinfo>(new Action<sysinfo>(this.attach_sysinfos), new Action<sysinfo>(this.detach_sysinfos));
+		this._doctors = new EntitySet<doctor>(new Action<doctor>(this.attach_doctors), new Action<doctor>(this.detach_doctors));
 		OnCreated();
 	}
 	
@@ -2740,6 +2754,19 @@ public partial class department : INotifyPropertyChanging, INotifyPropertyChange
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="department_doctor", Storage="_doctors", ThisKey="dp_id", OtherKey="doc_dept")]
+	public EntitySet<doctor> doctors
+	{
+		get
+		{
+			return this._doctors;
+		}
+		set
+		{
+			this._doctors.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -2791,6 +2818,18 @@ public partial class department : INotifyPropertyChanging, INotifyPropertyChange
 	}
 	
 	private void detach_sysinfos(sysinfo entity)
+	{
+		this.SendPropertyChanging();
+		entity.department = null;
+	}
+	
+	private void attach_doctors(doctor entity)
+	{
+		this.SendPropertyChanging();
+		entity.department = this;
+	}
+	
+	private void detach_doctors(doctor entity)
 	{
 		this.SendPropertyChanging();
 		entity.department = null;
@@ -8231,6 +8270,205 @@ public partial class sliderimage : INotifyPropertyChanging, INotifyPropertyChang
 				this._sl_path = value;
 				this.SendPropertyChanged("sl_path");
 				this.Onsl_pathChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.doctors")]
+public partial class doctor : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _doc_id;
+	
+	private string _doc_name;
+	
+	private string _doc_bio;
+	
+	private string _doc_img;
+	
+	private int _doc_dept;
+	
+	private EntityRef<department> _department;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Ondoc_idChanging(int value);
+    partial void Ondoc_idChanged();
+    partial void Ondoc_nameChanging(string value);
+    partial void Ondoc_nameChanged();
+    partial void Ondoc_bioChanging(string value);
+    partial void Ondoc_bioChanged();
+    partial void Ondoc_imgChanging(string value);
+    partial void Ondoc_imgChanged();
+    partial void Ondoc_deptChanging(int value);
+    partial void Ondoc_deptChanged();
+    #endregion
+	
+	public doctor()
+	{
+		this._department = default(EntityRef<department>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doc_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int doc_id
+	{
+		get
+		{
+			return this._doc_id;
+		}
+		set
+		{
+			if ((this._doc_id != value))
+			{
+				this.Ondoc_idChanging(value);
+				this.SendPropertyChanging();
+				this._doc_id = value;
+				this.SendPropertyChanged("doc_id");
+				this.Ondoc_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doc_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string doc_name
+	{
+		get
+		{
+			return this._doc_name;
+		}
+		set
+		{
+			if ((this._doc_name != value))
+			{
+				this.Ondoc_nameChanging(value);
+				this.SendPropertyChanging();
+				this._doc_name = value;
+				this.SendPropertyChanged("doc_name");
+				this.Ondoc_nameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doc_bio", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string doc_bio
+	{
+		get
+		{
+			return this._doc_bio;
+		}
+		set
+		{
+			if ((this._doc_bio != value))
+			{
+				this.Ondoc_bioChanging(value);
+				this.SendPropertyChanging();
+				this._doc_bio = value;
+				this.SendPropertyChanged("doc_bio");
+				this.Ondoc_bioChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doc_img", DbType="VarChar(30)")]
+	public string doc_img
+	{
+		get
+		{
+			return this._doc_img;
+		}
+		set
+		{
+			if ((this._doc_img != value))
+			{
+				this.Ondoc_imgChanging(value);
+				this.SendPropertyChanging();
+				this._doc_img = value;
+				this.SendPropertyChanged("doc_img");
+				this.Ondoc_imgChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doc_dept", DbType="Int NOT NULL")]
+	public int doc_dept
+	{
+		get
+		{
+			return this._doc_dept;
+		}
+		set
+		{
+			if ((this._doc_dept != value))
+			{
+				if (this._department.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Ondoc_deptChanging(value);
+				this.SendPropertyChanging();
+				this._doc_dept = value;
+				this.SendPropertyChanged("doc_dept");
+				this.Ondoc_deptChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="department_doctor", Storage="_department", ThisKey="doc_dept", OtherKey="dp_id", IsForeignKey=true)]
+	public department department
+	{
+		get
+		{
+			return this._department.Entity;
+		}
+		set
+		{
+			department previousValue = this._department.Entity;
+			if (((previousValue != value) 
+						|| (this._department.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._department.Entity = null;
+					previousValue.doctors.Remove(this);
+				}
+				this._department.Entity = value;
+				if ((value != null))
+				{
+					value.doctors.Add(this);
+					this._doc_dept = value.dp_id;
+				}
+				else
+				{
+					this._doc_dept = default(int);
+				}
+				this.SendPropertyChanged("department");
 			}
 		}
 	}
