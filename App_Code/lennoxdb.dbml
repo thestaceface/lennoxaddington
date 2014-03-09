@@ -1,61 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="lennox" Class="lennoxdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=lennox.db.8184438.hostedresource.com;Initial Catalog=lennox;Persist Security Info=True;User ID=lennox" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="lennoxConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Users" Member="Users">
-    <Type Name="User">
-      <Column Name="us_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="us_last" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="us_first" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="us_middle" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="us_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="us_pw" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="us_dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="us_tel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="us_cell" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="us_street" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="us_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
-      <Column Name="us_city" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="us_province" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="us_country" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="us_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="us_type" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
-      <Column Name="us_updateby" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="User_userlog" Member="userlogs" ThisKey="us_id" OtherKey="ul_id" Type="userlog" />
-      <Association Name="User_permission" Member="permissions" ThisKey="us_id" OtherKey="ps_u_id" Type="permission" />
-      <Association Name="User_employee" Member="employees" ThisKey="us_id" OtherKey="em_u_id" Type="employee" />
-    </Type>
-  </Table>
-  <Table Name="dbo.userlog" Member="userlogs">
-    <Type Name="userlog">
-      <Column Name="ul_number" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ul_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ul_logdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ul_logtime" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ul_access" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
-      <Association Name="User_userlog" Member="User" ThisKey="ul_id" OtherKey="us_id" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.permissions" Member="permissions">
-    <Type Name="permission">
-      <Column Name="ps_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ps_u_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ps_type" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="ps_utype" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="ps_from" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ps_f_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ps_abilities" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="ps_upto" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="User_permission" Member="User" ThisKey="ps_u_id" OtherKey="us_id" Type="User" IsForeignKey="true" />
-      <Association Name="feature_permission" Member="feature" ThisKey="ps_f_id" OtherKey="fs_id" Type="feature" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.features" Member="features">
-    <Type Name="feature">
-      <Column Name="fs_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fs_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="fs_type" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="feature_permission" Member="permissions" ThisKey="fs_id" OtherKey="ps_f_id" Type="permission" />
-    </Type>
-  </Table>
   <Table Name="dbo.employee" Member="employees">
     <Type Name="employee">
       <Column Name="em_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -85,7 +29,6 @@
       <Association Name="employee_patientvisit" Member="patientvisits" ThisKey="em_id" OtherKey="pv_e_id1" Type="patientvisit" />
       <Association Name="employee_patientvisit1" Member="patientvisits1" ThisKey="em_id" OtherKey="pv_e_id2" Type="patientvisit" />
       <Association Name="employee_appointment" Member="appointments" ThisKey="em_id" OtherKey="at_e_id" Type="appointment" />
-      <Association Name="User_employee" Member="User" ThisKey="em_u_id" OtherKey="us_id" Type="User" IsForeignKey="true" />
       <Association Name="department_employee" Member="department" ThisKey="em_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
       <Association Name="position_employee" Member="position" ThisKey="em_position" OtherKey="pn_id" Type="position" IsForeignKey="true" />
       <Association Name="position_employee1" Member="position1" ThisKey="em_position" OtherKey="pn_id" Type="position" IsForeignKey="true" />
@@ -379,6 +322,17 @@
       <Column Name="doc_img" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="doc_dept" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="department_doctor" Member="department" ThisKey="doc_dept" OtherKey="dp_id" Type="department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
+    <Type Name="aspnet_User">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredUserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
