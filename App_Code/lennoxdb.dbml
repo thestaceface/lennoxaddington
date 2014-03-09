@@ -1,39 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="lennox" Class="lennoxdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=lennox.db.8184438.hostedresource.com;Initial Catalog=lennox;Persist Security Info=True;User ID=lennox" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="lennoxConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.employee" Member="employees">
-    <Type Name="employee">
-      <Column Name="em_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="em_u_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="em_last" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="em_first" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="em_middle" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="em_dob" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="em_gender" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
-      <Column Name="em_doj" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="em_tel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="em_fax" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="em_cell" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="em_street" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="em_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
-      <Column Name="em_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="em_province" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="em_country" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="em_status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="em_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="em_type" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
-      <Column Name="em_d_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="em_position" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="em_s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="em_updateby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="employee_empreport" Member="empreports" ThisKey="em_id" OtherKey="er_e_id" Type="empreport" />
-      <Association Name="employee_patientvisit" Member="patientvisits" ThisKey="em_id" OtherKey="pv_e_id1" Type="patientvisit" />
-      <Association Name="employee_patientvisit1" Member="patientvisits1" ThisKey="em_id" OtherKey="pv_e_id2" Type="patientvisit" />
-      <Association Name="employee_appointment" Member="appointments" ThisKey="em_id" OtherKey="at_e_id" Type="appointment" />
-      <Association Name="department_employee" Member="department" ThisKey="em_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
-      <Association Name="position_employee" Member="position" ThisKey="em_position" OtherKey="pn_id" Type="position" IsForeignKey="true" />
-      <Association Name="position_employee1" Member="position1" ThisKey="em_position" OtherKey="pn_id" Type="position" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.empreports" Member="empreports">
     <Type Name="empreport">
       <Column Name="er_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -51,10 +17,10 @@
       <Column Name="dp_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="dp_head" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="dp_location" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
-      <Association Name="department_employee" Member="employees" ThisKey="dp_id" OtherKey="em_d_id" Type="employee" />
       <Association Name="department_office" Member="offices" ThisKey="dp_id" OtherKey="of_dept_id" Type="office" />
       <Association Name="department_sysinfo" Member="sysinfos" ThisKey="dp_id" OtherKey="si_d_id" Type="sysinfo" />
       <Association Name="department_doctor" Member="doctors" ThisKey="dp_id" OtherKey="doc_dept" Type="doctor" />
+      <Association Name="department_employee" Member="employees" ThisKey="dp_id" OtherKey="em_d_id" Type="employee" />
     </Type>
   </Table>
   <Table Name="dbo.offices" Member="offices">
@@ -124,10 +90,10 @@
       <Column Name="pv_e_id2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="pv_r_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="pv_appointment" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="employee_patientvisit" Member="employee" ThisKey="pv_e_id1" OtherKey="em_id" Type="employee" IsForeignKey="true" />
-      <Association Name="employee_patientvisit1" Member="employee1" ThisKey="pv_e_id2" OtherKey="em_id" Type="employee" IsForeignKey="true" />
       <Association Name="patient_patientvisit" Member="patient" ThisKey="pv_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
       <Association Name="patreport_patientvisit" Member="patreport" ThisKey="pv_r_id" OtherKey="pr_id" Type="patreport" IsForeignKey="true" />
+      <Association Name="employee_patientvisit" Member="employee" ThisKey="pv_e_id1" OtherKey="em_id" Type="employee" IsForeignKey="true" />
+      <Association Name="employee_patientvisit1" Member="employee1" ThisKey="pv_e_id2" OtherKey="em_id" Type="employee" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.patreports" Member="patreports">
@@ -152,9 +118,9 @@
       <Column Name="at_e_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="at_reason" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="at_appt_next" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="employee_appointment" Member="employee" ThisKey="at_e_id" OtherKey="em_id" Type="employee" IsForeignKey="true" />
       <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
       <Association Name="patreport_appointment" Member="patreport" ThisKey="at_reason" OtherKey="pr_id" Type="patreport" IsForeignKey="true" />
+      <Association Name="employee_appointment" Member="employee" ThisKey="at_e_id" OtherKey="em_id" Type="employee" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.applicants" Member="applicants">
@@ -197,9 +163,9 @@
       <Column Name="pn_education" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="pn_experience" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="pn_specialities" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Association Name="position_applicant" Member="applicants" ThisKey="pn_id" OtherKey="ap_pn_id" Type="applicant" />
       <Association Name="position_employee" Member="employees" ThisKey="pn_id" OtherKey="em_position" Type="employee" />
       <Association Name="position_employee1" Member="employees1" ThisKey="pn_id" OtherKey="em_position" Type="employee" />
-      <Association Name="position_applicant" Member="applicants" ThisKey="pn_id" OtherKey="ap_pn_id" Type="applicant" />
     </Type>
   </Table>
   <Table Name="dbo.syscontrol" Member="syscontrols">
@@ -333,6 +299,102 @@
       <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
       <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_Membership" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Membership" Cardinality="One" />
+      <Association Name="aspnet_User_employee" Member="employees" ThisKey="UserId" OtherKey="em_u_id" Type="employee" />
+      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="UserId" OtherKey="UserId" Type="aspnet_UsersInRole" />
+      <Association Name="aspnet_Application_aspnet_User" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Roles" Member="aspnet_Roles">
+    <Type Name="aspnet_Role">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredRoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_UsersInRole" />
+      <Association Name="aspnet_Application_aspnet_Role" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Membership" Member="aspnet_Memberships">
+    <Type Name="aspnet_Membership">
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordFormat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordSalt" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="MobilePIN" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="LoweredEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordQuestion" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PasswordAnswer" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="IsApproved" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsLockedOut" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLoginDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastPasswordChangedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastLockoutDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FailedPasswordAnswerAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="aspnet_Application_aspnet_Membership" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.employee" Member="employees">
+    <Type Name="employee">
+      <Column Name="em_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="em_u_id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="em_last" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="em_first" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="em_middle" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="em_dob" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="em_gender" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="em_doj" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="em_tel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="em_fax" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="em_cell" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="em_street" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="em_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="em_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="em_province" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="em_country" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="em_status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="em_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="em_type" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="em_d_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="em_position" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="em_s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="em_updateby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="employee_empreport" Member="empreports" ThisKey="em_id" OtherKey="er_e_id" Type="empreport" />
+      <Association Name="employee_patientvisit" Member="patientvisits" ThisKey="em_id" OtherKey="pv_e_id1" Type="patientvisit" />
+      <Association Name="employee_patientvisit1" Member="patientvisits1" ThisKey="em_id" OtherKey="pv_e_id2" Type="patientvisit" />
+      <Association Name="employee_appointment" Member="appointments" ThisKey="em_id" OtherKey="at_e_id" Type="appointment" />
+      <Association Name="department_employee" Member="department" ThisKey="em_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
+      <Association Name="position_employee" Member="position" ThisKey="em_position" OtherKey="pn_id" Type="position" IsForeignKey="true" />
+      <Association Name="position_employee1" Member="position1" ThisKey="em_position" OtherKey="pn_id" Type="position" IsForeignKey="true" />
+      <Association Name="aspnet_User_employee" Member="aspnet_User" ThisKey="em_u_id" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_UsersInRoles" Member="aspnet_UsersInRoles">
+    <Type Name="aspnet_UsersInRole">
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_Role" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_Role" IsForeignKey="true" />
+      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aspnet_Applications" Member="aspnet_Applications">
+    <Type Name="aspnet_Application">
+      <Column Name="ApplicationName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="LoweredApplicationName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="aspnet_Application_aspnet_User" Member="aspnet_Users" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_User" />
+      <Association Name="aspnet_Application_aspnet_Role" Member="aspnet_Roles" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Role" />
+      <Association Name="aspnet_Application_aspnet_Membership" Member="aspnet_Memberships" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Membership" />
     </Type>
   </Table>
 </Database>
