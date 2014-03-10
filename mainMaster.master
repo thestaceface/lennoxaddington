@@ -21,9 +21,33 @@
   <div id="pagewrap">
     <form id="form1" runat="server">
         <div id="header">
+            
+       <%--  ---------------- mobile header -------------%>
+            <div id="mobilelogo">
+                <asp:Image ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" /> 
+            </div>
+
+            
+
+            <div id="mobilemenu">
+            <asp:ImageButton ID="img_mobilemenu" runat="server" ImageUrl="~/Images/menu.gif" PostBackUrl="#" />
+            <ul>
+                <li><asp:HyperLink ID="lnk_home" runat="server" Text="Home" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_about" runat="server" Text="About Us" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_patients" runat="server" Text="Patients & Visitors" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_programs" runat="server" Text="Programs & Services" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_account" runat="server" Text="Accountability" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_careers" runat="server" Text="Work With Us" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_contact" runat="server" Text="Contact Us" NavigateUrl="#" /></li>
+            </ul>
+        </div>
+
+            <div class="mobileclear"></div>
+
+        <%--  ---------------- /mobile header -------------%>
 
             <div id="logo">
-               <asp:Image ID="img_logo" runat="server" ImageUrl="~/Images/Logo.jpg" AlternateText="Logo" />                  </div><%--Logo --%>
+               <asp:Image ID="img_logo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" />                  </div><%--Logo --%>
 
             <div id="address">
                   <asp:Label ID="lbl_address" runat="server" Text="(613) 354 - 3301<br/><span>8 Richmond Park Drive,Napanee</span>" />
@@ -35,28 +59,33 @@
                 <asp:Label ID="lbl_search" runat="server" Text="search...." />       
     <asp:Image ID="img_search" runat="server" ImageUrl="~/Images/Search_Button.png" ImageAlign="Right" AlternateText="SearchImage" Height="30px" /><br /><br />
             </div><%--search --%>
-         
-        <div id="mobilemenu">
-            <p>Mobile menu</p>
-        </div>
 
         </div><%--header --%>
 
         <div id="navigation">           
-            <%--<asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
-            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" StaticHoverStyle-Font-Underline="true" DynamicHoverStyle-BackColor="#004059" />--%>
+            <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
+            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" StaticHoverStyle-Font-Underline="true" DynamicHoverStyle-BackColor="#004059" DynamicHorizontalOffset="30" />
         </div>       <%--navigation --%>         
                      
-
-        <div id="content">      
+        
+        <div id="content">     
+            
+            
+      <%-- --------------------mobile content---------------- --%>
             <div id="mobilebuttons">
-                <asp:LinkButton ID="lnk_findus" runat="server" Text="Find Us" PostBackUrl="#"  /><br />
-                <asp:LinkButton ID="lnk_er" runat="server" Text="ER Wait Time" PostBackUrl="#"  /><br />
-                <asp:LinkButton ID="lnk_visit" runat="server" Text="Visiting Hours" PostBackUrl="#"  /><br />
-                <asp:LinkButton ID="lnk_directory" runat="server" Text="Directory" PostBackUrl="#"  /><br />
+                <asp:label ID="lbl_quicklnk" runat="server" Text="Quick Links" />
+               <ul>
+                   <li><asp:Hyperlink ID="lnk_findus" runat="server" Text="Find Us" NavigateUrl="#" CssClass="buttons"  /></li>
+                <li><asp:HyperLink ID="lnk_er" runat="server" Text="ER Wait Time" NavigateUrl="#" CssClass="buttons"  /></li>
+                <li><asp:HyperLink ID="lnk_visit" runat="server" Text="Visiting Hours" NavigateUrl="#" CssClass="buttons"  /></li>
+                <li><asp:HyperLink ID="lnk_directory" runat="server" Text="Directory" NavigateUrl="~/sm_directory.aspx" CssClass="buttons"  /></li>
+                   </ul>
                 </div>
 
+        <%-- --------------------/mobile content---------------- --%>
+
             <div id="content_main">
+                <asp:SiteMapPath ID="smp_main" runat="server" ParentLevelsDisplayed="0" />
 
                 <div  id="slider"><asp:ContentPlaceHolder id="cph_content" runat="server"></asp:ContentPlaceHolder></div>
 
@@ -125,10 +154,30 @@
 
              <div id="footer_icons">
                 <asp:Image ID="img_facebook" runat="server" ImageUrl="~/Images/Facebook_Icon.png"  />
-                <asp:Image ID="img_twitter" runat="server" ImageUrl="~/Images/Twitter_Icon.jpg" />
+                <asp:Image ID="img_twitter" runat="server" ImageUrl="~/Images/Twitter_Icon.png" />
             </div><%--footer_icons --%>  
            
         </div><%--footer--%>  
+
+           <%-- --------------mobile footer --------------- --%>
+            <div id="mobilefooter">
+
+                <div id="mobilecopy">
+                    <asp:Label ID="lbl_mblcopy" runat="server" Text="&copy 2014 Lennox & Addington County General Hospital" />
+                </div>
+
+                <div id="mobilesocial">
+                    <asp:ImageButton ID="img_mobfb" runat="server" ImageUrl="~/Images/Facebook_Icon.png" PostBackUrl="#" />
+                    <asp:ImageButton ID="img_mobtwit" runat="server" ImageUrl="~/Images/Twitter_Icon.png" PostBackUrl="#" />
+                </div>
+
+            <div class="mobileclear"></div>
+
+
+            </div>
+        <%-- --------------/mobile footer --------------- --%>
+
+
     </form>
   </div><%--pagewrap --%>
 </body>

@@ -1,13 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="" title=""  description="">
-    <siteMapNode url="" title="Home"  description="Home page" />
-    <siteMapNode url="" title="Patients and Visitors"  description="Patients and visitors" />
-    <siteMapNode url="" title="Program and Services"  description="Programs and services page" />
-    <siteMapNode url="" title="Responsibilty and Accountibilty"  description=" Responsibility and accountibility" />
+    <siteMapNode url="Home.aspx" title="Home"  description="Home page" />
+    <siteMapNode url="" title="About Us"  description="About the hospital page">
+      <siteMapNode url="sm_events.aspx" title="Calendar of Events" description="Calendar of Events" />
+    </siteMapNode>
+    <siteMapNode url="" title="Patients and Visitors"  description="Patients and visitors">
+      <siteMapNode url="sm_finddoc.aspx" title="Find a Doctor" description="Find a Doctor" />
+    </siteMapNode>
+    <siteMapNode url="" title="Programs and Services"  description="Programs and services page" />
+    <siteMapNode url="" title="Responsibilty and Accountability"  description=" Responsibility and accountibility" />
     <siteMapNode url="" title="Careers"  description="Jobs page" />
-    <siteMapNode url="" title="About Us"  description="About the hospital page" />
-    <siteMapNode url="" title="Contact Us"  description=" Contact Us Page" />
+    <siteMapNode url="" title="Contact Us"  description=" Contact Us Page">
+      <siteMapNode url="sm_directory.aspx" title="Directory" description="Directory" />
+    </siteMapNode>
 
   </siteMapNode>
 </siteMap>

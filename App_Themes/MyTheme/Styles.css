@@ -27,6 +27,10 @@ body {
     float:left;
     margin:30px 0px 0px 30px;
 }
+
+#img_mobilelogo {
+    display:none;
+}
 #address {
     height:50px;
     border:0px solid #ff6a00;
@@ -64,9 +68,12 @@ body {
     float:left;
     padding-top:30px;
     color:#ececec;
-         
-
 }
+
+#smp_main a {
+    margin-bottom:50px;
+}
+
 #content {
     min-height:800px;
     width:1100px;
@@ -82,6 +89,11 @@ body {
     float:left;
     margin-top:10px;
     margin-left:30px;
+}
+
+#smp_main {
+    color:#6aabbf;
+    font-size:x-large;
 }
 
 #mobilebuttons {
@@ -145,6 +157,9 @@ body {
     width:712px;
     border :1px solid #000;
 
+}
+#mobilefooter {
+    display:none;
 }
 
 #footer {
@@ -214,6 +229,59 @@ body {
      float:right;
      margin-top:30px;
      margin-right:40px;
-     
-        
+}
+
+/*-------------------Find a Doctor----------------------*/
+
+.lblpage {
+    margin-left:10px;    
+    margin-top:45px;
+}
+
+.acc {
+    width:75%;
+    margin:0 auto;
+}
+
+.docacchead {
+    background-color:#8ed1e4;
+    padding:10px;
+    margin:10px;
+    text-align:center;
+    color:#202020;
+}
+
+.docacchead a {
+    width:100%;
+    text-decoration:none;
+    color:#202020;
+    display:block;
+}
+
+.docacccon img {
+    float:left;
+    margin-right:20px;
+    max-width:200px;
+}
+
+#lbl_name {
+    font-size:large;
+    margin-top:20px;
+}
+
+.info {
+    margin-top:15px;
+    width:85%;
+    margin-bottom:20px;
+}
+
+.dir {
+    text-align:center;
+    margin-bottom:20px;
+    margin-top:15px;
+}
+
+.event {
+    margin:20px 0 15px 40px;
+    width:75%;
 }

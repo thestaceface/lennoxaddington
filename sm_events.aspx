@@ -3,16 +3,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-     <asp:SqlDataSource ID="sds_events" runat="server" ConnectionString="<%$ ConnectionStrings:lennoxConnectionString %>" SelectCommand="SELECT [ev_title], [ev_date], [ev_desc], [ev_id] FROM [Events]" />
 
-        <asp:GridView ID="grv_select" runat="server" AutoGenerateColumns="false" DataSourceID="sds_events">
-            <Columns>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:HyperLink ID="hpl_upcoming" runat="server" Text='<%# Eval("ev_title") %>' NavigateUrl="#" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+    <ajax:ToolkitScriptManager ID="scm_events" runat="server" />
+    
+    <ajax:Accordion ID="acc" runat="server" FadeTransitions="true" TransitionDuration="500" RequireOpenedPane="false" HeaderCssClass="docacchead" ContentCssClass="docacccon" SelectedIndex="-1">
+        <HeaderTemplate>
+            <asp:Hyperlink ID="date" runat="server" NavigateUrl="#" Text='<%#Eval ("ev_date") %>' /> 
+            <asp:HyperLink ID="title" runat="server" NavigateUrl="#" text='<%#Eval ("ev_title") %>' />
+        </HeaderTemplate>
+        <ContentTemplate>
+            <div class="event">
+                <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("ev_media") %>' />
+                <asp:Label ID="body" runat="server" Text='<%#Eval ("ev_body") %>' />
+            </div>
+        </ContentTemplate>
+    </ajax:Accordion>
+    
 </asp:Content>
 

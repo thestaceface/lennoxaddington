@@ -9,6 +9,8 @@ public partial class sm_events : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        sm_eventClass objEv = new sm_eventClass();
+        acc.DataSource = objEv.getEvents();
+        acc.DataBind();
     }
 }

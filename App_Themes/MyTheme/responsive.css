@@ -6,24 +6,45 @@
 
     #content {
 		width: 100%;
+        min-height:100%;
 	}
 
+    #lbl_quicklnk {
+        color:#6aabbf;
+    }
+
     #mobilebuttons {
+        display:block;
+        width:100%;
+        margin:15px 0;
+        text-align:center;
+    }
+
+    #mobilebuttons a {
+        padding:15px;
+        border:1px solid white;
         display:inline-block;
         width:100%;
+        text-decoration:none;
+        color:white;
     }
 
-    #lnk_findus, #lnk_directory, #lnk_er, #lnk_visit {
-        border: 1px solid black;
-        padding: 20px;
-        background-color: lightblue;
-        width:60%;
+    #mobilebuttons li {
+        margin-top:15px;
+        width:100%;
+
     }
 
-    #lnk_directory {
-        width:80%;
+    #mobilebuttons li a {
+        width:110px;
     }
 
+    .buttons {
+        background-color:#6aabbf;
+        width:100%;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+    }
 
     .clear {
         clear:both;
@@ -37,8 +58,9 @@
         width:100%;
     }
 
-    #logo {
-        height:45%;
+   #logo {
+        /*height:45%;*/
+        display:none;
     }
 
     #mobilemenu {
@@ -46,13 +68,82 @@
         float:right;
     }
 
-    #img_logo {
-        width:50%;
-        height:50%;
+    #img_mobilemenu {
+        display:inline-block;
+        margin:10px 5px 0 0;
+        float:right;
+    }
+
+    #mobilemenu ul, #mobilemenu:active ul {
+        display:none;
+        position:absolute;
+        padding:20px;
+        background-color:#6aabbf;
+        border:3px solid #fff;
+        right:0px;
+        top:40px;
+        width:70%;
+        border-radius:4px 0 4px 4px;
+        list-style-type:none;
+    }
+
+    #mobilemenu li {
+        text-align:center;
+        width:100%;
+        padding:10px 0;
+        margin:0;
+        /*border-bottom:1px solid white;*/
+    }
+
+    #mobilemenu li a {
+        text-decoration:none;
+        color:white;
+    }
+
+    #mobilemenu:hover ul {
+        display:block;
+    }
+
+    .mobileclear {
+        clear:both;
+    }
+
+    #mobilelogo {
+        display:block;
+        float:left;
+    }
+
+    #img_mobilelogo {
+        width:70%;
+        display:inline-block;
+        float:left;
+        margin:5px;
     }
 
     #footer {
         clear:both;
         display:none;
+    }
+
+    #mobilefooter {
+        display:block;
+        width:100%;
+        background-color:#202020;
+        padding:10px 0;
+    }
+
+    #mobilecopy {
+        float:left;
+        font-size:x-small;
+        color:#727272;
+        width:75%;
+        margin-left:5px;
+        margin-top:5px;
+    }
+
+    #mobilesocial {
+        float:right;
+        margin-right:5px;
+        margin-top:2px;
     }
 }

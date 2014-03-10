@@ -21,12 +21,24 @@ public class sm_finddocClass
     }
 
     //queryable for getting just doctors
-    public IQueryable<doctor> getDocByDepID(int _doc_dept)
+   /* public IQueryable<department> getDocByDepID(string _dp_name)
     {
         lennoxdbDataContext objDoc = new lennoxdbDataContext();
-        var allDoctors = objDoc.doctors.Where(x => x.doc_dept == _doc_dept).Select(x => x);
+        var allDoctors = objDoc.departments.Where(x => x.dp_name.Join(objDoc.doctors.doc_dept).Select(x => x);
         return allDoctors;
-    }
+    }*/
+
+    /*public IQueryable<department> getDocByDepID(int _dp_id)
+    {
+        lennoxdbDataContext db = new lennoxdbDataContext();
+        /*var query = db.departments.Join(db.doctors, dep => dep.dp_id, doc => doc.doc_dept, (dep, doc) => new { dep.dp_id, dep.dp_name });
+
+        var dept = db.departments.Single(x => x.dp_id == db.doctors.doc_dept);
+        
+    }*/
+
+
+    
 
     public bool commitInsert(string _doc_name, string _doc_bio, string _doc_img, int _doc_dept)
     {
