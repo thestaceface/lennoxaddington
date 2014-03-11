@@ -20,13 +20,12 @@ public class sm_directoryClass
         return allOffices;
     }
 
-    public bool commitInsert(int _of_dept_id, string _of_title, string _of_contacttype, string _of_contact, string _of_tel, string _of_fax, string _of_email, string _of_location)
+    public bool commitInsert(string _of_title, string _of_contacttype, string _of_contact, string _of_tel, string _of_fax, string _of_email, string _of_location)
     {
         lennoxdbDataContext objOff = new lennoxdbDataContext();
         using (objOff)
         {
             var objNewOff = new office();
-            objNewOff.of_dept_id = _of_dept_id;
             objNewOff.of_title = _of_title;
             objNewOff.of_contacttype = _of_contacttype;
             objNewOff.of_contact = _of_contact;
@@ -40,13 +39,12 @@ public class sm_directoryClass
         }
     }
 
-    public bool commitUpdate(int _of_id, int _of_dept_id, string _of_title, string _of_contacttype, string _of_contact, string _of_tel, string _of_fax, string _of_email, string _of_location)
+    public bool commitUpdate(int _of_id, string _of_title, string _of_contacttype, string _of_contact, string _of_tel, string _of_fax, string _of_email, string _of_location)
     {
         lennoxdbDataContext objOff = new lennoxdbDataContext();
         using (objOff)
         {
             var objUpOff = objOff.offices.Single(x => x.of_id == _of_id);
-            objUpOff.of_dept_id = _of_dept_id;
             objUpOff.of_title = _of_title;
             objUpOff.of_contacttype = _of_contacttype;
             objUpOff.of_contact = _of_contact;

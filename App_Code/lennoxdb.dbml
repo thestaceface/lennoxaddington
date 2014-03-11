@@ -17,24 +17,10 @@
       <Column Name="dp_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="dp_head" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="dp_location" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
-      <Association Name="department_office" Member="offices" ThisKey="dp_id" OtherKey="of_dept_id" Type="office" />
       <Association Name="department_sysinfo" Member="sysinfos" ThisKey="dp_id" OtherKey="si_d_id" Type="sysinfo" />
-      <Association Name="department_doctor" Member="doctors" ThisKey="dp_id" OtherKey="doc_dept" Type="doctor" />
       <Association Name="department_employee" Member="employees" ThisKey="dp_id" OtherKey="em_d_id" Type="employee" />
-    </Type>
-  </Table>
-  <Table Name="dbo.offices" Member="offices">
-    <Type Name="office">
-      <Column Name="of_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="of_dept_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="of_title" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="of_contacttype" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="of_contact" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="of_tel" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="of_fax" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="of_email" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="of_location" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Association Name="department_office" Member="department" ThisKey="of_dept_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
+      <Association Name="department_office" Member="offices" ThisKey="dp_id" OtherKey="of_dept_id" Type="office" />
+      <Association Name="department_doctor" Member="doctors" ThisKey="dp_id" OtherKey="doc_dept" Type="doctor" />
     </Type>
   </Table>
   <Table Name="dbo.patients" Member="patients">
@@ -248,7 +234,7 @@
       <Column Name="ev_id" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ev_title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ev_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ev_desc" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ev_desc" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="true" />
       <Column Name="ev_media" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ev_body" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
@@ -278,16 +264,6 @@
       <Column Name="sl_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="sl_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="sl_path" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.doctors" Member="doctors">
-    <Type Name="doctor">
-      <Column Name="doc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="doc_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="doc_bio" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="doc_img" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="doc_dept" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="department_doctor" Member="department" ThisKey="doc_dept" OtherKey="dp_id" Type="department" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
@@ -395,6 +371,30 @@
       <Association Name="aspnet_Application_aspnet_User" Member="aspnet_Users" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_User" />
       <Association Name="aspnet_Application_aspnet_Role" Member="aspnet_Roles" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Role" />
       <Association Name="aspnet_Application_aspnet_Membership" Member="aspnet_Memberships" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Membership" />
+    </Type>
+  </Table>
+  <Table Name="dbo.offices" Member="offices">
+    <Type Name="office">
+      <Column Name="of_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="of_dept_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
+      <Column Name="of_title" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="of_contacttype" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="of_contact" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="of_tel" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="of_fax" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="of_email" Type="System.String" DbType="VarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="of_location" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="department_office" Member="department" ThisKey="of_dept_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.doctors" Member="doctors">
+    <Type Name="doctor">
+      <Column Name="doc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="doc_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="doc_bio" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="doc_img" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="doc_dept" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="department_doctor" Member="department" ThisKey="doc_dept" OtherKey="dp_id" Type="department" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
