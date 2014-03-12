@@ -50,8 +50,16 @@
         clear:both;
     }
 
-    #aside, #aside1, #aside2, #aside3, #aside4, #search, #address, #content_main, #navigation, #footer_jobs, #footer_services, #footer_links, #footer_contact, #footer_copyright, #footer_icons, #slider, #box {
+    #aside, #aside1, #aside2, #aside3, #aside4, #search, #address, #slider, #navigation, #content_main, #footer_jobs, #footer_services, #footer_links, #footer_contact, #footer_copyright, #footer_icons, #slider, #box {
         display:none;
+    }
+
+    #content {
+        width:100%;
+    }
+
+    #content_main {
+        width:95%;
     }
 
     #header {
