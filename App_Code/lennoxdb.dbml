@@ -397,4 +397,30 @@
       <Association Name="department_doctor" Member="department" ThisKey="doc_dept" OtherKey="dp_id" Type="department" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.cta" Member="ctas">
+    <Type Name="cta">
+      <Column Name="cta_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cta_title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cta_content" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="cta_contentpage" Member="contentpages" ThisKey="cta_id" OtherKey="cp_cta1" Type="contentpage" />
+      <Association Name="cta_contentpage1" Member="contentpages1" ThisKey="cta_id" OtherKey="cp_cta2" Type="contentpage" />
+      <Association Name="cta_contentpage2" Member="contentpages2" ThisKey="cta_id" OtherKey="cp_cta3" Type="contentpage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.contentpage" Member="contentpages">
+    <Type Name="contentpage">
+      <Column Name="cp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cp_pagename" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cp_url" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cp_title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cp_content" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="cp_cta1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_cta2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_cta3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_lastupdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="cta_contentpage" Member="cta" ThisKey="cp_cta1" OtherKey="cta_id" Type="cta" IsForeignKey="true" />
+      <Association Name="cta_contentpage1" Member="cta1" ThisKey="cp_cta2" OtherKey="cta_id" Type="cta" IsForeignKey="true" />
+      <Association Name="cta_contentpage2" Member="cta2" ThisKey="cp_cta3" OtherKey="cta_id" Type="cta" IsForeignKey="true" />
+    </Type>
+  </Table>
 </Database>
