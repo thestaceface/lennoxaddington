@@ -41,7 +41,7 @@
         
         <ajax:ToolkitScriptManager ID="scm" runat="server" />
 
-        <ajax:HtmlEditorExtender ID="hee" runat="server" TargetControlID="txt_addContent" >
+<%--        <ajax:HtmlEditorExtender ID="hee" runat="server" TargetControlID="txt_addContent" >
             <Toolbar>
                 <ajax:Undo /><ajax:Redo />
                 <ajax:Bold /><ajax:Italic /><ajax:Underline />
@@ -58,7 +58,7 @@
                 <ajax:InsertHorizontalRule /><ajax:HorizontalSeparator />
                 <ajax:InsertImage />
             </Toolbar>
-        </ajax:HtmlEditorExtender>
+        </ajax:HtmlEditorExtender>--%>
         <br />
         <asp:Button ID="btn_addSave" runat="server" Text="Save" />
         <asp:Button ID="btn_addCancel" runat="server" Text="Cancel" />
