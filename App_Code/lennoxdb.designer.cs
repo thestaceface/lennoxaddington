@@ -9216,7 +9216,8 @@ public partial class contentpage : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_url", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+	//[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_url", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+    [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_cp_url", DbType = "VarChar(100)")]
 	public string cp_url
 	{
 		get
@@ -9236,7 +9237,8 @@ public partial class contentpage : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+	//[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100)")]
 	public string cp_title
 	{
 		get
