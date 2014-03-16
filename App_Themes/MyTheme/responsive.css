@@ -16,7 +16,7 @@
     #mobilebuttons {
         display:block;
         width:100%;
-        margin:15px 0;
+        margin:35px 0;
         text-align:center;
     }
 
@@ -50,26 +50,32 @@
         clear:both;
     }
 
-    #aside, #aside1, #aside2, #aside3, #aside4, #search, #address, #slider, #navigation, #content_main, #footer_jobs, #footer_services, #footer_links, #footer_contact, #footer_copyright, #footer_icons, #slider, #box {
+    #aside, #aside1, #aside2, #aside3, #aside4, #search, #address, #slider, #navigation, #footer_jobs, #footer_services, #footer_links, #footer_contact, #footer_copyright, #footer_icons, #slider, #box, #logo {
         display:none;
     }
 
     #content {
         width:100%;
+
     }
 
     #content_main {
+        text-align:center;
+        display:block;
+        margin-left:0px;
         width:95%;
+        min-height:0px;
+        border:0px;
     }
 
     #header {
         width:100%;
     }
 
-   #logo {
-        /*height:45%;*/
+   /*#logo {
+        height:45%;
         display:none;
-    }
+    }*/
 
     #mobilemenu {
         display:block;
@@ -134,7 +140,7 @@
     }
 
     #mobilefooter {
-        display:block;
+        display:inline-block;
         width:100%;
         background-color:#202020;
         padding:10px 0;

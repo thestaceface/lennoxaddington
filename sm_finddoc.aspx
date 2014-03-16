@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_finddoc.aspx.cs" Inherits="sm_finddoc" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
 
     <ajax:ToolkitScriptManager id="tsm_main" runat="server" />

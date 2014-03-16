@@ -14,20 +14,21 @@
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
     <title>Lennox Addington</title>
-    <asp:ContentPlaceHolder id="cph_head" runat="server">
-    </asp:ContentPlaceHolder>
+    
+    
 </head>
 <body>
   <div id="pagewrap">
     <form id="form1" runat="server">
-        <div id="header">
-            
-       <%--  ---------------- mobile header -------------%>
+        
+        
+        
+            <div id="header">
+
+                <%--  ---------------- mobile header -------------%>
             <div id="mobilelogo">
                 <asp:ImageButton ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/home.aspx" /> 
             </div>
-
-            
 
             <div id="mobilemenu">
             <asp:ImageButton ID="img_mobilemenu" runat="server" ImageUrl="~/Images/menu.gif" PostBackUrl="#" />
@@ -45,6 +46,9 @@
             <div class="mobileclear"></div>
 
         <%--  ---------------- /mobile header -------------%>
+            
+                
+       <asp:ContentPlaceHolder id="cph_head" runat="server">
 
             <div id="logo">
                <asp:ImageButton ID="img_logo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/home.aspx" />  
@@ -61,18 +65,31 @@
     <asp:Image ID="img_search" runat="server" ImageUrl="~/Images/Search_Button.png" ImageAlign="Right" AlternateText="SearchImage" Height="30px" /><br /><br />
             </div><%--search --%>
 
-        </div><%--header --%>
-
-        <div id="navigation">           
+                <div id="navigation">           
             <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
             <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" StaticHoverStyle-Font-Underline="true" DynamicHoverStyle-BackColor="#004059" DynamicHorizontalOffset="30" />
-        </div>       <%--navigation --%>         
+        </div>       <%--navigation --%> 
+                </asp:ContentPlaceHolder>
+        </div><%--header --%>
+        
+           
+            
+             
                      
-        <asp:ContentPlaceHolder id="cph_content" runat="server"></asp:ContentPlaceHolder>
-        <div id="content">     
-            
-            
-      <%-- --------------------mobile content---------------- --%>
+        
+        <div id="content"> 
+                
+            <div id="content_main">
+                 <asp:ContentPlaceHolder id="cph_content" runat="server">
+                 
+                <asp:SiteMapPath ID="smp_main" runat="server" ParentLevelsDisplayed="0" />
+
+                <div  id="slider"></div>
+
+                </asp:ContentPlaceHolder>
+
+            </div> <%--content-main --%>
+<%-- --------------------mobile content---------------- --%>
             <div id="mobilebuttons">
                 <asp:label ID="lbl_quicklnk" runat="server" Text="Quick Links" />
                <ul>
@@ -83,20 +100,16 @@
                    </ul>
                 </div>
 
-        <%-- --------------------/mobile content---------------- --%>
-
-            <div id="content_main">
-                <asp:SiteMapPath ID="smp_main" runat="server" ParentLevelsDisplayed="0" />
-
-                <div  id="slider"></div>
-
+        <%-- --------------------/mobile content---------------- --%>        
                 
-
-            </div> <%--content-main --%>
-                  
+        
+               
             
-
+            
+          
+            
             <div id="aside"> 
+                <asp:ContentPlaceHolder ID="cph_aside" runat="server">
                <div id="aside1">
                   <asp:Label ID="lbl_text" runat="server" Text="Keeping You Informed!"  CssClass="lbl_text" /><br /><br />
                 <hr style="color:#7dc6cc"; />
@@ -115,13 +128,17 @@
                 <asp:Label ID="lbl_events" runat="server" Text="New Events"  Font-Size="20px" />
             </div><%--aside4 --%>  
             
+                </asp:ContentPlaceHolder>
             </div><%--aside --%>              
-                
-         </div><%--content --%>
+                <div class="clear"></div>
+            
         
-        <div class="clear"></div>
-    
+
+        </div><%--content --%>
+     <div class="clear"></div>
+        <asp:ContentPlaceHolder ID="cph_footer" runat="server">
         <div id="footer">
+            
             <div id="footer_jobs">
                 <asp:Label ID="lbl_jobs" runat="server" Text="Jobs" /><br /><br />
                     <hr />
@@ -159,10 +176,10 @@
                 <asp:Image ID="img_facebook" runat="server" ImageUrl="~/Images/Facebook_Icon.png"  />
                 <asp:Image ID="img_twitter" runat="server" ImageUrl="~/Images/Twitter_Icon.png" />
             </div><%--footer_icons --%>  
-           
+          
         </div><%--footer--%>  
 
-           <%-- --------------mobile footer --------------- --%>
+             <%-- --------------mobile footer --------------- --%>
             <div id="mobilefooter">
 
                 <div id="mobilecopy">
@@ -178,7 +195,11 @@
 
 
             </div>
-        <%-- --------------/mobile footer --------------- --%>
+            <%-- --------------/mobile footer --------------- --%>
+
+         </asp:ContentPlaceHolder>
+           
+            
 
 
     </form>
