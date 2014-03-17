@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <br />
     <br />
-    <asp:Label ID="lbl_page" runat="server" Text="Select a doctor's name from the bar on the right to edit an existing record, or " />
+    <asp:Label ID="lbl_page" runat="server" Text="Select a doctor's name from the menu on the right to edit an existing record, or " />
     <asp:LinkButton ID="lnk_create" runat="server" Text="create a new record" OnClick="subCreate" />
     <br />
     <br />
