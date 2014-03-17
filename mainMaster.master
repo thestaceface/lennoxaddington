@@ -24,6 +24,7 @@
         
         
             <div id="header">
+                <asp:LoginStatus ID="lgs_main" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/home.aspx" />
 
                 <%--  ---------------- mobile header -------------%>
             <div id="mobilelogo">
