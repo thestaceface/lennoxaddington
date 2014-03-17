@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 public partial class Default2 : System.Web.UI.Page
 {
@@ -13,12 +14,6 @@ public partial class Default2 : System.Web.UI.Page
     {
         pnl_new.Visible = true;
         pnl_edit.Visible = false;
-    }
-
-    protected void subEdit(object sender, EventArgs e)
-    {
-        pnl_edit.Visible = true;
-        pnl_new.Visible = false;
     }
 
     private void _subRebind()
@@ -40,6 +35,34 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    protected void subUpload(object sender, EventArgs e)
+    {
+        if (flu_event.HasFile)
+        {
+            try
+            {
+                if (flu_event.PostedFile.ContentType == "image/jpeg")
+                {
+                    if (flu_event.PostedFile.ContentLength < 102400)
+                    {
+                        string filename = Path.GetFileName(flu_event.FileName);
+                        flu_event.SaveAs(Server.MapPath("~/Images/") + filename);
+                        lbl_upstatus.Text = "Upload complete";
+                        lbl_filename.Text = "Images/" + filename;
+                    }
+                    else
+                    {
+                        lbl_upstatus.Text = "File must be less than 100kb";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lbl_upstatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
+            }
+        }
+    }
+
     private void _strMessage(bool flag, string str)
     {
         if (flag)
@@ -57,7 +80,7 @@ public partial class Default2 : System.Web.UI.Page
         switch (e.CommandName)
         {
             case "Insert":
-                _strMessage(Ev.commitInsert(txt_title.Text, DateTime.Parse(txt_date.Text.ToString()), txt_desc.Text), "Insert");
+                _strMessage(Ev.commitInsert(txt_title.Text, DateTime.Parse(txt_date.Text.ToString()), txt_desc.Text, lbl_filename.Text), "Insert");
                 _subRebind();
                 break;
             case "Update":
@@ -92,9 +115,10 @@ public partial class Default2 : System.Web.UI.Page
                 TextBox txtTitle = (TextBox)e.Item.FindControl("txt_titleE");
                 TextBox txtDate = (TextBox)e.Item.FindControl("txt_dateE");
                 TextBox txtDesc = (TextBox)e.Item.FindControl("txt_descE");
+                Label lblFile = (Label)e.Item.FindControl("lbl_file");
                 HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
                 int evID = int.Parse(hdfID.Value.ToString());
-                _strMessage(Ev.commitUpdate(evID, txtTitle.Text, DateTime.Parse(txtDate.Text.ToString()), txtDesc.Text), "Update");
+                _strMessage(Ev.commitUpdate(evID, txtTitle.Text, DateTime.Parse(txtDate.Text.ToString()), txtDesc.Text, lblFile.Text), "Update");
                 _subRebind();
                 break;
             case "Delete":

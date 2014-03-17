@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 public partial class Default2 : System.Web.UI.Page
 {
@@ -13,12 +14,6 @@ public partial class Default2 : System.Web.UI.Page
     {
         pnl_new.Visible = true;
         pnl_edit.Visible = false;
-    }
-
-    protected void subEdit(object sender, EventArgs e)
-    {
-        pnl_edit.Visible = true;
-        pnl_new.Visible = false;
     }
 
     private void _subRebind()
@@ -39,6 +34,34 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    protected void subUpload(object sender, EventArgs e)
+    {
+        if (flu_doc.HasFile)
+        {
+            try
+            {
+                if (flu_doc.PostedFile.ContentType == "image/jpeg")
+                {
+                    if (flu_doc.PostedFile.ContentLength < 102400)
+                    {
+                        string filename = Path.GetFileName(flu_doc.FileName);
+                        flu_doc.SaveAs(Server.MapPath("~/Images/") + filename);
+                        lbl_upstatus.Text = "Upload complete";
+                        lbl_filename.Text = "Images/" + filename;
+                    }
+                    else
+                    {
+                        lbl_upstatus.Text = "File must be less than 100kb";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lbl_upstatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
+            }
+        }
+    }
+
     private void _strMessage(bool flag, string str)
     {
         if (flag) {
@@ -54,7 +77,7 @@ public partial class Default2 : System.Web.UI.Page
         switch (e.CommandName)
         { 
             case "Insert":
-                _strMessage(Doc.commitInsert(txt_name.Text, txt_bio.Text), "Insert");
+                _strMessage(Doc.commitInsert(txt_name.Text, txt_bio.Text, lbl_filename.Text), "Insert");
                 _subRebind();
                 break;
             case "Update":
@@ -88,9 +111,10 @@ public partial class Default2 : System.Web.UI.Page
             case "Update":
                 TextBox txtName = (TextBox)e.Item.FindControl("txt_nameE");
                 TextBox txtBio = (TextBox)e.Item.FindControl("txt_bioE");
+                Label lblFile = (Label)e.Item.FindControl("lbl_filename");
                 HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
                 int docID = int.Parse(hdfID.Value.ToString());
-                _strMessage(Doc.commitUpdate(docID, txtName.Text, txtBio.Text), "Update");
+                _strMessage(Doc.commitUpdate(docID, txtName.Text, txtBio.Text, lblFile.Text), "Update");
                 _subRebind();
                 break;
             case "Delete":

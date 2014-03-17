@@ -56,12 +56,18 @@
                 </td>
                 <td>
                     <asp:FileUpload ID="flu_event" runat="server" />
+                    <asp:Button ID="btn_upload" runat="server" Text="Upload" OnClick="subUpload" />
+                    <br />
+                    <asp:Label ID="lbl_filename" runat="server" />
+                    <br />
+                    <br />
+                    <asp:Label ID="lbl_upstatus" runat="server" />
                 </td> 
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>    
-                    <asp:Label ID="lbl_imgrules" runat="server" Text="(Max. upload: 500kb. Only .jpg, .png, .gif allowed.)" />
+                    <asp:Label ID="lbl_imgrules" runat="server" Text="(Max. upload: 100kb. Only .jpg allowed.)" />
                     <%-- validation needed for img upload --%>
                 </td>
             </tr>
@@ -117,12 +123,18 @@
                 </td>
                 <td>
                     <asp:FileUpload ID="flu_eventE" runat="server" />
+                    <asp:Button ID="btn_upload" runat="server" Text="Upload" OnClick="subUpload" />
+                    <br />
+                    <asp:Label ID="lbl_filename" runat="server" Text='<%#Bind ("ev_media") %>' />
+                    <br />
+                    <br />
+                    <asp:Label ID="lbl_upstatus" runat="server" />
                 </td> 
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>    
-                    <asp:Label ID="lbl_imgrulesE" runat="server" Text="(Max. upload: 500kb. Only .jpg, .png, .gif allowed.)" />
+                    <asp:Label ID="lbl_imgrulesE" runat="server" Text="(Max. upload: 100kb. Only .jpg allowed.)" />
                     <%-- validation needed for img upload --%>
                 </td>
             </tr>
