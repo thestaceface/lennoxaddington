@@ -3,11 +3,15 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
 
+    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/sm_eventsADMIN.aspx" />
+    <br />
+    <br />
+
     <ajax:ToolkitScriptManager ID="scm_events" runat="server" />
     
     <ajax:Accordion ID="acc" runat="server" FadeTransitions="true" TransitionDuration="500" RequireOpenedPane="false" HeaderCssClass="docacchead" ContentCssClass="docacccon" SelectedIndex="-1">
         <HeaderTemplate>
-            <asp:Hyperlink ID="date" runat="server" NavigateUrl="#" Text='<%#Eval ("ev_date") %>' /> 
+            <asp:Hyperlink ID="date" runat="server" NavigateUrl="#" Text='<%#Eval ("ev_date", "{0:d}") %>' /> 
             <asp:HyperLink ID="title" runat="server" NavigateUrl="#" text='<%#Eval ("ev_title") %>' />
         </HeaderTemplate>
         <ContentTemplate>

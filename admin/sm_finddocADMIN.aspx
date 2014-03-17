@@ -4,10 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <br />
     <br />
-    <asp:Label ID="lbl_page" runat="server" Text="Below you can choose to edit an existing record for a staff doctor, or to create a new one." />
-    <br />
-    <asp:Button ID="btn_edit" runat="server" Text="Edit Existing Record" OnClick="subEdit" />
-    <asp:Button ID="btn_create" runat="server" Text="Create a New Record" OnClick="subCreate" />
+    <asp:Label ID="lbl_page" runat="server" Text="Select a doctor's name from the bar on the right to edit an existing record, or " />
+    <asp:LinkButton ID="lnk_create" runat="server" Text="create a new record" OnClick="subCreate" />
     <br />
     <br />
     <hr />
@@ -18,10 +16,13 @@
         <asp:Label ID="lbl_new" runat="server" Text="Add a New Record" />
         <br />
         <br />
+        <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
+        <br />
+        <br />
         <table>
             <tr>
                 <td>
-                    <asp:label ID="lbl_name" runat="server" Text="Doctor Name:" AssociatedControlID="txt_name" />
+                    <asp:label ID="lbl_name" runat="server" Text="Doctor Name:*" AssociatedControlID="txt_name" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_name" runat="server" />
@@ -30,7 +31,7 @@
             </tr>
             <tr>    
                  <td>
-                     <asp:Label ID="lbl_bio" runat="server" Text="Bio:" AssociatedControlID="txt_bio" />
+                     <asp:Label ID="lbl_bio" runat="server" Text="Bio:*" AssociatedControlID="txt_bio" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_bio" runat="server" TextMode="MultiLine" Columns="40" Rows="10" />
@@ -39,11 +40,10 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_img" runat="server" text="Image:" AssociatedControlID="txt_img" />
+                    <asp:Label ID="lbl_img" runat="server" text="Image:" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_img" runat="server" />
-                    <asp:Button ID="btn_upload" runat="server" Text="Upload" CausesValidation="false" ValidationGroup="edit" />
+                    <asp:FileUpload ID="flu_doc" runat="server" />
                 </td> 
             </tr>
             <tr>
@@ -65,12 +65,15 @@
         <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" />
         <br />
         <br />
+        <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />
+        <br />
+        <br />
         <table>
             <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subUpDel">
                 <ItemTemplate>
             <tr>
                 <td>
-                    <asp:label ID="lbl_nameE" runat="server" Text="Doctor Name:" AssociatedControlID="txt_nameE" />
+                    <asp:label ID="lbl_nameE" runat="server" Text="Doctor Name:*" AssociatedControlID="txt_nameE" />
                 </td>
                 <td>
                     <asp:HiddenField ID="hdf_idE" runat="server" Value='<%#Eval ("doc_id") %>' />
@@ -80,7 +83,7 @@
             </tr>
             <tr>    
                  <td>
-                     <asp:Label ID="lbl_bioE" runat="server" Text="Bio:" AssociatedControlID="txt_bioE" />
+                     <asp:Label ID="lbl_bioE" runat="server" Text="Bio:*" AssociatedControlID="txt_bioE" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_bioE" runat="server" TextMode="MultiLine" Columns="40" Rows="10" Text='<%#Bind ("doc_bio") %>' />
@@ -89,11 +92,10 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_imgE" runat="server" text="Image:" AssociatedControlID="txt_imgE" />
+                    <asp:Label ID="lbl_imgE" runat="server" text="Image:" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_imgE" runat="server" Text='<%#Bind ("doc_img") %>' />
-                    <asp:Button ID="btn_uploadE" runat="server" Text="Upload" CausesValidation="false" ValidationGroup="edit" />
+                    <asp:FileUpload ID="flu_docE" runat="server" />
                 </td> 
             </tr>
             <tr>
@@ -120,6 +122,21 @@
             <br />
             <br />
     </asp:Panel>
+</asp:Content>
+
+
+<asp:Content ID="Content3" runat="server" ContentPlaceHolderID="cph_aside">
+    <asp:Label ID="lbl_select" runat="server" text="Doctors" />
+    <br />
+    <br />
+    <asp:Repeater ID="rpt_select" runat="server">
+        <ItemTemplate>
+            <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("doc_name") %>' CommandName="Update" CommandArgument='<%#Eval ("doc_id") %>' OnCommand="subAdmin" />
+            <br />
+            <br />
+        </ItemTemplate>
+    </asp:Repeater>
+
 </asp:Content>
 
 

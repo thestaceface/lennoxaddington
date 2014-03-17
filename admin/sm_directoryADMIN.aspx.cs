@@ -32,8 +32,8 @@ public partial class Default2 : System.Web.UI.Page
         txt_fax.Text = string.Empty;
         txt_email.Text = string.Empty;
         txt_loc.Text = string.Empty;
-        rpt_edit.DataSource = Dir.getOffices();
-        rpt_edit.DataBind();
+        rpt_select.DataSource = Dir.getOffices();
+        rpt_select.DataBind();
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -64,10 +64,28 @@ public partial class Default2 : System.Web.UI.Page
                 _strMessage(Dir.commitInsert(txt_title.Text, txt_type.Text, txt_name.Text, txt_tel.Text, txt_fax.Text, txt_email.Text, txt_loc.Text), "Insert");
                 _subRebind();
                 break;
+            case "Update":
+                _showUpdate(int.Parse(e.CommandArgument.ToString()));
+                break;
             case "Cancel":
                 _subRebind();
                 break;
         }
+    }
+
+    private void _showUpdate(int id)
+    {
+        _panelControl(pnl_edit);
+        sm_directoryClass Dir = new sm_directoryClass();
+        rpt_edit.DataSource = Dir.getOfficesByID(id);
+        rpt_edit.DataBind();
+    }
+
+    private void _panelControl(Panel pnl)
+    {
+        pnl_edit.Visible = false;
+        pnl_new.Visible = false;
+        pnl.Visible = true;
     }
 
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)

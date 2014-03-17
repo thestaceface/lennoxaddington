@@ -40,7 +40,7 @@ public class sm_finddocClass
 
     
 
-    public bool commitInsert(string _doc_name, string _doc_bio, string _doc_img)
+    public bool commitInsert(string _doc_name, string _doc_bio)
     {
         lennoxdbDataContext objDoc = new lennoxdbDataContext();
         using (objDoc)
@@ -48,14 +48,13 @@ public class sm_finddocClass
             var objNewDoc = new doctor();
             objNewDoc.doc_name = _doc_name;
             objNewDoc.doc_bio = _doc_bio;
-            objNewDoc.doc_img = _doc_img;
             objDoc.doctors.InsertOnSubmit(objNewDoc);
             objDoc.SubmitChanges();
             return true;
         }
     }
 
-    public bool commitUpdate(int _doc_id, string _doc_name, string _doc_bio, string _doc_img)
+    public bool commitUpdate(int _doc_id, string _doc_name, string _doc_bio)
     {
         lennoxdbDataContext objDoc = new lennoxdbDataContext();
         using (objDoc)
@@ -63,7 +62,6 @@ public class sm_finddocClass
             var objUpDoc = objDoc.doctors.Single(x => x.doc_id == _doc_id);
             objUpDoc.doc_name = _doc_name;
             objUpDoc.doc_bio = _doc_bio;
-            objUpDoc.doc_img = _doc_img;
             objDoc.SubmitChanges();
             return true;
         }

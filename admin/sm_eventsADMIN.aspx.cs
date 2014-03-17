@@ -28,9 +28,8 @@ public partial class Default2 : System.Web.UI.Page
         txt_title.Text = string.Empty;
         txt_date.Text = string.Empty;
         txt_desc.Text = string.Empty;
-        txt_img.Text = string.Empty;
-        rpt_edit.DataSource = Ev.getEvents();
-        rpt_edit.DataBind();
+        rpt_select.DataSource = Ev.getEvents();
+        rpt_select.DataBind();
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -58,13 +57,31 @@ public partial class Default2 : System.Web.UI.Page
         switch (e.CommandName)
         {
             case "Insert":
-                _strMessage(Ev.commitInsert(txt_title.Text, DateTime.Parse(txt_date.Text.ToString()), txt_desc.Text, txt_img.Text), "Insert");
+                _strMessage(Ev.commitInsert(txt_title.Text, DateTime.Parse(txt_date.Text.ToString()), txt_desc.Text), "Insert");
                 _subRebind();
+                break;
+            case "Update":
+                _showUpdate(int.Parse(e.CommandArgument.ToString()));
                 break;
             case "Cancel":
                 _subRebind();
                 break;
         }
+    }
+
+    private void _showUpdate(int id)
+    {
+        _panelControl(pnl_edit);
+        sm_eventClass Ev = new sm_eventClass();
+        rpt_edit.DataSource = Ev.getEventsByID(id);
+        rpt_edit.DataBind();
+    }
+
+    private void _panelControl(Panel pnl)
+    {
+        pnl_new.Visible = false;
+        pnl_edit.Visible = false;
+        pnl.Visible = true;
     }
 
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)
@@ -73,12 +90,11 @@ public partial class Default2 : System.Web.UI.Page
         {
             case "Update":
                 TextBox txtTitle = (TextBox)e.Item.FindControl("txt_titleE");
-                TextBox txtDate = (TextBox)e.Item.FindControl("txt_bioE");
+                TextBox txtDate = (TextBox)e.Item.FindControl("txt_dateE");
                 TextBox txtDesc = (TextBox)e.Item.FindControl("txt_descE");
-                TextBox txtImg = (TextBox)e.Item.FindControl("txt_imgE");
                 HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
                 int evID = int.Parse(hdfID.Value.ToString());
-                _strMessage(Ev.commitUpdate(evID, txtTitle.Text, DateTime.Parse(txtDate.Text.ToString()), txtDesc.Text, txtImg.Text), "Update");
+                _strMessage(Ev.commitUpdate(evID, txtTitle.Text, DateTime.Parse(txtDate.Text.ToString()), txtDesc.Text), "Update");
                 _subRebind();
                 break;
             case "Delete":

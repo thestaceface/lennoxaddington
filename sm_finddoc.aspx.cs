@@ -14,5 +14,9 @@ public partial class sm_finddoc : System.Web.UI.Page
         acc.DataSource = objDoc.getDoctors();
         acc.DataBind();
 
+        if (!User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
     }
 }

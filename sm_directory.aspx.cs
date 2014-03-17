@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Default2 : System.Web.UI.Page
+public partial class sm_directory : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -14,5 +14,9 @@ public partial class Default2 : System.Web.UI.Page
         acc.DataSource = objDir.getOffices();
         acc.DataBind();
 
+        if (!User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
     }
 }

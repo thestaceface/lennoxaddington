@@ -2,6 +2,8 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    
+    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/sm_finddoADMIN.aspx" />
 
     <ajax:ToolkitScriptManager id="tsm_main" runat="server" />
     <br />

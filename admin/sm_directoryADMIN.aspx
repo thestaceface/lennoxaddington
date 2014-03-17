@@ -3,10 +3,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <br />
     <br />
-    <asp:Label ID="lbl_page" runat="server" Text="Below you can choose to edit an existing contact record, or to create a new one." />
-    <br />
-    <asp:Button ID="btn_edit" runat="server" Text="Edit Existing Record" OnClick="subEdit" />
-    <asp:Button ID="btn_create" runat="server" Text="Create a New Record" OnClick="subCreate" />
+    <asp:Label ID="lbl_page" runat="server" Text="Select a contact record from the menu on the right to edit an existing record, or " />
+    <asp:LinkButton ID="lnk_select" runat="server" Text="create a new record." OnClick="subCreate" />
     <br />
     <br />
     <hr />
@@ -17,10 +15,13 @@
         <asp:Label ID="lbl_new" runat="server" Text="Add a New Record" />
         <br />
         <br />
+        <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
+        <br />
+        <br />
         <table>
             <tr>
                 <td>
-                    <asp:label ID="lbl_title" runat="server" Text="Contact Title:" AssociatedControlID="txt_title" />
+                    <asp:label ID="lbl_title" runat="server" Text="Contact Title:*" AssociatedControlID="txt_title" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_title" runat="server" />
@@ -45,10 +46,10 @@
             </tr>
             <tr>    
                  <td>
-                     <asp:Label ID="lbl_tel" runat="server" Text="Telephone:" AssociatedControlID="txt_tel" />
+                     <asp:Label ID="lbl_tel" runat="server" Text="Telephone:*" AssociatedControlID="txt_tel" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_tel" runat="server" />
+                    <asp:TextBox ID="txt_tel" runat="server" ToolTip="Format: (555) 555-5555" />
                     <asp:RequiredFieldValidator ID="rfv_tel" runat="server" ControlToValidate="txt_tel" ErrorMessage="Telephone is required." Display="None" ValidationGroup="insert" />
                     <asp:RegularExpressionValidator ID="reg_tel" runat="server" ControlToValidate="txt_tel" ValidationExpression="((\(\d{3}\) ?)|(\d{3}[- \.]))?\d{3}[- \.]\d{4}(\s(x\d+)?){0,1}$" ErrorMessage="Please enter valid telephone number: (555) 555-5555 Optional extension: (555) 555-5555 x555" Display="None" ValidationGroup="insert" />
                 </td>
@@ -58,23 +59,23 @@
                     <asp:Label ID="lbl_fax" runat="server" Text="Fax:" AssociatedControlID="txt_fax" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_fax" runat="server" />
+                    <asp:TextBox ID="txt_fax" runat="server" ToolTip="Format: (555) 555-5555" />
                     <asp:RegularExpressionValidator ID="reg_fax" runat="server" ControlToValidate="txt_fax" ValidationExpression="((\(\d{3}\) ?)|(\d{3}[- \.]))?\d{3}[- \.]\d{4}(\s(x\d+)?){0,1}$" ErrorMessage="Please enter valid telephone number: (555) 555-5555 Optional extension: (555) 555-5555 x555" Display="None" ValidationGroup="insert" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_email" runat="server" Text="Email:" AssociatedControlID="txt_email" />
+                    <asp:Label ID="lbl_email" runat="server" Text="Email:*" AssociatedControlID="txt_email" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_email" runat="server" />
+                    <asp:TextBox ID="txt_email" runat="server" ToolTip="Format: email@email.com" />
                     <asp:RequiredFieldValidator ID="rfv_email" runat="server" ControlToValidate="txt_email" ErrorMessage="Email is required." Display="None" ValidationGroup="insert" />
                     <asp:RegularExpressionValidator ID="reg_email" runat="server" ControlToValidate="txt_email" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" ErrorMessage="Please enter a valid email address. Ex: email@hospital.com" ValidationGroup="insert" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_loc" runat="server" text="Location:" AssociatedControlID="txt_loc" />
+                    <asp:Label ID="lbl_loc" runat="server" text="Location:*" AssociatedControlID="txt_loc" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_loc" runat="server" />
@@ -93,12 +94,15 @@
         <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" />
         <br />
         <br />
+        <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />
+        <br />
+        <br />
         <table>
             <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subUpDel">
                 <ItemTemplate>
             <tr>
                 <td>
-                    <asp:label ID="lbl_titleE" runat="server" Text="Contact Title:" AssociatedControlID="txt_titleE" />
+                    <asp:label ID="lbl_titleE" runat="server" Text="Contact Title:*" AssociatedControlID="txt_titleE" />
                 </td>
                 <td>
                     <asp:HiddenField ID="hdf_idE" runat="server" Value='<%#Eval ("of_id") %>' />
@@ -124,10 +128,10 @@
             </tr>
             <tr>    
                  <td>
-                     <asp:Label ID="lbl_telE" runat="server" Text="Telephone:" AssociatedControlID="txt_telE" />
+                     <asp:Label ID="lbl_telE" runat="server" Text="Telephone:*" AssociatedControlID="txt_telE" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_telE" runat="server" Text='<%#Bind ("of_tel") %>' />
+                    <asp:TextBox ID="txt_telE" runat="server" Text='<%#Bind ("of_tel") %>' ToolTip="Format: (555) 555-5555" />
                     <asp:RequiredFieldValidator ID="rfv_telE" runat="server" ControlToValidate="txt_telE" ErrorMessage="Telephone is required." Display="None" ValidationGroup="edit" />
                     <asp:RegularExpressionValidator ID="reg_telE" runat="server" ControlToValidate="txt_telE" ValidationExpression="((\(\d{3}\) ?)|(\d{3}[- \.]))?\d{3}[- \.]\d{4}(\s(x\d+)?){0,1}$" ErrorMessage="Please enter valid telephone number: (555) 555-5555 Optional extension: (555) 555-5555 x555" Display="None" ValidationGroup="edit" />
                 </td>
@@ -137,23 +141,23 @@
                     <asp:Label ID="lbl_faxE" runat="server" Text="Fax:" AssociatedControlID="txt_faxE" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_faxE" runat="server" Text='<%#Bind ("of_fax") %>' />
+                    <asp:TextBox ID="txt_faxE" runat="server" Text='<%#Bind ("of_fax") %>' ToolTip="Format: (555) 555-5555" />
                     <asp:RegularExpressionValidator ID="reg_faxE" runat="server" ControlToValidate="txt_faxE" ValidationExpression="((\(\d{3}\) ?)|(\d{3}[- \.]))?\d{3}[- \.]\d{4}(\s(x\d+)?){0,1}$" ErrorMessage="Please enter valid telephone number: (555) 555-5555 Optional extension: (555) 555-5555 x555" Display="None" ValidationGroup="edit" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_emailE" runat="server" Text="Email:" AssociatedControlID="txt_emailE" />
+                    <asp:Label ID="lbl_emailE" runat="server" Text="Email:*" AssociatedControlID="txt_emailE" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_emailE" runat="server" Text='<%#Bind ("of_email") %>' />
+                    <asp:TextBox ID="txt_emailE" runat="server" Text='<%#Bind ("of_email") %>' ToolTip="Format: email@email.com" />
                     <asp:RequiredFieldValidator ID="rfv_emailE" runat="server" ControlToValidate="txt_emailE" ErrorMessage="Email is required." Display="None" ValidationGroup="edit" />
                     <asp:RegularExpressionValidator ID="reg_emailE" runat="server" ControlToValidate="txt_emailE" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" ErrorMessage="Please enter a valid email address. Ex: email@hospital.com" Display="none" ValidationGroup="edit" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_locE" runat="server" text="Location:" AssociatedControlID="txt_locE" />
+                    <asp:Label ID="lbl_locE" runat="server" text="Location:*" AssociatedControlID="txt_locE" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_locE" runat="server" Text='<%#Bind ("of_location") %>' />
@@ -180,3 +184,15 @@
     </asp:Panel>
 </asp:Content>
 
+<asp:Content ID="content3" runat="server" ContentPlaceHolderID="cph_aside">
+    <asp:Label ID="lbl_select" runat="server" Text="Offices" />
+    <br />
+    <br />
+    <asp:Repeater ID="rpt_select" runat="server">
+        <ItemTemplate>
+            <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("of_title") %>' CommandName="Update" CommandArgument='<%#Eval ("of_id") %>' OnCommand="subAdmin" />
+            <br />
+            <br />
+        </ItemTemplate>
+    </asp:Repeater>  
+</asp:Content>
