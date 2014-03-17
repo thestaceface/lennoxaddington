@@ -12,13 +12,13 @@
     <asp:Label ID="msg" runat="server" />
     <br />
     <asp:Panel ID="pnl_new" runat="server">
-        <asp:Label ID="lbl_new" runat="server" Text="Add a New Record" />
+        <asp:Label ID="lbl_new" runat="server" Text="Add a New Record" Font-Underline="true" />
         <br />
         <br />
         <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
-        <table>
+        <table class="tables">
             <tr>
                 <td>
                     <asp:label ID="lbl_title" runat="server" Text="Contact Title:*" AssociatedControlID="txt_title" />
@@ -91,13 +91,13 @@
 
 
     <asp:Panel ID="pnl_edit" runat="server">
-        <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" />
+        <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" Font-Underline="true" />
         <br />
         <br />
         <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
-        <table>
+        <table class="tables">
             <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subUpDel">
                 <ItemTemplate>
             <tr>
@@ -185,12 +185,12 @@
 </asp:Content>
 
 <asp:Content ID="content3" runat="server" ContentPlaceHolderID="cph_aside">
-    <asp:Label ID="lbl_select" runat="server" Text="Offices" />
+    <asp:Label ID="lbl_select" runat="server" Text="Offices" CssClass="sidebarlbl" />
     <br />
     <br />
     <asp:Repeater ID="rpt_select" runat="server">
         <ItemTemplate>
-            <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("of_title") %>' CommandName="Update" CommandArgument='<%#Eval ("of_id") %>' OnCommand="subAdmin" />
+            <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("of_title") %>' CommandName="Update" CommandArgument='<%#Eval ("of_id") %>' OnCommand="subAdmin" CssClass="sidebarlinks" />
             <br />
             <br />
         </ItemTemplate>

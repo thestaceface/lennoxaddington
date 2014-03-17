@@ -287,3 +287,20 @@ body {
     margin:20px 0 15px 40px;
     width:75%;
 }
+
+.sidebarlinks {
+    margin-left:20px;
+}
+
+.sidebarlbl {
+    padding-top:25px;
+    margin-left:20px;
+}
+
+.adminbuttons {
+    margin-left:30px;
+}
+
+.tables {
+    margin-left:20px;
+}

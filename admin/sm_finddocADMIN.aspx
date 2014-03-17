@@ -5,7 +5,7 @@
     <br />
     <br />
     <asp:Label ID="lbl_page" runat="server" Text="Select a doctor's name from the menu on the right to edit an existing record, or " />
-    <asp:LinkButton ID="lnk_create" runat="server" Text="create a new record" OnClick="subCreate" />
+    <asp:LinkButton ID="lnk_create" runat="server" Text="create a new record." OnClick="subCreate" />
     <br />
     <br />
     <hr />
@@ -13,13 +13,13 @@
     <asp:Label ID="msg" runat="server" />
     <br />
     <asp:Panel ID="pnl_new" runat="server">
-        <asp:Label ID="lbl_new" runat="server" Text="Add a New Record" />
+        <asp:Label ID="lbl_new" runat="server" Text="Add a New Record" Font-Underline="true" />
         <br />
         <br />
         <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
-        <table>
+        <table class="tables">
             <tr>
                 <td>
                     <asp:label ID="lbl_name" runat="server" Text="Doctor Name:*" AssociatedControlID="txt_name" />
@@ -67,13 +67,13 @@
 
 
     <asp:Panel ID="pnl_edit" runat="server">
-        <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" />
+        <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" Font-Underline="true" />
         <br />
         <br />
         <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
-        <table>
+        <table class="tables">
             <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subUpDel">
                 <ItemTemplate>
             <tr>
@@ -136,12 +136,13 @@
 
 
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="cph_aside">
-    <asp:Label ID="lbl_select" runat="server" text="Doctors" />
+    <br />
+    <asp:Label ID="lbl_select" runat="server" text="Doctors" CssClass="sidebarlbl" />
     <br />
     <br />
     <asp:Repeater ID="rpt_select" runat="server">
         <ItemTemplate>
-            <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("doc_name") %>' CommandName="Update" CommandArgument='<%#Eval ("doc_id") %>' OnCommand="subAdmin" />
+            <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("doc_name") %>' CommandName="Update" CommandArgument='<%#Eval ("doc_id") %>' OnCommand="subAdmin" CssClass="sidebarlinks" />
             <br />
             <br />
         </ItemTemplate>
