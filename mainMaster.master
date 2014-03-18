@@ -24,29 +24,6 @@
         
         
             <div id="header">
-
-                <%--  ---------------- mobile header -------------%>
-            <div id="mobilelogo">
-                <asp:ImageButton ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/home.aspx" /> 
-            </div>
-
-            <div id="mobilemenu">
-            <asp:ImageButton ID="img_mobilemenu" runat="server" ImageUrl="~/Images/menu.gif" PostBackUrl="#" />
-            <ul>
-                <li><asp:HyperLink ID="lnk_home" runat="server" Text="Home" NavigateUrl="~/home.aspx" /></li>
-                <li><asp:HyperLink ID="lnk_about" runat="server" Text="About Us" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_patients" runat="server" Text="Patients & Visitors" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_programs" runat="server" Text="Programs & Services" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_account" runat="server" Text="Accountability" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_careers" runat="server" Text="Work With Us" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_contact" runat="server" Text="Contact Us" NavigateUrl="#" /></li>
-            </ul>
-        </div>
-
-            <div class="mobileclear"></div>
-
-        <%--  ---------------- /mobile header -------------%>
-            
                 
        <asp:ContentPlaceHolder id="cph_head" runat="server">
 
@@ -65,7 +42,28 @@
     <asp:Image ID="img_search" runat="server" ImageUrl="~/Images/Search_Button.png" ImageAlign="Right" AlternateText="SearchImage" Height="30px" /><br /><br />
             </div><%--search --%>
 
-                <div id="navigation">           
+                <div id="navigation">  
+                    <%--  ---------------- mobile header -------------%>
+            <div id="mobilelogo">
+                <asp:ImageButton ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/home.aspx" /> 
+            </div>
+
+            <div id="mobilemenu">
+            <asp:ImageButton ID="img_mobilemenu" runat="server" ImageUrl="~/Images/menu.gif" PostBackUrl="#" />
+            <ul>
+                <li><asp:HyperLink ID="lnk_home" runat="server" Text="Home" NavigateUrl="~/home.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_about" runat="server" Text="About Us" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_patients" runat="server" Text="Patients & Visitors" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_programs" runat="server" Text="Programs & Services" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_account" runat="server" Text="Accountability" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_careers" runat="server" Text="Work With Us" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_contact" runat="server" Text="Contact Us" NavigateUrl="sm_directory.aspx" /></li>
+            </ul>
+        </div>
+
+            <div class="mobileclear"></div>
+
+        <%--  ---------------- /mobile header -------------%>         
             <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
             <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" StaticHoverStyle-Font-Underline="true" DynamicHoverStyle-BackColor="#004059" DynamicHorizontalOffset="30" />
         </div>       <%--navigation --%> 
@@ -101,7 +99,7 @@
                 </div>
 
         <%-- --------------------/mobile content---------------- --%>        
-                
+         
         
                
             

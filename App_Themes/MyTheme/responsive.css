@@ -1,4 +1,5 @@
-﻿@media screen and (max-width: 650px) {
+﻿/*MOBILE*/
+@media screen and (max-width: 650px) {
 
     #pagewrap {
 		width: 98%;
@@ -50,13 +51,16 @@
         clear:both;
     }
 
-    #aside, #aside1, #aside2, #aside3, #aside4, #search, #address, #slider, #navigation, #footer_jobs, #footer_services, #footer_links, #footer_contact, #footer_copyright, #footer_icons, #slider, #box, #logo {
+    #aside, #aside1, #aside2, #aside3, #aside4, #search, #address, #slider, #footer_jobs, #footer_services, #footer_links, #footer_contact, #footer_copyright, #footer_icons, #slider, #box, #logo {
         display:none;
     }
 
-    #content {
-        width:100%;
+    #navigation {
+        height:70px;
+    }
 
+    #content, #header {
+        width:100%;
     }
 
     #content_main {
@@ -68,15 +72,6 @@
         border:0px;
     }
 
-    #header {
-        width:100%;
-    }
-
-   /*#logo {
-        height:45%;
-        display:none;
-    }*/
-
     #mobilemenu {
         display:block;
         float:right;
@@ -84,7 +79,7 @@
 
     #img_mobilemenu {
         display:inline-block;
-        margin:10px 5px 0 0;
+        margin:15px 5px 0 0;
         float:right;
     }
 
@@ -125,13 +120,13 @@
     #mobilelogo {
         display:block;
         float:left;
+        margin:5px;
     }
 
     #img_mobilelogo {
         width:70%;
         display:inline-block;
         float:left;
-        margin:5px;
     }
 
     #footer {
@@ -160,4 +155,252 @@
         margin-right:5px;
         margin-top:2px;
     }
+}
+
+/*TABLET PORTRAIT*/
+@media screen and (max-width: 768px) {
+    #pagewrap {
+        width:98%;
+    }
+    
+    #content {
+		width: 100%;
+        min-height:100%;
+	}
+
+    #content, #header, #navigation {
+        width:100%;
+    }
+
+    #content_main {
+        margin-left: 10px;
+        margin-bottom:25px;
+        width: 95%;
+        min-height: 0px;
+        border: 0px;
+    }
+
+    #slider, #box {
+        display:none;
+    }
+
+    #navigation {
+        max-height:35%;
+        padding:0px;
+    }
+
+    #mobilemenu {
+        display:block;
+        float:right;
+        margin-right:20px;
+        margin-top:10px;
+    }
+
+    #img_mobilemenu {
+        display:inline-block;
+        float:right;
+    }
+
+    #mobilemenu ul, #mobilemenu:active ul {
+        display:none;
+        position:absolute;
+        padding:20px;
+        background-color:#6aabbf;
+        border:3px solid #fff;
+        right:0px;
+        top:40px;
+        width:70%;
+        border-radius:4px 0 4px 4px;
+        list-style-type:none;
+    }
+
+    #mobilemenu li {
+        text-align:center;
+        width:100%;
+        padding:10px 0;
+        margin:0;
+    }
+
+    #mobilemenu li a {
+        text-decoration:none;
+        color:white;
+    }
+
+    #mobilemenu:hover ul {
+        display:block;
+    }
+
+    .clear {
+        clear:both;
+    }
+
+    #aside {
+        width:100%;
+        text-align:center;
+        min-height:100%;
+        margin:0 auto;
+    }
+
+    #aside1, #cph_head_mnu_1 {
+        display:none;
+    }
+
+    #aside2, #aside3, #aside4 {
+        width:200px;
+        min-height:200px;
+        display:inline-block;
+    }
+
+    #footer {
+        max-width:100%;
+        max-height:100%;
+        margin-top:25px;
+    }
+
+    #footer_jobs, #footer_services, #footer_links, #footer_contact {
+        display:inline-block;
+        width:150px;
+        height:150px;
+        float:none;
+        margin:10px;
+        vertical-align:top;
+    }
+
+    #footer_copyright, #footer_icons {
+        display:inline-block;
+        height:35px;
+        margin:10px;
+        padding-top:0px;
+        margin-top:100px;
+        vertical-align:bottom;
+    }
+
+    #footer_icons {
+        float:right;
+    }
+}
+
+/*TABLET LANDSCAPE*/
+@media screen and (max-width: 1024px) {
+    #pagewrap {
+        width:98%;
+    }
+    
+    #content {
+		width: 100%;
+        min-height:100%;
+	}
+
+    #content, #header, #navigation {
+        width:100%;
+    }
+
+    #content_main {
+        margin-left: 10px;
+        margin-bottom:25px;
+        max-width: 70%;
+        min-height: 0px;
+        border: 0px;
+        float:left;
+    }
+
+    #slider, #box {
+        display:none;
+    }
+
+    #navigation {
+        max-height:35%;
+        padding:0px;
+    }
+
+    #aside {
+        float:right;
+        max-width:225px;
+        min-height:700px;
+        margin-right:25px;
+    }
+     
+    .clear {
+        clear:both;
+    }
+
+    #cph_head_mnu_1, #aside1 {
+        display:none;
+    }
+
+    #aside2, #aside3, #aside4 {
+        float:right;
+        max-width:225px;
+    }
+
+    #mobilemenu {
+        display:block;
+        float:right;
+        margin-right:20px;
+        margin-top:10px;
+    }
+
+    #img_mobilemenu {
+        display:inline-block;
+        float:right;
+    }
+
+    #mobilemenu ul, #mobilemenu:active ul {
+        display:none;
+        position:absolute;
+        padding:20px;
+        background-color:#6aabbf;
+        border:3px solid #fff;
+        right:0px;
+        top:40px;
+        width:70%;
+        border-radius:4px 0 4px 4px;
+        list-style-type:none;
+    }
+
+    #mobilemenu li {
+        text-align:center;
+        width:100%;
+        padding:10px 0;
+        margin:0;
+        /*border-bottom:1px solid white;*/
+    }
+
+    #mobilemenu li a {
+        text-decoration:none;
+        color:white;
+    }
+
+    #mobilemenu:hover ul {
+        display:block;
+    }
+
+     #footer {
+        max-width:100%;
+        max-height:100%;
+        margin-top:25px;
+    }
+
+    #footer_jobs, #footer_services, #footer_links, #footer_contact {
+        display:inline-block;
+        width:150px;
+        height:150px;
+        margin:10px;
+        margin-left:5%;
+        vertical-align:top;
+    }
+
+    #footer_copyright, #footer_icons {
+        display:inline-block;
+        height:35px;
+        margin:10px;
+        padding-top:0px;
+        margin-top:100px;
+        vertical-align:bottom;
+    }
+
+    #footer_icons {
+        float:right;
+    }
+}
 }
