@@ -19,12 +19,12 @@
      <td><ajax:CalendarExtender ID="ce" runat="server"  TargetControlID="txt_date"  FirstDayOfWeek="Sunday" /></td>
         </tr>
         <tr>
-            <td>  <asp:Label ID="lbl_name" runat="server" Text="Name" /></td>
+            <td>  <asp:Label ID="lbl_name" runat="server" Text=" Your Name" /></td>
             <td><asp:TextBox ID="txt_name" runat="server" />
     <asp:RequiredFieldValidator ID="rfv_name" runat="server" Text="*Required" ValidationGroup="insert" ControlToValidate="txt_name" /></td>
         </tr>
         <tr>
-            <td><asp:Label ID="lbl_email" runat="server" Text="Email" /></td>
+            <td><asp:Label ID="lbl_email" runat="server" Text=" Your Email" /></td>
             <td> <asp:TextBox ID="txt_email" runat="server" />
     <asp:RequiredFieldValidator ID="rfv_email" runat="server" ValidationGroup="Insert" Text="*Required" ControlToValidate="txt_email" />
      <asp:RegularExpressionValidator ID="reg_email" runat="server" ControlToValidate="txt_email" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" ErrorMessage="Please enter a valid email address!" ValidationGroup="insert" />
@@ -36,7 +36,7 @@
                 <asp:RequiredFieldValidator ID="rfv_department" ValidationGroup="insert" runat="server" Text="*Required" ControlToValidate="ddl_department" /></td>
         </tr>
         <tr>
-            <td><asp:Label ID="lbl_staff" runat="server" Text="Staff Member" /></td>
+            <td><asp:Label ID="lbl_staff" runat="server" Text="Staff Member Name" /></td>
             <td> <asp:TextBox ID="txt_staff" runat="server" />
     <asp:RequiredFieldValidator ID="rfv_staff" runat="server" Text="*Required" ValidationGroup="insert" ControlToValidate="txt_staff" /></td>
         </tr>
