@@ -44,9 +44,6 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
   partial void Insertpatreport(patreport instance);
   partial void Updatepatreport(patreport instance);
   partial void Deletepatreport(patreport instance);
-  partial void Insertappointment(appointment instance);
-  partial void Updateappointment(appointment instance);
-  partial void Deleteappointment(appointment instance);
   partial void Insertapplicant(applicant instance);
   partial void Updateapplicant(applicant instance);
   partial void Deleteapplicant(applicant instance);
@@ -110,6 +107,9 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
   partial void Insertcontentpage(contentpage instance);
   partial void Updatecontentpage(contentpage instance);
   partial void Deletecontentpage(contentpage instance);
+  partial void Insertappointment(appointment instance);
+  partial void Updateappointment(appointment instance);
+  partial void Deleteappointment(appointment instance);
   #endregion
 	
 	public lennoxdbDataContext() : 
@@ -179,14 +179,6 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<patreport>();
-		}
-	}
-	
-	public System.Data.Linq.Table<appointment> appointments
-	{
-		get
-		{
-			return this.GetTable<appointment>();
 		}
 	}
 	
@@ -355,6 +347,14 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<contentpage>();
+		}
+	}
+	
+	public System.Data.Linq.Table<appointment> appointments
+	{
+		get
+		{
+			return this.GetTable<appointment>();
 		}
 	}
 }
@@ -2228,8 +2228,6 @@ public partial class patreport : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<patientvisit> _patientvisits;
 	
-	private EntitySet<appointment> _appointments;
-	
 	private EntityRef<patient> _patient;
 	
     #region Extensibility Method Definitions
@@ -2253,7 +2251,6 @@ public partial class patreport : INotifyPropertyChanging, INotifyPropertyChanged
 	public patreport()
 	{
 		this._patientvisits = new EntitySet<patientvisit>(new Action<patientvisit>(this.attach_patientvisits), new Action<patientvisit>(this.detach_patientvisits));
-		this._appointments = new EntitySet<appointment>(new Action<appointment>(this.attach_appointments), new Action<appointment>(this.detach_appointments));
 		this._patient = default(EntityRef<patient>);
 		OnCreated();
 	}
@@ -2395,19 +2392,6 @@ public partial class patreport : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patreport_appointment", Storage="_appointments", ThisKey="pr_id", OtherKey="at_reason")]
-	public EntitySet<appointment> appointments
-	{
-		get
-		{
-			return this._appointments;
-		}
-		set
-		{
-			this._appointments.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patient_patreport", Storage="_patient", ThisKey="pr_p_id", OtherKey="pt_custom_id", IsForeignKey=true)]
 	public patient patient
 	{
@@ -2472,347 +2456,6 @@ public partial class patreport : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		this.SendPropertyChanging();
 		entity.patreport = null;
-	}
-	
-	private void attach_appointments(appointment entity)
-	{
-		this.SendPropertyChanging();
-		entity.patreport = this;
-	}
-	
-	private void detach_appointments(appointment entity)
-	{
-		this.SendPropertyChanging();
-		entity.patreport = null;
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appointment")]
-public partial class appointment : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _at_id;
-	
-	private int _at_p_id;
-	
-	private System.DateTime _at_apptdate;
-	
-	private string _at_clinic;
-	
-	private int _at_e_id;
-	
-	private System.Nullable<int> _at_reason;
-	
-	private System.Nullable<System.DateTime> _at_appt_next;
-	
-	private EntityRef<patient> _patient;
-	
-	private EntityRef<patreport> _patreport;
-	
-	private EntityRef<employee> _employee;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onat_idChanging(int value);
-    partial void Onat_idChanged();
-    partial void Onat_p_idChanging(int value);
-    partial void Onat_p_idChanged();
-    partial void Onat_apptdateChanging(System.DateTime value);
-    partial void Onat_apptdateChanged();
-    partial void Onat_clinicChanging(string value);
-    partial void Onat_clinicChanged();
-    partial void Onat_e_idChanging(int value);
-    partial void Onat_e_idChanged();
-    partial void Onat_reasonChanging(System.Nullable<int> value);
-    partial void Onat_reasonChanged();
-    partial void Onat_appt_nextChanging(System.Nullable<System.DateTime> value);
-    partial void Onat_appt_nextChanged();
-    #endregion
-	
-	public appointment()
-	{
-		this._patient = default(EntityRef<patient>);
-		this._patreport = default(EntityRef<patreport>);
-		this._employee = default(EntityRef<employee>);
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int at_id
-	{
-		get
-		{
-			return this._at_id;
-		}
-		set
-		{
-			if ((this._at_id != value))
-			{
-				this.Onat_idChanging(value);
-				this.SendPropertyChanging();
-				this._at_id = value;
-				this.SendPropertyChanged("at_id");
-				this.Onat_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_p_id", DbType="Int NOT NULL")]
-	public int at_p_id
-	{
-		get
-		{
-			return this._at_p_id;
-		}
-		set
-		{
-			if ((this._at_p_id != value))
-			{
-				if (this._patient.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onat_p_idChanging(value);
-				this.SendPropertyChanging();
-				this._at_p_id = value;
-				this.SendPropertyChanged("at_p_id");
-				this.Onat_p_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_apptdate", DbType="Date NOT NULL")]
-	public System.DateTime at_apptdate
-	{
-		get
-		{
-			return this._at_apptdate;
-		}
-		set
-		{
-			if ((this._at_apptdate != value))
-			{
-				this.Onat_apptdateChanging(value);
-				this.SendPropertyChanging();
-				this._at_apptdate = value;
-				this.SendPropertyChanged("at_apptdate");
-				this.Onat_apptdateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_clinic", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-	public string at_clinic
-	{
-		get
-		{
-			return this._at_clinic;
-		}
-		set
-		{
-			if ((this._at_clinic != value))
-			{
-				this.Onat_clinicChanging(value);
-				this.SendPropertyChanging();
-				this._at_clinic = value;
-				this.SendPropertyChanged("at_clinic");
-				this.Onat_clinicChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_e_id", DbType="Int NOT NULL")]
-	public int at_e_id
-	{
-		get
-		{
-			return this._at_e_id;
-		}
-		set
-		{
-			if ((this._at_e_id != value))
-			{
-				if (this._employee.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onat_e_idChanging(value);
-				this.SendPropertyChanging();
-				this._at_e_id = value;
-				this.SendPropertyChanged("at_e_id");
-				this.Onat_e_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_reason", DbType="Int")]
-	public System.Nullable<int> at_reason
-	{
-		get
-		{
-			return this._at_reason;
-		}
-		set
-		{
-			if ((this._at_reason != value))
-			{
-				if (this._patreport.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onat_reasonChanging(value);
-				this.SendPropertyChanging();
-				this._at_reason = value;
-				this.SendPropertyChanged("at_reason");
-				this.Onat_reasonChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_appt_next", DbType="Date")]
-	public System.Nullable<System.DateTime> at_appt_next
-	{
-		get
-		{
-			return this._at_appt_next;
-		}
-		set
-		{
-			if ((this._at_appt_next != value))
-			{
-				this.Onat_appt_nextChanging(value);
-				this.SendPropertyChanging();
-				this._at_appt_next = value;
-				this.SendPropertyChanged("at_appt_next");
-				this.Onat_appt_nextChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patient_appointment", Storage="_patient", ThisKey="at_p_id", OtherKey="pt_id", IsForeignKey=true)]
-	public patient patient
-	{
-		get
-		{
-			return this._patient.Entity;
-		}
-		set
-		{
-			patient previousValue = this._patient.Entity;
-			if (((previousValue != value) 
-						|| (this._patient.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._patient.Entity = null;
-					previousValue.appointments.Remove(this);
-				}
-				this._patient.Entity = value;
-				if ((value != null))
-				{
-					value.appointments.Add(this);
-					this._at_p_id = value.pt_id;
-				}
-				else
-				{
-					this._at_p_id = default(int);
-				}
-				this.SendPropertyChanged("patient");
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patreport_appointment", Storage="_patreport", ThisKey="at_reason", OtherKey="pr_id", IsForeignKey=true)]
-	public patreport patreport
-	{
-		get
-		{
-			return this._patreport.Entity;
-		}
-		set
-		{
-			patreport previousValue = this._patreport.Entity;
-			if (((previousValue != value) 
-						|| (this._patreport.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._patreport.Entity = null;
-					previousValue.appointments.Remove(this);
-				}
-				this._patreport.Entity = value;
-				if ((value != null))
-				{
-					value.appointments.Add(this);
-					this._at_reason = value.pr_id;
-				}
-				else
-				{
-					this._at_reason = default(Nullable<int>);
-				}
-				this.SendPropertyChanged("patreport");
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_appointment", Storage="_employee", ThisKey="at_e_id", OtherKey="em_id", IsForeignKey=true)]
-	public employee employee
-	{
-		get
-		{
-			return this._employee.Entity;
-		}
-		set
-		{
-			employee previousValue = this._employee.Entity;
-			if (((previousValue != value) 
-						|| (this._employee.HasLoadedOrAssignedValue == false)))
-			{
-				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._employee.Entity = null;
-					previousValue.appointments.Remove(this);
-				}
-				this._employee.Entity = value;
-				if ((value != null))
-				{
-					value.appointments.Add(this);
-					this._at_e_id = value.em_id;
-				}
-				else
-				{
-					this._at_e_id = default(int);
-				}
-				this.SendPropertyChanged("employee");
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
 	}
 }
 
@@ -9216,8 +8859,7 @@ public partial class contentpage : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	//[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_url", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-    [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_cp_url", DbType = "VarChar(100)")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_url", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
 	public string cp_url
 	{
 		get
@@ -9237,8 +8879,7 @@ public partial class contentpage : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	//[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100)")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
 	public string cp_title
 	{
 		get
@@ -9468,6 +9109,270 @@ public partial class contentpage : INotifyPropertyChanging, INotifyPropertyChang
 					this._cp_cta3 = default(Nullable<int>);
 				}
 				this.SendPropertyChanged("cta2");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appointment")]
+public partial class appointment : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _at_id;
+	
+	private int _at_p_id;
+	
+	private string _at_clinic;
+	
+	private int _at_e_id;
+	
+	private int _at_reason;
+	
+	private System.TimeSpan _at_time;
+	
+	private EntityRef<employee> _employee;
+	
+	private EntityRef<patient> _patient;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onat_idChanging(int value);
+    partial void Onat_idChanged();
+    partial void Onat_p_idChanging(int value);
+    partial void Onat_p_idChanged();
+    partial void Onat_clinicChanging(string value);
+    partial void Onat_clinicChanged();
+    partial void Onat_e_idChanging(int value);
+    partial void Onat_e_idChanged();
+    partial void Onat_reasonChanging(int value);
+    partial void Onat_reasonChanged();
+    partial void Onat_timeChanging(System.TimeSpan value);
+    partial void Onat_timeChanged();
+    #endregion
+	
+	public appointment()
+	{
+		this._employee = default(EntityRef<employee>);
+		this._patient = default(EntityRef<patient>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int at_id
+	{
+		get
+		{
+			return this._at_id;
+		}
+		set
+		{
+			if ((this._at_id != value))
+			{
+				this.Onat_idChanging(value);
+				this.SendPropertyChanging();
+				this._at_id = value;
+				this.SendPropertyChanged("at_id");
+				this.Onat_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_p_id", DbType="Int NOT NULL")]
+	public int at_p_id
+	{
+		get
+		{
+			return this._at_p_id;
+		}
+		set
+		{
+			if ((this._at_p_id != value))
+			{
+				if (this._patient.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onat_p_idChanging(value);
+				this.SendPropertyChanging();
+				this._at_p_id = value;
+				this.SendPropertyChanged("at_p_id");
+				this.Onat_p_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_clinic", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+	public string at_clinic
+	{
+		get
+		{
+			return this._at_clinic;
+		}
+		set
+		{
+			if ((this._at_clinic != value))
+			{
+				this.Onat_clinicChanging(value);
+				this.SendPropertyChanging();
+				this._at_clinic = value;
+				this.SendPropertyChanged("at_clinic");
+				this.Onat_clinicChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_e_id", DbType="Int NOT NULL")]
+	public int at_e_id
+	{
+		get
+		{
+			return this._at_e_id;
+		}
+		set
+		{
+			if ((this._at_e_id != value))
+			{
+				if (this._employee.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onat_e_idChanging(value);
+				this.SendPropertyChanging();
+				this._at_e_id = value;
+				this.SendPropertyChanged("at_e_id");
+				this.Onat_e_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_reason", DbType="Int NOT NULL")]
+	public int at_reason
+	{
+		get
+		{
+			return this._at_reason;
+		}
+		set
+		{
+			if ((this._at_reason != value))
+			{
+				this.Onat_reasonChanging(value);
+				this.SendPropertyChanging();
+				this._at_reason = value;
+				this.SendPropertyChanged("at_reason");
+				this.Onat_reasonChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_time", DbType="Time NOT NULL")]
+	public System.TimeSpan at_time
+	{
+		get
+		{
+			return this._at_time;
+		}
+		set
+		{
+			if ((this._at_time != value))
+			{
+				this.Onat_timeChanging(value);
+				this.SendPropertyChanging();
+				this._at_time = value;
+				this.SendPropertyChanged("at_time");
+				this.Onat_timeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_appointment", Storage="_employee", ThisKey="at_e_id", OtherKey="em_id", IsForeignKey=true)]
+	public employee employee
+	{
+		get
+		{
+			return this._employee.Entity;
+		}
+		set
+		{
+			employee previousValue = this._employee.Entity;
+			if (((previousValue != value) 
+						|| (this._employee.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._employee.Entity = null;
+					previousValue.appointments.Remove(this);
+				}
+				this._employee.Entity = value;
+				if ((value != null))
+				{
+					value.appointments.Add(this);
+					this._at_e_id = value.em_id;
+				}
+				else
+				{
+					this._at_e_id = default(int);
+				}
+				this.SendPropertyChanged("employee");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patient_appointment", Storage="_patient", ThisKey="at_p_id", OtherKey="pt_id", IsForeignKey=true)]
+	public patient patient
+	{
+		get
+		{
+			return this._patient.Entity;
+		}
+		set
+		{
+			patient previousValue = this._patient.Entity;
+			if (((previousValue != value) 
+						|| (this._patient.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._patient.Entity = null;
+					previousValue.appointments.Remove(this);
+				}
+				this._patient.Entity = value;
+				if ((value != null))
+				{
+					value.appointments.Add(this);
+					this._at_p_id = value.pt_id;
+				}
+				else
+				{
+					this._at_p_id = default(int);
+				}
+				this.SendPropertyChanged("patient");
 			}
 		}
 	}

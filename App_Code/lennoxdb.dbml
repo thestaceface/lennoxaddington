@@ -91,22 +91,7 @@
       <Column Name="pr_type" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="pr_attach" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="patreport_patientvisit" Member="patientvisits" ThisKey="pr_id" OtherKey="pv_r_id" Type="patientvisit" />
-      <Association Name="patreport_appointment" Member="appointments" ThisKey="pr_id" OtherKey="at_reason" Type="appointment" />
       <Association Name="patient_patreport" Member="patient" ThisKey="pr_p_id" OtherKey="pt_custom_id" Type="patient" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.appointment" Member="appointments">
-    <Type Name="appointment">
-      <Column Name="at_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="at_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="at_apptdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="at_clinic" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="at_e_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="at_reason" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="at_appt_next" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
-      <Association Name="patreport_appointment" Member="patreport" ThisKey="at_reason" OtherKey="pr_id" Type="patreport" IsForeignKey="true" />
-      <Association Name="employee_appointment" Member="employee" ThisKey="at_e_id" OtherKey="em_id" Type="employee" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.applicants" Member="applicants">
@@ -421,6 +406,18 @@
       <Association Name="cta_contentpage" Member="cta" ThisKey="cp_cta1" OtherKey="cta_id" Type="cta" IsForeignKey="true" />
       <Association Name="cta_contentpage1" Member="cta1" ThisKey="cp_cta2" OtherKey="cta_id" Type="cta" IsForeignKey="true" />
       <Association Name="cta_contentpage2" Member="cta2" ThisKey="cp_cta3" OtherKey="cta_id" Type="cta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.appointment" Member="appointments">
+    <Type Name="appointment">
+      <Column Name="at_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="at_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="at_clinic" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="at_e_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="at_reason" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="at_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="employee_appointment" Member="employee" ThisKey="at_e_id" OtherKey="em_id" Type="employee" IsForeignKey="true" />
+      <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
