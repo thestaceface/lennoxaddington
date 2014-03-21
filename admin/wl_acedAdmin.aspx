@@ -4,21 +4,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-    <asp:Label ID="lbl_header" runat="server" Text="Page Administration" />
+    <h1><asp:Label ID="lbl_header" runat="server" Text="Page Administration" /></h1>
 
     <%-- -----------------Default Panel Begin----------------- --%>
-    <asp:Panel ID="pnl_main" runat="server" Visible="false" >
+    <asp:Panel ID="pnl_main" runat="server" Visible="true" >
         <h2>Add A New Page</h2>
-        <p>To add a new page, please click on the "Add Page" button in the panel to the right.</p>
+        <p>To add a new page, please select the "Add a Page" button and then choose a section page from the list on the right.  Your new page will be created in the selected section.</p>
 
         <h2>Edit An Existing Page</h2>
-        <p>To edit an existing page, please select the page you wish to edit from the navigation tree on the right panel and then click on the "Edit Page" button in the panel to the right.</p>
+        <p>To edit an existing page, select the "Edit a Page" button and then please select the page you wish to edit from the navigation tree on the right panel. Click on the "Edit" button to open the editing window.</p>
 
-        <h2>Copy An Existing Page</h2>
-        <p>To copy an existing page, please select the page you wish to copy from the navigation tree on the right panel and then click on the "Copy Page" button in the panel to the right.</p>
+        <%--<h2>Copy An Existing Page</h2>
+        <p>To copy an existing page, please select the page you wish to copy from the navigation tree on the right panel and then click on the "Copy Page" button in the panel to the right.</p>--%>
 
         <h2>Delete an existing page</h2>
-        <p>To delete an existing page, please select the page you wish to delete from the navigation tree on the right plane and then click on the "Delete Page" button in the panel to the right.</p>
+        <p>To delete an existing page, select the "Delete a Page" button and then please select the page you wish to delete from the navigation tree on the right plane.  Click on the "Delete Page" button to permanently delete the page.</p>
     </asp:Panel>
 
     <br /><hr /><br />
@@ -53,6 +53,7 @@
         
 
     <%-- -----------------EDIT Panel Begin----------------- --%>
+    
     <asp:Panel ID="pnl_edit" runat="server" Visible="false">
         <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subAdmin">   
             <ItemTemplate>
@@ -86,9 +87,18 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_aside" Runat="Server">
-    <asp:Panel ID="pnl_pagelist" runat="server" Visible="true">
-        <h2>this is a list of pages which, on click, selects an existing page...</h2>
-        <h3>will exist in the sidebar, later</h3>
+    <asp:Panel ID="pnl_choose" runat="server" Visible="true" >
+        <br />
+        <asp:Button runat="server" ID="choose_add" Text="Add A Page" OnClick="openAdd" />
+        <asp:Button runat="server" ID="choose_edit" Text="Edit a Page" OnClick="openEdit" />
+        <asp:Button runat="server" ID="choose_delete" Text="Delete a Page" OnClick="openEdit" />
+
+
+    </asp:Panel>
+    
+    
+    <asp:Panel ID="pnl_pagelist" runat="server" Visible="false">
+        <h2>Page Listing</h2>
         <asp:Repeater ID="rpt_pagelist" runat="server" >
 
             <ItemTemplate>
@@ -104,7 +114,9 @@
             
         </asp:Repeater>
         <asp:Button runat="server" ID="btn_showEdit" OnClick="subShowEdit" Text="Edit Selected Page" Visible="false" />
-        <asp:Button runat="server" ID="btn_showInsert" OnClick="subShowInsert" Text="Insert as a child of selected page" Visible="false" />
+        <asp:Button runat="server" ID="btn_showDelete" OnClick="subShowEdit" Text="Delete Selected Page" Visible="false" />
+        <asp:Button runat="server" ID="btn_showInsert" OnClick="subShowInsert" Text="Add A New Page" Visible="true" />
+
         <asp:Button runat="server" ID="btn_listcancel" OnClick="subCancel" Text="Cancel" Visible="true" />
     </asp:Panel>
 </asp:Content>

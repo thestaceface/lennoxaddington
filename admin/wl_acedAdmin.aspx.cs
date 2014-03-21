@@ -19,15 +19,35 @@ public partial class admin_wl_acedAdmin : System.Web.UI.Page
 
     }
 
+    protected void openAdd(object sender, EventArgs e)
+    {
+        pnl_choose.Visible = false;
+        pnl_pagelist.Visible = true;
+    }
+
+    protected void openEdit(object sender, EventArgs e)
+    {
+        pnl_pagelist.Visible = true;
+        pnl_choose.Visible = false;
+        btn_showInsert.Visible = false;
+        
+        
+    }
+
     protected void subCancel(object sender, EventArgs e)
     {
         _subRebind();
+        pnl_pagelist.Visible = false;
+        pnl_main.Visible = true;
+        pnl_choose.Visible = true;
     }
 
     protected void subInsert(object sender, EventArgs e)
     {
         _strMessage(objPage.commitInsert(txt_pagenameI.Text, cke_contentI.Text), "insert");
         _subRebind();
+        pnl_insert.Visible = false;
+        pnl_choose.Visible = true;
     }
 
     private void _subRebind()
@@ -36,6 +56,7 @@ public partial class admin_wl_acedAdmin : System.Web.UI.Page
         rpt_pagelist.DataBind();
         txt_pagenameI.Text = string.Empty;
         cke_contentI.Text = string.Empty;
+        pnl_main.Visible = true;
     }
 
     private void _strMessage(bool flag, string str)
@@ -55,7 +76,8 @@ public partial class admin_wl_acedAdmin : System.Web.UI.Page
         pnl_edit.Visible = false;
         pnl_insert.Visible = false;
         btn_showEdit.Visible = true;
-        btn_showInsert.Visible = true;
+        btn_showInsert.Visible = false;
+        btn_showDelete.Visible = true;
         //_subRebind();
         int filterID = int.Parse(e.CommandArgument.ToString());
         rpt_edit.DataSource = objPage.getPageById(Convert.ToInt32(filterID));
@@ -90,11 +112,14 @@ public partial class admin_wl_acedAdmin : System.Web.UI.Page
     protected void subShowInsert(object sender, EventArgs e)
     {
         pnl_edit.Visible = false;
+        pnl_main.Visible = false;
+        pnl_pagelist.Visible = false;
         pnl_insert.Visible = true;
     }
 
     protected void subShowEdit(object sender, EventArgs e)
     {
+        pnl_main.Visible = false;
         pnl_edit.Visible = true;
         pnl_insert.Visible = false;
     }
@@ -120,6 +145,8 @@ public partial class admin_wl_acedAdmin : System.Web.UI.Page
 
                 _strMessage(objPage.commitDelete(_cp_id), "delete");
                 pnl_edit.Visible = false;
+                pnl_choose.Visible = true;
+                pnl_pagelist.Visible = false;
                 _subRebind();
                 break;
             case "Cancel_This":

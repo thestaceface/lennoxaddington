@@ -6,8 +6,8 @@
 
     <asp:Repeater ID="rpt_one" runat="server" >
         <ItemTemplate>
-            <br /><br /><br /><br /><br />
-        <asp:Label ID="lbl_header" runat="server" Text='<%# Eval("cp_pagename") %>' />
+            <br />
+        <h2><asp:Label ID="lbl_header" runat="server" Text='<%# Eval("cp_pagename") %>' /></h2>
             <br />
 
         <asp:Label ID="lbl_content" runat="server" Text='<%# Eval("cp_content") %>' />
