@@ -78,6 +78,14 @@
     <br /><hr /><br />
 
     <%-- -----------------ADD SELECT PANEL Begin----------------- --%>
+
+        
+
+
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="cph_aside" Runat="Server">
     <asp:Panel ID="pnl_pagelist" runat="server" Visible="true">
         <h2>this is a list of pages which, on click, selects an existing page...</h2>
         <h3>will exist in the sidebar, later</h3>
@@ -99,12 +107,4 @@
         <asp:Button runat="server" ID="btn_showInsert" OnClick="subShowInsert" Text="Insert as a child of selected page" Visible="false" />
         <asp:Button runat="server" ID="btn_listcancel" OnClick="subCancel" Text="Cancel" Visible="true" />
     </asp:Panel>
-        
-
-
-
 </asp:Content>
-
-<%--<asp:Content ID="Content3" ContentPlaceHolderID="cph_sidebar" Runat="Server">
-    
-</asp:Content>--%>
