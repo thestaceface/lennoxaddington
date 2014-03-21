@@ -91,7 +91,22 @@
       <Column Name="pr_type" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="pr_attach" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="patreport_patientvisit" Member="patientvisits" ThisKey="pr_id" OtherKey="pv_r_id" Type="patientvisit" />
+      <Association Name="patreport_appointment" Member="appointments" ThisKey="pr_id" OtherKey="at_reason" Type="appointment" />
       <Association Name="patient_patreport" Member="patient" ThisKey="pr_p_id" OtherKey="pt_custom_id" Type="patient" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.appointment" Member="appointments">
+    <Type Name="appointment">
+      <Column Name="at_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="at_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="at_apptdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="at_clinic" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="at_e_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="at_reason" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="at_appt_next" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
+      <Association Name="patreport_appointment" Member="patreport" ThisKey="at_reason" OtherKey="pr_id" Type="patreport" IsForeignKey="true" />
+      <Association Name="employee_appointment" Member="employee" ThisKey="at_e_id" OtherKey="em_id" Type="employee" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.applicants" Member="applicants">
@@ -179,23 +194,6 @@
       <Column Name="nw_article" Type="System.String" DbType="VarChar(2000) NOT NULL" CanBeNull="false" />
       <Column Name="nw_lupdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="nw_updateby" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.feedback" Member="feedbacks">
-    <Type Name="feedback">
-      <Column Name="fd_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fd_category" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="fd_subject" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="fd_last" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="fd_first" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="fd_tel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="fd_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="fd_street" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="fd_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
-      <Column Name="fd_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="fd_province" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="fd_country" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="fd_message" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.faqanswers" Member="faqanswers">
@@ -408,16 +406,22 @@
       <Association Name="cta_contentpage2" Member="cta2" ThisKey="cp_cta3" OtherKey="cta_id" Type="cta" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.appointment" Member="appointments">
-    <Type Name="appointment">
-      <Column Name="at_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="at_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="at_clinic" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="at_e_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="at_reason" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="at_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-      <Association Name="employee_appointment" Member="employee" ThisKey="at_e_id" OtherKey="em_id" Type="employee" IsForeignKey="true" />
-      <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
+  <Table Name="dbo.feedback" Member="feedbacks">
+    <Type Name="feedback">
+      <Column Name="fd_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fd_category" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_subject" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_last" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_first" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_tel" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="fd_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="fd_street" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="fd_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_province" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_country" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_message" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="fd_selector" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

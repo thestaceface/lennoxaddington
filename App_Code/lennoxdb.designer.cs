@@ -44,6 +44,9 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
   partial void Insertpatreport(patreport instance);
   partial void Updatepatreport(patreport instance);
   partial void Deletepatreport(patreport instance);
+  partial void Insertappointment(appointment instance);
+  partial void Updateappointment(appointment instance);
+  partial void Deleteappointment(appointment instance);
   partial void Insertapplicant(applicant instance);
   partial void Updateapplicant(applicant instance);
   partial void Deleteapplicant(applicant instance);
@@ -59,9 +62,6 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
   partial void Insertnews(news instance);
   partial void Updatenews(news instance);
   partial void Deletenews(news instance);
-  partial void Insertfeedback(feedback instance);
-  partial void Updatefeedback(feedback instance);
-  partial void Deletefeedback(feedback instance);
   partial void Insertfaqanswer(faqanswer instance);
   partial void Updatefaqanswer(faqanswer instance);
   partial void Deletefaqanswer(faqanswer instance);
@@ -107,9 +107,9 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
   partial void Insertcontentpage(contentpage instance);
   partial void Updatecontentpage(contentpage instance);
   partial void Deletecontentpage(contentpage instance);
-  partial void Insertappointment(appointment instance);
-  partial void Updateappointment(appointment instance);
-  partial void Deleteappointment(appointment instance);
+  partial void Insertfeedback(feedback instance);
+  partial void Updatefeedback(feedback instance);
+  partial void Deletefeedback(feedback instance);
   #endregion
 	
 	public lennoxdbDataContext() : 
@@ -182,6 +182,14 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
+	public System.Data.Linq.Table<appointment> appointments
+	{
+		get
+		{
+			return this.GetTable<appointment>();
+		}
+	}
+	
 	public System.Data.Linq.Table<applicant> applicants
 	{
 		get
@@ -219,14 +227,6 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<news>();
-		}
-	}
-	
-	public System.Data.Linq.Table<feedback> feedbacks
-	{
-		get
-		{
-			return this.GetTable<feedback>();
 		}
 	}
 	
@@ -350,11 +350,11 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<appointment> appointments
+	public System.Data.Linq.Table<feedback> feedbacks
 	{
 		get
 		{
-			return this.GetTable<appointment>();
+			return this.GetTable<feedback>();
 		}
 	}
 }
@@ -2228,6 +2228,8 @@ public partial class patreport : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<patientvisit> _patientvisits;
 	
+	private EntitySet<appointment> _appointments;
+	
 	private EntityRef<patient> _patient;
 	
     #region Extensibility Method Definitions
@@ -2251,6 +2253,7 @@ public partial class patreport : INotifyPropertyChanging, INotifyPropertyChanged
 	public patreport()
 	{
 		this._patientvisits = new EntitySet<patientvisit>(new Action<patientvisit>(this.attach_patientvisits), new Action<patientvisit>(this.detach_patientvisits));
+		this._appointments = new EntitySet<appointment>(new Action<appointment>(this.attach_appointments), new Action<appointment>(this.detach_appointments));
 		this._patient = default(EntityRef<patient>);
 		OnCreated();
 	}
@@ -2392,6 +2395,19 @@ public partial class patreport : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patreport_appointment", Storage="_appointments", ThisKey="pr_id", OtherKey="at_reason")]
+	public EntitySet<appointment> appointments
+	{
+		get
+		{
+			return this._appointments;
+		}
+		set
+		{
+			this._appointments.Assign(value);
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patient_patreport", Storage="_patient", ThisKey="pr_p_id", OtherKey="pt_custom_id", IsForeignKey=true)]
 	public patient patient
 	{
@@ -2456,6 +2472,347 @@ public partial class patreport : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		this.SendPropertyChanging();
 		entity.patreport = null;
+	}
+	
+	private void attach_appointments(appointment entity)
+	{
+		this.SendPropertyChanging();
+		entity.patreport = this;
+	}
+	
+	private void detach_appointments(appointment entity)
+	{
+		this.SendPropertyChanging();
+		entity.patreport = null;
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appointment")]
+public partial class appointment : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _at_id;
+	
+	private int _at_p_id;
+	
+	private System.DateTime _at_apptdate;
+	
+	private string _at_clinic;
+	
+	private int _at_e_id;
+	
+	private System.Nullable<int> _at_reason;
+	
+	private System.Nullable<System.DateTime> _at_appt_next;
+	
+	private EntityRef<patient> _patient;
+	
+	private EntityRef<patreport> _patreport;
+	
+	private EntityRef<employee> _employee;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onat_idChanging(int value);
+    partial void Onat_idChanged();
+    partial void Onat_p_idChanging(int value);
+    partial void Onat_p_idChanged();
+    partial void Onat_apptdateChanging(System.DateTime value);
+    partial void Onat_apptdateChanged();
+    partial void Onat_clinicChanging(string value);
+    partial void Onat_clinicChanged();
+    partial void Onat_e_idChanging(int value);
+    partial void Onat_e_idChanged();
+    partial void Onat_reasonChanging(System.Nullable<int> value);
+    partial void Onat_reasonChanged();
+    partial void Onat_appt_nextChanging(System.Nullable<System.DateTime> value);
+    partial void Onat_appt_nextChanged();
+    #endregion
+	
+	public appointment()
+	{
+		this._patient = default(EntityRef<patient>);
+		this._patreport = default(EntityRef<patreport>);
+		this._employee = default(EntityRef<employee>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int at_id
+	{
+		get
+		{
+			return this._at_id;
+		}
+		set
+		{
+			if ((this._at_id != value))
+			{
+				this.Onat_idChanging(value);
+				this.SendPropertyChanging();
+				this._at_id = value;
+				this.SendPropertyChanged("at_id");
+				this.Onat_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_p_id", DbType="Int NOT NULL")]
+	public int at_p_id
+	{
+		get
+		{
+			return this._at_p_id;
+		}
+		set
+		{
+			if ((this._at_p_id != value))
+			{
+				if (this._patient.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onat_p_idChanging(value);
+				this.SendPropertyChanging();
+				this._at_p_id = value;
+				this.SendPropertyChanged("at_p_id");
+				this.Onat_p_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_apptdate", DbType="Date NOT NULL")]
+	public System.DateTime at_apptdate
+	{
+		get
+		{
+			return this._at_apptdate;
+		}
+		set
+		{
+			if ((this._at_apptdate != value))
+			{
+				this.Onat_apptdateChanging(value);
+				this.SendPropertyChanging();
+				this._at_apptdate = value;
+				this.SendPropertyChanged("at_apptdate");
+				this.Onat_apptdateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_clinic", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+	public string at_clinic
+	{
+		get
+		{
+			return this._at_clinic;
+		}
+		set
+		{
+			if ((this._at_clinic != value))
+			{
+				this.Onat_clinicChanging(value);
+				this.SendPropertyChanging();
+				this._at_clinic = value;
+				this.SendPropertyChanged("at_clinic");
+				this.Onat_clinicChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_e_id", DbType="Int NOT NULL")]
+	public int at_e_id
+	{
+		get
+		{
+			return this._at_e_id;
+		}
+		set
+		{
+			if ((this._at_e_id != value))
+			{
+				if (this._employee.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onat_e_idChanging(value);
+				this.SendPropertyChanging();
+				this._at_e_id = value;
+				this.SendPropertyChanged("at_e_id");
+				this.Onat_e_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_reason", DbType="Int")]
+	public System.Nullable<int> at_reason
+	{
+		get
+		{
+			return this._at_reason;
+		}
+		set
+		{
+			if ((this._at_reason != value))
+			{
+				if (this._patreport.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onat_reasonChanging(value);
+				this.SendPropertyChanging();
+				this._at_reason = value;
+				this.SendPropertyChanged("at_reason");
+				this.Onat_reasonChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_appt_next", DbType="Date")]
+	public System.Nullable<System.DateTime> at_appt_next
+	{
+		get
+		{
+			return this._at_appt_next;
+		}
+		set
+		{
+			if ((this._at_appt_next != value))
+			{
+				this.Onat_appt_nextChanging(value);
+				this.SendPropertyChanging();
+				this._at_appt_next = value;
+				this.SendPropertyChanged("at_appt_next");
+				this.Onat_appt_nextChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patient_appointment", Storage="_patient", ThisKey="at_p_id", OtherKey="pt_id", IsForeignKey=true)]
+	public patient patient
+	{
+		get
+		{
+			return this._patient.Entity;
+		}
+		set
+		{
+			patient previousValue = this._patient.Entity;
+			if (((previousValue != value) 
+						|| (this._patient.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._patient.Entity = null;
+					previousValue.appointments.Remove(this);
+				}
+				this._patient.Entity = value;
+				if ((value != null))
+				{
+					value.appointments.Add(this);
+					this._at_p_id = value.pt_id;
+				}
+				else
+				{
+					this._at_p_id = default(int);
+				}
+				this.SendPropertyChanged("patient");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patreport_appointment", Storage="_patreport", ThisKey="at_reason", OtherKey="pr_id", IsForeignKey=true)]
+	public patreport patreport
+	{
+		get
+		{
+			return this._patreport.Entity;
+		}
+		set
+		{
+			patreport previousValue = this._patreport.Entity;
+			if (((previousValue != value) 
+						|| (this._patreport.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._patreport.Entity = null;
+					previousValue.appointments.Remove(this);
+				}
+				this._patreport.Entity = value;
+				if ((value != null))
+				{
+					value.appointments.Add(this);
+					this._at_reason = value.pr_id;
+				}
+				else
+				{
+					this._at_reason = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("patreport");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_appointment", Storage="_employee", ThisKey="at_e_id", OtherKey="em_id", IsForeignKey=true)]
+	public employee employee
+	{
+		get
+		{
+			return this._employee.Entity;
+		}
+		set
+		{
+			employee previousValue = this._employee.Entity;
+			if (((previousValue != value) 
+						|| (this._employee.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._employee.Entity = null;
+					previousValue.appointments.Remove(this);
+				}
+				this._employee.Entity = value;
+				if ((value != null))
+				{
+					value.appointments.Add(this);
+					this._at_e_id = value.em_id;
+				}
+				else
+				{
+					this._at_e_id = default(int);
+				}
+				this.SendPropertyChanged("employee");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
 	}
 }
 
@@ -4278,356 +4635,6 @@ public partial class news : INotifyPropertyChanging, INotifyPropertyChanged
 				this._nw_updateby = value;
 				this.SendPropertyChanged("nw_updateby");
 				this.Onnw_updatebyChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.feedback")]
-public partial class feedback : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _fd_id;
-	
-	private string _fd_category;
-	
-	private string _fd_subject;
-	
-	private string _fd_last;
-	
-	private string _fd_first;
-	
-	private string _fd_tel;
-	
-	private string _fd_email;
-	
-	private string _fd_street;
-	
-	private string _fd_appt;
-	
-	private string _fd_city;
-	
-	private string _fd_province;
-	
-	private string _fd_country;
-	
-	private string _fd_message;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onfd_idChanging(int value);
-    partial void Onfd_idChanged();
-    partial void Onfd_categoryChanging(string value);
-    partial void Onfd_categoryChanged();
-    partial void Onfd_subjectChanging(string value);
-    partial void Onfd_subjectChanged();
-    partial void Onfd_lastChanging(string value);
-    partial void Onfd_lastChanged();
-    partial void Onfd_firstChanging(string value);
-    partial void Onfd_firstChanged();
-    partial void Onfd_telChanging(string value);
-    partial void Onfd_telChanged();
-    partial void Onfd_emailChanging(string value);
-    partial void Onfd_emailChanged();
-    partial void Onfd_streetChanging(string value);
-    partial void Onfd_streetChanged();
-    partial void Onfd_apptChanging(string value);
-    partial void Onfd_apptChanged();
-    partial void Onfd_cityChanging(string value);
-    partial void Onfd_cityChanged();
-    partial void Onfd_provinceChanging(string value);
-    partial void Onfd_provinceChanged();
-    partial void Onfd_countryChanging(string value);
-    partial void Onfd_countryChanged();
-    partial void Onfd_messageChanging(string value);
-    partial void Onfd_messageChanged();
-    #endregion
-	
-	public feedback()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int fd_id
-	{
-		get
-		{
-			return this._fd_id;
-		}
-		set
-		{
-			if ((this._fd_id != value))
-			{
-				this.Onfd_idChanging(value);
-				this.SendPropertyChanging();
-				this._fd_id = value;
-				this.SendPropertyChanged("fd_id");
-				this.Onfd_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_category", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-	public string fd_category
-	{
-		get
-		{
-			return this._fd_category;
-		}
-		set
-		{
-			if ((this._fd_category != value))
-			{
-				this.Onfd_categoryChanging(value);
-				this.SendPropertyChanging();
-				this._fd_category = value;
-				this.SendPropertyChanged("fd_category");
-				this.Onfd_categoryChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_subject", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string fd_subject
-	{
-		get
-		{
-			return this._fd_subject;
-		}
-		set
-		{
-			if ((this._fd_subject != value))
-			{
-				this.Onfd_subjectChanging(value);
-				this.SendPropertyChanging();
-				this._fd_subject = value;
-				this.SendPropertyChanged("fd_subject");
-				this.Onfd_subjectChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_last", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-	public string fd_last
-	{
-		get
-		{
-			return this._fd_last;
-		}
-		set
-		{
-			if ((this._fd_last != value))
-			{
-				this.Onfd_lastChanging(value);
-				this.SendPropertyChanging();
-				this._fd_last = value;
-				this.SendPropertyChanged("fd_last");
-				this.Onfd_lastChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_first", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-	public string fd_first
-	{
-		get
-		{
-			return this._fd_first;
-		}
-		set
-		{
-			if ((this._fd_first != value))
-			{
-				this.Onfd_firstChanging(value);
-				this.SendPropertyChanging();
-				this._fd_first = value;
-				this.SendPropertyChanged("fd_first");
-				this.Onfd_firstChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_tel", DbType="VarChar(10)")]
-	public string fd_tel
-	{
-		get
-		{
-			return this._fd_tel;
-		}
-		set
-		{
-			if ((this._fd_tel != value))
-			{
-				this.Onfd_telChanging(value);
-				this.SendPropertyChanging();
-				this._fd_tel = value;
-				this.SendPropertyChanged("fd_tel");
-				this.Onfd_telChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_email", DbType="VarChar(50)")]
-	public string fd_email
-	{
-		get
-		{
-			return this._fd_email;
-		}
-		set
-		{
-			if ((this._fd_email != value))
-			{
-				this.Onfd_emailChanging(value);
-				this.SendPropertyChanging();
-				this._fd_email = value;
-				this.SendPropertyChanged("fd_email");
-				this.Onfd_emailChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_street", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-	public string fd_street
-	{
-		get
-		{
-			return this._fd_street;
-		}
-		set
-		{
-			if ((this._fd_street != value))
-			{
-				this.Onfd_streetChanging(value);
-				this.SendPropertyChanging();
-				this._fd_street = value;
-				this.SendPropertyChanged("fd_street");
-				this.Onfd_streetChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_appt", DbType="VarChar(6)")]
-	public string fd_appt
-	{
-		get
-		{
-			return this._fd_appt;
-		}
-		set
-		{
-			if ((this._fd_appt != value))
-			{
-				this.Onfd_apptChanging(value);
-				this.SendPropertyChanging();
-				this._fd_appt = value;
-				this.SendPropertyChanged("fd_appt");
-				this.Onfd_apptChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_city", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-	public string fd_city
-	{
-		get
-		{
-			return this._fd_city;
-		}
-		set
-		{
-			if ((this._fd_city != value))
-			{
-				this.Onfd_cityChanging(value);
-				this.SendPropertyChanging();
-				this._fd_city = value;
-				this.SendPropertyChanged("fd_city");
-				this.Onfd_cityChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_province", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-	public string fd_province
-	{
-		get
-		{
-			return this._fd_province;
-		}
-		set
-		{
-			if ((this._fd_province != value))
-			{
-				this.Onfd_provinceChanging(value);
-				this.SendPropertyChanging();
-				this._fd_province = value;
-				this.SendPropertyChanged("fd_province");
-				this.Onfd_provinceChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_country", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-	public string fd_country
-	{
-		get
-		{
-			return this._fd_country;
-		}
-		set
-		{
-			if ((this._fd_country != value))
-			{
-				this.Onfd_countryChanging(value);
-				this.SendPropertyChanging();
-				this._fd_country = value;
-				this.SendPropertyChanged("fd_country");
-				this.Onfd_countryChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_message", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
-	public string fd_message
-	{
-		get
-		{
-			return this._fd_message;
-		}
-		set
-		{
-			if ((this._fd_message != value))
-			{
-				this.Onfd_messageChanging(value);
-				this.SendPropertyChanging();
-				this._fd_message = value;
-				this.SendPropertyChanged("fd_message");
-				this.Onfd_messageChanged();
 			}
 		}
 	}
@@ -8858,9 +8865,8 @@ public partial class contentpage : INotifyPropertyChanging, INotifyPropertyChang
 			}
 		}
 	}
-    //[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_url", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-    [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_cp_url", DbType = "VarChar(100)")]
-
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_url", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
 	public string cp_url
 	{
 		get
@@ -8879,10 +8885,8 @@ public partial class contentpage : INotifyPropertyChanging, INotifyPropertyChang
 			}
 		}
 	}
-
-    //[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-    [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_cp_title", DbType = "VarChar(100)")]
-
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
 	public string cp_title
 	{
 		get
@@ -9137,245 +9141,355 @@ public partial class contentpage : INotifyPropertyChanging, INotifyPropertyChang
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appointment")]
-public partial class appointment : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.feedback")]
+public partial class feedback : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 	
-	private int _at_id;
+	private int _fd_id;
 	
-	private int _at_p_id;
+	private string _fd_category;
 	
-	private string _at_clinic;
+	private string _fd_subject;
 	
-	private int _at_e_id;
+	private string _fd_last;
 	
-	private int _at_reason;
+	private string _fd_first;
 	
-	private System.TimeSpan _at_time;
+	private string _fd_tel;
 	
-	private EntityRef<employee> _employee;
+	private string _fd_email;
 	
-	private EntityRef<patient> _patient;
+	private string _fd_street;
+	
+	private string _fd_appt;
+	
+	private string _fd_city;
+	
+	private string _fd_province;
+	
+	private string _fd_country;
+	
+	private string _fd_message;
+	
+	private string _fd_selector;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onat_idChanging(int value);
-    partial void Onat_idChanged();
-    partial void Onat_p_idChanging(int value);
-    partial void Onat_p_idChanged();
-    partial void Onat_clinicChanging(string value);
-    partial void Onat_clinicChanged();
-    partial void Onat_e_idChanging(int value);
-    partial void Onat_e_idChanged();
-    partial void Onat_reasonChanging(int value);
-    partial void Onat_reasonChanged();
-    partial void Onat_timeChanging(System.TimeSpan value);
-    partial void Onat_timeChanged();
+    partial void Onfd_idChanging(int value);
+    partial void Onfd_idChanged();
+    partial void Onfd_categoryChanging(string value);
+    partial void Onfd_categoryChanged();
+    partial void Onfd_subjectChanging(string value);
+    partial void Onfd_subjectChanged();
+    partial void Onfd_lastChanging(string value);
+    partial void Onfd_lastChanged();
+    partial void Onfd_firstChanging(string value);
+    partial void Onfd_firstChanged();
+    partial void Onfd_telChanging(string value);
+    partial void Onfd_telChanged();
+    partial void Onfd_emailChanging(string value);
+    partial void Onfd_emailChanged();
+    partial void Onfd_streetChanging(string value);
+    partial void Onfd_streetChanged();
+    partial void Onfd_apptChanging(string value);
+    partial void Onfd_apptChanged();
+    partial void Onfd_cityChanging(string value);
+    partial void Onfd_cityChanged();
+    partial void Onfd_provinceChanging(string value);
+    partial void Onfd_provinceChanged();
+    partial void Onfd_countryChanging(string value);
+    partial void Onfd_countryChanged();
+    partial void Onfd_messageChanging(string value);
+    partial void Onfd_messageChanged();
+    partial void Onfd_selectorChanging(string value);
+    partial void Onfd_selectorChanged();
     #endregion
 	
-	public appointment()
+	public feedback()
 	{
-		this._employee = default(EntityRef<employee>);
-		this._patient = default(EntityRef<patient>);
 		OnCreated();
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int at_id
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int fd_id
 	{
 		get
 		{
-			return this._at_id;
+			return this._fd_id;
 		}
 		set
 		{
-			if ((this._at_id != value))
+			if ((this._fd_id != value))
 			{
-				this.Onat_idChanging(value);
+				this.Onfd_idChanging(value);
 				this.SendPropertyChanging();
-				this._at_id = value;
-				this.SendPropertyChanged("at_id");
-				this.Onat_idChanged();
+				this._fd_id = value;
+				this.SendPropertyChanged("fd_id");
+				this.Onfd_idChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_p_id", DbType="Int NOT NULL")]
-	public int at_p_id
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_category", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+	public string fd_category
 	{
 		get
 		{
-			return this._at_p_id;
+			return this._fd_category;
 		}
 		set
 		{
-			if ((this._at_p_id != value))
+			if ((this._fd_category != value))
 			{
-				if (this._patient.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onat_p_idChanging(value);
+				this.Onfd_categoryChanging(value);
 				this.SendPropertyChanging();
-				this._at_p_id = value;
-				this.SendPropertyChanged("at_p_id");
-				this.Onat_p_idChanged();
+				this._fd_category = value;
+				this.SendPropertyChanged("fd_category");
+				this.Onfd_categoryChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_clinic", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-	public string at_clinic
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_subject", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string fd_subject
 	{
 		get
 		{
-			return this._at_clinic;
+			return this._fd_subject;
 		}
 		set
 		{
-			if ((this._at_clinic != value))
+			if ((this._fd_subject != value))
 			{
-				this.Onat_clinicChanging(value);
+				this.Onfd_subjectChanging(value);
 				this.SendPropertyChanging();
-				this._at_clinic = value;
-				this.SendPropertyChanged("at_clinic");
-				this.Onat_clinicChanged();
+				this._fd_subject = value;
+				this.SendPropertyChanged("fd_subject");
+				this.Onfd_subjectChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_e_id", DbType="Int NOT NULL")]
-	public int at_e_id
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_last", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+	public string fd_last
 	{
 		get
 		{
-			return this._at_e_id;
+			return this._fd_last;
 		}
 		set
 		{
-			if ((this._at_e_id != value))
+			if ((this._fd_last != value))
 			{
-				if (this._employee.HasLoadedOrAssignedValue)
-				{
-					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-				}
-				this.Onat_e_idChanging(value);
+				this.Onfd_lastChanging(value);
 				this.SendPropertyChanging();
-				this._at_e_id = value;
-				this.SendPropertyChanged("at_e_id");
-				this.Onat_e_idChanged();
+				this._fd_last = value;
+				this.SendPropertyChanged("fd_last");
+				this.Onfd_lastChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_reason", DbType="Int NOT NULL")]
-	public int at_reason
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_first", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+	public string fd_first
 	{
 		get
 		{
-			return this._at_reason;
+			return this._fd_first;
 		}
 		set
 		{
-			if ((this._at_reason != value))
+			if ((this._fd_first != value))
 			{
-				this.Onat_reasonChanging(value);
+				this.Onfd_firstChanging(value);
 				this.SendPropertyChanging();
-				this._at_reason = value;
-				this.SendPropertyChanged("at_reason");
-				this.Onat_reasonChanged();
+				this._fd_first = value;
+				this.SendPropertyChanged("fd_first");
+				this.Onfd_firstChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_at_time", DbType="Time NOT NULL")]
-	public System.TimeSpan at_time
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_tel", DbType="VarChar(20)")]
+	public string fd_tel
 	{
 		get
 		{
-			return this._at_time;
+			return this._fd_tel;
 		}
 		set
 		{
-			if ((this._at_time != value))
+			if ((this._fd_tel != value))
 			{
-				this.Onat_timeChanging(value);
+				this.Onfd_telChanging(value);
 				this.SendPropertyChanging();
-				this._at_time = value;
-				this.SendPropertyChanged("at_time");
-				this.Onat_timeChanged();
+				this._fd_tel = value;
+				this.SendPropertyChanged("fd_tel");
+				this.Onfd_telChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="employee_appointment", Storage="_employee", ThisKey="at_e_id", OtherKey="em_id", IsForeignKey=true)]
-	public employee employee
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_email", DbType="VarChar(50)")]
+	public string fd_email
 	{
 		get
 		{
-			return this._employee.Entity;
+			return this._fd_email;
 		}
 		set
 		{
-			employee previousValue = this._employee.Entity;
-			if (((previousValue != value) 
-						|| (this._employee.HasLoadedOrAssignedValue == false)))
+			if ((this._fd_email != value))
 			{
+				this.Onfd_emailChanging(value);
 				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._employee.Entity = null;
-					previousValue.appointments.Remove(this);
-				}
-				this._employee.Entity = value;
-				if ((value != null))
-				{
-					value.appointments.Add(this);
-					this._at_e_id = value.em_id;
-				}
-				else
-				{
-					this._at_e_id = default(int);
-				}
-				this.SendPropertyChanged("employee");
+				this._fd_email = value;
+				this.SendPropertyChanged("fd_email");
+				this.Onfd_emailChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="patient_appointment", Storage="_patient", ThisKey="at_p_id", OtherKey="pt_id", IsForeignKey=true)]
-	public patient patient
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_street", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+	public string fd_street
 	{
 		get
 		{
-			return this._patient.Entity;
+			return this._fd_street;
 		}
 		set
 		{
-			patient previousValue = this._patient.Entity;
-			if (((previousValue != value) 
-						|| (this._patient.HasLoadedOrAssignedValue == false)))
+			if ((this._fd_street != value))
 			{
+				this.Onfd_streetChanging(value);
 				this.SendPropertyChanging();
-				if ((previousValue != null))
-				{
-					this._patient.Entity = null;
-					previousValue.appointments.Remove(this);
-				}
-				this._patient.Entity = value;
-				if ((value != null))
-				{
-					value.appointments.Add(this);
-					this._at_p_id = value.pt_id;
-				}
-				else
-				{
-					this._at_p_id = default(int);
-				}
-				this.SendPropertyChanged("patient");
+				this._fd_street = value;
+				this.SendPropertyChanged("fd_street");
+				this.Onfd_streetChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_appt", DbType="VarChar(6)")]
+	public string fd_appt
+	{
+		get
+		{
+			return this._fd_appt;
+		}
+		set
+		{
+			if ((this._fd_appt != value))
+			{
+				this.Onfd_apptChanging(value);
+				this.SendPropertyChanging();
+				this._fd_appt = value;
+				this.SendPropertyChanged("fd_appt");
+				this.Onfd_apptChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_city", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+	public string fd_city
+	{
+		get
+		{
+			return this._fd_city;
+		}
+		set
+		{
+			if ((this._fd_city != value))
+			{
+				this.Onfd_cityChanging(value);
+				this.SendPropertyChanging();
+				this._fd_city = value;
+				this.SendPropertyChanged("fd_city");
+				this.Onfd_cityChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_province", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+	public string fd_province
+	{
+		get
+		{
+			return this._fd_province;
+		}
+		set
+		{
+			if ((this._fd_province != value))
+			{
+				this.Onfd_provinceChanging(value);
+				this.SendPropertyChanging();
+				this._fd_province = value;
+				this.SendPropertyChanged("fd_province");
+				this.Onfd_provinceChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_country", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+	public string fd_country
+	{
+		get
+		{
+			return this._fd_country;
+		}
+		set
+		{
+			if ((this._fd_country != value))
+			{
+				this.Onfd_countryChanging(value);
+				this.SendPropertyChanging();
+				this._fd_country = value;
+				this.SendPropertyChanged("fd_country");
+				this.Onfd_countryChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_message", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
+	public string fd_message
+	{
+		get
+		{
+			return this._fd_message;
+		}
+		set
+		{
+			if ((this._fd_message != value))
+			{
+				this.Onfd_messageChanging(value);
+				this.SendPropertyChanging();
+				this._fd_message = value;
+				this.SendPropertyChanged("fd_message");
+				this.Onfd_messageChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fd_selector", DbType="VarChar(150)")]
+	public string fd_selector
+	{
+		get
+		{
+			return this._fd_selector;
+		}
+		set
+		{
+			if ((this._fd_selector != value))
+			{
+				this.Onfd_selectorChanging(value);
+				this.SendPropertyChanging();
+				this._fd_selector = value;
+				this.SendPropertyChanged("fd_selector");
+				this.Onfd_selectorChanged();
 			}
 		}
 	}
