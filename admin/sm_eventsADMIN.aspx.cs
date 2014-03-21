@@ -14,6 +14,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         pnl_new.Visible = true;
         pnl_edit.Visible = false;
+        msg.Text = string.Empty;
     }
 
     private void _subRebind()
@@ -95,6 +96,7 @@ public partial class Default2 : System.Web.UI.Page
     private void _showUpdate(int id)
     {
         _panelControl(pnl_edit);
+        msg.Text = string.Empty;
         sm_eventClass Ev = new sm_eventClass();
         rpt_edit.DataSource = Ev.getEventsByID(id);
         rpt_edit.DataBind();

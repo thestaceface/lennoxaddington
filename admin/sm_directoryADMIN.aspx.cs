@@ -13,6 +13,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         pnl_new.Visible = true;
         pnl_edit.Visible = false;
+        msg.Text = string.Empty;
     }
 
     protected void subEdit(object sender, EventArgs e)
@@ -76,6 +77,7 @@ public partial class Default2 : System.Web.UI.Page
     private void _showUpdate(int id)
     {
         _panelControl(pnl_edit);
+        msg.Text = string.Empty;
         sm_directoryClass Dir = new sm_directoryClass();
         rpt_edit.DataSource = Dir.getOfficesByID(id);
         rpt_edit.DataBind();

@@ -14,6 +14,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         pnl_new.Visible = true;
         pnl_edit.Visible = false;
+        msg.Text = string.Empty;
     }
 
     private void _subRebind()
@@ -92,6 +93,7 @@ public partial class Default2 : System.Web.UI.Page
     private void _showUpdate(int id)
     {
         _panelControl(pnl_edit);
+        msg.Text = string.Empty;
         sm_finddocClass Doc = new sm_finddocClass();
         rpt_edit.DataSource = Doc.getDoctorByID(id);
         rpt_edit.DataBind();
