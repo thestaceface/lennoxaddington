@@ -25,7 +25,7 @@ public class positionClass
         return allposition;
     }
 
-    public IQueryable<position> getProductByID(int _id)
+    public IQueryable<position> getPositionByID(int _id)
     {
         lennoxdbDataContext objProdDC = new lennoxdbDataContext();
         var allposition = objProdDC.positions.Where(x => x.pn_id == _id).Select(x => x);

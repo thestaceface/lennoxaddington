@@ -58,14 +58,14 @@ public partial class Default2 : System.Web.UI.Page
     {
         _panelControl(pnl_update);
         positionClass _linq = new positionClass();
-        rpt_update.DataSource = _linq.getProductByID(id);
+        rpt_update.DataSource = _linq.getPositionByID(id);
         rpt_update.DataBind();
     }
 
     private void _showDelete(int id)
     {
         _panelControl(pnl_delete);
-        rpt_delete.DataSource = objLinq.getProductByID(id);
+        rpt_delete.DataSource = objLinq.getPositionByID(id);
         rpt_delete.DataBind();
     }
 
@@ -81,11 +81,11 @@ public partial class Default2 : System.Web.UI.Page
     {
         if (flag)
         {
-            lbl_message.Text = "Product " + str + " was successful";
+            lbl_message.Text = "Job " + str + " was successful";
         }
         else
         {
-            lbl_message.Text = "Sorry, unable to " + str + " product";
+            lbl_message.Text = "Sorry, unable to " + str + " job";
         }
     }
 

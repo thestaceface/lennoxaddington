@@ -6,7 +6,7 @@
 
     <asp:Label ID="lbl_message" runat="server" />
         <br /><br />
-        <asp:Label ID="lbl_insert" runat="server" Text="Insert New Product:" Font-Bold="true" />
+        <asp:Label ID="lbl_insert" runat="server" Text="Insert New Job:" Font-Bold="true" />
         <br />
 
         <asp:Label ID="lbl_descI" runat="server" Text="Description" AssociatedControlID="txt_descI" />
@@ -65,8 +65,8 @@
         <asp:Button ID="btn_insert" runat="server" Text="Insert" CommandName="Insert" OnCommand="subAdmin" ValidationGroup="insert" />
         <br /><br />
 
-        <asp:Panel ID="pnl_all" runat="server" GroupingText="All Products">
-            <table>
+        <asp:Panel ID="pnl_all" runat="server" GroupingText="Career Opportunities">
+            <table style="width:100%; text-align:center;">
                 <thead>
                     <tr>
                         <th><asp:Label ID="lbl_date" runat="server" Text="Date" /></th>
@@ -80,9 +80,9 @@
                     <asp:Repeater ID="rpt_all" runat="server">
                         <ItemTemplate>
                             <tr>
-                                <td><%#Eval("pn_s_date") %></td>
-                                <td><%#Eval("pn_name") %></td>
-                                <td><%#Eval("pn_desc") %></td>
+                                <td><%#Eval("pn_s_date","{0:d}") %></td>
+                                <td style="text-align:left;"><%#Eval("pn_name") %></td>
+                                <td style="text-align:left;"><%#Eval("pn_desc") %></td>
                                 <td><asp:LinkButton ID="btn_update" runat="server" Text="Update" CommandName="Update" CommandArgument='<%#Eval("pn_id") %>' OnCommand="subAdmin" /></td>
                                 <td><asp:LinkButton ID="btn_delete" runat="server" Text="Delete" CommandName="Delete" CommandArgument='<%#Eval("pn_id") %>' OnCommand="subAdmin" /></td>
                             </tr>
@@ -92,19 +92,10 @@
             </table>
         </asp:Panel>
 
-        <asp:Panel ID="pnl_update" runat="server" GroupingText="Update Product">
+        <asp:Panel ID="pnl_update" runat="server" GroupingText="Update Job">
             <table>
                 <thead>
                     <tr>
-                        <th><asp:Label ID="lbl_descU" runat="server" Text="Description" /></th>
-                        <th><asp:Label ID="lbl_nameU" runat="server" Text="Job Title" /></th>
-                        <th><asp:Label ID="lbl_typeU" runat="server" Text="Type" /></th>
-                        <th><asp:Label ID="lbl_dateU" runat="server" Text="Date" /></th>
-                        <th><asp:Label ID="lbl_quaU" runat="server" Text="Qualification" /></th>
-                        <th><asp:Label ID="lbl_reqU" runat="server" Text="Requirement" /></th>
-                        <th><asp:Label ID="lbl_eduU" runat="server" Text="Education" /></th>
-                        <th><asp:Label ID="lbl_expU" runat="server" Text="Experience" /></th>
-                        <th><asp:Label ID="lbl_specU" runat="server" Text="Specialities" /></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -112,26 +103,67 @@
                         <ItemTemplate>
                             <tr>
                                 <asp:HiddenField ID="hdf_idU" runat="server" Value='<%#Eval("pn_id") %>' />
-                                <td><asp:TextBox ID="txt_descU" runat="server" Text='<%#Eval("pn_desc") %>' /></td>
-                                <td><asp:TextBox ID="txt_nameU" runat="server" Text='<%#Eval("pn_name") %>' TextMode="MultiLine" /></td>
-                                <td><asp:TextBox ID="txt_typeU" runat="server" Text='<%#Eval("pn_type") %>' /></td>
-                                <td><asp:TextBox ID="txt_dateU" runat="server" Text='<%#Eval("pn_s_date") %>' /></td>
-                                <td><asp:TextBox ID="txt_quaU" runat="server" Text='<%#Eval("pn_qualification") %>' TextMode="MultiLine" /></td>
-                                <td><asp:TextBox ID="txt_reqU" runat="server" Text='<%#Eval("pn_requirements") %>' /></td>
-                                <td><asp:TextBox ID="txt_eduU" runat="server" Text='<%#Eval("pn_education") %>' /></td>
-                                <td><asp:TextBox ID="txt_expU" runat="server" Text='<%#Eval("pn_experience") %>' TextMode="MultiLine" /></td>
-                                <td><asp:TextBox ID="txt_specU" runat="server" Text='<%#Eval("pn_specialities") %>' /></td>
+                                <td>
+                                    <asp:Label ID="lbl_descU" runat="server" Text="Description" /><br />
+                                    <asp:TextBox ID="txt_descU" runat="server" Text='<%#Eval("pn_desc") %>' />
+                                    <asp:RequiredFieldValidator ID="rfv_descU" runat="server" Text="*Required" ControlToValidate="txt_descU" ValidationGroup="update" />
+                                </td>
                             </tr>
                             <tr>
-                                <td><asp:RequiredFieldValidator ID="rfv_descU" runat="server" Text="*Required" ControlToValidate="txt_descU" ValidationGroup="update" /></td>
-                                <td><asp:RequiredFieldValidator ID="rfv_nameU" runat="server" Text="*Required" ControlToValidate="txt_nameU" ValidationGroup="update" /></td>
-                                <td><asp:RequiredFieldValidator ID="rfv_typeU" runat="server" Text="*Required" ControlToValidate="txt_typeU" ValidationGroup="update" /></td>
-                                <td><asp:RequiredFieldValidator ID="rfv_dateU" runat="server" Text="*Required" ControlToValidate="txt_dateU" ValidationGroup="update" /></td>
-                                <td><asp:RequiredFieldValidator ID="rfv_quaU" runat="server" Text="*Required" ControlToValidate="txt_quaU" ValidationGroup="update" /></td>
-                                <td><asp:RequiredFieldValidator ID="rfv_reqU" runat="server" Text="*Required" ControlToValidate="txt_reqU" ValidationGroup="update" /></td>
-                                <td><asp:RequiredFieldValidator ID="rfv_eduU" runat="server" Text="*Required" ControlToValidate="txt_eduU" ValidationGroup="update" /></td>
-                                <td><asp:RequiredFieldValidator ID="rfv_expU" runat="server" Text="*Required" ControlToValidate="txt_expU" ValidationGroup="update" /></td>
-                                <td><asp:RequiredFieldValidator ID="rfv_specU" runat="server" Text="*Required" ControlToValidate="txt_specU" ValidationGroup="update" /></td>
+                                <td>
+                                    <asp:Label ID="lbl_nameU" runat="server" Text="Job Title" /><br />
+                                    <asp:TextBox ID="txt_nameU" runat="server" Text='<%#Eval("pn_name") %>' TextMode="MultiLine" />
+                                    <asp:RequiredFieldValidator ID="rfv_nameU" runat="server" Text="*Required" ControlToValidate="txt_nameU" ValidationGroup="update" />
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>
+                                    <asp:Label ID="lbl_typeU" runat="server" Text="Type" /><br />
+                                    <asp:TextBox ID="txt_typeU" runat="server" Text='<%#Eval("pn_type") %>' />
+                                    <asp:RequiredFieldValidator ID="rfv_typeU" runat="server" Text="*Required" ControlToValidate="txt_typeU" ValidationGroup="update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lbl_dateU" runat="server" Text="Date" /><br />
+                                    <asp:TextBox ID="txt_dateU" runat="server" Text='<%#Eval("pn_s_date") %>' />
+                                    <asp:RequiredFieldValidator ID="rfv_dateU" runat="server" Text="*Required" ControlToValidate="txt_dateU" ValidationGroup="update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lbl_quaU" runat="server" Text="Qualification" /><br />
+                                    <asp:TextBox ID="txt_quaU" runat="server" Text='<%#Eval("pn_qualification") %>' TextMode="MultiLine" />
+                                    <asp:RequiredFieldValidator ID="rfv_quaU" runat="server" Text="*Required" ControlToValidate="txt_quaU" ValidationGroup="update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lbl_reqU" runat="server" Text="Requirement" /><br />
+                                    <asp:TextBox ID="txt_reqU" runat="server" Text='<%#Eval("pn_requirements") %>' />
+                                    <asp:RequiredFieldValidator ID="rfv_reqU" runat="server" Text="*Required" ControlToValidate="txt_reqU" ValidationGroup="update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lbl_eduU" runat="server" Text="Education" /><br />
+                                    <asp:TextBox ID="txt_eduU" runat="server" Text='<%#Eval("pn_education") %>' />
+                                    <asp:RequiredFieldValidator ID="rfv_eduU" runat="server" Text="*Required" ControlToValidate="txt_eduU" ValidationGroup="update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lbl_expU" runat="server" Text="Experience" /><br />
+                                    <asp:TextBox ID="txt_expU" runat="server" Text='<%#Eval("pn_experience") %>' TextMode="MultiLine" />
+                                    <asp:RequiredFieldValidator ID="rfv_expU" runat="server" Text="*Required" ControlToValidate="txt_expU" ValidationGroup="update" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="lbl_specU" runat="server" Text="Specialities" /><br />
+                                    <asp:TextBox ID="txt_specU" runat="server" Text='<%#Eval("pn_specialities") %>' />
+                                    <asp:RequiredFieldValidator ID="rfv_specU" runat="server" Text="*Required" ControlToValidate="txt_specU" ValidationGroup="update" />
+                                </td>
                             </tr>
                             <tr>
                                 <td colspan="3">
@@ -146,19 +178,19 @@
             </table>
         </asp:Panel>
 
-        <asp:Panel ID="pnl_delete" runat="server" GroupingText="Delete Product">
+        <asp:Panel ID="pnl_delete" runat="server" GroupingText="Delete Job">
             <table>
                 <thead>
                     <tr>
                         <td colspan="9">
-                            <asp:Label ID="lbl_delete" runat="server" Text="Delete product?" />
+                            <asp:Label ID="lbl_delete" runat="server" Text="Delete Job?" />
                         </td>
                     </tr>
                     <tr>
-                        <th><asp:Label ID="Label1" runat="server" Text="Description" /></th>
-                        <th><asp:Label ID="Label2" runat="server" Text="Job Title" /></th>
-                        <th><asp:Label ID="Label3" runat="server" Text="Type" /></th>
-                        <th><asp:Label ID="Label4" runat="server" Text="Date" /></th>
+                        <th><asp:Label ID="lbl_descD" runat="server" Text="Description" /></th>
+                        <th><asp:Label ID="lbl_titleD" runat="server" Text="Job Title" /></th>
+                        <th><asp:Label ID="lbl_typeD" runat="server" Text="Type" /></th>
+                        <th><asp:Label ID="lbl_dateD" runat="server" Text="Date" /></th>
                     </tr>
                 </thead>
                 <tbody>
