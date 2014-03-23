@@ -84,7 +84,7 @@ body {
 
 #content_main {
    width:730px;
-    border:1px solid #000;
+    /*border:1px solid #000;*/
     min-height:740px;
     float:left;
     margin-top:10px;

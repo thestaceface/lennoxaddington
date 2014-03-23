@@ -78,11 +78,11 @@
         <div id="content"> 
                 
             <div id="content_main">
-                 <asp:ContentPlaceHolder id="cph_content" runat="server">
-                 
                 <asp:SiteMapPath ID="smp_main" runat="server" ParentLevelsDisplayed="0" />
-
-                <div  id="slider"></div>
+                 
+                <asp:ContentPlaceHolder id="cph_content" runat="server">
+                 
+                    <div  id="slider"></div>
 
                 </asp:ContentPlaceHolder>
 
