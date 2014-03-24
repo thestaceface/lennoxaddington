@@ -52,7 +52,11 @@
             <asp:ImageButton ID="img_mobilemenu" runat="server" ImageUrl="~/Images/menu.gif" PostBackUrl="#" />
             <ul>
                 <li><asp:HyperLink ID="lnk_home" runat="server" Text="Home" NavigateUrl="~/home.aspx" /></li>
-                <li><asp:HyperLink ID="lnk_about" runat="server" Text="About Us" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_about" runat="server" Text="About Us" NavigateUrl="#" />
+                    <%--<ul>
+                        <li><asp:HyperLink ID="lnk_events" runat="server" Text="Events Calendar" NavigateUrl="~/sm_events.aspx" /></li>
+                    </ul>--%>
+                </li>
                 <li><asp:HyperLink ID="lnk_patients" runat="server" Text="Patients & Visitors" NavigateUrl="#" /></li>
                 <li><asp:HyperLink ID="lnk_programs" runat="server" Text="Programs & Services" NavigateUrl="#" /></li>
                 <li><asp:HyperLink ID="lnk_account" runat="server" Text="Accountability" NavigateUrl="#" /></li>
@@ -91,7 +95,7 @@
             <div id="mobilebuttons">
                 <asp:label ID="lbl_quicklnk" runat="server" Text="Quick Links" />
                <ul>
-                <li><asp:Hyperlink ID="lnk_findus" runat="server" Text="Find Us" NavigateUrl="#" CssClass="buttons"  /></li>
+                <li><asp:Hyperlink ID="lnk_findus" runat="server" Text="Find Us" NavigateUrl="~/direction.aspx" CssClass="buttons"  /></li>
                 <li><asp:HyperLink ID="lnk_er" runat="server" Text="ER Wait Time" NavigateUrl="#" CssClass="buttons"  /></li>
                 <li><asp:HyperLink ID="lnk_visit" runat="server" Text="Visiting Hours" NavigateUrl="#" CssClass="buttons"  /></li>
                 <li><asp:HyperLink ID="lnk_directory" runat="server" Text="Directory" NavigateUrl="~/sm_directory.aspx" CssClass="buttons"  /></li>
