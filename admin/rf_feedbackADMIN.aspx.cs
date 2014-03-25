@@ -12,7 +12,8 @@ public partial class Default2 : System.Web.UI.Page
     protected void subCreate(object sender, EventArgs e)
     {
         pnl_new.Visible = true;
-        pnl_edit.Visible = false;       
+        pnl_edit.Visible = false;
+        msg.Text = string.Empty;
     }
 
     protected void subEdit(object sender, EventArgs e)
@@ -25,7 +26,6 @@ public partial class Default2 : System.Web.UI.Page
     {
         pnl_new.Visible = false;
         pnl_edit.Visible = false;
-        //msg.Text = String.Empty;
         ddl_category.Text = "General Enquiry";
         txt_subject.Text = String.Empty;
         txt_last.Text = String.Empty;
@@ -89,6 +89,7 @@ public partial class Default2 : System.Web.UI.Page
     private void _showUpdate(int id)
     {
         _panelControl(pnl_edit);
+        msg.Text = string.Empty;
         rf_feedbackClass FB = new rf_feedbackClass();
         rpt_edit.DataSource = FB.getFeedbackByID(id);
         rpt_edit.DataBind();
