@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
-public partial class Default2 : System.Web.UI.Page
+public partial class sm_finddocADMIN : System.Web.UI.Page
 {
     sm_finddocClass Doc = new sm_finddocClass();
     
@@ -127,6 +127,34 @@ public partial class Default2 : System.Web.UI.Page
             case "Cancel":
                 _subRebind();
                 break;
+            case "EditImage":
+                    try
+                    {
+                        if (flu_doc.PostedFile.ContentType == "image/jpeg")
+                        {
+                            if (flu_doc.PostedFile.ContentLength < 102400)
+                            {
+                                string filename = Path.GetFileName(flu_doc.FileName);
+                                flu_doc.SaveAs(Server.MapPath("~/Images/") + filename);
+                                lbl_upstatus.Text = "Upload complete";
+                                lbl_filename.Text += "Images/" + filename;
+                            }
+                            else
+                            {
+                                lbl_upstatus.Text = "File must be less than 100kb";
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lbl_upstatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
+                    }
+                break;
+
+
+
+
+
         }
     }
 }

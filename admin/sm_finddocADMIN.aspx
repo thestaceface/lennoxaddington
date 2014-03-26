@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_finddocADMIN.aspx.cs" Inherits="Default2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_finddocADMIN.aspx.cs" Inherits="sm_finddocADMIN" Debug="true" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
@@ -101,7 +101,7 @@
                 </td>
                 <td>
                     <asp:FileUpload ID="flu_docE" runat="server" />
-                    <asp:Button ID="btn_upload" runat="server" Text="Upload" OnClick="subUpload" />
+                    <asp:Button ID="btn_upload" runat="server" Text="Upload" CommandName="EditImage" CommandArgument='<%#Eval ("doc_id") %>' />
                     <br />
                     <asp:Label ID="lbl_filename" runat="server" Text='<%#Bind ("doc_img") %>' />
                     <br />
