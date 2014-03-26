@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Net.Mail;
 
 public partial class rf_feedback : System.Web.UI.Page 
 { 
@@ -71,4 +73,58 @@ public partial class rf_feedback : System.Web.UI.Page
         }
     }
 
+    protected void sendEmail(object sender, UpdatePanelControlTrigger e)
+    {
+        switch (e.CommandName)
+        {
+            case "Cancel":
+                _subRebind();
+                break;
+
+            case "Insert":
+                TextBox name = (TextBox)e.Item.FindControl("txt_appName");
+                TextBox email = (TextBox)e.Item.FindControl("txt_appEmail");
+                TextBox msg = (TextBox)e.Item.FindControl("txt_appMsg");
+                Label msg1 = (Label)e.Item.FindControl("aa");
+                FileUpload file = (FileUpload)e.Item.FindControl("fileupload1");
+                Label title = (Label)e.Item.FindControl("lbl_title");
+
+                Button send = (Button)e.Item.FindControl("btn_send");
+                Button back = (Button)e.Item.FindControl("btn_cancel");
+
+
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("lacgh@ferdous.ca");
+                mailMessage.To.Add("lacgh@ferdous.ca");
+                mailMessage.Subject = "[Feedback : " + txt_subject.Text + "]";
+
+                if (file.HasFile)
+                {
+                    mailMessage.Attachments.Add(new Attachment(file.PostedFile.InputStream, file.FileName));
+                }
+
+                mailMessage.Body = "Sender Name : " + txt_first.Text + " " + txt_last.Text + "<br />"
+                    + "Sender Email " + txt_email.Text + "<br />"
+                    + "Message: " + txt_message.Text;
+
+                mailMessage.IsBodyHtml = true;
+
+                SmtpClient smtpClient = new SmtpClient("smtpout.secureserver.net", 80);
+                smtpClient.EnableSsl = true;
+                smtpClient.Credentials = new System.Net.NetworkCredential("lacgh@ferdous.ca", "Lennox@2014");
+                smtpClient.Send(mailMessage);
+
+                msg1.Text = "Thank you for your feedback";
+                name.Enabled = false;
+                email.Enabled = false;
+                msg.Enabled = false;
+                file.Enabled = false;
+                send.Enabled = false;
+                back.Text = "Feedback";
+
+                break;
+
+
+        }
+    }
 }

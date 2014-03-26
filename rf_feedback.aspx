@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="rf_feedback.aspx.cs" Inherits="rf_feedback" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-    <asp:Panel ID="pnl_new" runat="server">
+    <asp:Panel ID="pnl_new" runat="server" >
         <asp:Label ID="lbl_new" runat="server" Text="Feedback Form" Font-Underline="true" />
         <br />
         <br />
@@ -119,7 +119,7 @@
             </tr>
         </table>
         <br />
-        <asp:Button ID="btn_insert" runat="server" Text="Send your feedback" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" CssClass="adminbuttons" />
+        <asp:Button ID="btn_send" runat="server" Text="Send your feedback" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" CssClass="adminbuttons"/>
         <asp:Button ID="btn_cancel" runat="server" Text="Reset the form" OnCommand="subAdmin" CommandName="Cancel" CausesValidation="false" ValidationGroup="edit" CssClass="adminbuttons" />
         <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
     </asp:Panel>
