@@ -65,7 +65,7 @@
         <elementListCompartment Id="26208b90-4941-46ae-b509-0d1e5d1f6b42" absoluteBounds="7.7650000000000006, 8.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.75 : 9.24120198567708); (7.4375 : 9.24120198567708); (7.4375 : 10.9776025390625); (6.375 : 10.9776025390625); (6.375 : 11.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.75 : 9.24120198567708); (7.4375 : 9.24120198567708); (7.4375 : 11.3526025390625); (6.375 : 11.3526025390625); (6.375 : 11.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/lennoxdbDataContext/position/position_applicant" />
       <nodes>
         <classShapeMoniker Id="2b571083-9f79-44c0-a1d7-75a2256ab5d5" />
@@ -186,14 +186,14 @@
         <classShapeMoniker Id="5a6e639c-5c0b-4acd-8446-c7732af634eb" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.75 : 8.52684899283854); (7.4375 : 8.52684899283854); (7.4375 : 8.3125); (6.50781275 : 8.3125); (6.50781275 : 6.10732259114583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.75 : 8.52684899283854); (7.4375 : 8.52684899283854); (7.4375 : 8.6875); (6.50781275 : 8.6875); (6.50781275 : 6.10732259114583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/lennoxdbDataContext/position/position_employee" />
       <nodes>
         <classShapeMoniker Id="2b571083-9f79-44c0-a1d7-75a2256ab5d5" />
         <classShapeMoniker Id="5a6e639c-5c0b-4acd-8446-c7732af634eb" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.75 : 9.95555497851563); (7.5 : 9.95555497851563); (7.5 : 8.25); (6.972658375 : 8.25); (6.972658375 : 6.10732259114583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.75 : 9.95555497851563); (7.5 : 9.95555497851563); (7.5 : 8.625); (6.972658375 : 8.625); (6.972658375 : 6.10732259114583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/lennoxdbDataContext/position/position_employee1" />
       <nodes>
         <classShapeMoniker Id="2b571083-9f79-44c0-a1d7-75a2256ab5d5" />
@@ -267,19 +267,6 @@
         <classShapeMoniker Id="1c510b02-5604-4b52-8e29-ddbdd837b1ff" />
       </nodes>
     </associationConnector>
-    <classShape Id="79e8db7d-bf58-48ca-a7a4-80a956011589" absoluteBounds="10.125, 3, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/lennoxdbDataContext/doctor" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8c3764e9-593e-4fe5-882d-5d370cc428a0" absoluteBounds="10.14, 3.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(9.75 : 3.78929768880208); (10.125 : 3.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/lennoxdbDataContext/department/department_doctor" />
-      <nodes>
-        <classShapeMoniker Id="d147e2ef-6c20-4f54-90a6-7c61c8fb2e40" />
-        <classShapeMoniker Id="79e8db7d-bf58-48ca-a7a4-80a956011589" />
-      </nodes>
-    </associationConnector>
     <classShape Id="476a7d65-2abc-4b62-84ca-cabf4eac5f10" absoluteBounds="0.5, 20.375, 2, 1.3862939453125">
       <DataClassMoniker Name="/lennoxdbDataContext/cta" />
       <nestedChildShapes>
@@ -298,47 +285,27 @@
         <elementListCompartment Id="283f1ca6-83a4-49d7-ab23-50ee94a8e137" absoluteBounds="7.765, 20.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5c6f8f66-790b-4140-a076-7eb127a60d08" absoluteBounds="5.375, 8.375, 2, 2.5401025390625">
-      <DataClassMoniker Name="/lennoxdbDataContext/appointment" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b57a4eb9-8933-4439-9bdd-4d15b4d54e1d" absoluteBounds="5.39, 8.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(11.125 : 4.77089680989583); (11.125 : 10.7255769856771); (7.375 : 10.7255769856771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/lennoxdbDataContext/doctor/doctor_appointment" />
-      <nodes>
-        <classShapeMoniker Id="79e8db7d-bf58-48ca-a7a4-80a956011589" />
-        <classShapeMoniker Id="5c6f8f66-790b-4140-a076-7eb127a60d08" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 10.7348046875); (3.91666666666667 : 10.7348046875 : JumpStart); (4.08333333333333 : 10.7348046875 : JumpEnd); (5.375 : 10.7348046875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/lennoxdbDataContext/patient/patient_appointment" />
-      <nodes>
-        <classShapeMoniker Id="d665e37c-0b96-485a-801c-6c3119efef0c" />
-        <classShapeMoniker Id="5c6f8f66-790b-4140-a076-7eb127a60d08" />
-      </nodes>
-    </associationConnector>
     <classShape Id="bbfd5bc9-4dae-409f-9ab9-ecaa97dccfa3" absoluteBounds="3, 20, 2, 2.7324039713541666">
       <DataClassMoniker Name="/lennoxdbDataContext/contentpage" />
       <nestedChildShapes>
         <elementListCompartment Id="fae0b90f-1866-45d1-8e9c-cd5984fd5262" absoluteBounds="3.015, 20.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 21.0681469726563); (3 : 21.0681469726563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 21.0681469726563); (3 : 21.0681469726563)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/cta/cta_contentpage" />
       <nodes>
         <classShapeMoniker Id="476a7d65-2abc-4b62-84ca-cabf4eac5f10" />
         <classShapeMoniker Id="bbfd5bc9-4dae-409f-9ab9-ecaa97dccfa3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 20.6590734863281); (3 : 20.6590734863281)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 20.6590734863281); (3 : 20.6590734863281)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/cta/cta_contentpage1" />
       <nodes>
         <classShapeMoniker Id="476a7d65-2abc-4b62-84ca-cabf4eac5f10" />
         <classShapeMoniker Id="bbfd5bc9-4dae-409f-9ab9-ecaa97dccfa3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 21.4772204589844); (3 : 21.4772204589844)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 21.4772204589844); (3 : 21.4772204589844)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/cta/cta_contentpage2" />
       <nodes>
         <classShapeMoniker Id="476a7d65-2abc-4b62-84ca-cabf4eac5f10" />
@@ -351,11 +318,44 @@
         <elementListCompartment Id="62326121-c7a5-4045-8e71-d727b8f37503" absoluteBounds="5.39, 21.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.375 : 21.6642976888021); (5 : 21.6642976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.375 : 21.6642976888021); (5 : 21.6642976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/sectionpage/sectionpage_contentpage" />
       <nodes>
         <classShapeMoniker Id="902ce28b-f32f-45fd-ae54-f04d6c712375" />
         <classShapeMoniker Id="bbfd5bc9-4dae-409f-9ab9-ecaa97dccfa3" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ba3d0e60-a1d6-4d6e-9dd5-d09fe47a88d1" absoluteBounds="10.125, 3, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/lennoxdbDataContext/doctor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f80e552d-a7a9-4379-b8ff-af38caeccaf9" absoluteBounds="10.14, 3.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.75 : 3.78929768880208); (10.125 : 3.78929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/lennoxdbDataContext/department/department_doctor" />
+      <nodes>
+        <classShapeMoniker Id="d147e2ef-6c20-4f54-90a6-7c61c8fb2e40" />
+        <classShapeMoniker Id="ba3d0e60-a1d6-4d6e-9dd5-d09fe47a88d1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7841fc1d-228b-4468-b077-96831630714e" absoluteBounds="5.375, 8.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/lennoxdbDataContext/appointment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="800e5492-14a0-4eed-bc6c-489f9f59c468" absoluteBounds="5.39, 9.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.125 : 4.77089680989583); (11.125 : 10.7255769856771); (7.375 : 10.7255769856771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/lennoxdbDataContext/doctor/doctor_appointment" />
+      <nodes>
+        <classShapeMoniker Id="ba3d0e60-a1d6-4d6e-9dd5-d09fe47a88d1" />
+        <classShapeMoniker Id="7841fc1d-228b-4468-b077-96831630714e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 10.7460034179687); (3.91666666666667 : 10.7460034179687 : JumpStart); (4.08333333333333 : 10.7460034179687 : JumpEnd); (5.375 : 10.7460034179687)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/lennoxdbDataContext/patient/patient_appointment" />
+      <nodes>
+        <classShapeMoniker Id="d665e37c-0b96-485a-801c-6c3119efef0c" />
+        <classShapeMoniker Id="7841fc1d-228b-4468-b077-96831630714e" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

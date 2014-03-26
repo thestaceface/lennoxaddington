@@ -73,7 +73,7 @@ public partial class rf_feedback : System.Web.UI.Page
         }
     }
 
-    protected void sendEmail(object sender, UpdatePanelControlTrigger e)
+    protected void sendEmail(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)
         {

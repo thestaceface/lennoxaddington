@@ -354,17 +354,6 @@
       <Association Name="department_office" Member="department" ThisKey="of_dept_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.doctors" Member="doctors">
-    <Type Name="doctor">
-      <Column Name="doc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="doc_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="doc_bio" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="doc_img" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="doc_dept" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="doctor_appointment" Member="appointments" ThisKey="doc_id" OtherKey="em_id" Type="appointment" />
-      <Association Name="department_doctor" Member="department" ThisKey="doc_dept" OtherKey="dp_id" Type="department" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.cta" Member="ctas">
     <Type Name="cta">
       <Column Name="cta_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -405,21 +394,6 @@
       <Column Name="hours" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.appointment" Member="appointments">
-    <Type Name="appointment">
-      <Column Name="at_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="pat_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="at_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="at_clinic" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="em_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="at_reason" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="at_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="at_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-      <Column Name="at_doc_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="doctor_appointment" Member="doctor" ThisKey="em_id" OtherKey="doc_id" Type="doctor" IsForeignKey="true" />
-      <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.contentpage" Member="contentpages">
     <Type Name="contentpage">
       <Column Name="cp_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -445,6 +419,32 @@
       <Column Name="sp_url" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="sp_description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Association Name="sectionpage_contentpage" Member="contentpages" ThisKey="sp_id" OtherKey="cp_secid" Type="contentpage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.doctors" Member="doctors">
+    <Type Name="doctor">
+      <Column Name="doc_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="doc_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="doc_bio" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="doc_img" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="doc_dept" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="doctor_appointment" Member="appointments" ThisKey="doc_id" OtherKey="at_em_id" Type="appointment" />
+      <Association Name="department_doctor" Member="department" ThisKey="doc_dept" OtherKey="dp_id" Type="department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.appointment" Member="appointments">
+    <Type Name="appointment">
+      <Column Name="at_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pat_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="at_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="at_clinic" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="at_em_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="at_reason" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="at_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="at_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="at_doc_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="doctor_appointment" Member="doctor" ThisKey="at_em_id" OtherKey="doc_id" Type="doctor" IsForeignKey="true" />
+      <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
