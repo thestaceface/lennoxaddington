@@ -2,8 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
     <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
-    <link href="App_Themes/MyTheme/nivo-slider.css" rel="stylesheet" type="text/css" />
-    <link href="App_Themes/MyTheme/Default.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/nivo-slider.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/Default.css" rel="stylesheet" type="text/css" />
     <link href="Styles/nivo-slider.css" rel="stylesheet" type="text/css" />
     <script src="Scripts/Demo.js" type="text/javascript"></script>
 
