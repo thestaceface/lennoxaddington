@@ -5,11 +5,11 @@
     <siteMapNode url="Home.aspx" title="Home"  description="Home page" />
     
         <siteMapNode url="" title="About Us"  description="About the hospital page">
-        <siteMapNode url="sm_events.aspx" title="Calendar of Events" description="Calendar of Events" />
+          <siteMapNode url="sm_events.aspx" title="Calendar of Events" description="Calendar of Events" />
         </siteMapNode>
     
         <siteMapNode url="" title="Patients and Visitors"  description="Patients and visitors">
-        <siteMapNode url="sm_finddoc.aspx" title="Find a Doctor" description="Find a Doctor" />
+          <siteMapNode url="sm_finddoc.aspx" title="Find a Doctor" description="Find a Doctor" />
         </siteMapNode>
     
         <siteMapNode url="" title="Programs and Services"  description="Programs and services page" />
