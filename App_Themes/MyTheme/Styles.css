@@ -304,3 +304,12 @@ body {
 .tables {
     margin-left:20px;
 }
+
+.adminlink {
+    float:right;
+    text-decoration:none;
+    border:2px solid #6aabbf;
+    color:#fff;
+    padding:5px 5px 0 5px;
+    background-color:#8ed1e4;
+}
