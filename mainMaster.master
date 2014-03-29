@@ -24,10 +24,7 @@
         
         
             <div id="header">
-<<<<<<< HEAD
-=======
-                <asp:LoginStatus ID="lgs_main" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/home.aspx" />
-
+                
                 <%--  ---------------- mobile header -------------%>
             <div id="mobilelogo">
                 <asp:ImageButton ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/home.aspx" /> 
@@ -50,7 +47,7 @@
 
         <%--  ---------------- /mobile header -------------%>
             
->>>>>>> origin/Login-Testing
+
                 
        <asp:ContentPlaceHolder id="cph_head" runat="server">
 
@@ -59,7 +56,7 @@
             </div><%--Logo --%>
 
             <div id="address">
-                  <asp:Label ID="lbl_address" runat="server" Text="(613) 354 - 3301<br/><span>8 Richmond Park Drive,Napanee</span>" />
+                  <asp:Label ID="lbl_address" runat="server" Text="(555) 121 - 2121<br/><span>123 Fake Street, Napanee</span>" />
             </div><%--address --%>
 
             <div class="clear" />
@@ -70,31 +67,7 @@
             </div><%--search --%>
 
                 <div id="navigation">  
-                    <%--  ---------------- mobile header -------------%>
-            <div id="mobilelogo">
-                <asp:ImageButton ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/home.aspx" /> 
-            </div>
-
-            <div id="mobilemenu">
-            <asp:ImageButton ID="img_mobilemenu" runat="server" ImageUrl="~/Images/menu.gif" PostBackUrl="#" />
-            <ul>
-                <li><asp:HyperLink ID="lnk_home" runat="server" Text="Home" NavigateUrl="~/home.aspx" /></li>
-                <li><asp:HyperLink ID="lnk_about" runat="server" Text="About Us" NavigateUrl="#" />
-                    <%--<ul>
-                        <li><asp:HyperLink ID="lnk_events" runat="server" Text="Events Calendar" NavigateUrl="~/sm_events.aspx" /></li>
-                    </ul>--%>
-                </li>
-                <li><asp:HyperLink ID="lnk_patients" runat="server" Text="Patients & Visitors" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_programs" runat="server" Text="Programs & Services" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_account" runat="server" Text="Accountability" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_careers" runat="server" Text="Work With Us" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_contact" runat="server" Text="Contact Us" NavigateUrl="sm_directory.aspx" /></li>
-            </ul>
-        </div>
-
-            <div class="mobileclear"></div>
-
-        <%--  ---------------- /mobile header -------------%>         
+                             
             <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
             <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" StaticHoverStyle-Font-Underline="true" DynamicHoverStyle-BackColor="#004059" DynamicHorizontalOffset="30" />
         </div>       <%--navigation --%> 
@@ -172,6 +145,8 @@
                 <asp:Label ID="lbl_jobs" runat="server" Text="Jobs" /><br /><br />
                     <hr />
                <asp:HyperLink ID="lnk_jobs" runat="server" ImageUrl="~/Images/employment-icon.png" />
+                <br />
+                <asp:LoginStatus ID="lgs_main" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/home.aspx" />
             </div><%--footer_jobs --%>  
 
             <div id="footer_services">
@@ -192,13 +167,13 @@
 
             <div id="footer_contact">
                 <asp:Label ID="lbl_contact" runat="server" Text="Contact" /><br /><br /><hr /><br />
-                <asp:Label ID="lbl_add" runat="server" Text="8 Richmond Park Drive<br>Napanee,K7R 2Z4<br>(613)-354-3301" /><br /><br />
+                <asp:Label ID="lbl_add" runat="server" Text="123 Fake Street<br>Napanee, A0A 0A0<br>(555) 121-2121" /><br /><br />
                 <asp:Label ID="lbl_visitinghours" runat="server" Text="Visiting Hours" /><br /><br />
                 <asp:Label ID="lbl_time" runat="server" Text="2:00 p.m. - 8:00 p.m." /><br /><br />
             </div><%--footer_contact --%>  
 
             <div id="footer_copyright">
-              <asp:Label ID="lbl_footer" runat="server" Text="Copyright &copy 2014 Lennox & Addington County General Hospital " />              
+              <asp:Label ID="lbl_footer" runat="server" Text="Copyright &copy 2014 Beedah, Bernard, Ferdous, Lin, Masson, Saini" />              
             </div><%--footer_copyright--%>  
 
              <div id="footer_icons">
@@ -212,7 +187,7 @@
             <div id="mobilefooter">
 
                 <div id="mobilecopy">
-                    <asp:Label ID="lbl_mblcopy" runat="server" Text="&copy 2014 Lennox & Addington County General Hospital" />
+                    <asp:Label ID="lbl_mblcopy" runat="server" Text="&copy 2014 Beedah, Bernard, Ferdous, Lin, Masson, Saini" />
                 </div>
 
                 <div id="mobilesocial">
