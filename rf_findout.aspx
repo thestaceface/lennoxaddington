@@ -3,8 +3,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <asp:Label ID="lbl_page" runat="server" />
-    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/rf_findoutADMIN.aspx" />
-
+    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/rf_findoutADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
     <ajax:ToolkitScriptManager ID="tsm_main" runat="server" />
 
     <br />

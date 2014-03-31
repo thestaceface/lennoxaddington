@@ -41,7 +41,7 @@ public partial class rf_feedback : System.Web.UI.Page
             ddl_category.Items.Add("General Enquiry");
             ddl_category.Items.Add("Services");
             ddl_category.Items.Add("Website");
-            ddl_category.Items.Add("Complains");
+            ddl_category.Items.Add("Complain");
             ddl_category.Items.Add("Others");
             _subRebind();
         }
