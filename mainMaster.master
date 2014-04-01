@@ -69,7 +69,7 @@
                 <div id="navigation">  
                              
             <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
-            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" StaticHoverStyle-Font-Underline="true" DynamicHoverStyle-BackColor="#004059" DynamicHorizontalOffset="30" />
+            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" DynamicHoverStyle-BackColor="#004059" StaticEnableDefaultPopOutImage="false" DynamicPopOutImageUrl="~/Images/menuarrow.png" DynamicMenuItemStyle-BackColor="#6aabbf" DynamicMenuItemStyle-ForeColor="White" DynamicMenuItemStyle-VerticalPadding="10px" DynamicMenuItemStyle-HorizontalPadding="12px" />
         </div>       <%--navigation --%> 
                 </asp:ContentPlaceHolder>
         </div><%--header --%>
@@ -144,41 +144,41 @@
             <div id="footer_jobs">
                 <asp:Label ID="lbl_jobs" runat="server" Text="Jobs" /><br /><br />
                     <hr />
-               <asp:HyperLink ID="lnk_jobs" runat="server" ImageUrl="~/Images/employment-icon.png" />
+               <asp:HyperLink ID="lnk_jobs" runat="server" ImageUrl="~/Images/employment-icon.png" NavigateUrl="~/career.aspx" />
                 <br />
-                <asp:LoginStatus ID="lgs_main" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/home.aspx" />
             </div><%--footer_jobs --%>  
 
             <div id="footer_services">
                 <asp:Label ID="lbl_hours" runat="server" Text="Services" /><br /><br />
                 <hr /><br />
-                <asp:HyperLink ID="lnk_feedback" runat="server" Text="Feedback"  /><br /><br />
-                 <asp:HyperLink ID="lnk_staff" runat="server" Text="Thank a staff member"  /><br /><br />
-                 <asp:HyperLink ID="lnk_appointment" runat="server" Text="Book an Appointment"  /><br /><br />
-                 <asp:HyperLink ID="lnk_ecard" runat="server" Text="Send an E-Card"  /><br /><br />
+                <asp:HyperLink ID="lnk_feedback" runat="server" Text="Feedback" NavigateUrl="~/rf_feedback.aspx"  /><br /><br />
+                 <asp:HyperLink ID="lnk_staff" runat="server" Text="Thank a Staff Member" NavigateUrl="~/ps_thanksform.aspx"  /><br /><br />
+                 <asp:HyperLink ID="lnk_appointment" runat="server" Text="Book an Appointment" NavigateUrl="#"  /><br /><br />
+                 <asp:HyperLink ID="lnk_ecard" runat="server" Text="Send an E-Card" NavigateUrl="~/e_card.aspx"  /><br /><br />
             </div><%--footer_services --%>  
 
             <div id="footer_links">
-                <asp:Label ID="lbl_links" runat="server" Text="Useful Links" /><br /><br /><hr />
+                <asp:Label ID="lbl_links" runat="server" Text="Access" /><br /><br /><hr />
                 <br />
-                <asp:HyperLink ID="lnk_direction" runat="server" Text="Directions"  /><br /><br />
-                <asp:HyperLink ID="lnk_suggest" runat="server" Text="Suggestions"  /><br /><br />                                <asp:HyperLink ID="lnk_resource" runat="server" Text="Resources"  /><br /><br />
+                <asp:LoginStatus ID="lgs_main" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/home.aspx" /><br /><br />
+                <asp:HyperLink ID="lnk_privacy" runat="server" Text="Privacy Policy" NavigateUrl="#"  /><br /><br />                                <asp:HyperLink ID="lnk_terms" runat="server" Text="Terms of Use" NavigateUrl="#"  /><br /><br />
             </div><%--footer_links --%>  
 
             <div id="footer_contact">
                 <asp:Label ID="lbl_contact" runat="server" Text="Contact" /><br /><br /><hr /><br />
+                <asp:HyperLink ID="lnk_direction" runat="server" Text="Directions" NavigateUrl="~/direction.aspx"  /><br /><br />
                 <asp:Label ID="lbl_add" runat="server" Text="123 Fake Street<br>Napanee, A0A 0A0<br>(555) 121-2121" /><br /><br />
-                <asp:Label ID="lbl_visitinghours" runat="server" Text="Visiting Hours" /><br /><br />
+                <asp:Label ID="lbl_visitinghours" runat="server" Text="Visiting Hours" /><br />
                 <asp:Label ID="lbl_time" runat="server" Text="2:00 p.m. - 8:00 p.m." /><br /><br />
             </div><%--footer_contact --%>  
 
             <div id="footer_copyright">
-              <asp:Label ID="lbl_footer" runat="server" Text="Copyright &copy 2014 Beedah, Bernard, Ferdous, Lin, Masson, Saini" />              
+              <asp:Label ID="lbl_footer" runat="server" Text="&copy 2014 Beedah, Bernard, Ferdous, Lin, Masson, Saini" />              
             </div><%--footer_copyright--%>  
 
              <div id="footer_icons">
-                <asp:Image ID="img_facebook" runat="server" ImageUrl="~/Images/Facebook_Icon.png"  />
-                <asp:Image ID="img_twitter" runat="server" ImageUrl="~/Images/Twitter_Icon.png" />
+                <asp:ImageButton ID="img_facebook" runat="server" ImageUrl="~/Images/Facebook_Icon.png" PostBackUrl="#" />
+                <asp:ImageButton ID="img_twitter" runat="server" ImageUrl="~/Images/Twitter_Icon.png" PostBackUrl="#" />
             </div><%--footer_icons --%>  
           
         </div><%--footer--%>  

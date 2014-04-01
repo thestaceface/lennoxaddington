@@ -5,19 +5,58 @@
     <siteMapNode url="Home.aspx" title="Home"  description="Home page" />
     
         <siteMapNode url="" title="About Us"  description="About the hospital page">
+          <siteMapNode url="" title="Board of Directors" description="Board of Directors">
+            <siteMapNode url="" title="Board Meetings" description="Board Meetings" />
+          </siteMapNode>
+          <siteMapNode url="" title="LACGH Foundation" description="LACGH Foundation">
+            <siteMapNode url="" title="Contact the Foundation" description="Contact the Foundation" />
+            <siteMapNode url="" title="Donate" description="Donate" />
+            <siteMapNode url="" title="Donor Recognition" description="Donor Recognition" />
+            <siteMapNode url="" title="Foundation Events" description="Foundation Events" />
+          </siteMapNode>
+          <siteMapNode url="" title="News" description="News" />
           <siteMapNode url="sm_events.aspx" title="Calendar of Events" description="Calendar of Events" />
         </siteMapNode>
     
         <siteMapNode url="" title="Patients and Visitors"  description="Patients and visitors">
           <siteMapNode url="sm_finddoc.aspx" title="Find a Doctor" description="Find a Doctor" />
+          <siteMapNode url="" title="Request an Appointment" description="Request an Appointment" />
+          <siteMapNode url="" title="Creating a Safe Environment" description="Creating a Safe Environment" />
+          <siteMapNode url="" title="Patient Rights &amp; Responsibilities" description="Patient Rights &amp; Responsibilities" />
+          <siteMapNode url="" title="Your Hospital Stay" description="Your Hospital Stay" />
+          <siteMapNode url="" title="Discharging From the Hospital" description="Discharging From the Hospital" />
+          <siteMapNode url="" title="Patient Privacy Policy" description="Patient Privacy Policy" />
+          <siteMapNode url="ps_thanksform.aspx" title="Thank a Staff Member" description="Thank a Staff Member" />
+          <siteMapNode url="e-card.aspx" title="Send an E-Card to a Patient" description="Send and E-Card to a Patient" />
         </siteMapNode>
     
         <siteMapNode url="" title="Programs and Services"  description="Programs and services page" />
-        <siteMapNode url="" title="Responsibilty and Accountability"  description=" Responsibility and accountibility" />
-        <siteMapNode url="" title="Careers"  description="Jobs page" />
+        
+        <siteMapNode url="" title="Responsibilty and Accountability"  description=" Responsibility and accountibility">
+          <siteMapNode url="" title="Accessibility" description="Accessibility" />
+          <siteMapNode url="" title="Public Reporting" description="Public Reporting" />
+          <siteMapNode url="" title="Infection Control" description="Infection Control" />
+          <siteMapNode url="" title="Being Accountable" description="Being Accountable" />
+          <siteMapNode url="" title="Quality" description="Quality" />
+        </siteMapNode>
+        
+        <siteMapNode url="" title="Careers"  description="Jobs page">
+          <siteMapNode url="" title="Careers" description="Careers">
+            <siteMapNode url="career.aspx" title="Current Opportunities" description="Current Opportunities" />
+            <siteMapNode url="" title="Student Placements" description="Student Placements" />
+          </siteMapNode>
+          <siteMapNode url="" title="Volunteer" description="Volunteer">
+            <siteMapNode url="" title="Volunteer Membership" description="Volunteer Membership" />
+            <siteMapNode url="" title="Volunteer Programs" description="Volunteer Programs" />
+            <siteMapNode url="" title="President Reports" description="President Reports" />
+            <siteMapNode url="" title="Volunteer Services Officers" description="Volunteer Services Officers" />
+          </siteMapNode>
+        </siteMapNode>
     
         <siteMapNode url="" title="Contact Us"  description=" Contact Us Page">
-        <siteMapNode url="sm_directory.aspx" title="Directory" description="Directory" />
+          <siteMapNode url="direction.aspx" title="Directions" description="Directions" />         
+          <siteMapNode url="sm_directory.aspx" title="Directory" description="Directory" />
+          <siteMapNode url="rf_feedback.aspx" title="Feedback" description="Feedback" />
         </siteMapNode>
 
   </siteMapNode>
