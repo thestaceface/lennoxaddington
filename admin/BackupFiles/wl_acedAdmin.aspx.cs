@@ -44,10 +44,10 @@ public partial class admin_wl_acedAdmin : System.Web.UI.Page
 
     protected void subInsert(object sender, EventArgs e)
     {
-        _strMessage(objPage.commitInsert(txt_pagenameI.Text, cke_contentI.Text), "insert");
-        _subRebind();
-        pnl_insert.Visible = false;
-        pnl_choose.Visible = true;
+        //_strMessage(objPage.commitInsert(txt_pagenameI.Text, cke_contentI.Text), "insert");
+        //_subRebind();
+        //pnl_insert.Visible = false;
+        //pnl_choose.Visible = true;
     }
 
     private void _subRebind()
@@ -135,7 +135,7 @@ public partial class admin_wl_acedAdmin : System.Web.UI.Page
 
                 
                 int pageID = int.Parse(hdfID.Value.ToString());
-                _strMessage(objPage.commitUpdate(pageID, txtName.Text, txtContent.Text), "update");
+                //_strMessage(objPage.commitUpdate(pageID, txtName.Text, txtContent.Text), "update");
                 pnl_edit.Visible = false;
                 _subRebind();
 

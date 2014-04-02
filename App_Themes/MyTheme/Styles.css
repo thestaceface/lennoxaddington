@@ -1,7 +1,14 @@
 ﻿* {
-padding:0px;
-margin:0px;
+    padding:0px;
+    margin:0px;
+    font-weight:normal;
 }
+
+p {
+    padding-bottom: 10px;
+
+}
+
 #pagewrap {
     margin: 0 auto;
     width: 1100px;

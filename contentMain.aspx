@@ -1,13 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="contentMain.aspx.cs" Inherits="contentMain" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
 
     <asp:Repeater ID="rpt_one" runat="server" >
         <ItemTemplate>
             <br />
-        <h2><asp:Label ID="lbl_header" runat="server" Text='<%# Eval("cp_pagename") %>' /></h2>
+        <%--<h2><asp:Label ID="lbl_header" runat="server" Text='<%# Eval("cp_pagename") %>' /></h2>--%>
             <br />
 
         <asp:Label ID="lbl_content" runat="server" Text='<%# Eval("cp_content") %>' />
@@ -36,6 +35,5 @@
         </FooterTemplate>
     </asp:Repeater>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="cph_footer" Runat="Server">
-</asp:Content>
+
 

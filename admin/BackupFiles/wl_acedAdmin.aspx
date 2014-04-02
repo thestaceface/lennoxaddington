@@ -1,11 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="wl_acedAdmin.aspx.cs" Inherits="admin_wl_acedAdmin" MasterPageFile="~/mainMaster.master" Debug="true" %>
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">    
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <h1><asp:Label ID="lbl_header" runat="server" Text="Page Administration" /></h1>
-
+    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/wl_acedAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
     <%-- -----------------Default Panel Begin----------------- --%>
     <asp:Panel ID="pnl_main" runat="server" Visible="true" >
         <h2>Add A New Page</h2>
