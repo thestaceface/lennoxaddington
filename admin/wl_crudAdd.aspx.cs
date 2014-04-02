@@ -30,7 +30,10 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
 
     protected void subInsert(object sender, EventArgs e)
     {
-        _strMessage(objPage.commitInsert(int.Parse(ddl_sectionI.SelectedValue), txt_pagenameI.Text, cke_contentI.Text), "insert");
+        //_strMessage(objPage.commitInsert(int.Parse(ddl_sectionI.SelectedValue), txt_pagenameI.Text, cke_contentI.Text), "insert");
+
+        _strMessage2(objPage.commitAdd(int.Parse(ddl_sectionI.SelectedValue), txt_pagenameI.Text, cke_contentI.Text), "insert");
+
         //XmlDocument doc = new XmlDocument();
         //doc.Load(Server.MapPath("Web.sitemap"));
 
@@ -54,6 +57,23 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
         //target.AppendChild(mynode);
 
         //doc.Save(Server.MapPath("Web.sitemap"));
+
+    }
+
+    private void _strMessage2(int lastid, string str)
+    {
+        if (lastid > 0)
+        {
+            lbl_result.Text = "Page " + str + " was successful";
+            pnl_add.Visible = false;
+            pnl_addMore.Visible = true;
+            lbl_result.Text += lastid;
+        }
+        else
+        {
+            lbl_result.Text = "Sorry, unable to " + str + " page";
+        }
+
     }
 
     private void _strMessage(bool flag, string str)

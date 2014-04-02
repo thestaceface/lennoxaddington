@@ -22,6 +22,22 @@ public class cmspageClass
         }
     }
 
+    public int commitAdd(int _cp_secid, string _cp_pagename, string _cp_content) //method called commitInsert, which will grab a name, desc, price
+    {//using a boolean here.  if it returns 1 or 0 for good bad.  also, since auto increment is on, don't need to add id.
+        lennoxdbDataContext objPage = new lennoxdbDataContext(); //create an instance of linq.
+        using (objPage)
+        {
+            contentpage objNewPage = new contentpage(); //here we're going to reference the dmbl file and the properties within it.
+            // create a new object.  This will be the container for the new inserted item.
+            objNewPage.cp_secid = _cp_secid;
+            objNewPage.cp_pagename = _cp_pagename; //name of obj is going to be the parameter.. 
+            objNewPage.cp_content = _cp_content;
+            objPage.contentpages.InsertOnSubmit(objNewPage);  //insertonsubmit and insertallonsubmit.  insertonsubmit adds just one row.  insertall adds multiple rows.  
+            objPage.SubmitChanges();//this commits the changes to the database.  kinda like databind method.
+            return objNewPage.cp_id; //true because it's a boolean.
+        }
+    }
+
     public bool commitUpdate(int _cp_id, int _cp_secid, string _cp_pagename, string _cp_content)
     {
         lennoxdbDataContext objPage = new lennoxdbDataContext();
