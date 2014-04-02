@@ -73,8 +73,12 @@ body {
     width:1100px;
     background-color:#6aabbf;
     float:left;
-    padding-top:30px;
+    padding:10px 0;
     color:#ececec;
+}
+
+#navigation a:visited {
+    color:white;
 }
 
 #smp_main a {
@@ -176,10 +180,12 @@ body {
     height:300px;
     border:0px solid #ff0000;
     background-color:#202020;
-   
-
-    
 }
+#footer_links a, #footer_job a, #footer_services a, #footer_contact a {
+    text-decoration:none;
+    color:white;
+}
+
 #footer_jobs {
     width:180px;
     height:200px;
@@ -227,7 +233,7 @@ body {
      border:0px solid green;
      text-align:center;
      padding-top:35px;
-     margin-left:70px;
+     margin-left:40px;
      color:#454545;
      float:left;
 }
@@ -236,7 +242,7 @@ body {
      width:100px;
      min-height:20px;     
      float:right;
-     margin-top:30px;
+     margin-top:40px;
      margin-right:40px;
 }
 
