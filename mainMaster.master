@@ -69,7 +69,7 @@
                 <div id="navigation">  
                              
             <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
-            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" DynamicHoverStyle-BackColor="#004059" StaticEnableDefaultPopOutImage="false" DynamicPopOutImageUrl="~/Images/menuarrow.png" DynamicMenuItemStyle-BackColor="#6aabbf" DynamicMenuItemStyle-ForeColor="White" DynamicMenuItemStyle-VerticalPadding="10px" DynamicMenuItemStyle-HorizontalPadding="12px" />
+            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="18px" DynamicHoverStyle-BackColor="#004059" StaticEnableDefaultPopOutImage="false" DynamicPopOutImageUrl="~/Images/menuarrow.png" DynamicMenuItemStyle-BackColor="#6aabbf" DynamicMenuItemStyle-ForeColor="White" DynamicMenuItemStyle-VerticalPadding="10px" DynamicMenuItemStyle-HorizontalPadding="12px" Font-Bold="true" />
         </div>       <%--navigation --%> 
                 </asp:ContentPlaceHolder>
         </div><%--header --%>
