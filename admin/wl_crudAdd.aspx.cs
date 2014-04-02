@@ -34,29 +34,7 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
 
         _strMessage2(objPage.commitAdd(int.Parse(ddl_sectionI.SelectedValue), txt_pagenameI.Text, cke_contentI.Text), "insert");
 
-        //XmlDocument doc = new XmlDocument();
-        //doc.Load(Server.MapPath("Web.sitemap"));
 
-        //XmlNode mynode = doc.CreateNode(XmlNodeType.Element, "siteMapNode", null);
-
-        //XmlAttribute urlAtt = doc.CreateAttribute("url");
-        //XmlAttribute titleAtt = doc.CreateAttribute("title");
-        //XmlAttribute descAtt = doc.CreateAttribute("description");
-        //XmlAttribute nsAtt = doc.CreateAttribute("xmlns");
-
-        //titleAtt.Value = txt_pagenameI.Text;
-        //urlAtt.Value = "contentMain.aspx?id=" + int.Parse(ddl_sectionI.SelectedValue) ;
-        //descAtt.Value = "";
-        //nsAtt.Value = "http://schemas.microsoft.com/AspNet/SiteMap-File-1.0";
-        //mynode.Attributes.Append(urlAtt);
-        //mynode.Attributes.Append(titleAtt);
-        //mynode.Attributes.Append(descAtt);
-        //mynode.Attributes.Append(nsAtt);
-        //XmlNode target = doc.DocumentElement.ChildNodes[0].ChildNodes[0];
-
-        //target.AppendChild(mynode);
-
-        //doc.Save(Server.MapPath("Web.sitemap"));
 
     }
 
@@ -68,6 +46,31 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
             pnl_add.Visible = false;
             pnl_addMore.Visible = true;
             lbl_result.Text += lastid;
+            
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Server.MapPath("../Web.sitemap"));
+
+            XmlNode mynode = doc.CreateNode(XmlNodeType.Element, "siteMapNode", null);
+
+            XmlAttribute urlAtt = doc.CreateAttribute("url");
+            XmlAttribute titleAtt = doc.CreateAttribute("title");
+            XmlAttribute descAtt = doc.CreateAttribute("description");
+            XmlAttribute nsAtt = doc.CreateAttribute("xmlns");
+
+            titleAtt.Value = txt_pagenameI.Text;
+            urlAtt.Value = "contentMain.aspx?id=" + lastid ;
+            descAtt.Value = "";
+            nsAtt.Value = "http://schemas.microsoft.com/AspNet/SiteMap-File-1.0";
+            mynode.Attributes.Append(urlAtt);
+            mynode.Attributes.Append(titleAtt);
+            mynode.Attributes.Append(descAtt);
+            mynode.Attributes.Append(nsAtt);
+            int menuSection = int.Parse(ddl_sectionI.SelectedValue);
+            XmlNode target = doc.DocumentElement.ChildNodes[0].ChildNodes[menuSection];
+
+            target.AppendChild(mynode);
+
+            doc.Save(Server.MapPath("../Web.sitemap"));
         }
         else
         {

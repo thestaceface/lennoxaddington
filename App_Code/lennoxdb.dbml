@@ -455,4 +455,13 @@
       <Column Name="sl_desc" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
+  <Function Name="dbo.WLTestProcedure01" Method="WLTestProcedure01">
+    <Parameter Name="parID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="WLTestProcedure01Result">
+      <Column Name="sp_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sp_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sp_url" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sp_description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

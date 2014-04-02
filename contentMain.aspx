@@ -22,7 +22,7 @@
         <HeaderTemplate>
             <table class="gridtable">
             <tr>
-                <th>list of pages (for my testing)... until we figure out the menu</th>
+                <th>list of pages (for my testing)... until i figure out the menu</th>
             </tr>
         </HeaderTemplate>
         <ItemTemplate>

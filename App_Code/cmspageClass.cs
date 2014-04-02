@@ -93,7 +93,16 @@ public class cmspageClass
         return onePage;
     }
 
+    public List<WLTestProcedure01Result> getSec(int _sp_id)
+    {
+        lennoxdbDataContext objSEC = new lennoxdbDataContext();
+        using (objSEC)
+        {
+            var theSEC = objSEC.WLTestProcedure01(_sp_id).ToList();
+            return theSEC;
+        }
 
+    }
    
 
 }

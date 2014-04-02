@@ -390,6 +390,13 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 			return this.GetTable<SlideImage>();
 		}
 	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.WLTestProcedure01")]
+	public ISingleResult<WLTestProcedure01Result> WLTestProcedure01([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> parID)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), parID);
+		return ((ISingleResult<WLTestProcedure01Result>)(result.ReturnValue));
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.empreports")]
@@ -10114,6 +10121,86 @@ public partial class SlideImage : INotifyPropertyChanging, INotifyPropertyChange
 		if ((this.PropertyChanged != null))
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+public partial class WLTestProcedure01Result
+{
+	
+	private int _sp_id;
+	
+	private string _sp_name;
+	
+	private string _sp_url;
+	
+	private string _sp_description;
+	
+	public WLTestProcedure01Result()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_id", DbType="Int NOT NULL")]
+	public int sp_id
+	{
+		get
+		{
+			return this._sp_id;
+		}
+		set
+		{
+			if ((this._sp_id != value))
+			{
+				this._sp_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_name", DbType="VarChar(50)")]
+	public string sp_name
+	{
+		get
+		{
+			return this._sp_name;
+		}
+		set
+		{
+			if ((this._sp_name != value))
+			{
+				this._sp_name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_url", DbType="VarChar(100)")]
+	public string sp_url
+	{
+		get
+		{
+			return this._sp_url;
+		}
+		set
+		{
+			if ((this._sp_url != value))
+			{
+				this._sp_url = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_description", DbType="VarChar(MAX)")]
+	public string sp_description
+	{
+		get
+		{
+			return this._sp_description;
+		}
+		set
+		{
+			if ((this._sp_description != value))
+			{
+				this._sp_description = value;
+			}
 		}
 	}
 }
