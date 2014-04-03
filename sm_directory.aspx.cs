@@ -11,9 +11,11 @@ public partial class sm_directory : System.Web.UI.Page
     {
         sm_directoryClass objDir = new sm_directoryClass();
 
+        //getting all contact records and binding to DB
         acc.DataSource = objDir.getOffices();
         acc.DataBind();
 
+        //if user is logged in as administrator, edit button is visible
         if (!User.IsInRole("administrator"))
         {
             lnk_admin.Visible = false;

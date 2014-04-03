@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+//Code by Stacey Masson
 
 public class sm_directoryClass
 {
+    //gets all office records
     public IQueryable<office> getOffices()
     {
         lennoxdbDataContext objOff = new lennoxdbDataContext();
@@ -13,6 +15,7 @@ public class sm_directoryClass
         return allOffices;
     }
 
+    //gets offices based on an ID parameter
     public IQueryable<office> getOfficesByID(int _id)
     {
         lennoxdbDataContext objOff = new lennoxdbDataContext();
@@ -20,6 +23,7 @@ public class sm_directoryClass
         return allOffices;
     }
 
+    //inserts values to DB
     public bool commitInsert(string _of_title, string _of_contacttype, string _of_contact, string _of_tel, string _of_fax, string _of_email, string _of_location)
     {
         lennoxdbDataContext objOff = new lennoxdbDataContext();
@@ -39,6 +43,7 @@ public class sm_directoryClass
         }
     }
 
+    //updates values in DB where IDs match
     public bool commitUpdate(int _of_id, string _of_title, string _of_contacttype, string _of_contact, string _of_tel, string _of_fax, string _of_email, string _of_location)
     {
         lennoxdbDataContext objOff = new lennoxdbDataContext();
@@ -57,6 +62,7 @@ public class sm_directoryClass
         }
     }
 
+    //deletes record from DB where IDs match
     public bool commitDelete(int _of_id)
     {
         lennoxdbDataContext objOff = new lennoxdbDataContext();

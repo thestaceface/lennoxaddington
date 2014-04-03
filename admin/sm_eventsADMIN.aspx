@@ -1,19 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_eventsADMIN.aspx.cs" Inherits="Default2" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_eventsADMIN.aspx.cs" Inherits="sm_eventsADMIN" %>
+<%-- Page by Stacey Masson --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+
     <asp:Label ID="lbl_name" runat="server" Text="Edit Page: Events Calendar" CssClass="admintitle" />
+    <%-- initializing AJAX toolkit manager for calendar popout --%>
     <ajax:ToolkitScriptManager ID="tsm_main" runat="server" />
-    <br />
-    <br />
+    <br /><br />
+
+    <%-- page instructions --%>
     <asp:Label ID="lbl_page" runat="server" Text="Choose an event from the menu on the right to update an existing record, or " />
     <asp:LinkButton ID="lnk_select" runat="server" Text="create a new event." OnClick="subCreate" />
-    <br />
-    <br />
-    <hr />
-    <br />
+    <br /><br /><hr /><br />
+
+    <%-- message of success failure to commit to DB goes here --%>
     <asp:Label ID="msg" runat="server" />
     <br />
+
+    <%-- panel contains form for new record --%>
     <asp:Panel ID="pnl_new" runat="server">
         <asp:Label ID="lbl_new" runat="server" Text="Add a New Event" Font-Underline="true" />
         <br />
@@ -52,6 +56,7 @@
                 </td>
             </tr>
             <tr>
+                <%-- file upload for image --%>
                 <td>
                     <asp:Label ID="lbl_img" runat="server" text="Image:" />
                 </td>
@@ -69,17 +74,17 @@
                 <td>&nbsp;</td>
                 <td>    
                     <asp:Label ID="lbl_imgrules" runat="server" Text="(Max. upload: 100kb. Only .jpg allowed.)" />
-                    <%-- validation needed for img upload --%>
                 </td>
             </tr>
         </table>
         <br />
         <asp:Button ID="btn_insert" runat="server" Text="Create" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" CssClass="adminbuttons" />
         <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnCommand="subAdmin" CommandName="Cancel" CausesValidation="false" ValidationGroup="insert" CssClass="adminbuttons" />
+        <%-- validation summary for insert group --%>
         <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="True" HeaderText="Please Note:" ValidationGroup="insert" />
     </asp:Panel>
 
-
+    <%-- panel contains form for updating record --%>
     <asp:Panel ID="pnl_edit" runat="server">
         <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Event" Font-Underline="true" />
         <br />
@@ -119,6 +124,7 @@
                     <asp:RequiredFieldValidator ID="rfv_descE" runat="server" ControlToValidate="txt_descE" ErrorMessage="Description is required." Display="None" ValidationGroup="edit" />
                 </td>
             <tr>
+                <%-- file upload for image --%>
                 <td>
                     <asp:Label ID="lbl_imgE" runat="server" text="Image:" />
                 </td>
@@ -136,7 +142,6 @@
                 <td>&nbsp;</td>
                 <td>    
                     <asp:Label ID="lbl_imgrulesE" runat="server" Text="(Max. upload: 100kb. Only .jpg allowed.)" />
-                    <%-- validation needed for img upload --%>
                 </td>
             </tr>
             <tr>
@@ -145,25 +150,26 @@
                     <asp:Button ID="btn_update" runat="server" Text="Update Event" CommandName="Update" ValidationGroup="edit" CssClass="adminbuttons" />
                     <asp:Button ID="btn_delete" runat="server" Text="Delete Event" CommandName="Delete" ValidationGroup="edit" CssClass="adminbuttons" OnClientClick="return confirm('Delete?');" />
                     <asp:Button ID="btn_cancelE" runat="server" Text="Cancel" CommandName="Cancel" ValidationGroup="edit" CausesValidation="false" CssClass="adminbuttons" />
+                    <%-- validation summary for edit group --%>
                     <asp:ValidationSummary ID="vds_edit" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="edit" />
                 </td>
             </tr>
-            <tr><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td></tr>
                 </ItemTemplate>
             </asp:Repeater>
         </table>
-            <br />
-            <br />
+            <br /><br />
     </asp:Panel>
 </asp:Content>
 
 <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="cph_aside">
+    <%-- user makes selection from sidebar to edit record --%>
     <asp:Label ID="lbl_select" runat="server" Text="Events" CssClass="sidebarlbl" />
     <br />
     <br />
     <asp:Repeater ID="rpt_select" runat="server">
         <ItemTemplate>
+            <%-- clicking record opens edit form in main content section populated with record's data --%>
+            <asp:Label ID="lbl_date" runat="server" Text='<%#Eval ("ev_date", "{0:d}") %>' CssClass="sidebarlinks" /><br />
             <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("ev_title") %>' CommandName="Update" CommandArgument='<%#Eval ("ev_id") %>' OnCommand="subAdmin" CssClass="sidebarlinks" />
             <br />
             <br />

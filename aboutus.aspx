@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="aboutus.aspx.cs" Inherits="Default2" %>
+<%-- Page by Stacey Masson --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    <%-- this page describes the project --%>
     <asp:Label ID="lbl_title" runat="server" Text="About the Project" CssClass="admintitle" />
     <br />
     <br />

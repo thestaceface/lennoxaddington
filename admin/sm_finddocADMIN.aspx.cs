@@ -10,13 +10,14 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
 {
     sm_finddocClass Doc = new sm_finddocClass();
     
+    //opens form to create new record
     protected void subCreate(object sender, EventArgs e)
     {
-        pnl_new.Visible = true;
-        pnl_edit.Visible = false;
+        _panelControl(pnl_new);
         msg.Text = string.Empty;
     }
 
+    //resets all fields on page (re)load
     private void _subRebind()
     {
         pnl_new.Visible = false;
@@ -27,6 +28,7 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
         rpt_select.DataBind();
     }
 
+    //calls reset
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -35,34 +37,47 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
         }
     }
 
+    //handles file upload
+    //tutorial: http://asp.net-tutorials.com/controls/file-upload-control/
     protected void subUpload(object sender, EventArgs e)
     {
+        //checks if file has been attached
         if (flu_doc.HasFile)
         {
             try
-            {
+            {   
+                //checks for allowable file type: jpg
                 if (flu_doc.PostedFile.ContentType == "image/jpeg")
                 {
+                    //checks that file is less than 100kb
                     if (flu_doc.PostedFile.ContentLength < 102400)
                     {
+                        //tells control where to put file, places filepath into string to be sent to DB
                         string filename = Path.GetFileName(flu_doc.FileName);
                         flu_doc.SaveAs(Server.MapPath("~/Images/") + filename);
                         lbl_upstatus.Text = "Upload complete";
-                        lbl_filename.Text = "Images/" + filename;
+                        lbl_filename.Text += "Images/" + filename;
                     }
                     else
                     {
+                        //thrown when file too large
                         lbl_upstatus.Text = "File must be less than 100kb";
                     }
+                }
+                else 
+                {
+                    lbl_upstatus.Text = "File must be .jpg format";
                 }
             }
             catch (Exception ex)
             {
+                //thrown when any other error occurs
                 lbl_upstatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
             }
         }
     }
 
+    //returns a success//failure message when committing to DB
     private void _strMessage(bool flag, string str)
     {
         if (flag) {
@@ -73,6 +88,7 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
         }
     }
 
+    //handles button commands - if insert executes the insert and calls the _strMessage function, if update calls the _showUpdate function, if cancel, calls reset
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         switch (e.CommandName)
@@ -90,6 +106,7 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
         }
     }
 
+    //shows update form panel
     private void _showUpdate(int id)
     {
         _panelControl(pnl_edit);
@@ -99,6 +116,7 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
         rpt_edit.DataBind();
     }
 
+    //controls panel visibility
     private void _panelControl(Panel pnl)
     {
         pnl_new.Visible = false;
@@ -106,6 +124,7 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
         pnl.Visible = true;
     }
 
+    //called in update form - case update commits update and calls _strMessage function, delete deletes record and calls _strMessage. cancel calls reset
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)

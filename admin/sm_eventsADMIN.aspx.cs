@@ -6,17 +6,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 
-public partial class Default2 : System.Web.UI.Page
+public partial class sm_eventsADMIN : System.Web.UI.Page
 {
     sm_eventClass Ev = new sm_eventClass();
 
+    //opens panel for creating a new record, resets success/failure message
     protected void subCreate(object sender, EventArgs e)
     {
-        pnl_new.Visible = true;
-        pnl_edit.Visible = false;
+        _panelControl(pnl_new);
         msg.Text = string.Empty;
     }
 
+    //resets all fields on page (re)load
     private void _subRebind()
     {
         pnl_new.Visible = false;
@@ -28,6 +29,7 @@ public partial class Default2 : System.Web.UI.Page
         rpt_select.DataBind();
     }
 
+    //calls page reset
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -36,16 +38,22 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    //handles file upload
+    //tutorial: http://asp.net-tutorials.com/controls/file-upload-control/
     protected void subUpload(object sender, EventArgs e)
     {
+        //checks to see if control has had a file attached
         if (flu_event.HasFile)
         {
             try
             {
+                //checks if file is allowable type: jpg
                 if (flu_event.PostedFile.ContentType == "image/jpeg")
                 {
+                    //checks if file is less than 100kb
                     if (flu_event.PostedFile.ContentLength < 102400)
                     {
+                        //instructs control where to put file, places filepath into string to be sent to DB
                         string filename = Path.GetFileName(flu_event.FileName);
                         flu_event.SaveAs(Server.MapPath("~/Images/") + filename);
                         lbl_upstatus.Text = "Upload complete";
@@ -53,17 +61,24 @@ public partial class Default2 : System.Web.UI.Page
                     }
                     else
                     {
+                        //thrown if image too large
                         lbl_upstatus.Text = "File must be less than 100kb";
                     }
+                }
+                else
+                {
+                    lbl_upstatus.Text = "File must be .jpg format";
                 }
             }
             catch (Exception ex)
             {
+                //thrown for any other error
                 lbl_upstatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
             }
         }
     }
 
+    //notifies of success or failure to commit to DB
     private void _strMessage(bool flag, string str)
     {
         if (flag)
@@ -76,6 +91,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    //handles button commands - if insert executes the insert and calls the _strMessage function, if update calls the _showUpdate function, if cancel, calls reset
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         switch (e.CommandName)
@@ -93,6 +109,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    //called by subAdmin - makes edit panel and form visible
     private void _showUpdate(int id)
     {
         _panelControl(pnl_edit);
@@ -102,6 +119,7 @@ public partial class Default2 : System.Web.UI.Page
         rpt_edit.DataBind();
     }
 
+    //controls panel visibility
     private void _panelControl(Panel pnl)
     {
         pnl_new.Visible = false;
@@ -109,6 +127,7 @@ public partial class Default2 : System.Web.UI.Page
         pnl.Visible = true;
     }
 
+    //called in update form - case update commits update and calls _strMessage function, delete deletes record and calls _strMessage. cancel calls reset
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)

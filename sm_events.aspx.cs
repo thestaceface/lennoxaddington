@@ -11,10 +11,12 @@ public partial class sm_events : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //gets events that occur on the current day or after, and binds to DB. if event date has passed, event is not shown
         sm_eventClass objEv = new sm_eventClass();
         acc.DataSource = objEv.getEventsByDate(DateTime.Now);
         acc.DataBind();
         
+        //if user is logged in as administrator, edit button is visible
         if (!User.IsInRole("administrator"))
         {
             lnk_admin.Visible = false;
