@@ -117,7 +117,7 @@ public partial class Default2 : System.Web.UI.Page
                 TextBox txtTitle = (TextBox)e.Item.FindControl("txt_titleE");
                 TextBox txtDate = (TextBox)e.Item.FindControl("txt_dateE");
                 TextBox txtDesc = (TextBox)e.Item.FindControl("txt_descE");
-                Label lblFile = (Label)e.Item.FindControl("lbl_file");
+                Label lblFile = (Label)e.Item.FindControl("lbl_filename");
                 HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
                 int evID = int.Parse(hdfID.Value.ToString());
                 _strMessage(Ev.commitUpdate(evID, txtTitle.Text, DateTime.Parse(txtDate.Text.ToString()), txtDesc.Text, lblFile.Text), "Update");

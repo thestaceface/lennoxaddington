@@ -2,6 +2,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    <asp:Label ID="lbl_title" runat="server" Text="Edit Page - Find a Doctor" CssClass="admintitle" />
     <br />
     <br />
     <asp:Label ID="lbl_page" runat="server" Text="Select a doctor's name from the menu on the right to edit an existing record, or " />

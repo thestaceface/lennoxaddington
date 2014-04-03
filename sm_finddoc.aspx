@@ -26,9 +26,9 @@
             <div class="info">
                 <%#Eval ("doc_bio") %>
                 <br />
-                <asp:HyperLink ID="hpl_contact" runat="server" NavigateUrl="#" Text="Contact" />
+                <asp:HyperLink ID="hpl_contact" runat="server" NavigateUrl="~/sm_directory.aspx" Text="Contact" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:HyperLink ID="hpl_appt" runat="server" NavigateUrl="#" Text="Book an Appointment" />
+                <asp:HyperLink ID="hpl_appt" runat="server" NavigateUrl="~/ps_appointment.aspx" Text="Book an Appointment" />
             </div>
 
         </ContentTemplate>

@@ -24,8 +24,6 @@ body {
     font-family: Arial, Tahoma, 'Trebuchet MS';
     width:1100px;
     background-color:#8ed1e4;
-    
-   
 }
 #logo {
     height:80px;
@@ -89,20 +87,21 @@ body {
     min-height:800px;
     width:1100px;
     background:#ececec;
-     border :0px solid red;
-     float:left;
+    border :0px solid red;
+    float:left;
 }
 
 #content_main {
-   width:730px;
+    width:730px;
     /*border:1px solid #000;*/
     min-height:740px;
     float:left;
     margin-top:10px;
     margin-left:30px;
+    color:#2b2b2b;
 }
 
-#smp_main {
+#smp_main, .admintitle {
     color:#6aabbf;
     font-size:x-large;
 }

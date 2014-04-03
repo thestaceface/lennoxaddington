@@ -2,6 +2,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    <asp:Label ID="lbl_name" runat="server" Text="Edit Page: Events Calendar" CssClass="admintitle" />
     <ajax:ToolkitScriptManager ID="tsm_main" runat="server" />
     <br />
     <br />

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_directoryADMIN.aspx.cs" Inherits="Default2" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    <asp:Label ID="lbl_head" runat="server" Text="Edit Page: Directory" CssClass="admintitle" />
     <br />
     <br />
     <asp:Label ID="lbl_page" runat="server" Text="Select a contact record from the menu on the right to edit an existing record, or " />

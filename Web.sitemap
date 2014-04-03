@@ -7,6 +7,7 @@
       <siteMapNode url="contentMain.aspx?id=32" title="test this crap" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
     </siteMapNode>
     <siteMapNode url="" title="About Us" description="About the hospital page">
+      <siteMapNode url="~/aboutus.aspx" description="About the Project" title="About the Project" />
       <siteMapNode url="" title="Board of Directors" description="Board of Directors">
         <siteMapNode url="" title="Board Meetings" description="Board Meetings" />
       </siteMapNode>
