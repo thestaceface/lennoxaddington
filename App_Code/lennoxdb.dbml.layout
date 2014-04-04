@@ -351,7 +351,7 @@
         <classShapeMoniker Id="7841fc1d-228b-4468-b077-96831630714e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 10.7460034179687); (3.91666666666667 : 10.7460034179687 : JumpStart); (4.08333333333333 : 10.7460034179687 : JumpEnd); (5.375 : 10.7460034179687)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 10.7460034179687); (5.375 : 10.7460034179687)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/patient/patient_appointment" />
       <nodes>
         <classShapeMoniker Id="d665e37c-0b96-485a-801c-6c3119efef0c" />

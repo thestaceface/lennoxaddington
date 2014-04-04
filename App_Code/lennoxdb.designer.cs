@@ -397,6 +397,27 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), parID);
 		return ((ISingleResult<WLTestProcedure01Result>)(result.ReturnValue));
 	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.WLTestProcedure02")]
+	public ISingleResult<WLTestProcedure02Result> WLTestProcedure02([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> parID)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), parID);
+		return ((ISingleResult<WLTestProcedure02Result>)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.WLTestProcedure03")]
+	public ISingleResult<WLTestProcedure03Result> WLTestProcedure03([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> parID)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), parID);
+		return ((ISingleResult<WLTestProcedure03Result>)(result.ReturnValue));
+	}
+	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.WLTestProcedure04")]
+	public ISingleResult<WLTestProcedure04Result> WLTestProcedure04()
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+		return ((ISingleResult<WLTestProcedure04Result>)(result.ReturnValue));
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.empreports")]
@@ -10138,6 +10159,552 @@ public partial class WLTestProcedure01Result
 	
 	public WLTestProcedure01Result()
 	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_id", DbType="Int NOT NULL")]
+	public int sp_id
+	{
+		get
+		{
+			return this._sp_id;
+		}
+		set
+		{
+			if ((this._sp_id != value))
+			{
+				this._sp_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_name", DbType="VarChar(50)")]
+	public string sp_name
+	{
+		get
+		{
+			return this._sp_name;
+		}
+		set
+		{
+			if ((this._sp_name != value))
+			{
+				this._sp_name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_url", DbType="VarChar(100)")]
+	public string sp_url
+	{
+		get
+		{
+			return this._sp_url;
+		}
+		set
+		{
+			if ((this._sp_url != value))
+			{
+				this._sp_url = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_description", DbType="VarChar(MAX)")]
+	public string sp_description
+	{
+		get
+		{
+			return this._sp_description;
+		}
+		set
+		{
+			if ((this._sp_description != value))
+			{
+				this._sp_description = value;
+			}
+		}
+	}
+}
+
+public partial class WLTestProcedure02Result
+{
+	
+	private System.Nullable<int> _cp_secid;
+	
+	public WLTestProcedure02Result()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_secid", DbType="Int")]
+	public System.Nullable<int> cp_secid
+	{
+		get
+		{
+			return this._cp_secid;
+		}
+		set
+		{
+			if ((this._cp_secid != value))
+			{
+				this._cp_secid = value;
+			}
+		}
+	}
+}
+
+public partial class WLTestProcedure03Result
+{
+	
+	private int _cp_id;
+	
+	private string _cp_pagename;
+	
+	private string _cp_url;
+	
+	private string _cp_title;
+	
+	private string _cp_content;
+	
+	private System.Nullable<int> _cp_cta1;
+	
+	private System.Nullable<int> _cp_cta2;
+	
+	private System.Nullable<int> _cp_cta3;
+	
+	private System.Nullable<System.DateTime> _cp_lastupdate;
+	
+	private System.Nullable<int> _cp_secid;
+	
+	private int _sp_id;
+	
+	private string _sp_name;
+	
+	private string _sp_url;
+	
+	private string _sp_description;
+	
+	public WLTestProcedure03Result()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_id", DbType="Int NOT NULL")]
+	public int cp_id
+	{
+		get
+		{
+			return this._cp_id;
+		}
+		set
+		{
+			if ((this._cp_id != value))
+			{
+				this._cp_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_pagename", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string cp_pagename
+	{
+		get
+		{
+			return this._cp_pagename;
+		}
+		set
+		{
+			if ((this._cp_pagename != value))
+			{
+				this._cp_pagename = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_url", DbType="VarChar(100)")]
+	public string cp_url
+	{
+		get
+		{
+			return this._cp_url;
+		}
+		set
+		{
+			if ((this._cp_url != value))
+			{
+				this._cp_url = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100)")]
+	public string cp_title
+	{
+		get
+		{
+			return this._cp_title;
+		}
+		set
+		{
+			if ((this._cp_title != value))
+			{
+				this._cp_title = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_content", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string cp_content
+	{
+		get
+		{
+			return this._cp_content;
+		}
+		set
+		{
+			if ((this._cp_content != value))
+			{
+				this._cp_content = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_cta1", DbType="Int")]
+	public System.Nullable<int> cp_cta1
+	{
+		get
+		{
+			return this._cp_cta1;
+		}
+		set
+		{
+			if ((this._cp_cta1 != value))
+			{
+				this._cp_cta1 = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_cta2", DbType="Int")]
+	public System.Nullable<int> cp_cta2
+	{
+		get
+		{
+			return this._cp_cta2;
+		}
+		set
+		{
+			if ((this._cp_cta2 != value))
+			{
+				this._cp_cta2 = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_cta3", DbType="Int")]
+	public System.Nullable<int> cp_cta3
+	{
+		get
+		{
+			return this._cp_cta3;
+		}
+		set
+		{
+			if ((this._cp_cta3 != value))
+			{
+				this._cp_cta3 = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_lastupdate", DbType="Date")]
+	public System.Nullable<System.DateTime> cp_lastupdate
+	{
+		get
+		{
+			return this._cp_lastupdate;
+		}
+		set
+		{
+			if ((this._cp_lastupdate != value))
+			{
+				this._cp_lastupdate = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_secid", DbType="Int")]
+	public System.Nullable<int> cp_secid
+	{
+		get
+		{
+			return this._cp_secid;
+		}
+		set
+		{
+			if ((this._cp_secid != value))
+			{
+				this._cp_secid = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_id", DbType="Int NOT NULL")]
+	public int sp_id
+	{
+		get
+		{
+			return this._sp_id;
+		}
+		set
+		{
+			if ((this._sp_id != value))
+			{
+				this._sp_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_name", DbType="VarChar(50)")]
+	public string sp_name
+	{
+		get
+		{
+			return this._sp_name;
+		}
+		set
+		{
+			if ((this._sp_name != value))
+			{
+				this._sp_name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_url", DbType="VarChar(100)")]
+	public string sp_url
+	{
+		get
+		{
+			return this._sp_url;
+		}
+		set
+		{
+			if ((this._sp_url != value))
+			{
+				this._sp_url = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_description", DbType="VarChar(MAX)")]
+	public string sp_description
+	{
+		get
+		{
+			return this._sp_description;
+		}
+		set
+		{
+			if ((this._sp_description != value))
+			{
+				this._sp_description = value;
+			}
+		}
+	}
+}
+
+public partial class WLTestProcedure04Result
+{
+	
+	private int _cp_id;
+	
+	private string _cp_pagename;
+	
+	private string _cp_url;
+	
+	private string _cp_title;
+	
+	private string _cp_content;
+	
+	private System.Nullable<int> _cp_cta1;
+	
+	private System.Nullable<int> _cp_cta2;
+	
+	private System.Nullable<int> _cp_cta3;
+	
+	private System.Nullable<System.DateTime> _cp_lastupdate;
+	
+	private System.Nullable<int> _cp_secid;
+	
+	private int _sp_id;
+	
+	private string _sp_name;
+	
+	private string _sp_url;
+	
+	private string _sp_description;
+	
+	public WLTestProcedure04Result()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_id", DbType="Int NOT NULL")]
+	public int cp_id
+	{
+		get
+		{
+			return this._cp_id;
+		}
+		set
+		{
+			if ((this._cp_id != value))
+			{
+				this._cp_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_pagename", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string cp_pagename
+	{
+		get
+		{
+			return this._cp_pagename;
+		}
+		set
+		{
+			if ((this._cp_pagename != value))
+			{
+				this._cp_pagename = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_url", DbType="VarChar(100)")]
+	public string cp_url
+	{
+		get
+		{
+			return this._cp_url;
+		}
+		set
+		{
+			if ((this._cp_url != value))
+			{
+				this._cp_url = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_title", DbType="VarChar(100)")]
+	public string cp_title
+	{
+		get
+		{
+			return this._cp_title;
+		}
+		set
+		{
+			if ((this._cp_title != value))
+			{
+				this._cp_title = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_content", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string cp_content
+	{
+		get
+		{
+			return this._cp_content;
+		}
+		set
+		{
+			if ((this._cp_content != value))
+			{
+				this._cp_content = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_cta1", DbType="Int")]
+	public System.Nullable<int> cp_cta1
+	{
+		get
+		{
+			return this._cp_cta1;
+		}
+		set
+		{
+			if ((this._cp_cta1 != value))
+			{
+				this._cp_cta1 = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_cta2", DbType="Int")]
+	public System.Nullable<int> cp_cta2
+	{
+		get
+		{
+			return this._cp_cta2;
+		}
+		set
+		{
+			if ((this._cp_cta2 != value))
+			{
+				this._cp_cta2 = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_cta3", DbType="Int")]
+	public System.Nullable<int> cp_cta3
+	{
+		get
+		{
+			return this._cp_cta3;
+		}
+		set
+		{
+			if ((this._cp_cta3 != value))
+			{
+				this._cp_cta3 = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_lastupdate", DbType="Date")]
+	public System.Nullable<System.DateTime> cp_lastupdate
+	{
+		get
+		{
+			return this._cp_lastupdate;
+		}
+		set
+		{
+			if ((this._cp_lastupdate != value))
+			{
+				this._cp_lastupdate = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cp_secid", DbType="Int")]
+	public System.Nullable<int> cp_secid
+	{
+		get
+		{
+			return this._cp_secid;
+		}
+		set
+		{
+			if ((this._cp_secid != value))
+			{
+				this._cp_secid = value;
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sp_id", DbType="Int NOT NULL")]

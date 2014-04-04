@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="aboutus.aspx.cs" Inherits="Default2" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-    <asp:Label ID="lbl_title" runat="server" Text="About the Project" CssClass="admintitle" />
+    <asp:Label ID="lbl_title" runat="server" Text=" (About the Project)" CssClass="admintitle" />
     <br />
     <br />
 <p>This is a student project for Humber College’s School of Media Studies and Information Technology’s 2014 Web Development program.</p><br />

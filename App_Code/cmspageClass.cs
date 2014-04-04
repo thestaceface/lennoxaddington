@@ -38,6 +38,7 @@ public class cmspageClass
         }
     }
 
+
     public bool commitUpdate(int _cp_id, int _cp_secid, string _cp_pagename, string _cp_content)
     {
         lennoxdbDataContext objPage = new lennoxdbDataContext();
@@ -103,6 +104,24 @@ public class cmspageClass
         }
 
     }
-   
 
+    public List<WLTestProcedure03Result> getCPSPmerge(int _cp_id)
+    {
+        lennoxdbDataContext objPage = new lennoxdbDataContext();
+        using (objPage)
+        {
+            var oneRow = objPage.WLTestProcedure03(_cp_id).ToList();
+            return oneRow;
+        }
+        
+    }
+    public List<WLTestProcedure04Result> getAllMerge()
+    {
+        lennoxdbDataContext objPage = new lennoxdbDataContext();
+        using (objPage)
+        {
+            var allRows = objPage.WLTestProcedure04().ToList();
+            return allRows;
+        }
+    }
 }

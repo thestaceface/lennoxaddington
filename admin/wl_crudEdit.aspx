@@ -22,16 +22,18 @@
         </HeaderTemplate>
         <ItemTemplate>
 
-                <tr runat="server" id="row">
-                    <td>
-                        <asp:HiddenField ID="hdf_id" runat="server" Value='<%#Eval("cp_id") %>' />
-                        <asp:Linkbutton ID="lkb_pagename" runat="server" Text='<%#Eval("cp_pagename") %>' CommandName="Select" OnCommand="subSelect" CommandArgument='<%#Eval("cp_id") %>'  />
-                    </td>
+            <tr runat="server" id="row">
+                <td>
+                    <asp:HiddenField ID="hdf_id" runat="server" Value='<%#Eval("cp_id") %>' />
+                    <asp:Linkbutton ID="lkb_pagename" runat="server" Text='<%#Eval("cp_pagename") %>' CommandName="Select" OnCommand="subSelect" CommandArgument='<%#Eval("cp_id") %>'  />
+                </td>
 
-                    <td>
-                        <asp:Label ID="lbl_section" runat="server" Text='<%#Eval("cp_secid") %>' />
-                    </td>
-                </tr>
+                <td>
+                    <%--<asp:Label ID="lbl_section" runat="server" Text='<%#Eval("cp_secid") %>' />--%>
+                    <asp:HiddenField ID="hdf_section" runat="server" Value='<%#Eval("cp_secid") %>' />
+                    <asp:Label ID="lbl_section_name" runat="server" Text='<%#Eval("sp_name") %>' />
+                </td>
+            </tr>
             
         </ItemTemplate>
         <FooterTemplate>
@@ -59,6 +61,7 @@
             <br />
             
             <asp:Label ID="lbl_sectionE" runat="server" Text="Select the section this page will exist under" /><br />
+            <asp:HiddenField ID="hdf_secIDE" runat="server" Value='<%#Eval("cp_secid") %>' />
             <asp:DropDownList ID="ddl_sectionE" runat="server" /><br /><br />
             
             <asp:Label ID="lbl_contentE" runat="server" Text="Enter Page Content" />

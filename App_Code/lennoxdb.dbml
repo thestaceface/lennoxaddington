@@ -464,4 +464,47 @@
       <Column Name="sp_description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.WLTestProcedure02" Method="WLTestProcedure02">
+    <Parameter Name="parID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="WLTestProcedure02Result">
+      <Column Name="cp_secid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.WLTestProcedure03" Method="WLTestProcedure03">
+    <Parameter Name="parID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="WLTestProcedure03Result">
+      <Column Name="cp_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cp_pagename" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cp_url" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cp_title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cp_content" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="cp_cta1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_cta2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_cta3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_lastupdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="cp_secid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sp_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sp_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sp_url" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sp_description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.WLTestProcedure04" Method="WLTestProcedure04">
+    <ElementType Name="WLTestProcedure04Result">
+      <Column Name="cp_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cp_pagename" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cp_url" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cp_title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="cp_content" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="cp_cta1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_cta2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_cta3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cp_lastupdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="cp_secid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sp_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sp_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sp_url" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="sp_description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
