@@ -27,7 +27,7 @@
       <siteMapNode url="" title="Discharging From the Hospital" description="Discharging From the Hospital" />
       <siteMapNode url="" title="Patient Privacy Policy" description="Patient Privacy Policy" />
       <siteMapNode url="ps_thanksform.aspx" title="Thank a Staff Member" description="Thank a Staff Member" />
-      <siteMapNode url="e-card.aspx" title="Send an E-Card to a Patient" description="Send and E-Card to a Patient" />
+      <siteMapNode url="e_card.aspx" title="Send an E-Card to a Patient" description="Send and E-Card to a Patient" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=19" title="Programs and Services" description="Programs and services page" >
       <siteMapNode url="~/contentMain.aspx?id=11" title="Our Hospital Foundation" description="Our Hospital Foundation" />

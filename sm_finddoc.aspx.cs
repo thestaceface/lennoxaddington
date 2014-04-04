@@ -11,9 +11,11 @@ public partial class sm_finddoc : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        //gets all doctor records and binds to DB
         acc.DataSource = objDoc.getDoctors();
         acc.DataBind();
 
+        //if user is logged in as administrator, edit button is visible
         if (!User.IsInRole("administrator"))
         {
             lnk_admin.Visible = false;

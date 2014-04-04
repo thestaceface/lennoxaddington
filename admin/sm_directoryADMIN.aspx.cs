@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Default2 : System.Web.UI.Page
+public partial class sm_directoryADMIN : System.Web.UI.Page
 {
     sm_directoryClass Dir = new sm_directoryClass();
 
+    //makes visible panel for creating new record
     protected void subCreate(object sender, EventArgs e)
     {
         pnl_new.Visible = true;
@@ -16,12 +17,7 @@ public partial class Default2 : System.Web.UI.Page
         msg.Text = string.Empty;
     }
 
-    protected void subEdit(object sender, EventArgs e)
-    {
-        pnl_edit.Visible = true;
-        pnl_new.Visible = false;
-    }
-
+    //resets fields on page reload
     private void _subRebind()
     {
         pnl_new.Visible = false;
@@ -37,6 +33,7 @@ public partial class Default2 : System.Web.UI.Page
         rpt_select.DataBind();
     }
 
+    //calls page reset
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -45,6 +42,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    //returns a message notifying user of success or failure committing changes to DB
     private void _strMessage(bool flag, string str)
     {
         if (flag)
@@ -57,6 +55,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    //handles button commands - if insert executes the insert and calls the _strMessage function, if update calls the _showUpdate function, if cancel, calls reset
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         switch (e.CommandName)
@@ -74,6 +73,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    //called by subAdmin - makes edit panel and form visible
     private void _showUpdate(int id)
     {
         _panelControl(pnl_edit);
@@ -83,13 +83,14 @@ public partial class Default2 : System.Web.UI.Page
         rpt_edit.DataBind();
     }
 
+    //controls panel visibility
     private void _panelControl(Panel pnl)
     {
-        pnl_edit.Visible = false;
-        pnl_new.Visible = false;
+        _panelControl(pnl_new);
         pnl.Visible = true;
     }
 
+    //called in update form - case update commits update and calls _strMessage function, delete deletes record and calls _strMessage. cancel calls reset
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)

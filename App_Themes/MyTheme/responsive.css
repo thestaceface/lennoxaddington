@@ -1,125 +1,4 @@
-﻿/*TABLET LANDSCAPE*/
-/*@media screen and (max-width: 1024px) {
-    #pagewrap {
-        width:98%;
-    }
-    
-    #content {
-		width: 100%;
-        min-height:100%;
-	}
-
-    #content, #header, #navigation {
-        width:100%;
-    }
-
-    #content_main {
-        margin-left: 10px;
-        margin-bottom:25px;
-        max-width: 70%;
-        min-height: 0px;
-        border: 0px;
-        float:left;
-    }
-
-    #slider, #box {
-        display:none;
-    }
-
-    #navigation {
-        max-height:35%;
-        padding:0px;
-    }
-
-    #aside {
-        float:right;
-        max-width:225px;
-        min-height:700px;
-        margin-right:25px;
-    }
-     
-    .clear {
-        clear:both;
-    }
-
-    #cph_head_mnu_1, #aside1 {
-        display:none;
-    }
-
-    #aside2, #aside3, #aside4 {
-        float:right;
-        max-width:225px;
-    }
-
-    #mobilemenu {
-        display:block;
-        float:right;
-        margin-right:20px;
-        margin-top:10px;
-    }
-
-    #img_mobilemenu {
-        display:inline-block;
-        float:right;
-    }
-
-    #mobilemenu ul, #mobilemenu:active ul {
-        display:none;
-        position:absolute;
-        padding:20px;
-        background-color:#6aabbf;
-        border:3px solid #fff;
-        right:0px;
-        top:40px;
-        width:70%;
-        border-radius:4px 0 4px 4px;
-        list-style-type:none;
-    }
-
-    #mobilemenu li {
-        text-align:center;
-        width:100%;
-        padding:10px 0;
-        margin:0;
-    }
-
-    #mobilemenu li a {
-        text-decoration:none;
-        color:white;
-    }
-
-    #mobilemenu:hover ul {
-        display:block;
-    }
-
-     #footer {
-        max-width:100%;
-        max-height:100%;
-        margin-top:25px;
-    }
-
-    #footer_jobs, #footer_services, #footer_links, #footer_contact {
-        display:inline-block;
-        width:150px;
-        height:150px;
-        margin:10px;
-        margin-left:5%;
-        vertical-align:top;
-    }
-
-    #footer_copyright, #footer_icons {
-        display:inline-block;
-        height:35px;
-        margin:10px;
-        padding-top:0px;
-        margin-top:100px;
-        vertical-align:bottom;
-    }
-
-    #footer_icons {
-        float:right;
-    }
-}*/
+﻿/*File by Stacey Masson*/
 
 /*TABLET PORTRAIT*/
 @media screen and (max-width: 1024px) {
@@ -153,6 +32,10 @@
         padding:0px;
     }
 
+    #mnu_1 {
+        display:none;
+    }
+
     #mobilemenu {
         display:block;
         float:right;
@@ -163,6 +46,11 @@
     #img_mobilemenu {
         display:inline-block;
         float:right;
+    }
+
+    #mobilemenu ul {
+        max-height:200px;
+        overflow-y:scroll;
     }
 
     #mobilemenu ul, #mobilemenu:active ul {

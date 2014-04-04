@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+//Code by Stacey Masson
 
 public class sm_finddocClass
 {
+    //gets all doctor records
     public IQueryable<doctor> getDoctors()
     {
         lennoxdbDataContext objDoc = new lennoxdbDataContext();
@@ -13,6 +15,7 @@ public class sm_finddocClass
         return allDoctors;
     }
 
+    //gets doctors based on ID parameter
     public IQueryable<doctor> getDoctorByID(int _doc_id)
     {
         lennoxdbDataContext objDoc = new lennoxdbDataContext();
@@ -20,26 +23,7 @@ public class sm_finddocClass
         return allDoctors;
     }
 
-    //queryable for getting just doctors
-   /* public IQueryable<department> getDocByDepID(string _dp_name)
-    {
-        lennoxdbDataContext objDoc = new lennoxdbDataContext();
-        var allDoctors = objDoc.departments.Where(x => x.dp_name.Join(objDoc.doctors.doc_dept).Select(x => x);
-        return allDoctors;
-    }*/
-
-    /*public IQueryable<department> getDocByDepID(int _dp_id)
-    {
-        lennoxdbDataContext db = new lennoxdbDataContext();
-        /*var query = db.departments.Join(db.doctors, dep => dep.dp_id, doc => doc.doc_dept, (dep, doc) => new { dep.dp_id, dep.dp_name });
-
-        var dept = db.departments.Single(x => x.dp_id == db.doctors.doc_dept);
-        
-    }*/
-
-
-    
-
+    //inserts values to DB
     public bool commitInsert(string _doc_name, string _doc_bio, string _doc_img)
     {
         lennoxdbDataContext objDoc = new lennoxdbDataContext();
@@ -55,6 +39,7 @@ public class sm_finddocClass
         }
     }
 
+    //updates values in DB where ID matches
     public bool commitUpdate(int _doc_id, string _doc_name, string _doc_bio, string _doc_img)
     {
         lennoxdbDataContext objDoc = new lennoxdbDataContext();
@@ -69,6 +54,7 @@ public class sm_finddocClass
         }
     }
 
+    //deletes record from DB where ID matches
     public bool commitDelete(int _doc_id)
     {
         lennoxdbDataContext objDoc = new lennoxdbDataContext();

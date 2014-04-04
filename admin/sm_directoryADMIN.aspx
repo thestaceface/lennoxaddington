@@ -1,24 +1,29 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_directoryADMIN.aspx.cs" Inherits="Default2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_directoryADMIN.aspx.cs" Inherits="sm_directoryADMIN" %>
+<%-- Page by Stacey Masson --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+
     <asp:Label ID="lbl_head" runat="server" Text="Edit Page: Directory" CssClass="admintitle" />
-    <br />
-    <br />
-    <asp:Label ID="lbl_page" runat="server" Text="Select a contact record from the menu on the right to edit an existing record, or " />
+    <br /><br />
+    
+    <%-- page instructions --%>
+    <asp:Label ID="lbl_page" runat="server" Text="Select a contact record from the menu on the right to edit an existing record, or " />    
     <asp:LinkButton ID="lnk_select" runat="server" Text="create a new record." OnClick="subCreate" />
-    <br />
-    <br />
-    <hr />
-    <br />
+    <br /><br /><hr /><br />
+
+    <%-- success/failure message goes here --%>
     <asp:Label ID="msg" runat="server" />
     <br />
+
+    <%-- panel contains create new record form --%>
     <asp:Panel ID="pnl_new" runat="server">
         <asp:Label ID="lbl_new" runat="server" Text="Add a New Record" Font-Underline="true" />
-        <br />
-        <br />
+        <br /><br />
+
         <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
-        <br />
-        <br />
+        <br /><br />
+
+        <%-- type, name, and fax are optional fields. everything else has required field validators, and any other necessary validation --%>
         <table class="tables">
             <tr>
                 <td>
@@ -87,17 +92,19 @@
         <br />
         <asp:Button ID="btn_insert" runat="server" Text="Insert Record" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" CssClass="adminbuttons" />
         <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnCommand="subAdmin" CommandName="Cancel" CausesValidation="false" ValidationGroup="edit" CssClass="adminbuttons" />
+        <%-- validation summary for insert group --%>
         <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
     </asp:Panel>
 
-
+    <%-- panel contains update form --%>
     <asp:Panel ID="pnl_edit" runat="server">
         <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" Font-Underline="true" />
-        <br />
-        <br />
+        <br /><br />
+
         <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />
-        <br />
-        <br />
+        <br /><br />
+
+        <%-- as above, type, name, and fax are optional --%>
         <table class="tables">
             <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subUpDel">
                 <ItemTemplate>
@@ -176,24 +183,26 @@
             </tr>
             <tr><td>&nbsp;</td></tr>
             <tr><td>&nbsp;</td></tr>
-                </ItemTemplate>
-            </asp:Repeater>
+            </ItemTemplate>
+        </asp:Repeater>
+            <%-- validation summary for edit group --%>
             <asp:ValidationSummary ID="vds_edit" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="edit" />
         </table>
-            <br />
-            <br />
+            <br /><br />
     </asp:Panel>
 </asp:Content>
 
 <asp:Content ID="content3" runat="server" ContentPlaceHolderID="cph_aside">
+    
+    <%-- sidebar contains record titles to select for editing --%>
     <asp:Label ID="lbl_select" runat="server" Text="Offices" CssClass="sidebarlbl" />
-    <br />
-    <br />
+    <br /><br />
+
     <asp:Repeater ID="rpt_select" runat="server">
         <ItemTemplate>
+            <%-- clicking a record opens form in main content populated with record's data --%>
             <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("of_title") %>' CommandName="Update" CommandArgument='<%#Eval ("of_id") %>' OnCommand="subAdmin" CssClass="sidebarlinks" />
-            <br />
-            <br />
+            <br /><br />
         </ItemTemplate>
     </asp:Repeater>  
 </asp:Content>
