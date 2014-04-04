@@ -14,7 +14,7 @@ public partial class contentMain : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            subShowPages();//temporary, for testing until I get a working sitemap/menu
+            //subShowPages();//temporary, for testing until I get a working sitemap/menu
         }
 
         cmspageClass objCMS = new cmspageClass();
@@ -26,13 +26,13 @@ public partial class contentMain : System.Web.UI.Page
         }
     }
 
-    protected void subShowPages()//temporary, for testing until I get a working sitemap/menu
-    {
-        cmspageClass objCMS = new cmspageClass();
-        rpt_list.DataSource = objCMS.getPages();
-        rpt_list.DataBind();
+    //protected void subShowPages()//temporary, for testing until I get a working sitemap/menu
+    //{
+    //    cmspageClass objCMS = new cmspageClass();
+    //    rpt_list.DataSource = objCMS.getPages();
+    //    rpt_list.DataBind();
 
-    }
+    //}
     protected void subSelect(object sender, RepeaterItemEventArgs e)
     {
         if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)

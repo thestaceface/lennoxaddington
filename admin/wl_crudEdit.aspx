@@ -61,8 +61,8 @@
             <br />
             
             <asp:Label ID="lbl_sectionE" runat="server" Text="Select the section this page will exist under" /><br />
-            <asp:HiddenField ID="hdf_secIDE" runat="server" Value='<%#Eval("cp_secid") %>' />
-            <asp:DropDownList ID="ddl_sectionE" runat="server" /><br /><br />
+            <asp:HiddenField ID="hdf_secIDE" runat="server" Value='<%#Eval("cp_secid") %>' /><%--This is the existing sec id--%>
+            <asp:DropDownList ID="ddl_sectionE" runat="server" /><br /><br /><%--this will be the new sec id--%>
             
             <asp:Label ID="lbl_contentE" runat="server" Text="Enter Page Content" />
             <CKEditor:CKEditorControl ID="cke_contentE" runat="server" BasePath="~/ckeditor/" text='<%#Bind("cp_content") %>'  ></CKEditor:CKEditorControl>

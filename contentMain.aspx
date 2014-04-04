@@ -18,7 +18,7 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_aside" Runat="Server">
-    <asp:Repeater ID="rpt_list" runat="server" OnItemDataBound="subSelect">
+<%--    <asp:Repeater ID="rpt_list" runat="server" OnItemDataBound="subSelect">
         <HeaderTemplate>
             <table class="gridtable">
             <tr>
@@ -33,7 +33,7 @@
         <FooterTemplate>
             </table>
         </FooterTemplate>
-    </asp:Repeater>
+    </asp:Repeater>--%>
 </asp:Content>
 
 
