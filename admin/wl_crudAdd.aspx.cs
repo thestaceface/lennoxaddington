@@ -46,7 +46,7 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
             pnl_add.Visible = false;
             pnl_addMore.Visible = true;
             lbl_result.Text += lastid;
-            
+
             XmlDocument doc = new XmlDocument();
             doc.Load(Server.MapPath("../Web.sitemap"));
 
@@ -58,7 +58,7 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
             XmlAttribute nsAtt = doc.CreateAttribute("xmlns");
 
             titleAtt.Value = txt_pagenameI.Text;
-            urlAtt.Value = "contentMain.aspx?id=" + lastid ;
+            urlAtt.Value = "contentMain.aspx?id=" + lastid;
             descAtt.Value = "";
             nsAtt.Value = "http://schemas.microsoft.com/AspNet/SiteMap-File-1.0";
             mynode.Attributes.Append(urlAtt);

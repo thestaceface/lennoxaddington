@@ -8,7 +8,7 @@ using System.Xml; //imported for sitemap editing
 
 public partial class admin_wl_crudEdit : System.Web.UI.Page
 {
-    cmspageClass objPage = new cmspageClass();
+    cmspageClass objPage = new cmspageClass(); //instance for the whole page
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,12 +21,10 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
     private void _subRebind()  //binds the data to the pagelist.  not the form.  
     {
         rpt_pagelist.DataSource = objPage.getAllMerge();
-        rpt_pagelist.DataBind();
-        
+        rpt_pagelist.DataBind();   
     }
 
-
-    protected void repeaterDDL(object sender, RepeaterItemEventArgs e)  //on 
+    protected void repeaterDDL(object sender, RepeaterItemEventArgs e)
     {
         HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
         DropDownList listitems = e.Item.FindControl("ddl_sectionE") as DropDownList;
@@ -36,11 +34,7 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
         listitems.DataValueField = "sp_id";
         listitems.SelectedValue = hdfSID.Value;
         listitems.DataBind();
-
-  
-
     }
-
 
     protected void subSelect(object sender, CommandEventArgs e)
     {
@@ -53,7 +47,6 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
         btn_edit.Visible = true;
 
         //This is the code For Removing all style of Repeater Item
-
         foreach (RepeaterItem item in rpt_pagelist.Items)
         {
             LinkButton previous = item.FindControl("lkb_pagename") as LinkButton;
@@ -89,48 +82,49 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
 
                 HiddenField hdfSecID = (HiddenField)e.Item.FindControl("hdf_secIDE"); //this is the old secID
                 int secID = int.Parse(hdfSecID.Value.ToString()); //for old secID
-                
-                //XmlDocument docD = new XmlDocument();
-                //docD.Load(Server.MapPath("../Web.sitemap"));
-                //XmlNodeList nlist = docD.DocumentElement.ChildNodes[0].ChildNodes[secID].ChildNodes; //second last childnodes has to be secid
-                //foreach (XmlNode noded in nlist)
-                //{
-                //    if (noded.Attributes["url"].Value == ("contentMain.aspx?id=" + hdfID.Value.ToString()))  //value has to equal contentMain.aspx?id= + id
-                //        noded.ParentNode.RemoveChild(noded);
-                //}
 
-                //docD.Save(Server.MapPath("../Web.sitemap"));
+                XmlDocument docD = new XmlDocument();
+                docD.Load(Server.MapPath("../Web.sitemap"));
+                XmlNodeList nlist = docD.DocumentElement.ChildNodes[0].ChildNodes[secID].ChildNodes; //second last childnodes has to be secid
+                foreach (XmlNode noded in nlist)
+                {
+                    if (noded.Attributes["url"].Value == ("contentMain.aspx?id=" + hdfID.Value.ToString()))  //value has to equal contentMain.aspx?id= + id
+                        noded.ParentNode.RemoveChild(noded);
+                }
+
+                docD.Save(Server.MapPath("../Web.sitemap"));
                 
  
                 _strMessage(objPage.commitUpdate(pageID, ddlSecValue, txtPagename.Text, txtContent.Text), "update");
 
-                //XmlDocument doc = new XmlDocument();
-                //doc.Load(Server.MapPath("../Web.sitemap"));
-                //XmlNode mynode = doc.CreateNode(XmlNodeType.Element, "siteMapNode", null);
+                XmlDocument doc = new XmlDocument();
+                doc.Load(Server.MapPath("../Web.sitemap"));
+                XmlNode mynode = doc.CreateNode(XmlNodeType.Element, "siteMapNode", null);
 
-                //XmlAttribute urlAtt = doc.CreateAttribute("url");
-                //XmlAttribute titleAtt = doc.CreateAttribute("title");
-                //XmlAttribute descAtt = doc.CreateAttribute("description");
-                //XmlAttribute nsAtt = doc.CreateAttribute("xmlns");
+                XmlAttribute urlAtt = doc.CreateAttribute("url");
+                XmlAttribute titleAtt = doc.CreateAttribute("title");
+                XmlAttribute descAtt = doc.CreateAttribute("description");
+                XmlAttribute nsAtt = doc.CreateAttribute("xmlns");
                 
-                //titleAtt.Value = txtPagename.Text;
-                //urlAtt.Value = "contentMain.aspx?id=" + pageID ;
-                //descAtt.Value = "";
-                //nsAtt.Value = "http://schemas.microsoft.com/AspNet/SiteMap-File-1.0";
-                //mynode.Attributes.Append(urlAtt);
-                //mynode.Attributes.Append(titleAtt);
-                //mynode.Attributes.Append(descAtt);
-                //mynode.Attributes.Append(nsAtt);
-                //int menuSection = int.Parse(ddlSec.SelectedValue);
-                //XmlNode target = doc.DocumentElement.ChildNodes[0].ChildNodes[menuSection];
+                titleAtt.Value = txtPagename.Text;
+                urlAtt.Value = "contentMain.aspx?id=" +pageID ;
+                descAtt.Value = "";
+                nsAtt.Value = "http://schemas.microsoft.com/AspNet/SiteMap-File-1.0";
+                mynode.Attributes.Append(urlAtt);
+                mynode.Attributes.Append(titleAtt);
+                mynode.Attributes.Append(descAtt);
+                mynode.Attributes.Append(nsAtt);
+                int menuSection = int.Parse(ddlSec.SelectedValue);
+                //int menuSection = ddlSecValue;
+                XmlNode target = doc.DocumentElement.ChildNodes[0].ChildNodes[menuSection];
 
-                //target.AppendChild(mynode);
-
-                //pnl_edit.Visible = false;
-                //btn_edit.Visible = false;
-                //btn_return.Visible = true;
-                //pnl_pagelist.Visible = true;
-                //_subRebind();
+                target.AppendChild(mynode);
+                doc.Save(Server.MapPath("../Web.sitemap"));
+                pnl_edit.Visible = false;
+                btn_edit.Visible = false;
+                btn_return.Visible = true;
+                pnl_pagelist.Visible = true;
+                _subRebind();
                 break;
 
             case "Delete_This":
@@ -142,14 +136,15 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
                 btn_return.Visible = true;
                 pnl_pagelist.Visible = false;
                 _subRebind();
-
+                //lbl_result.Text += _cp_secid.ToString();
+                
                 XmlDocument docDel = new XmlDocument();
                 docDel.Load(Server.MapPath("../Web.sitemap"));
                 XmlNodeList nlistdel = docDel.DocumentElement.ChildNodes[0].ChildNodes[_cp_secid].ChildNodes; //second last childnodes has to be secid
                 foreach (XmlNode node in nlistdel)
                 {
-                    if (node.Attributes["url"].Value == ("contentMain.aspx?id=" + _cp_id))  //value has to equal contentMain.aspx?id=  + id
-                        node.ParentNode.RemoveChild(node);
+                   if (node.Attributes["url"].Value == ("contentMain.aspx?id=" + _cp_id))
+                    node.ParentNode.RemoveChild(node);
                 }
                 docDel.Save(Server.MapPath("../Web.sitemap"));
 
