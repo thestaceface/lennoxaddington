@@ -79,6 +79,10 @@ body {
     color:white;
 }
 
+#navigation a {
+    color:white;
+}
+
 #smp_main a {
     margin-bottom:50px;
 }

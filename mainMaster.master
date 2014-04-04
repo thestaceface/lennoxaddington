@@ -50,20 +50,37 @@
                 <div id="navigation">  
                     <%--  ---------------- mobile header -------------%>
             <div id="mobilelogo">
-                <asp:ImageButton ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/home.aspx" /> 
+                <asp:ImageButton ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/Home.aspx" /> 
             </div>
 
             <div id="mobilemenu">
             <asp:ImageButton ID="img_mobilemenu" runat="server" ImageUrl="~/Images/menu.gif" PostBackUrl="#" />
             <ul>
-                <li><asp:HyperLink ID="lnk_home" runat="server" Text="Home" NavigateUrl="~/home.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_home" runat="server" Text="Home" NavigateUrl="~/ps_slideImages.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_about" runat="server" Text="About Us" NavigateUrl="~/aboutus.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_faq" runat="server" Text="FAQ" NavigateUrl="~/faq.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_findout" runat="server" Text="'Find Out More' Links" NavigateUrl="~/rf_findout.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_board" runat="server" Text="Board of Directors"/></li>
+                <li><asp:HyperLink ID="lnk_foundation" runat="server" Text="LACGH Foundation" /></li>
+                <li><asp:HyperLink ID="lnk_donor" runat="server" Text="Donate" /></li>
+                <li><asp:HyperLink ID="lnk_news" runat="server" Text="News" /></li>
                 <li><asp:HyperLink ID="lnk_events" runat="server" Text="Events Calendar" NavigateUrl="~/sm_events.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_patients" runat="server" Text="Patients & Visitors" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_programs" runat="server" Text="Programs & Services" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_account" runat="server" Text="Accountability" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_careers" runat="server" Text="Work With Us" NavigateUrl="#" /></li>
-                <li><asp:HyperLink ID="lnk_contact" runat="server" Text="Contact Us" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_doctor" runat="server" Text="Find a Doctor" NavigateUrl="~/sm_finddoc.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_appoint" runat="server" Text="Request an Appointment" NavigateUrl="~/ps_appointment.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_safe" runat="server" Text="Creating a Safe Environment" /></li>
+                <li><asp:HyperLink ID="lnk_rights" runat="server" Text="Patient Rights & Responsibilities" /></li>
+                <li><asp:HyperLink ID="lnk_stay" runat="server" Text="Your Hospital Stay" /></li>
+                <li><asp:HyperLink ID="lnk_thanks" runat="server" Text="Thank a Staff Member" NavigateUrl="~/ps_thanksform.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_card" runat="server" Text="Send an E-Card to a Patient" NavigateUrl="~/e_card.aspx" /></li>
+
+                <li><asp:HyperLink ID="lnk_programs" runat="server" Text="Programs & Services" /></li>
+                <li><asp:HyperLink ID="lnk_account" runat="server" Text="Accountability" /></li>
+                <li><asp:HyperLink ID="lnk_careers" runat="server" Text="Available Careers" NavigateUrl="~/career.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_volunteers" runat="server" Text="Volunteer Information" /></li>
+                <li><asp:HyperLink ID="lnk_contact" runat="server" Text="Directory" NavigateUrl="~/sm_directory.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_directions" runat="server" Text="Directions" NavigateUrl="~/direction.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_feed" runat="server" Text="Feedback" NavigateUrl="~/rf_feedback.aspx" /></li>
             </ul>
         </div>
 
@@ -147,13 +164,12 @@
         <asp:ContentPlaceHolder ID="cph_footer" runat="server">
         <div id="footer">
             
-            <div id="footer_jobs">
-                <asp:Label ID="lbl_jobs" runat="server" Text="Jobs" /><br /><br />
-                    <hr /><br />
-                <asp:HyperLink ID="lnk_jobs" runat="server" text="Current Openings" NavigateUrl="~/career.aspx" /><br /><br />
-                <asp:HyperLink ID="lnk_volunteer" runat="server" Text="Volunteer" NavigateUrl="#" /><br /><br />
-
+            <div id="footer_links">
+                <asp:Label ID="lbl_links" runat="server" Text="Access" /><br /><br /><hr />
                 <br />
+                <asp:LoginStatus ID="lgs_main" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/home.aspx" /><br /><br />
+                <asp:LoginName ID="lgn_main" runat="server" FormatString="Logged in as: {0}" /><br /><br />
+                <asp:HyperLink ID="lnk_admin" runat="server" Text="Admin Page" NavigateUrl="~/admin/wl_crudMain.aspx" />
             </div><%--footer_jobs --%>  
 
             <div id="footer_services">
@@ -161,15 +177,17 @@
                 <hr /><br />
                 <asp:HyperLink ID="lnk_feedback" runat="server" Text="Feedback" NavigateUrl="~/rf_feedback.aspx"  /><br /><br />
                  <asp:HyperLink ID="lnk_staff" runat="server" Text="Thank a Staff Member" NavigateUrl="~/ps_thanksform.aspx"  /><br /><br />
-                 <asp:HyperLink ID="lnk_appointment" runat="server" Text="Book an Appointment" NavigateUrl="#"  /><br /><br />
+                 <asp:HyperLink ID="lnk_appointment" runat="server" Text="Book an Appointment"  /><br /><br />
                  <asp:HyperLink ID="lnk_ecard" runat="server" Text="Send an E-Card" NavigateUrl="~/e_card.aspx"  /><br /><br />
             </div><%--footer_services --%>  
 
-            <div id="footer_links">
-                <asp:Label ID="lbl_links" runat="server" Text="Access" /><br /><br /><hr />
+            <div id="footer_jobs">
+                <asp:Label ID="lbl_jobs" runat="server" Text="Jobs" /><br /><br />
+                    <hr /><br />
+                <asp:HyperLink ID="lnk_jobs" runat="server" text="Current Openings" NavigateUrl="~/career.aspx" /><br /><br />
+                <asp:HyperLink ID="lnk_volunteer" runat="server" Text="Volunteer" /><br /><br />
+
                 <br />
-                <asp:LoginStatus ID="lgs_main" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/home.aspx" /><br /><br />
-                <asp:LoginName ID="lgn_main" runat="server" FormatString="Logged in as: {0}" /><br /><br />
             </div><%--footer_links --%>  
 
             <div id="footer_contact">

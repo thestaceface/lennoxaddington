@@ -135,6 +135,7 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
                 Label lblFile = (Label)e.Item.FindControl("lbl_filename");
                 HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
                 int docID = int.Parse(hdfID.Value.ToString());
+                //try lblFile.filename 
                 _strMessage(Doc.commitUpdate(docID, txtName.Text, txtBio.Text, lblFile.Text), "Update");
                 _subRebind();
                 break;
