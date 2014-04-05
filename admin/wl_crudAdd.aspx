@@ -2,7 +2,6 @@
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %><%--register CKEditor for use for main content--%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-<asp:HyperLink ID="lnk_admin" runat="server" NavigateUrl="~/admin/wl_crudAdd.aspx" CssClass="adminlink" />
 <h2>Add A Page</h2>
 
     <asp:Label ID="lbl_result" runat="server" ForeColor="Green" /><%--shows success or failure on insert--%>

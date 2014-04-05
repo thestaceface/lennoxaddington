@@ -3,7 +3,6 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-    <asp:HyperLink ID="lnk_admin" runat="server" NavigateUrl="~/admin/wl_crudEdit.aspx" CssClass="adminlink" />
     <h2>Edit A Page</h2>
     <asp:Label ID="lbl_result" runat="server" ForeColor="Green" /><%--shows success or failure on update--%>
     <br />

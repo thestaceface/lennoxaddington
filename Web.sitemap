@@ -18,7 +18,6 @@
       <siteMapNode url="" title="News" description="News" />
       <siteMapNode url="sm_events.aspx" title="Calendar of Events" description="Calendar of Events" />
       <siteMapNode url="~/contentMain.aspx?id=18" description="Our Hospital" title="Our Hospital" />
-      <siteMapNode url="contentMain.aspx?id=74" title="suck it" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=10" title="Patients and Visitors" description="Patients and visitors">
       <siteMapNode url="sm_finddoc.aspx" title="Find a Doctor" description="Find a Doctor" />
@@ -40,7 +39,6 @@
       <siteMapNode url="" title="Infection Control" description="Infection Control" />
       <siteMapNode url="" title="Being Accountable" description="Being Accountable" />
       <siteMapNode url="" title="Quality" description="Quality" />
-      <siteMapNode url="contentMain.aspx?id=72" title="Lovely Page" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=36" title="Careers" description="Jobs page">
     <siteMapNode url="career.aspx" title="Current Opportunities" description="Current Opportunities" />
@@ -50,8 +48,6 @@
     <siteMapNode url="" title="President Reports" description="President Reports" />
     <siteMapNode url="" title="Volunteer Services Officers" description="Volunteer Services Officers" />
       <siteMapNode url="~/contentMain.aspx?id=12" title="About Volunteer Services" description="" />
-      <siteMapNode url="contentMain.aspx?id=71" title="Another Stupid Test Page" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
-      <siteMapNode url="contentMain.aspx?id=73" title="bitches n hoes don't 'no" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=37" title="Contact Us" description=" Contact Us Page">
       <siteMapNode url="direction.aspx" title="Directions" description="Directions" />
