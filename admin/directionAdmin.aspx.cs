@@ -10,6 +10,7 @@ public partial class Default4 : System.Web.UI.Page
     // link to class file
     directionClass objLinq = new directionClass();
 
+    // when page load, call subRebind
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -18,13 +19,17 @@ public partial class Default4 : System.Web.UI.Page
         }
     }
 
+    // databind repeater and make distance panel not visible
     private void _subRebind()
     {
         rpt_all.DataSource = objLinq.getdirection();
         rpt_all.DataBind();
         _panelControl(pnl_all);
+
+        pnl_distance.Visible = false;
     }
 
+    // panel control to make panel visible or not
     private void _panelControl(Panel pnl)
     {
         pnl_all.Visible = false;
@@ -32,6 +37,7 @@ public partial class Default4 : System.Web.UI.Page
         pnl.Visible = true;
     }
 
+    // subAdmin (oncommand is used - maybe for later use..) for update
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         switch (e.CommandName)
@@ -42,6 +48,7 @@ public partial class Default4 : System.Web.UI.Page
         }
     }
 
+    // show update panel and bind repeater
     private void _showUpdate(int id)
     {
         _panelControl(pnl_update);
@@ -50,11 +57,12 @@ public partial class Default4 : System.Web.UI.Page
         rpt_update.DataBind();
     }
 
+    // display message if the action (update) is successfull or not
     private void _strMessage(bool flag, string str)
     {
         if (flag)
         {
-            lbl_message.Text = "Job " + str + " was successful";
+            lbl_message.Text = "Update " + str + " was successful";
         }
         else
         {
@@ -62,6 +70,7 @@ public partial class Default4 : System.Web.UI.Page
         }
     }
 
+    // onCommand for update and cancel button
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)
@@ -87,5 +96,19 @@ public partial class Default4 : System.Web.UI.Page
                 _subRebind();
                 break;
         }
+    }
+
+    // button to make distance panel visible
+    protected void subGetDistance(object sender, EventArgs e)
+    {
+        pnl_distance.Visible = true;
+    }
+
+    // reset button to empty textboxes and make distance panel invisible
+    protected void subReset(object sender, EventArgs e)
+    {
+        txtFrom.Text = string.Empty;
+        txtTo.Text = string.Empty;
+        pnl_distance.Visible = false;
     }
 }

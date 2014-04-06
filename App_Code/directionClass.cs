@@ -25,6 +25,7 @@ public class directionClass
         return alldirection;
     }
 
+    // get direction by id
     public IQueryable<hospitalDetail> getdirectionByID(int _id)
     {
         lennoxdbDataContext objProdDC = new lennoxdbDataContext();
@@ -32,6 +33,7 @@ public class directionClass
         return alldirection;
     }
 
+    // commit update
     public bool commitUpdate(int _id, string _name, string _street, string _city, string _province, string _pcode, string _tel, string _hours)
     {
         lennoxdbDataContext objProdDC = new lennoxdbDataContext();

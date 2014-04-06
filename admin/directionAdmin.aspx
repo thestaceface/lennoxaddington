@@ -4,16 +4,67 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
 
+    <%-- source http://kishor-naik-dotnet.blogspot.ca/2012/11/aspnet-google-map-v3-directions-in.html --%> 
+    <%-- source http://www.sitepoint.com/working-with-geolocation-and-google-maps-api/ --%>
+
+    <%-- Import jquery file --%>
     <script type="text/javascript" src="Scripts/jquery-1.8.2.min.js"></script>
 
-     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
+    <%-- Import google API library --%>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
+
+    <%-- Import google api javascript file --%>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         
-      <script type="text/javascript">
+    <script type="text/javascript">
 
-          $(document).ready(function () {
+        // get address function to get geolocation of user
+        // also check if browser support the API
+        function getAddress() {
+            if (navigator.geolocation) {
+                var positionOptions = {
+                    enableHighAccuracy: true,
+                    timeout: 10 * 1000 // 10 seconds
+                };
+                navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError, positionOptions);
+            }
+            else {
+                document.getElementById("error").innerHTML += "Your browser doesn't support the Geolocation API";
+            }
+        }
 
-              var start = document.getElementById('<%=txtFrom.ClientID%>').value;
-              var end = document.getElementById('#<%=txtTo.ClientID%>').value;
+        // get address
+        // if address is valid, display it in the 'from' textbox
+        function writeAddressName(latLng) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                "location": latLng
+            },
+            function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK)
+                    document.getElementById("<%=txtFrom.ClientID%>").value = results[0].formatted_address;
+              else
+                  document.getElementById("error").innerHTML += "Unable to retrieve your address" + "<br />";
+              });
+      }
+
+      // get cordinate - ie. latitude and longitude of location
+      function geolocationSuccess(position) {
+          var userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          // Write the formatted address
+          writeAddressName(userLatLng);
+      }
+
+      // call this function if there's any error occur and display in label
+      function geolocationError(positionError) {
+          document.getElementById('<%=error.ClientID%>').innerHTML += "Error: " + positionError.message + "<br />";
+        }
+
+        // auto complete function when user write in textbox
+        $(document).ready(function () {
+
+            var start = document.getElementById("<%=txtFrom.ClientID%>").value;
+              var end = document.getElementById("<%=txtTo.ClientID%>").value;
 
               try {
 
@@ -36,9 +87,11 @@
           });
 
 
+          // declare variables to be used in functions for map/direction and distance
           var DirectionsDisplay;
           var DirectionsService = new google.maps.DirectionsService();
 
+          // initialize google map, display on screen
           function InitializeGoogleMap() {
 
               try {
@@ -59,10 +112,10 @@
                   alert(E.message);
               }
 
-
-
           }
 
+          // get direction from the input location to the hospital or any destination
+          // client side validation also
           function GetDirectionRoute() {
 
               var start = document.getElementById('<%=txtFrom.ClientID%>').value;
@@ -99,54 +152,43 @@
 
           }
 
+          // initialize google map when page load
           window.onload = InitializeGoogleMap;
 
-        </script>
+    </script>
 
     <div>
-        <table border="0" cellspacing="5" cellpadding="5" align="center" width="100%">
-            <tr>
-                <td style="width: 20%" align="center" valign="middle">From</td>
-                <td style="width: 80%">
-                    <asp:TextBox ID="txtFrom" runat="server" Width="400px"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 20%" align="center" valign="middle">To</td>
-                <td style="width: 80%">
-                    <asp:TextBox ID="txtTo" runat="server" Width="400px" Text="8 Richmond Park Drive, Napanee, ON K7R 2Z4"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 20%">
-                    
-                </td>
-                <td style="width: 80%">
-                    <asp:Button ID="btnDirections" runat="server" Text="Direction" Width="200px" OnClientClick="GetDirectionRoute(); return false" />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="height:100%">
+        <h1>Maps and Directions</h1>
+        <%-- to and from textboxes --%>
+        From: <asp:TextBox ID="txtFrom" runat="server" Width="400px"></asp:TextBox>
+        <br />
+        To: <asp:TextBox ID="txtTo" runat="server" Width="400px" Text="8 Richmond Park Drive, Napanee, ON K7R 2Z4"></asp:TextBox><br />
 
-                    <table border="0" cellspacing="2" cellpadding="2" align="center" width="100%">
-                        <tr>
-                            <td style="width:40%">
-                                <div id ="DivDirectionRouteStatus" style="height:480px;overflow: auto"></div>
-                            </td>
-                            <td style="width:60%">
-                                 <div id ="DivGoogleMapCanvas"  style="height:480px;"></div>
-                            </td>
-                        </tr>
-                    </table>
+        <%-- error message label --%>
+        <asp:Label ID="error" runat="server" /><br />
+        
+        <%-- 4 buttons - get direction, get current address, get distance and reset --%>
+        <asp:Button ID="btnDirections" runat="server" Text="Get Direction" OnClientClick="GetDirectionRoute(); return false" />
+        <asp:Button ID="btnGetAddress" runat="server" Text="Get Current Address" OnClientClick="getAddress(); return false" />
+        <asp:Button ID="btnGetDistance" runat="server" Text="Get Distance" OnClick="subGetDistance" />
+        <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="subReset" />
 
-                </td>
-            </tr>
-        </table>
+        <br /><br />
+              
+        <%-- google map --%>
+        <div id ="DivGoogleMapCanvas"  style="height:480px;"></div>
+
+        <%-- get distance panel --%>
+        <asp:Panel ID="pnl_distance" runat="server">
+            <div id ="DivDirectionRouteStatus" style="height:480px;overflow: auto">Distance</div>
+        </asp:Panel>
     </div>
 
+    <%-- label for message - insert/update/delete successful or not --%>
     <asp:Label ID="lbl_message" runat="server" />
         <br /><br />
 
+    <%-- panel and repeater which list details of hospital such as name, address, phone number and link button for update--%>
     <asp:Panel ID="pnl_all" runat="server" GroupingText="Hospital Details">
             <table style="width:100%;">
                 <tbody>
@@ -179,6 +221,7 @@
             </table>
         </asp:Panel>
 
+    <%-- update panel --%>
     <asp:Panel ID="pnl_update" runat="server" GroupingText="Update Hospital Details">
             <table>
                 <thead>
@@ -189,8 +232,10 @@
                     <asp:Repeater ID="rpt_update" runat="server" OnItemCommand="subUpDel">
                         <ItemTemplate>
                             <tr>
+                                <%-- id --%>
                                 <asp:HiddenField ID="hdf_idU" runat="server" Value='<%#Eval("id") %>' />
                                 <td>
+                                    <%-- name textbox --%>
                                     <asp:Label ID="lbl_nameU" runat="server" Text="Name" /><br />
                                     <asp:TextBox ID="txt_nameU" runat="server" Text='<%#Eval("name") %>' />
                                     <asp:RequiredFieldValidator ID="rfv_nameU" runat="server" Text="*Required" ControlToValidate="txt_nameU" ValidationGroup="update" />
@@ -198,6 +243,7 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <%-- address textboxes below --%>
                                     <asp:Label ID="lbl_streetU" runat="server" Text="Street" /><br />
                                     <asp:TextBox ID="txt_streetU" runat="server" Text='<%#Eval("street") %>' />
                                     <asp:RequiredFieldValidator ID="rfv_streetU" runat="server" Text="*Required" ControlToValidate="txt_streetU" ValidationGroup="update" />
@@ -226,6 +272,7 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <%-- phone textbox --%>
                                     <asp:Label ID="lbl_telU" runat="server" Text="Telephone" /><br />
                                     <asp:TextBox ID="txt_telU" runat="server" Text='<%#Eval("tel") %>' />
                                     <asp:RequiredFieldValidator ID="rfv_telU" runat="server" Text="*Required" ControlToValidate="txt_telU" ValidationGroup="update" />
@@ -233,6 +280,7 @@
                             </tr>
                             <tr>
                                 <td>
+                                    <%-- working hours textbox --%>
                                     <asp:Label ID="lbl_hoursU" runat="server" Text="Working Hours" /><br />
                                     <asp:TextBox ID="txt_hoursU" runat="server" Text='<%#Eval("hours") %>' />
                                     <asp:RequiredFieldValidator ID="rfv_hoursU" runat="server" Text="*Required" ControlToValidate="txt_hoursU" ValidationGroup="update" />
@@ -240,6 +288,7 @@
                             </tr>
                             <tr>
                                 <td colspan="3">
+                                    <%-- update and cancel buttons --%>
                                     <asp:Button ID="btn_update" runat="server" Text="Update" CommandName="Update" ValidationGroup="update" />
                                     &nbsp;&nbsp;&nbsp;
                                     <asp:Button ID="btn_cancel" runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="false" />
