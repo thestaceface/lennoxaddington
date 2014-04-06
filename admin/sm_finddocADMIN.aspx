@@ -105,12 +105,12 @@
                 </td>
                 <td>
                     <asp:FileUpload ID="flu_docE" runat="server" />
-                    <asp:Button ID="btn_upload" runat="server" Text="Upload" CommandName="EditImage" CommandArgument='<%#Eval ("doc_id") %>' />
+                    <asp:Button ID="btn_upload" runat="server" Text="Upload" CommandName="UpdateFile" />
                     <br />
-                    <asp:Label ID="lbl_filename" runat="server" Text='<%#Bind ("doc_img") %>' />
+                    <asp:Label ID="lbl_file" runat="server" Text='<%#Bind ("doc_img") %>' />
                     <br />
                     <br />
-                    <asp:Label ID="lbl_upstatus" runat="server" />
+                    <asp:Label ID="lbl_upstatusE" runat="server" />
                 </td> 
             </tr>
             <tr>

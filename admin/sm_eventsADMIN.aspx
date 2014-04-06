@@ -110,7 +110,7 @@
                      <asp:Label ID="lbl_dateE" runat="server" Text="Event Date:*" AssociatedControlID="txt_dateE" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_dateE" runat="server" Text='<%#Bind ("ev_date") %>' />
+                    <asp:TextBox ID="txt_dateE" runat="server" Text='<%#Bind ("ev_date", "{0:d}") %>' />
                     <ajax:CalendarExtender ID="cal_edit" runat="server" TargetControlID="txt_dateE" FirstDayOfWeek="Sunday" Format="dd/MM/yyyy" />
                     <asp:RequiredFieldValidator ID="rfv_dateE" runat="server" ControlToValidate="txt_dateE" ErrorMessage="Date is required." Display="None" ValidationGroup="edit" />
                     <asp:CompareValidator ID="cmv_dateE" runat="server" ControlToValidate="txt_dateE" Operator="DataTypeCheck" Type="Date" ErrorMessage="Please use valid date format: dd/mm/yyyy" Display="None" ValidationGroup="edit" />
@@ -130,12 +130,12 @@
                 </td>
                 <td>
                     <asp:FileUpload ID="flu_eventE" runat="server" />
-                    <asp:Button ID="btn_upload" runat="server" Text="Upload" OnClick="subUpload" />
+                    <asp:Button ID="btn_upload" runat="server" Text="Upload" CommandName="UpdateFile" />
                     <br />
-                    <asp:Label ID="lbl_filename" runat="server" Text='<%#Bind ("ev_media") %>' />
+                    <asp:Label ID="lbl_file" runat="server" Text='<%#Bind ("ev_media") %>' />
                     <br />
                     <br />
-                    <asp:Label ID="lbl_upstatus" runat="server" />
+                    <asp:Label ID="lbl_upstatusE" runat="server" />
                 </td> 
             </tr>
             <tr>

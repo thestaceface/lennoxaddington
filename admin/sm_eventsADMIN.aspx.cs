@@ -77,6 +77,7 @@ public partial class sm_eventsADMIN : System.Web.UI.Page
             }
         }
     }
+     
 
     //notifies of success or failure to commit to DB
     private void _strMessage(bool flag, string str)
@@ -132,21 +133,63 @@ public partial class sm_eventsADMIN : System.Web.UI.Page
     {
         switch (e.CommandName)
         {
+            case "UpdateFile":
+                FileUpload updateFile = (FileUpload)e.Item.FindControl("flu_eventE");
+                Label updateStatus = (Label)e.Item.FindControl("lbl_upstatusE");
+                if (updateFile.HasFile)
+                {
+                    try
+                    {
+                        //checks if file is allowable type: jpg
+                        if (updateFile.PostedFile.ContentType == "image/jpeg")
+                        {
+                            //checks if file is less than 100kb
+                            if (updateFile.PostedFile.ContentLength < 102400)
+                            {
+                                //instructs control where to put file, places filepath into string to be sent to DB
+                                string filename = Path.GetFileName(updateFile.FileName);
+                                updateFile.SaveAs(Server.MapPath("~/Images/") + filename);
+                                Label file = (Label)e.Item.FindControl("lbl_file");
+                                updateStatus.Text = "Upload complete";
+                                file.Text = "Images/" + filename;
+
+                            }
+                            else
+                            {
+                                //thrown if image too large
+                                updateStatus.Text = "File must be less than 100kb";
+                            }
+                        }
+                        else
+                        {
+                            updateStatus.Text = "File must be .jpg format";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //thrown for any other error
+                        updateStatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
+                    }
+                }
+                break;
+
             case "Update":
                 TextBox txtTitle = (TextBox)e.Item.FindControl("txt_titleE");
                 TextBox txtDate = (TextBox)e.Item.FindControl("txt_dateE");
                 TextBox txtDesc = (TextBox)e.Item.FindControl("txt_descE");
-                Label lblFile = (Label)e.Item.FindControl("lbl_filename");
+                Label File = (Label)e.Item.FindControl("lbl_file");
                 HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
                 int evID = int.Parse(hdfID.Value.ToString());
-                _strMessage(Ev.commitUpdate(evID, txtTitle.Text, DateTime.Parse(txtDate.Text.ToString()), txtDesc.Text, lblFile.Text), "Update");
+                _strMessage(Ev.commitUpdate(evID, txtTitle.Text, DateTime.Parse(txtDate.Text.ToString()), txtDesc.Text, File.Text), "Update");
                 _subRebind();
                 break;
+
             case "Delete":
                 int _ev_id = int.Parse(((HiddenField)e.Item.FindControl("hdf_idE")).Value);
                 _strMessage(Ev.commitDelete(_ev_id), "Delete");
                 _subRebind();
                 break;
+
             case "Cancel":
                 _subRebind();
                 break;
