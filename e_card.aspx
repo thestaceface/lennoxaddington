@@ -7,14 +7,11 @@
 <asp:PlaceHolder ID="formPH" runat="server" Visible="true">
 
 <div>
-<!-- Here are the controls: -->
-Choose a background color:<br />
-
 
 
 <asp:Panel ID="pnl_new" runat="server">
-
-
+   
+    
 <table>
 <tr>
     <td><asp:Label ID="lbl_new" runat="server" Text="Send an E-Card to a Patient" /></td>
@@ -50,8 +47,6 @@ Choose a background color:<br />
 </td>
 </tr>
 
-
-
 <tr>
 <td>
 <b>Subject:</b>
@@ -64,15 +59,16 @@ Choose a background color:<br />
 </table>
 </asp:Panel>
 
-<%-- <asp:Button ID="btnSubscribe" runat="server" OnClick="subscribe_Click" Text="Send E-Card" /> --%>
+<asp:Button ID="btnSubscribe" runat="server" OnClick="send_Click" Text="Send E-Card" />
 
 </div>
+
+     <asp:Label runat="server" ID="lbl_msg" /> 
+
 </asp:PlaceHolder>
 
 
-
-
-            <asp:DropDownList ID="lstBackColor" runat="server" 
+            <%--<asp:DropDownList ID="lstBackColor" runat="server" 
 Width="194px" Height="22px" /><br />
             <br />
             Choose a font:<br />
@@ -106,10 +102,10 @@ Height="481px" HorizontalAlign="Center">
 Height="150px" /><br />
             <asp:Image ID="imgDefault" runat="server" Width="212px" 
 Height="160px" />
-        </asp:Panel>
+        </asp:Panel>--%>
     
-<asp:PlaceHolder ID="successPH" runat="server" Visible="false">
+<%--<asp:PlaceHolder ID="successPH" runat="server" Visible="false">
 <h2>You have successfully send an E-card to a Patient!</h2>
-</asp:PlaceHolder>
+</asp:PlaceHolder>--%>
     
 </asp:Content>
