@@ -17,10 +17,10 @@
       <Column Name="dp_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="dp_head" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="dp_location" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
-      <Association Name="department_sysinfo" Member="sysinfos" ThisKey="dp_id" OtherKey="si_d_id" Type="sysinfo" />
       <Association Name="department_employee" Member="employees" ThisKey="dp_id" OtherKey="em_d_id" Type="employee" />
       <Association Name="department_office" Member="offices" ThisKey="dp_id" OtherKey="of_dept_id" Type="office" />
       <Association Name="department_doctor" Member="doctors" ThisKey="dp_id" OtherKey="doc_dept" Type="doctor" />
+      <Association Name="department_sysinfo" Member="sysinfos" ThisKey="dp_id" OtherKey="si_d_id" Type="sysinfo" />
     </Type>
   </Table>
   <Table Name="dbo.patients" Member="patients">
@@ -150,24 +150,6 @@
       <Column Name="sc_websiteimp" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="sc_complains" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="sc_othfeedback" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.sysinfo" Member="sysinfos">
-    <Type Name="sysinfo">
-      <Column Name="si_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="si_desc" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="si_numdoctor" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="si_avgtime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="si_numregistered" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="si_numattended" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="si_today" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="si_waittime" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="si_numwaiting" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="si_d_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="si_lupdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="si_message" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="si_updateby" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="department_sysinfo" Member="department" ThisKey="si_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.news" Member="news">
@@ -453,6 +435,24 @@
       <Column Name="sl_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="sl_path" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="sl_desc" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sysinfo" Member="sysinfos">
+    <Type Name="sysinfo">
+      <Column Name="si_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="si_desc" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="si_numdoctor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_avgtime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_numregistered" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_numattended" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_today" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="si_waittime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_numwaiting" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_d_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="si_lupdate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="si_message" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="si_updateby" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="department_sysinfo" Member="department" ThisKey="si_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.WLTestProcedure01" Method="WLTestProcedure01">
