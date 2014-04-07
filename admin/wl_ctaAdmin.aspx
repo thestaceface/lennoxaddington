@@ -4,18 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
 
     <asp:Label ID="lbl_title" runat="server" Text="CTA administration" />
-
-        <asp:Repeater ID="rpt_cta" runat="server" OnDataBinding="rpt_cta_DataBinding" OnItemDataBound="rpt_cta_ItemDataBound" >
+        <asp:DropDownList ID="ddl_test" runat="server" />
+        <asp:Repeater ID="rpt_cta" runat="server"  >
             <HeaderTemplate>
                 <table>   
                     <thead>
                         <td>Page Name</td>
 
-                        <td>FLUSHOT</td>
-                        <td>FAQ</td>
-                        <td>NEWSLETTER</td>
-                        <td>DONATE</td>
-
+                        <td>CTA1</td>
+                        <td>CTA2</td>
+                        
                     </thead>             
             </HeaderTemplate>
 
@@ -27,12 +25,14 @@
                             <asp:Linkbutton ID="lkb_pagename" runat="server" Text='<%#Eval("cp_pagename") %>'  />
                         </td>
                         <td>
-                            <asp:DropDownList ID="ddl_cta" runat="server" AppendDataBoundItems="true" >
+<%--                            <asp:DropDownList ID="ddl_cta" runat="server" AppendDataBoundItems="true"  >
                                 <asp:ListItem Value="x" Text="x" ></asp:ListItem>
-                            </asp:DropDownList>
+                            </asp:DropDownList>--%>
+                            <asp:TextBox ID="txt_cta1" runat="server"  Text='<%#Bind("cp_cta1") %>' />
+                            
                         </td>
                         <td>
-
+                            <asp:TextBox ID="txt_cta2" runat="server" Text='<%#Bind("cp_cta2") %>' />
                         </td>
                     </tr>
                 

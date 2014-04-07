@@ -13,5 +13,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             lnk_admin.Visible = false;
         }
+
+        string thing = Request.Url.PathAndQuery;
+        lbl_test.Text = thing;
     }
 }

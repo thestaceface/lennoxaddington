@@ -17,8 +17,11 @@ public partial class wl_testpage : System.Web.UI.Page
         ddl_main.DataValueField = "sp_id";
         ddl_main.DataBind();
         ddl_main.SelectedValue = "3";
-
-       
+        //string thing = Request.Url.AbsoluteUri;
+        //string thing = Request.Url.GetLeftPart(UriPartial.Authority);
+        //string thing = Request.Url.ToString();
+        //string thing = Request.Url.PathAndQuery;
+        //lbl.Text = thing;
     
     
     }   

@@ -134,7 +134,11 @@
           
             
             <div id="aside"> 
+                Will's CTA testing area
+                <asp:Label ID="lbl_test" runat="server" />
                 <asp:ContentPlaceHolder ID="cph_aside" runat="server">
+                    
+
                <div id="aside1">
                   <asp:Label ID="lbl_text" runat="server" Text="Keeping You Informed!"  CssClass="lbl_text" /><br /><br />
                 <hr style="color:#7dc6cc"; />
