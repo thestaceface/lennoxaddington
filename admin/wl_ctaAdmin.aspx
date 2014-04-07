@@ -5,7 +5,7 @@
 
     <asp:Label ID="lbl_title" runat="server" Text="CTA administration" />
 
-        <asp:Repeater ID="rpt_cta" runat="server" >
+        <asp:Repeater ID="rpt_cta" runat="server" OnDataBinding="rpt_cta_DataBinding" OnItemDataBound="rpt_cta_ItemDataBound" >
             <HeaderTemplate>
                 <table>   
                     <thead>
@@ -27,7 +27,9 @@
                             <asp:Linkbutton ID="lkb_pagename" runat="server" Text='<%#Eval("cp_pagename") %>'  />
                         </td>
                         <td>
-
+                            <asp:DropDownList ID="ddl_cta" runat="server" AppendDataBoundItems="true" >
+                                <asp:ListItem Value="x" Text="x" ></asp:ListItem>
+                            </asp:DropDownList>
                         </td>
                         <td>
 
