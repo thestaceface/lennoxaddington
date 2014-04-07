@@ -3,8 +3,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <br />
     <br />
-    <asp:Label ID="lbl_page" runat="server" Text="Select a Feedback record from the menu on the right to edit an existing record, or " />
-    <asp:LinkButton ID="lnk_select" runat="server" Text="create a new record." OnClick="subCreate" />
+    <asp:Label ID="lbl_page" runat="server" Text="Select a Feedback record from the menu on the right to edit an existing record. " />
+    <%-- <asp:LinkButton ID="lnk_select" runat="server" Text="or, create a new record." OnClick="subCreate" /> --%>
     <br />
     <br />
     <hr />
@@ -18,7 +18,7 @@
         <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
-        <table class="tables">
+        <table class="tables"> 
             <tr>
                 <td>
                     <asp:label ID="lbl_category" runat="server" Text="Category:" AssociatedControlID="ddl_category" />
@@ -259,7 +259,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="btn_update" runat="server" Text="Update Record" CommandName="Update" ValidationGroup="edit" CssClass="adminbuttons" />
+                    <%-- <asp:Button ID="btn_update" runat="server" Text="Update Record" CommandName="Update" ValidationGroup="edit" CssClass="adminbuttons" /> --%>
                     <asp:Button ID="btn_delete" runat="server" Text="Delete Record" CommandName="Delete" ValidationGroup="edit" CssClass="adminbuttons" OnClientClick="return confirm('Delete?');" />
                     <asp:Button ID="btn_cancelE" runat="server" Text="Cancel" CommandName="Cancel" ValidationGroup="edit" CausesValidation="false" CssClass="adminbuttons" />
                 </td>

@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/rf_feedbackADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
     <asp:Panel ID="pnl_new" runat="server">
-        <asp:Label ID="lbl_new" runat="server" Text="Feedback Form" Font-Underline="true" />
+        <asp:Label ID="lbl_new" runat="server" Text="Complete Feedback Form and submit" Font-Underline="true" />
         <br />
         <br />
         <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
@@ -16,7 +16,7 @@
                 </td>
                 <td>
                     <asp:DropDownList ID="ddl_category" runat="server" /> 
-                </td>
+                </td> 
             </tr>
             <tr>
                 <td>

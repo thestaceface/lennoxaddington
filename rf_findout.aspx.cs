@@ -15,7 +15,7 @@ public partial class rf_findout : System.Web.UI.Page
         acc.DataBind();
         if (!Page.IsPostBack)
         {
-            lbl_page.Text = "Find Out More";
+            //lbl_page.Text = "Find Out More";
         }
 
         if (!User.IsInRole("administrator"))
