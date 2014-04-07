@@ -6,9 +6,19 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Default2 : System.Web.UI.Page
+public partial class ps_SlideImages : System.Web.UI.Page
 {
     ps_sliderImage objImage = new ps_sliderImage();
+
+    //makes panel visible for creating new record
+    protected void subCreate(object sender, EventArgs e)
+    {
+        pnl_new.Visible = true;
+        pnl_update.Visible = false;
+        lbl_msg.Text = string.Empty;
+    }
+
+    //calls page reset
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -17,6 +27,8 @@ public partial class Default2 : System.Web.UI.Page
         }
 
     }
+
+    //resets fields on page reload
     private void _subRebind()
     {
         txt_nameI.Text = string.Empty;
@@ -25,9 +37,11 @@ public partial class Default2 : System.Web.UI.Page
         dtl_all.DataSource = objImage.getImages();
         dtl_all.DataBind();
         _panelControl(pnl_all);
-        lbl_msg.Text = string.Empty;
+        //lbl_msg.Text = string.Empty;
 
     }
+
+    //handles button commands - if insert, executes the insert and calls the _strMessage function, if update calls the _showUpdate function & if cancel, calls reset
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         switch (e.CommandName)
@@ -46,10 +60,12 @@ public partial class Default2 : System.Web.UI.Page
                 break;
         }
     }
+
+    //to ensure the directory exists
     public void EnsureDirectoriesExist()
     {
 
-        // if the \pix directory doesn't exist - create it. 
+        // if the  directory doesn't exist - create it. 
         if (!System.IO.Directory.Exists(Server.MapPath(@"~/Images/")))
         {
             System.IO.Directory.CreateDirectory(Server.MapPath(@"~/Images/"));
@@ -57,26 +73,25 @@ public partial class Default2 : System.Web.UI.Page
 
     }
 
-    protected void Click(object sender, EventArgs e)  
+    //to acually insert a new image
+    protected void Add(object sender, EventArgs e)  
 	{
         if (fileupload1.HasFile && Path.GetExtension(fileupload1.FileName) == ".png" || Path.GetExtension(fileupload1.FileName) == ".gif" )
         {
             // create posted file
-            // make sure we have a place for the file in the directory structure
+            //  to ensure  a place for the file in the directory structure
             EnsureDirectoriesExist();
             String filePath = Server.MapPath(@"~/Images/" + fileupload1.FileName);
             fileupload1.SaveAs(filePath);
-
-
         }
         else
         {
-            lbl_msg.Text = "Please select a png or gif file";
+            lbl_msg.Text = "Please select a .png or .gif file";
         }
 
 	}
-     
-    
+
+    //called in update form - case update commits update and calls _strMessage function, delete deletes record and calls _strMessage. cancel calls reset
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)
@@ -100,7 +115,8 @@ public partial class Default2 : System.Web.UI.Page
 
                 }
     }
-   
+
+    //called by subAdmin - makes edit panel and form visible
     private void _showUpdate(int id)
     {
         _panelControl(pnl_update);
@@ -108,24 +124,30 @@ public partial class Default2 : System.Web.UI.Page
         dtl_update.DataSource = _img.getImageByID(id);
         dtl_update.DataBind();
     }
+
+    //called by subAdmin - makes delete panel and form visible and asks for confirmation
     private void _showDelete(int id)
     {
         _panelControl(pnl_delete);
         dtl_delete.DataSource = objImage.getImageByID(id);
         dtl_delete.DataBind();
     }
+
+    //controls panel visibility
     private void _panelControl(Panel pnl)
     {
         pnl_all.Visible = false;
+        pnl_new.Visible = false;
         pnl_delete.Visible = false;
-        pnl_update.Visible = false;
-        
+        pnl_update.Visible = false;       
         pnl.Visible = true;
     }
+
+    //returns a message notifying user of success or failure committing changes to DB
     private void _strMessage(bool flag, string str)
     {
         if (flag)
-        lbl_msg.Text= "Image" + "  " + str + " was successful";
+        lbl_msg.Text= "Image" + "  " + str + " was successful!";
         else
         lbl_msg.Text = "Sorry,unable to" + str + "image";
     }

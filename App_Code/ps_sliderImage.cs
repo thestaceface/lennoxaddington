@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for ps_sliderImage
-/// </summary>
+
+//Code by Puneet Saini
 public class ps_sliderImage
 {
+    //gets all slider images
     public IQueryable<SlideImage> getImages()
     {
-        lennoxdbDataContext objImg = new lennoxdbDataContext();
-        var allImages = objImg.SlideImages.Select(x => x);
+        lennoxdbDataContext objImgs = new lennoxdbDataContext();
+        var allImages = objImgs.SlideImages.Select(x => x);
         return allImages;
 
     }
 
+    //gets images based on an ID parameter
     public IQueryable<SlideImage> getImageByID(int _id)
     {
         lennoxdbDataContext objImgs = new lennoxdbDataContext();
@@ -23,7 +24,8 @@ public class ps_sliderImage
         return allImgs;
     }
 
-    public bool commitInsert(string _name, string _path)
+    //inserts values to DB
+    public bool commitInsert(string _name, string _path, string _desc)
     {
         lennoxdbDataContext objImgs = new lennoxdbDataContext();
         using (objImgs)
@@ -31,6 +33,7 @@ public class ps_sliderImage
            SlideImage objNewImg = new SlideImage();
             objNewImg.sl_name = _name;
             objNewImg.sl_path = _path;
+            objNewImg.sl_desc = _desc;
             objImgs.SlideImages.InsertOnSubmit(objNewImg);
             objImgs.SubmitChanges();
             return true;
@@ -38,19 +41,21 @@ public class ps_sliderImage
         }
     }
 
-    public bool commitUpdate(int _id, string _name )
+    //updates values in DB where IDs match
+    public bool commitUpdate(int _id, string _name,string _desc )
     {
         lennoxdbDataContext objImgs = new lennoxdbDataContext();
         using (objImgs)
         {
             var objUpImg = objImgs.SlideImages.Single(x => x.sl_id == _id);
             objUpImg.sl_name = _name;
-           
+            objUpImg.sl_desc = _desc;
             objImgs.SubmitChanges();
             return true;
         }
     }
 
+    //deletes image from DB where IDs match
     public bool commitDelete(int _id)
     {
         lennoxdbDataContext objImgs = new lennoxdbDataContext();

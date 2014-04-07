@@ -1,10 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="ps_SlideImagesADMIN.aspx.cs" Inherits="Default2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="ps_SlideImagesADMIN.aspx.cs" Inherits="ps_SlideImages" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-</asp:Content>
+<%-- Page by Puneet Saini --%>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-    
-    <asp:Label ID="lbl_insert" runat="server" Text="Insert New Image" Font-Bold="true" />
+
+     <%-- page instructions --%>
+    <asp:Label ID="lbl_page" runat="server" Text="Select an image on the page to edit an existing one, or create a new one." />  
+     <asp:LinkButton ID="lnk_select" runat="server" Text="Add a new Image" OnClick="subCreate" />
+    <br /><br /><hr /><br />
+      <%-- panel contains create new image form --%>
+   
+    <asp:Panel ID="pnl_new" runat="server">
+         <asp:Label ID="lbl" runat="server" Text="To store the image in an appropriate folder give the appropriate path(folder name) for the images. For ex, Images/ImageName." /> <br /><br />
+         <asp:Label ID="lbl_insert" runat="server" Text="Insert New Image" Font-Bold="true" />
     <br /><br />
    
     <asp:Label ID="lbl_nameI" runat="server" Text="Name" AssociatedControlID="txt_nameI" /><br />
@@ -19,11 +27,13 @@
     <br /><br />
     <br />
     <asp:FileUpload ID="fileupload1" runat="server" />
-    <asp:RequiredFieldValidator ID="rfv_file" runat="server" Text="*Required" ControlToValidate="fileupload1" ValidationGroup="apply" />
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="fileupload1" ErrorMessage="Please select a .jpeg or .gif or .png file" ValidationExpression="[a-zA-Z0_9].*\b(.jpeg|.JPEG|.jpg|.JPG|.jpe|.JPE|.png|.PNG|.mpp|.MPP|.gif|.GIF)\b"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="rfv_file" runat="server" Text="*Required" ControlToValidate="fileupload1" ValidationGroup="insert" />
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="fileupload1" ErrorMessage="Please select a .gif or .png file" ValidationExpression="[a-zA-Z0_9].*\b(.jpeg|.JPEG|.jpg|.JPG|.jpe|.JPE|.png|.PNG|.mpp|.MPP|.gif|.GIF)\b"></asp:RegularExpressionValidator>
     <br /><br />
-    <asp:Button ID="btn_insert" runat="server" Text="Insert" CommandName="Insert" OnCommand="subAdmin" OnClick="Click" ValidationGroup="insert" /><br /><br />
-            
+    <asp:Button ID="btn_insert" runat="server" Text="Insert" CommandName="Insert" OnCommand="subAdmin" OnClick="Add" ValidationGroup="insert" /><br /><br />
+         <%-- validation summary for insert group --%>
+        <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
+           </asp:Panel>
     <asp:Panel ID="pnl_all" runat="server" GroupingText="All Images">
         <table>
             <thead>
@@ -46,10 +56,11 @@
                           <td><asp:LinkButton ID="btn_delete" runat="server" Text="Delete" CommandName="Delete" OnCommand="subAdmin" CommandArgument='<%#Eval("sl_id") %>' /></td>
                         </tr>
                     </ItemTemplate>
-               </asp:Repeater>
+              </asp:Repeater>
             </tbody>
         </table>
     </asp:Panel>  
+     <%-- panel contains update form --%>
     <asp:Panel ID="pnl_update" runat="server" GroupingText="Update Image">
         <table>
             <thead>
@@ -80,10 +91,13 @@
                             </td>
                         </tr>
                     </ItemTemplate>
-                </asp:Repeater>
+               </asp:Repeater>
+                 <%-- validation summary for edit group --%>
+            <asp:ValidationSummary ID="vds_edit" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="edit" />
             </tbody>
         </table>
     </asp:Panel> 
+    <%-- panel contains delete form --%>
     <asp:Panel ID="pnl_delete" runat="server" GroupingText="Delete">
         <table>
             <thead>
@@ -119,11 +133,9 @@
             </tbody>
         </table>
     </asp:Panel> 
+     <%-- success/failure message goes here --%>
     <asp:Label ID="lbl_msg" runat="server" />
-    <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="cph_aside" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="cph_footer" Runat="Server">
+
+    
 </asp:Content>
 
