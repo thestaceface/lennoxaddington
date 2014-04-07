@@ -162,9 +162,9 @@
         </div><%--content --%>
      <div class="clear"></div>
         <asp:ContentPlaceHolder ID="cph_footer" runat="server">
-        <div id="footer">
+        <div id="footer" class="footer">
             
-            <div id="footer_links">
+            <div id="footer_links" class="footersec">
                 <asp:Label ID="lbl_links" runat="server" Text="Access" /><br /><br /><hr />
                 <br />
                 <asp:LoginStatus ID="lgs_main" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/home.aspx" /><br /><br />
@@ -172,7 +172,7 @@
                 <asp:HyperLink ID="lnk_admin" runat="server" Text="Admin Page" NavigateUrl="~/admin/wl_crudMain.aspx" />
             </div><%--footer_jobs --%>  
 
-            <div id="footer_services">
+            <div id="footer_services" class="footersec">
                 <asp:Label ID="lbl_hours" runat="server" Text="Services" /><br /><br />
                 <hr /><br />
                 <asp:HyperLink ID="lnk_feedback" runat="server" Text="Feedback" NavigateUrl="~/rf_feedback.aspx"  /><br /><br />
@@ -181,7 +181,7 @@
                  <asp:HyperLink ID="lnk_ecard" runat="server" Text="Send an E-Card" NavigateUrl="~/e_card.aspx"  /><br /><br />
             </div><%--footer_services --%>  
 
-            <div id="footer_jobs">
+            <div id="footer_jobs" class="footersec">
                 <asp:Label ID="lbl_jobs" runat="server" Text="Jobs" /><br /><br />
                     <hr /><br />
                 <asp:HyperLink ID="lnk_jobs" runat="server" text="Current Openings" NavigateUrl="~/career.aspx" /><br /><br />
@@ -190,14 +190,16 @@
                 <br />
             </div><%--footer_links --%>  
 
-            <div id="footer_contact">
+            <div id="footer_contact" class="footersec">
                 <asp:Label ID="lbl_contact" runat="server" Text="Contact" /><br /><br /><hr /><br />
                 <asp:HyperLink ID="lnk_direction" runat="server" Text="Directions" NavigateUrl="~/direction.aspx"  /><br /><br />
                 <asp:Label ID="lbl_add" runat="server" Text="123 Fake Street<br>Napanee, A0A 0A0<br>(555) 121-2121" /><br /><br />
                 <asp:Label ID="lbl_visitinghours" runat="server" Text="Visiting Hours" /><br />
                 <asp:Label ID="lbl_time" runat="server" Text="2:00 p.m. - 8:00 p.m." /><br /><br />
             </div><%--footer_contact --%>  
-
+            
+            
+            <div id="legal">
             <div id="footer_copyright">
                 <asp:Label ID="lbl_footer" runat="server" Text="&copy 2014 Beedah, Bernard, Ferdous, Lin, Masson, Saini" /> 
                 &nbsp;&nbsp;&nbsp;
@@ -210,7 +212,8 @@
                 <asp:ImageButton ID="img_facebook" runat="server" ImageUrl="~/Images/Facebook_Icon.png" PostBackUrl="#" />
                 <asp:ImageButton ID="img_twitter" runat="server" ImageUrl="~/Images/Twitter_Icon.png" PostBackUrl="#" />
             </div><%--footer_icons --%>  
-          
+            </div>
+            
         </div><%--footer--%>  
 
              <%-- --------------mobile footer --------------- --%>

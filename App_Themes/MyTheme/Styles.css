@@ -332,3 +332,7 @@ body {
     padding:5px 5px 0 5px;
     background-color:#8ed1e4;
 }
+
+#cph_content_lgn_main, #cph_content_reg_main {
+    margin-left:30px;
+}

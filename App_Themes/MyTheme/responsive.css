@@ -16,11 +16,11 @@
     }
 
     #content_main {
-        margin-left: 10px;
         margin-bottom:25px;
         width: 95%;
         min-height: 0px;
         border: 0px;
+        
     }
 
     #slider, #box {
@@ -103,26 +103,36 @@
         display:inline-block;
     }
 
+    #legal {
+        padding-top:15px;
+    } 
+
     #footer {
-        max-width:100%;
+        width:100%;
+    }
+
+    .footer {
+        min-width:100%;
+        display:table;
+        table-layout:fixed;
         max-height:100%;
         margin-top:25px;
+        /*text-align:justify;*/
     }
 
     #footer_jobs, #footer_services, #footer_links, #footer_contact {
-        display:inline-block;
-        width:150px;
-        height:150px;
-        float:none;
-        margin:10px;
+        display:table-cell;
         vertical-align:top;
+        height:150px;
+        width:15%;
+        margin-right:-10px;
     }
 
     #footer_copyright, #footer_icons {
         display:inline-block;
         height:35px;
         margin:10px;
-        padding-top:0px;
+        padding-top:2%;
         margin-top:100px;
         vertical-align:bottom;
     }
@@ -203,7 +213,6 @@
     #content_main {
         text-align:center;
         display:block;
-        margin-left:0px;
         width:95%;
         min-height:0px;
         border:0px;
