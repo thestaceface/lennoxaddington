@@ -6,6 +6,7 @@ using System.Web;
 /// <summary>
 /// Summary description for faqclass
 /// </summary>
+/*
 public class faqclass
 {
     public IQueryable<faq> getAllData()
@@ -55,3 +56,4 @@ public class faqclass
         }
     }
 }
+ */
