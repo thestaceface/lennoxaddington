@@ -6,9 +6,10 @@ using System.Web;
 /// <summary>
 /// Summary description for newsclass
 /// </summary>
+/*
 public class newsclass
 {
-    public IQueryable<newsletter> getFeedbacks()
+    public IQueryable<newsletter> getnewsletters()
     {
         lennoxdbDataContext objnewsletter = new lennoxdbDataContext();
         var allnewsletters = objnewsletter.newsletters.Select(x => x);
@@ -66,3 +67,4 @@ public class newsclass
         }
     }
 }
+*/
