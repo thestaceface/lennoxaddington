@@ -6,9 +6,11 @@ using System.Web;
 /// <summary>
 /// Summary description for ecardclass
 /// </summary>
+/*
 public class ecardclass
 {
-    public IQueryable<ecard> getFeedbacks()
+    
+    public IQueryable<ecard> getnewsletters()
     {
         lennoxdbDataContext objecard = new lennoxdbDataContext();
         var allecards = objecard.ecards.Select(x => x);
@@ -64,5 +66,6 @@ public class ecardclass
             objE.SubmitChanges();
             return true;
         }
-    }
+    } 
 }
+*/
