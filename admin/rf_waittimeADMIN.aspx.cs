@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
  
 public partial class Default2 : System.Web.UI.Page
 {
-    rf_sysinfoClass WT = new rf_sysinfoClass();
+    rf_waittimeClass WT = new rf_waittimeClass();
 
     protected void subCreate(object sender, EventArgs e)
     {
@@ -85,7 +85,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         _panelControl(pnl_edit);
         msg.Text = string.Empty;
-        rf_sysinfoClass WT = new rf_sysinfoClass();
+        rf_waittimeClass WT = new rf_waittimeClass();
         rpt_edit.DataSource = WT.getsysinfoByID(id);
         rpt_edit.DataBind();
     }

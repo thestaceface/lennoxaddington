@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-public class rf_sysinfoClass
+public class rf_waittimeClass
 {
     public IQueryable<sysinfo> getsysinfos()
     {
@@ -15,8 +15,8 @@ public class rf_sysinfoClass
     public IQueryable<sysinfo> getsysinfoByID(int _id)
     {
         lennoxdbDataContext objWT = new lennoxdbDataContext();
-        var allsysinfos = objWT.sysinfos.Where(x => x.si_id == _id).Select(x => x);
-        return allsysinfos;
+        var onesysinfo = objWT.sysinfos.Where(x => x.si_id == _id).Select(x => x);
+        return onesysinfo;
     }
 
     public bool commitInsert(string _si_desc, Int32 _si_numdoctor, Int32 _si_avgtime, Int32 _si_numregistered, Int32 _si_numattended, DateTime _si_today, Int32 _waittime, Int32 _si_numwaiting, Int32 _si_d_id, DateTime _si_lupdate, string _si_message, Int32 _si_updateby) 
