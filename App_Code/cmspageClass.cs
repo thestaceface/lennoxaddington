@@ -124,4 +124,12 @@ public class cmspageClass
             return allRows;
         }
     }
+
+    public IQueryable<contentpage> getPageByUrl(string _cp_url)
+    {
+        lennoxdbDataContext objPage = new lennoxdbDataContext();
+        var onePage = objPage.contentpages.Where(x => x.cp_url == _cp_url).Select(x => x);
+        return onePage;
+    }
+
 }

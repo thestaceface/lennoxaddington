@@ -135,28 +135,27 @@
           
             
             <div id="aside"> 
-                Will's CTA testing area
+<%--                Will's CTA testing area
                 <asp:Label ID="lbl_test" runat="server" />
+                <asp:Label ID="lbl_output" runat="server" />--%>
+
+               <asp:DataList ID="rpt_edit" runat="server" OnItemDataBound="ctaLoader" >
+                    <ItemTemplate>
+                        <%--<asp:Hiddenfield ID="hdf_idE" runat="server" Value='<%#Eval("cp_id") %>' /><br />--%>
+                        <asp:HiddenField ID="hdf_cta1" runat="server" Value='<%#Eval("cp_cta1") %>' />
+                        <%--<asp:Label ID="lbl_cta2" runat="server" Text='<%# Eval("cp_cta2") %>' />--%>
+                        <asp:HiddenField ID="hdf_cta2" runat="server" Value='<%#Eval("cp_cta2") %>' />
+
+                    </ItemTemplate> 
+                </asp:DataList>
+               <%-- <asp:Label ID="lbl" runat="server" />--%>
+                <asp:PlaceHolder ID="cta1" runat="server" />
+                <asp:PlaceHolder ID="cta2" runat="server" />
+                <%--need to create a method that grabs the url information for this page... and compares it to the lbl_test--%>
                 <asp:ContentPlaceHolder ID="cph_aside" runat="server">
                     
 
-               <div id="aside1">
-                  <asp:Label ID="lbl_text" runat="server" Text="Keeping You Informed!"  CssClass="lbl_text" /><br /><br />
-                <hr style="color:#7dc6cc"; />
-            </div> <%--aside1 --%>           
-                <div class="clear" />
-
-            <div id="aside2">
-                <asp:Label ID="lbl_faq" runat="server" Text="F.A.Q"  Font-Size="20px" />
-            </div> <%--aside2 --%>  
-                                                   
-            <div id="aside3">
-                <asp:Label ID="lbl_doctor" runat="server" Text="Find a Clinic"  Font-Size="20px" />
-            </div> <%--aside3 --%> 
-                  
-            <div id="aside4">
-                <asp:Label ID="lbl_events" runat="server" Text="New Events"  Font-Size="20px" />
-            </div><%--aside4 --%>  
+    
             
                 </asp:ContentPlaceHolder>
             </div><%--aside --%>              
