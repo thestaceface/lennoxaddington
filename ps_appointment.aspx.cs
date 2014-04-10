@@ -8,24 +8,32 @@ using System.Web.UI.WebControls;
 
 public partial class ps_appointment : System.Web.UI.Page
 {
+    //creating instance of the class file
     ps_appointmentClass objAppmnt = new ps_appointmentClass();
-   
+
+    //calls page reset
     protected void Page_Load(object sender, EventArgs e)
     {
+        //if user is logged in as administrator, edit button is visible
+        if (!User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
         if (!Page.IsPostBack)
         {
             _subRebind();
         }
 
     }
+
+    //resets fields on page reload
     private void _subRebind()
     {
         ce.StartDate = DateTime.Now;
         txt_date.Text = string.Empty;
         txt_name.Text = string.Empty;
         txt_cardno.Text = string.Empty;                
-        txt_date.Text = string.Empty;
-        lbl_msg.Text = string.Empty;
+        txt_date.Text = string.Empty;       
         ddl_time.Text = string.Empty;
         txt_reason.Text = string.Empty;
         ddl_dept.ClearSelection();
@@ -33,7 +41,8 @@ public partial class ps_appointment : System.Web.UI.Page
         ddl_dept.DataTextField = "dp_name";
         ddl_dept.DataValueField = "dp_id";
         ddl_dept.DataBind();
-        ddl_doc.ClearSelection();
+        //ddl_dept.Items.Insert(0, String.Empty);
+        //ddl_doc.ClearSelection();
         ddl_doc.DataSource = objAppmnt.getDoctors();
         ddl_doc.DataTextField = "doc_name";
         ddl_doc.DataValueField = "doc_id";
@@ -41,36 +50,33 @@ public partial class ps_appointment : System.Web.UI.Page
       
     }
 
+    //onclick event checking to see if that appointment already exists. 
     protected void subSubmit(object sender, EventArgs e)
     {
-        
-
-    }
-
-    protected void subAdmin(object sender, CommandEventArgs e)
-    {
-        switch (e.CommandName)
-        {
-            case "Insert":
-                _strMessage(objAppmnt.commitInsert(txt_name.Text, int.Parse(txt_cardno.Text.ToString()), ddl_dept.SelectedValue.ToString(), ddl_doc.SelectedValue.ToString(), DateTime.Parse(txt_date.Text.ToString()),  txt_reason.Text), "appointment");
-                _subRebind();
-                break;
-
-            case "Cancel":
-                _subRebind();
-                break;
+        IQueryable<appointment> obj = objAppmnt.getBookedAppointments(txt_date.Text, ddl_time.SelectedItem.Text);
+        if (obj.Count() > 0)
+        { 
+            lbl_msg.Text = "Please select another time slot.This time slot has already been taken."; 
         }
+        else
+        {
+            _strMessage(objAppmnt.commitInsert(txt_name.Text, txt_cardno.Text.ToString(), ddl_dept.SelectedItem.Text, ddl_doc.SelectedItem.Text, txt_date.Text, ddl_time.SelectedItem.Text, txt_reason.Text), "appointment");
+            lbl_msg.Text = "Your appointment has been booked.";
+        }
+   
     }
+  
+
+
+    //returns a message notifying user of success or failure committing changes to DB 
     private void _strMessage(bool flag, string str)
     {
         if (flag)
         {
-            lbl_msg.Text = "Your" + str + "has been booked";
+            lbl_msg.Text = "Your" + " " + str + " " + "has been booked";
 
-        }
-        else
-        {
-            lbl_msg.Text = "Sorry, unable to book your " + "str";
-        }
+        }        
     }
+
+     
 }
