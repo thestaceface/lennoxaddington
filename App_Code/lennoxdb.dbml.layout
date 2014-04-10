@@ -59,6 +59,16 @@
         <elementListCompartment Id="26208b90-4941-46ae-b509-0d1e5d1f6b42" absoluteBounds="7.7650000000000006, 8.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+<<<<<<< HEAD
+=======
+    <associationConnector edgePoints="[(7.75 : 9.95555497851563); (7.4375 : 9.95555497851563); (7.4375 : 11.3526025390625); (6.375 : 11.3526025390625); (6.375 : 11.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/lennoxdbDataContext/position/position_applicant" />
+      <nodes>
+        <classShapeMoniker Id="2b571083-9f79-44c0-a1d7-75a2256ab5d5" />
+        <classShapeMoniker Id="d261aa4a-9842-448c-9e86-81e6e46c3de5" />
+      </nodes>
+    </associationConnector>
+>>>>>>> 0e6ae7bcc07fa852e644095ef634140d6579a44e
     <classShape Id="dcee8821-faab-4a74-b7b3-02061583e8be" absoluteBounds="0.5, 15.375, 2, 2.5401025390625">
       <DataClassMoniker Name="/lennoxdbDataContext/syscontrol" />
       <nestedChildShapes>
@@ -75,12 +85,6 @@
       <DataClassMoniker Name="/lennoxdbDataContext/faqanswer" />
       <nestedChildShapes>
         <elementListCompartment Id="0e710daa-548a-4a7f-a698-e608cdf63af3" absoluteBounds="5.39, 19.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="8a0a7f3e-e5c9-4ce3-b614-ecc24b4d1379" absoluteBounds="5.375, 17.25, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/lennoxdbDataContext/extlink" />
-      <nestedChildShapes>
-        <elementListCompartment Id="7dee100a-74b1-47ce-b37a-a4117759a6c0" absoluteBounds="5.3900000000000006, 17.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="1b0260ac-cf7b-4bee-9217-346a35de2f36" absoluteBounds="0.5, 18.125, 2, 1.9631982421875">
@@ -181,7 +185,7 @@
         <elementListCompartment Id="65178a6c-3df7-4265-947f-50aa725dd30c" absoluteBounds="0.515, 3.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.5 : 4.5); (1.5 : 4.19399251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.5 : 4.5); (1.5 : 4.19399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/aspnet_Role/aspnet_Role_aspnet_UsersInRole" />
       <nodes>
         <classShapeMoniker Id="5a5aa964-8d37-4783-829a-5e7e6aeb59dc" />
@@ -273,7 +277,7 @@
         <classShapeMoniker Id="bbfd5bc9-4dae-409f-9ab9-ecaa97dccfa3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 21.4772204589844); (3 : 21.4772204589844)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 21.4772204589844); (3 : 21.4772204589844)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/lennoxdbDataContext/cta/cta_contentpage2" />
       <nodes>
         <classShapeMoniker Id="476a7d65-2abc-4b62-84ca-cabf4eac5f10" />
@@ -345,6 +349,7 @@
         <classShapeMoniker Id="f68c750e-bd52-4b7b-a41e-08933ad2fd65" />
       </nodes>
     </associationConnector>
+<<<<<<< HEAD
     <classShape Id="5d255006-4a76-4739-a7ae-e15104cce5bb" absoluteBounds="3, 15.875, 2, 3.6939111328124996">
       <DataClassMoniker Name="/lennoxdbDataContext/donation" />
       <nestedChildShapes>
@@ -355,6 +360,18 @@
       <DataClassMoniker Name="/lennoxdbDataContext/applicant" />
       <nestedChildShapes>
         <elementListCompartment Id="1e133e24-bfa1-4b2b-b957-ecdba771084f" absoluteBounds="5.39, 12.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+=======
+    <classShape Id="80f70d19-06a4-4818-b385-d83e0cd8de6e" absoluteBounds="5.375, 17, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/lennoxdbDataContext/extlink" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5b1a77d-a67a-4371-a0f3-7373da2c2460" absoluteBounds="5.39, 17.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a34e3d8-2ab1-48e8-a9ca-4e0d3370e83c" absoluteBounds="0.5, 22.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/lennoxdbDataContext/Thank_Msg" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e40fdd0-2a7d-4006-966f-01767a485269" absoluteBounds="0.51500000000000012, 22.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+>>>>>>> 0e6ae7bcc07fa852e644095ef634140d6579a44e
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

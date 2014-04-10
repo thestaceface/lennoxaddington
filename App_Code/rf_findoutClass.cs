@@ -20,7 +20,7 @@ public class rf_findoutClass
         return allextlinks;
     }
 
-    public bool commitInsert(string _el_category, string _el_name, string _el_link)
+    public bool commitInsert(string _el_category, string _el_name, string _el_brief, string _el_link)
     {
         lennoxdbDataContext objLink = new lennoxdbDataContext();
         using (objLink)
@@ -28,6 +28,7 @@ public class rf_findoutClass
             var objNewLink = new extlink();
             objNewLink.el_category = _el_category;
             objNewLink.el_name = _el_name;
+            objNewLink.el_brief = _el_brief;
             objNewLink.el_link = _el_link;
             objLink.extlinks.InsertOnSubmit(objNewLink);
             objLink.SubmitChanges();
@@ -35,7 +36,7 @@ public class rf_findoutClass
         }
     }
 
-    public bool commitUpdate(int _el_id, string _el_category, string _el_name, string _el_link)
+    public bool commitUpdate(int _el_id, string _el_category, string _el_name, string _el_brief, string _el_link)
     {
         lennoxdbDataContext objLink = new lennoxdbDataContext();
         using (objLink)
@@ -43,6 +44,7 @@ public class rf_findoutClass
             var objUpLink = objLink.extlinks.Single(x => x.el_id == _el_id);
             objUpLink.el_category = _el_category;
             objUpLink.el_name = _el_name;
+            objUpLink.el_brief = _el_brief;
             objUpLink.el_link = _el_link;
             objLink.SubmitChanges();
             return true;

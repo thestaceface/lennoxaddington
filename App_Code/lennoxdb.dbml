@@ -142,14 +142,6 @@
       <Column Name="fa_answer" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.extlinks" Member="extlinks">
-    <Type Name="extlink">
-      <Column Name="el_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="el_category" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="el_name" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="el_link" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.Events" Member="Events">
     <Type Name="Event">
       <Column Name="ev_id" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -406,6 +398,7 @@
       <Association Name="department_sysinfo" Member="department" ThisKey="si_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
     </Type>
   </Table>
+<<<<<<< HEAD
   <Table Name="dbo.donation" Member="donations">
     <Type Name="donation">
       <Column Name="dn_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -432,6 +425,26 @@
       <Column Name="ap_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ap_letter" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="ap_upload" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+=======
+  <Table Name="dbo.extlinks" Member="extlinks">
+    <Type Name="extlink">
+      <Column Name="el_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="el_category" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="el_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="el_brief" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="el_link" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Thank_Msg" Member="Thank_Msgs">
+    <Type Name="Thank_Msg">
+      <Column Name="th_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="th_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="th_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="th_eml" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="th_dept" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="th_smname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="th_msg" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+>>>>>>> 0e6ae7bcc07fa852e644095ef634140d6579a44e
     </Type>
   </Table>
   <Function Name="dbo.WLTestProcedure01" Method="WLTestProcedure01">

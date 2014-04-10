@@ -20,6 +20,8 @@
                     <asp:Label ID="name" runat="server" Text='<%#Eval ("el_name") %>' /><br />
                 <asp:Label ID="lbl_category" runat="server" Text="Category " Font-Bold="true" ForeColor="#6aabbf" />
                     <asp:Label ID="category" runat="server" Text='<%#Eval ("el_category") %>' /><br />
+                <asp:Label ID="lbl_brief" runat="server" Text="Brief " Font-Bold="true" ForeColor="#6aabbf" />
+                    <asp:Label ID="brief" runat="server" Text='<%#Eval ("el_brief") %>' /><br />
                 <asp:HyperLink ID="hpl_link" runat="server" NavigateUrl='<%#Eval ("el_link") %>' Text="Click here to visit this link" />
             </div>
         </ContentTemplate>

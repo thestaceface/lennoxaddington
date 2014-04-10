@@ -1,16 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="ps_thanksform.aspx.cs" Inherits="ps_thanksform" %>
+<%-- Page by Puneet Saini --%>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
+     <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/ps_thanksformADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
+
     <h1>Thank a Staff Member</h1><br /><br />
-    
+    <%-- page instructions --%>
     <asp:Label ID="lbl_heading" runat="server" Text="Do you have a special thank you, you would like to pass on to one of our departments, staff members, physician’s or volunteers or a success story that you would like to share with us." />
     <br />
     <br />
         
-               
+      <%-- initializing AJAX toolkit manager for calendar popout --%>         
     <AJAX:ToolkitScriptManager ID="tsm_main" runat="server" />
+    <%--Form for sending thanks messages --%>
     <table >
         <tr>
             <td><asp:Label ID="lbl_date" runat="server" Text="Date" /></td>
@@ -37,8 +40,8 @@
         </tr>
         <tr>
             <td><asp:Label ID="lbl_staff" runat="server" Text="Staff Member Name" /></td>
-            <td> <asp:TextBox ID="txt_staff" runat="server" />
-    <asp:RequiredFieldValidator ID="rfv_staff" runat="server" Text="*Required" ValidationGroup="insert" ControlToValidate="txt_staff" /></td>
+            <td> <asp:DropDownList ID="ddl_doc" runat="server" />
+    <asp:RequiredFieldValidator ID="rfv_staff" runat="server" Text="*Required" ValidationGroup="insert" ControlToValidate="ddl_doc" /></td>
         </tr>
         <tr>
             <td><asp:Label ID="lbl_thanksmsg" runat="server" Text="Thankyou Message" /> </td>
@@ -47,10 +50,12 @@
         </tr>
         <tr>
             <td></td>
-           <td><asp:Button ID="btn_insert" runat="server" Text="Send" CommandName="Insert" OnCommand="subAdmin" ValidationGroup="insert" /></td>
+           <td><asp:Button ID="btn_insert" runat="server" CssClass="submitButton" Text="Send" CommandName="Insert" OnCommand="subAdmin" ValidationGroup="insert" /></td>
         </tr>
+         <%-- validation summary for insert group --%>
         <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
     </table>
+     <%-- message of success failure to commit to DB goes here --%>
     <asp:Label ID="lbl_msg" runat="server" />
     
     

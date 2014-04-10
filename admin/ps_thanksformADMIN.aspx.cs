@@ -9,7 +9,10 @@ using System.Net.Mail;
 
 public partial class ps_thanksformADMIN : System.Web.UI.Page
 {
+    //creating instance of the class file
     ps_thankmsgClass objThanks = new ps_thankmsgClass();
+
+    //calls page reset
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -17,12 +20,24 @@ public partial class ps_thanksformADMIN : System.Web.UI.Page
             _subRebind();
         }
     }
+
+    //resets all fields on page (re)load
+    private void _subRebind()
+    {
+        rpt_all.DataSource = objThanks.getMsgs();
+        rpt_all.DataBind();
+        _panelControl(pnl_all);
+
+    }
+
+    //handles button commands - if insert executes the insert and calls the _strMessage function, if update calls the _showUpdate function, if cancel, calls reset
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         switch (e.CommandName)
         {
             case "Delete":
                 _showDelete(int.Parse(e.CommandArgument.ToString()));
+                
                 break;
 
             case "Update":
@@ -31,18 +46,20 @@ public partial class ps_thanksformADMIN : System.Web.UI.Page
         }
     }
 
+    //sending email on the click of this button event
     protected void sendEmail(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)
         {
+
             case "Cancel":
                 _subRebind();
                 break;
 
             case "Send":
-                TextBox to = (TextBox)e.Item.FindControl("txt_to");               
-                TextBox from = (TextBox)e.Item.FindControl("txt_smEmail");
-                TextBox email = (TextBox)e.Item.FindControl("txt_from");
+                TextBox toName = (TextBox)e.Item.FindControl("txt_to");               
+                TextBox fromEmail = (TextBox)e.Item.FindControl("txt_from");
+                TextBox toEmail = (TextBox)e.Item.FindControl("txt_smEmail");
                 TextBox msg = (TextBox)e.Item.FindControl("txt_smMsg");
                 Label msg1 = (Label)e.Item.FindControl("send");               
                 Label title = (Label)e.Item.FindControl("lbl_to");
@@ -53,36 +70,35 @@ public partial class ps_thanksformADMIN : System.Web.UI.Page
 
                 MailMessage mailMessage = new MailMessage();
                 mailMessage.From = new MailAddress("puns75769@gmail.com");
-                mailMessage.To.Add("puns75769@gmail.com");
+                mailMessage.To.Add(toEmail.Text);
                 mailMessage.Subject = "[Message: Thanks Message for " + title.Text + "]";
-
-
-                mailMessage.Body = "To : " + to.Text + "<br/>" + "From : " + from.Text + "<br />"
-                    + "Sender Email " + email.Text + "<br />"
-                    + " Message " + msg.Text;
+                mailMessage.Body = "To : " + toName.Text + "<br/>" + "From : " + fromEmail.Text + "<br />"
+                    + "Sender Email: " + toEmail.Text + "<br />"
+                    + " Message: " + msg.Text;
 
                 mailMessage.IsBodyHtml = true;
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new System.Net.NetworkCredential("puns75769@gmail.com", "password");
+                smtpClient.Credentials = new System.Net.NetworkCredential("puns75769@gmail.com", "mypassword");
                 smtpClient.Send(mailMessage);
-                msg1.Text = to.Text;
+                msg1.Text = toName.Text;
 
                 msg1.Text = "Thank you";
-                to.Enabled = false;
-                from.Enabled = false;
-                email.Enabled = false;
+                toName.Enabled = false;
+                fromEmail.Enabled = false;
+                toEmail.Enabled = false;
                 msg.Enabled = false;               
                 send.Enabled = false;
                 cancel.Text = "All Messages";
 
                 break;
 
-
+            
         }
     }
 
+    //called in update form - case update commits update and calls _strMessage function, delete deletes record and calls _strMessage. cancel calls reset
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)
@@ -108,6 +124,8 @@ public partial class ps_thanksformADMIN : System.Web.UI.Page
                 break;
         }
     }
+
+    //called by subAdmin - makes send panel and form visible
     private void _showSend(int id)
     {
         _panelControl(pnl_update);
@@ -115,12 +133,16 @@ public partial class ps_thanksformADMIN : System.Web.UI.Page
         rpt_update.DataSource = _obj.getMsgByID(id);
         rpt_update.DataBind();
     }
+
+    //called by subAdmin - makes delete panel and form visible
     private void _showDelete(int th_id)
     {
         _panelControl(pnl_delete);
         rpt_delete.DataSource = objThanks.getMsgByID(th_id);
         rpt_delete.DataBind();
     }
+
+    //controls panel visibility
     private void _panelControl(Panel pnl)
     {
         pnl_all.Visible = false;
@@ -128,18 +150,15 @@ public partial class ps_thanksformADMIN : System.Web.UI.Page
         pnl_update.Visible = false;
         pnl.Visible = true;
     }
-    private void _subRebind()
-    {
-        rpt_all.DataSource = objThanks.getMsgs();
-        rpt_all.DataBind();
-        _panelControl(pnl_all);
 
-    }
+  
+
+    //notifies of success or failure to commit to DB
     private void _strMessage(bool flag, string str)
     {
         if (flag)
         {
-            lbl_msg.Text = "Your" +  " " +  str + "has been deleted";
+            lbl_msg.Text = "Your" +  " " +  str + " " + "has been deleted";
 
         }
         else

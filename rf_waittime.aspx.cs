@@ -7,7 +7,8 @@ using System.Web.UI.WebControls;
  
 public partial class rf_waittime : System.Web.UI.Page
 {
-    rf_sysinfoClass WT = new rf_sysinfoClass(); 
+    rf_waittimeClass WT = new rf_waittimeClass(); 
+    
 
     private void _subRebind() 
     {
@@ -16,13 +17,16 @@ public partial class rf_waittime : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-       _calculateWaittime();
-       lbl_wtime.Text = "Estimated waiting time is about " + " 2h15m. Valid at " + DateTime.Now.ToString() + ".";
-       _subRebind();
+        //_calculateWaittime(id);
+        lbl_wtime.Text = "Estimated waiting time is about " + " 2h15m. Valid at " + DateTime.Now.ToString() + ".";
     }
 
-    private void _calculateWaittime()
+    protected void _calculateWaittime(int id)
     {
-
+        var rec = WT.getsysinfoByID(id);
+        //How to get full record access here?
+        //How to refer following columns from the record here
+        //I want to calculate waittime using following columns from sysinfo table
+        // si_waittime = (si_numwaiting * si_avgtime) / si_numdoctor
     }
 }

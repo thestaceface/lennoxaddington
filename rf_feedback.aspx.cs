@@ -59,12 +59,19 @@ public partial class rf_feedback : System.Web.UI.Page
         }
     }
 
+    protected void subEmail(object sender, EventArgs e)
+    {
+
+    }
+
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         switch (e.CommandName)
         {
             case "Insert":
                 _strMessage(FB.commitInsert(ddl_category.Text, txt_subject.Text, txt_last.Text, txt_first.Text, txt_tel.Text, txt_email.Text, txt_street.Text, txt_appt.Text, txt_city.Text, txt_province.Text, txt_country.Text, txt_message.Text), "Feedback Send");
+                
+                
                 _subRebind();
                 break;
             case "Cancel":
