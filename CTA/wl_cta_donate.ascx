@@ -2,7 +2,7 @@
 
 <asp:Panel ID="pnl_main" runat="server" BorderColor="Black" BorderWidth="1px" >
 
-    <asp:Label ID="lbl_donate" runat="server" Text="Donate to LACGH<br />Make a Difference! " />
+    <asp:Label ID="lbl_donate" runat="server" Text="Donate to LACGH Today!<br />Make a Difference! " />
     <br />
     <asp:Image ID="img_donate" runat="server" ImageUrl="~/Images/cta_donate.jpg"  />
     <br />
@@ -16,7 +16,7 @@
         <asp:ListItem Text="Monthly Donation" Value="Monthly" />
     </asp:RadioButtonList>--%>
     </div>
-    <asp:Button runat="server" ID="btn_donate" Text="Donate Now!" PostBackUrl="~/sm_finddoc.aspx"  />
+    <asp:HyperLink runat="server" ID="hpl_donate" Text="Donate Now!" NavigateUrl="~/sm_finddoc.aspx"  />
 </asp:Panel>
 
 

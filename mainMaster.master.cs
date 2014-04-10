@@ -18,8 +18,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             lnk_admin.Visible = false;
         }
 
-        rpt_edit.DataSource = objPage.getPageByUrl(pageurl);
-        rpt_edit.DataBind();
+        dtl_edit.DataSource = objPage.getPageByUrl(pageurl);
+        dtl_edit.DataBind();
 
         
 

@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
 
     <asp:Label ID="lbl_title" runat="server" Text="CTA administration" />
-        <asp:DropDownList ID="ddl_test" runat="server" />
+        <%--<asp:DropDownList ID="ddl_test" runat="server" />--%>
         <asp:Repeater ID="rpt_cta" runat="server"  >
             <HeaderTemplate>
                 <table>   
@@ -29,10 +29,12 @@
                                 <asp:ListItem Value="x" Text="x" ></asp:ListItem>
                             </asp:DropDownList>--%>
                             <asp:TextBox ID="txt_cta1" runat="server"  Text='<%#Bind("cp_cta1") %>' />
+                            <asp:RangeValidator ID="rv_txtCta1" runat="server" Text="Please input a value between 1-5" ControlToValidate="txt_cta1" MaximumValue="5" MinimumValue="1" Display="Dynamic" />
                             
                         </td>
                         <td>
                             <asp:TextBox ID="txt_cta2" runat="server" Text='<%#Bind("cp_cta2") %>' />
+                            <asp:RangeValidator ID="rv_txtCta2" runat="server" Text="Please input a value between 1-5" ControlToValidate="txt_cta2" MaximumValue="5" MinimumValue="1" Display="Dynamic" />
                         </td>
                     </tr>
                 

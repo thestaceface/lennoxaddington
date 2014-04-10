@@ -76,7 +76,7 @@ public class cmspageClass
     public IQueryable<contentpage> getPages() //IQueryable<table> getPages means that getPages will run a query through the list of <table>.  this will be used for populating lists.
     {
         lennoxdbDataContext objPage = new lennoxdbDataContext();//this is the instance of the linq object
-        var allPages = objPage.contentpages.Select(x => x);// allPages is an anonymous variable that will hold the values of the query the database.  
+        var allPages = objPage.contentpages.Select(x => x).OrderBy(x => x.cp_pagename);// allPages is an anonymous variable that will hold the values of the query the database.  
         //objPage (using the linq object), products (take the database), Select (run a select) x => x, (for all values where x is x... all).  
         //above is the method syntax.  
 

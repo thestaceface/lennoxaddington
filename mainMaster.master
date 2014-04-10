@@ -139,7 +139,7 @@
                 <asp:Label ID="lbl_test" runat="server" />
                 <asp:Label ID="lbl_output" runat="server" />--%>
 
-               <asp:DataList ID="rpt_edit" runat="server" OnItemDataBound="ctaLoader" >
+               <asp:DataList ID="dtl_edit" runat="server" OnItemDataBound="ctaLoader" >
                     <ItemTemplate>
                         <%--<asp:Hiddenfield ID="hdf_idE" runat="server" Value='<%#Eval("cp_id") %>' /><br />--%>
                         <asp:HiddenField ID="hdf_cta1" runat="server" Value='<%#Eval("cp_cta1") %>' />
