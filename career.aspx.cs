@@ -11,7 +11,9 @@ public partial class Default2 : System.Web.UI.Page
 {
     // link to class file
     positionClass objLinq = new positionClass();
+    applicationClass objLinq2 = new applicationClass();
 
+    // subrebind
     private void _subRebind()
     {
         rpt_all.DataSource = objLinq.getposition();
@@ -19,14 +21,22 @@ public partial class Default2 : System.Web.UI.Page
         _panelControl(pnl_all);
     }
 
+    // on page load, subrebind
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
             _subRebind();
         }
-    }
 
+        //if user is logged in as administrator, edit button is visible
+        if (!User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
+    }
+    
+    // subAdmin for update
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         switch (e.CommandName)
@@ -37,6 +47,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    // on button click, send info via email and save to database
     protected void sendEmail(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)
@@ -46,20 +57,24 @@ public partial class Default2 : System.Web.UI.Page
                 break;
 
             case "Apply":
+                // declare textboxes
                 TextBox name = (TextBox)e.Item.FindControl("txt_appName");
                 TextBox email = (TextBox)e.Item.FindControl("txt_appEmail");
                 TextBox msg = (TextBox)e.Item.FindControl("txt_appMsg");
-                Label msg1 = (Label)e.Item.FindControl("aa");
+                Label msg1 = (Label)e.Item.FindControl("lblthanks");
                 FileUpload file = (FileUpload)e.Item.FindControl("fileupload1");
                 Label title = (Label)e.Item.FindControl("lbl_title");
 
                 Button apply = (Button)e.Item.FindControl("btn_apply");
                 Button back = (Button)e.Item.FindControl("btn_cancel");
-                
 
+                // save to database
+                objLinq2.commitInsert(name.Text, email.Text, msg.Text, file.FileBytes);
+                
+                // send email
                 MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("ybeedah@gmail.com");
-                mailMessage.To.Add("ybeedah@gmail.com");
+                mailMessage.From = new MailAddress("lacghhospitalproject@gmail.com");
+                mailMessage.To.Add("lacghhospitalproject@gmail.com");
                 mailMessage.Subject = "[Career: Application for " + title.Text + "]";
 
                 if (file.HasFile)
@@ -75,16 +90,18 @@ public partial class Default2 : System.Web.UI.Page
 
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new System.Net.NetworkCredential("ybeedah@gmail.com", "password");
+                smtpClient.Credentials = new System.Net.NetworkCredential("lacghhospitalproject@gmail.com", "lacghhospitalproject1!");
                 smtpClient.Send(mailMessage);
-                //msg1.Text = name.Text;
 
+                // disable all textboxes and display thank you message
                 msg1.Text = "Thank you for you application";
                 name.Enabled = false;
                 email.Enabled = false;
                 msg.Enabled = false;
                 file.Enabled = false;
                 apply.Enabled = false;
+
+                // change button name
                 back.Text = "View Jobs";
 
                 break;
@@ -93,6 +110,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+    // show update panel
     private void _showUpdate(int id)
     {
         _panelControl(pnl_update);
@@ -101,6 +119,7 @@ public partial class Default2 : System.Web.UI.Page
         rpt_update.DataBind();
     }
 
+    // change panel
     private void _panelControl(Panel pnl)
     {
         pnl_all.Visible = false;
@@ -108,6 +127,4 @@ public partial class Default2 : System.Web.UI.Page
         pnl.Visible = true;
     }
 
-
-    //fileUpload1.saveAs(Server.MapPath("resume\\" + fileUpload1.FileName + ".docx"));
 }

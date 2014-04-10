@@ -2,6 +2,11 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    
+    <%-- Page by Dharveen Beedah --%>
+
+    <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
+    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/directionAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
 
     <%-- source http://kishor-naik-dotnet.blogspot.ca/2012/11/aspnet-google-map-v3-directions-in.html --%> 
     <%-- source http://www.sitepoint.com/working-with-geolocation-and-google-maps-api/ --%>
@@ -159,33 +164,55 @@
     <div>
         <h1>Maps and Directions</h1>
         <%-- to and from textboxes --%>
-        From: <asp:TextBox ID="txtFrom" runat="server" Width="400px"></asp:TextBox>
-        <br />
-        To: <asp:TextBox ID="txtTo" runat="server" Width="400px" Text="8 Richmond Park Drive, Napanee, ON K7R 2Z4"></asp:TextBox><br />
+
+        <table class="tables">
+            <tr>
+                <td>
+                    From: 
+                </td>
+                <td>
+                    <asp:TextBox ID="txtFrom" runat="server" ></asp:TextBox>
+                </td> 
+                <td>
+                    <%-- get location button --%>
+                    <asp:ImageButton ID="btnGetAddress" runat="server" Width="30px" Height="30px" ImageUrl="~/Images/location.png" OnClientClick="getAddress(); return false" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    To: 
+                </td>
+                <td>
+                    <asp:TextBox ID="txtTo" runat="server"  Text="8 Richmond Park Drive, Napanee, ON K7R 2Z4"></asp:TextBox>
+                </td> 
+            </tr>
+        </table>
 
         <%-- error message label --%>
         <asp:Label ID="error" runat="server" /><br />
         
-        <%-- 4 buttons - get direction, get current address, get distance and reset --%>
+        <%-- 3 buttons - get direction, get distance and reset --%>
         <asp:Button ID="btnDirections" runat="server" Text="Get Direction" OnClientClick="GetDirectionRoute(); return false" />
-        <asp:Button ID="btnGetAddress" runat="server" Text="Get Current Address" OnClientClick="getAddress(); return false" />
         <asp:Button ID="btnGetDistance" runat="server" Text="Get Distance" OnClick="subGetDistance" />
         <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="subReset" />
 
         <br /><br />
               
         <%-- google map --%>
-        <div id ="DivGoogleMapCanvas"  style="height:480px;"></div>
+        <div id ="DivGoogleMapCanvas" style="height:480px"></div>
+
+        <br /><br />
 
         <%-- get distance panel --%>
         <asp:Panel ID="pnl_distance" runat="server">
             <div id ="DivDirectionRouteStatus" style="height:480px;overflow: auto">Distance</div>
+            <br /><br />
         </asp:Panel>
     </div>
 
     <%-- panel displaying hospital address, phone number and visiting hours --%>
     <asp:Panel ID="pnl_all" runat="server" GroupingText="Hospital Details">
-            <table style="width:100%;">
+            <table style="width:100%; padding-left:30px; padding-right:30px;">
                 <tbody>
                     <asp:Repeater ID="rpt_all" runat="server">
                         <ItemTemplate>

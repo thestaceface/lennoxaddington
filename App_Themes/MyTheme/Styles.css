@@ -336,3 +336,13 @@ body {
 #cph_content_lgn_main, #cph_content_reg_main {
     margin-left:30px;
 }
+
+/* Yash */
+
+#DivGoogleMapCanvas {
+    height:480px;
+    width:100%;
+    display:block;
+    overflow: auto;
+    padding-right:-80px;
+}

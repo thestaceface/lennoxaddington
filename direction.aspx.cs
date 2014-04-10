@@ -17,6 +17,12 @@ public partial class Default4 : System.Web.UI.Page
         {
             _subRebind();
         }
+
+        //if user is logged in as administrator, edit button is visible
+        if (!User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
     }
 
     // databind repeater and make distance panel not visible

@@ -301,4 +301,13 @@
         margin-right:5px;
         margin-top:2px;
     }
+
+    /* yash */
+    #DivGoogleMapCanvas {
+        height:200px;
+        width:100%;
+        display:block;
+        overflow: auto;
+        padding-right:-80px;
+    }
 }
