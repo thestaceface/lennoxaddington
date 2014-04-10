@@ -1,9 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="ps_thanksformADMIN.aspx.cs" Inherits="ps_thanksformADMIN" %>
+<%-- Page by Puneet Saini --%>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+     <%-- page instructions --%>
+    <asp:Label ID="lbl_page" runat="server" Text="Choose a message to reply back to the sender or delete one ! " />
+    <%--pnl_all displays all the messages recieved --%>
     <asp:Panel ID="pnl_all" runat="server" GroupingText="All Messages">
+        <asp:Label ID="lbl_msg" runat="server" />
         <table border="1" style="font-family:Arial;border:1px solid #C0C0C0;background-color:#D8D8D8">
             <thead>
                 <tr style="background-color:#6aabbf">
@@ -11,7 +14,7 @@
                     <th><asp:Label ID="lbl_name" runat="server" Text="Sent By" /></th>
                     <th><asp:Label ID="lbl_email" runat="server" Text="Sent by - Email" /></th>      
                     <th><asp:Label ID="lbl_smname" runat="server" Text="Sent To" /></th>
-                    <th><asp:Label ID="lbl_msg" runat="server" Text="Message" /></th>
+                    <th><asp:Label ID="lbl_msg1" runat="server" Text="Message" /></th>
                     <th><asp:Label ID="lbl_option" runat="server" Text="Option" /></th>
                     <th><asp:Label ID="lbl_option2" runat="server" Text="Option" /></th>
                 </tr>
@@ -46,6 +49,7 @@
             </tbody>
         </table>
     </asp:Panel>
+    <%--Panel call to reply back to the sender --%>
     <asp:Panel ID="pnl_update" runat="server" GroupingText="Message">
         <table>
             <thead>
@@ -57,8 +61,8 @@
                           
                          
                          <tr>
-                                <td>
-                                    <asp:Label ID="lbl_to" runat="server" Text="To:      " />
+                              <td>
+                                   <asp:Label ID="lbl_to" runat="server" Text='<%#Eval("th_name")%>' />
                                     <asp:TextBox ID="txt_to" runat="server" Text='<%#Eval("th_name") %>' />
                                     <asp:RequiredFieldValidator ID="rfv_to" runat="server" Text="*Required" ControlToValidate="txt_to" ValidationGroup="send" />
                                 </td>
@@ -93,6 +97,8 @@
                          <asp:Label ID="send" runat="server" />
                         <td colspan="3"><asp:Button ID="btn_send" runat="server" Text="Send" CommandName="Send" ValidationGroup="send" />
                             <asp:Button ID="btn_cancel" runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="false" />
+                          <%--  <asp:Button ID="btn" runat="server" Text="aaa" CommandName="test" CausesValidation="false" />
+                            <asp:Label ID="bbb" runat="server" />--%>
                         </td>
                     </tr>
                 </ItemTemplate>
@@ -102,6 +108,7 @@
             </tbody>
         </table>
     </asp:Panel>
+    <%--Panel call to delete any unwanted message --%>
     <asp:Panel ID="pnl_delete" runat="server" GroupingText="Delete Message">
         <table>
             <thead>
@@ -134,6 +141,7 @@
                         <td colspan="3">
                             <asp:Button  ID="btn_delete" runat="server" Text="Delete" CommandName="Delete" />
                             <asp:Button ID="btn_cancel" runat="server" Text="Cancel" CommandName="Cancel" />
+                           
                         </td> 
                     </ItemTemplate>
                 </asp:Repeater>
