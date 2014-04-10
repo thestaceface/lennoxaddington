@@ -6,7 +6,7 @@
         <asp:Label ID="lbl_new" runat="server" Text="Emergency Wait Time" Font-Underline="true" />
         <br />
         <br /> 
-        <asp:Label ID="lbl_wtime" runat="server" Width="90%" /> 
+        <asp:Label ID="lbl_wtime" runat="server" Width="90%" />         
         <br />
         <br />
         <br />

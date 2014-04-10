@@ -17,9 +17,8 @@ public partial class rf_waittime : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-       //_calculateWaittime(id);
-       lbl_wtime.Text = "Estimated waiting time is about " + " 2h15m. Valid at " + DateTime.Now.ToString() + ".";
-       _subRebind();
+        //_calculateWaittime(id);
+        lbl_wtime.Text = "Estimated waiting time is about " + " 2h15m. Valid at " + DateTime.Now.ToString() + ".";
     }
 
     protected void _calculateWaittime(int id)
