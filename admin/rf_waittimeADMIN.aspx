@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="rf_waittimeADMIN.aspx.cs" Inherits="Default2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="rf_waittimeADMIN.aspx.cs" Inherits="Default2" Debug="true" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <br />
@@ -193,7 +193,7 @@
                     <asp:Label ID="lbl_dateE" runat="server" Text="Todays Date:" AssociatedControlID="txt_dateE" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_dateE" runat="server" Text='<%#Bind ("si_today") %>' Columns="40" />
+                    <asp:TextBox ID="txt_dateE" runat="server" Text='<%#Bind ("si_today", "{0:d}") %>' Columns="40" />
                 </td>
             </tr>
             <tr>
@@ -225,7 +225,7 @@
                     <asp:Label ID="lbl_lupdateE" runat="server" text="Last Update:*" AssociatedControlID="txt_lupdateE" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_lupdateE" runat="server" Text='<%#Bind ("si_lupdate") %>' Columns="40" />
+                    <asp:TextBox ID="txt_lupdateE" runat="server" Text='<%#Bind ("si_lupdate", "{0:d}") %>' Columns="40" />
                 </td> 
             </tr>
             </tr>
