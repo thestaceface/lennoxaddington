@@ -55,7 +55,7 @@ public partial class ps_thanksform : System.Web.UI.Page
         switch (e.CommandName)
         {
             case "Insert":
-                _strMessage(objThanks.commitInsert(DateTime.Parse(txt_date.Text.ToString()), txt_name.Text, txt_email.Text, ddl_department.SelectedValue.ToString(), ddl_doc.SelectedValue.ToString(), txt_thanksmsg.Text), "message");
+                _strMessage(objThanks.commitInsert(DateTime.Parse(txt_date.Text.ToString()), txt_name.Text, txt_email.Text, ddl_department.SelectedItem.Text, ddl_doc.SelectedItem.Text, txt_thanksmsg.Text), "message");
                 _subRebind();
                 break;
             case "Cancel":
