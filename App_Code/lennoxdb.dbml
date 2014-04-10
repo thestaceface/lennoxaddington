@@ -171,14 +171,6 @@
       <Column Name="fa_answer" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.extlinks" Member="extlinks">
-    <Type Name="extlink">
-      <Column Name="el_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="el_category" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="el_name" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="el_link" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.Events" Member="Events">
     <Type Name="Event">
       <Column Name="ev_id" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -453,6 +445,15 @@
       <Column Name="si_message" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="si_updateby" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="department_sysinfo" Member="department" ThisKey="si_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.extlinks" Member="extlinks">
+    <Type Name="extlink">
+      <Column Name="el_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="el_category" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="el_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="el_brief" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="el_link" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.WLTestProcedure01" Method="WLTestProcedure01">

@@ -28,6 +28,7 @@ public partial class Default3 : System.Web.UI.Page
         pnl_edit.Visible = false;
         ddl_category.Text = "Medical Institution";
         txt_name.Text = string.Empty;
+        txt_brief.Text = string.Empty;
         txt_link.Text = string.Empty;
         rpt_select.DataSource = Ext.getExtlinks();
         rpt_select.DataBind();
@@ -64,7 +65,7 @@ public partial class Default3 : System.Web.UI.Page
         switch (e.CommandName)
         {
             case "Insert":
-                _strMessage(Ext.commitInsert(ddl_category.Text, txt_name.Text, txt_link.Text), "Insert");
+                _strMessage(Ext.commitInsert(ddl_category.Text, txt_name.Text, txt_brief.Text, txt_link.Text), "Insert");
                 _subRebind();
                 break;
             case "Update":
@@ -99,10 +100,11 @@ public partial class Default3 : System.Web.UI.Page
             case "Update":
                 TextBox txtCategory = (TextBox)e.Item.FindControl("txt_categoryE");
                 TextBox txtName = (TextBox)e.Item.FindControl("txt_nameE");
+                TextBox txtBrief = (TextBox)e.Item.FindControl("txt_briefE");
                 TextBox txtLink = (TextBox)e.Item.FindControl("txt_linkE");
                 HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
                 int extID = int.Parse(hdfID.Value.ToString());
-                _strMessage(Ext.commitUpdate(extID, txtCategory.Text, txtName.Text, txtLink.Text), "Update");
+                _strMessage(Ext.commitUpdate(extID, txtCategory.Text, txtName.Text, txtBrief.Text, txtLink.Text), "Update");
                 _subRebind();
                 break;
             case "Delete":

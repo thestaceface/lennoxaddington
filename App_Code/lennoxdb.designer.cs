@@ -59,9 +59,6 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
   partial void Insertfaqanswer(faqanswer instance);
   partial void Updatefaqanswer(faqanswer instance);
   partial void Deletefaqanswer(faqanswer instance);
-  partial void Insertextlink(extlink instance);
-  partial void Updateextlink(extlink instance);
-  partial void Deleteextlink(extlink instance);
   partial void InsertEvent(Event instance);
   partial void UpdateEvent(Event instance);
   partial void DeleteEvent(Event instance);
@@ -119,6 +116,9 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
   partial void Insertsysinfo(sysinfo instance);
   partial void Updatesysinfo(sysinfo instance);
   partial void Deletesysinfo(sysinfo instance);
+  partial void Insertextlink(extlink instance);
+  partial void Updateextlink(extlink instance);
+  partial void Deleteextlink(extlink instance);
   #endregion
 	
 	public lennoxdbDataContext() : 
@@ -228,14 +228,6 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<faqanswer>();
-		}
-	}
-	
-	public System.Data.Linq.Table<extlink> extlinks
-	{
-		get
-		{
-			return this.GetTable<extlink>();
 		}
 	}
 	
@@ -388,6 +380,14 @@ public partial class lennoxdbDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<sysinfo>();
+		}
+	}
+	
+	public System.Data.Linq.Table<extlink> extlinks
+	{
+		get
+		{
+			return this.GetTable<extlink>();
 		}
 	}
 	
@@ -4082,140 +4082,6 @@ public partial class faqanswer : INotifyPropertyChanging, INotifyPropertyChanged
 				this._fa_answer = value;
 				this.SendPropertyChanged("fa_answer");
 				this.Onfa_answerChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.extlinks")]
-public partial class extlink : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _el_id;
-	
-	private string _el_category;
-	
-	private string _el_name;
-	
-	private string _el_link;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onel_idChanging(int value);
-    partial void Onel_idChanged();
-    partial void Onel_categoryChanging(string value);
-    partial void Onel_categoryChanged();
-    partial void Onel_nameChanging(string value);
-    partial void Onel_nameChanged();
-    partial void Onel_linkChanging(string value);
-    partial void Onel_linkChanged();
-    #endregion
-	
-	public extlink()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_el_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int el_id
-	{
-		get
-		{
-			return this._el_id;
-		}
-		set
-		{
-			if ((this._el_id != value))
-			{
-				this.Onel_idChanging(value);
-				this.SendPropertyChanging();
-				this._el_id = value;
-				this.SendPropertyChanged("el_id");
-				this.Onel_idChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_el_category", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-	public string el_category
-	{
-		get
-		{
-			return this._el_category;
-		}
-		set
-		{
-			if ((this._el_category != value))
-			{
-				this.Onel_categoryChanging(value);
-				this.SendPropertyChanging();
-				this._el_category = value;
-				this.SendPropertyChanged("el_category");
-				this.Onel_categoryChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_el_name", DbType="VarChar(40)")]
-	public string el_name
-	{
-		get
-		{
-			return this._el_name;
-		}
-		set
-		{
-			if ((this._el_name != value))
-			{
-				this.Onel_nameChanging(value);
-				this.SendPropertyChanging();
-				this._el_name = value;
-				this.SendPropertyChanged("el_name");
-				this.Onel_nameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_el_link", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-	public string el_link
-	{
-		get
-		{
-			return this._el_link;
-		}
-		set
-		{
-			if ((this._el_link != value))
-			{
-				this.Onel_linkChanging(value);
-				this.SendPropertyChanging();
-				this._el_link = value;
-				this.SendPropertyChanged("el_link");
-				this.Onel_linkChanged();
 			}
 		}
 	}
@@ -10121,6 +9987,164 @@ public partial class sysinfo : INotifyPropertyChanging, INotifyPropertyChanged
 					this._si_d_id = default(Nullable<int>);
 				}
 				this.SendPropertyChanged("department");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.extlinks")]
+public partial class extlink : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _el_id;
+	
+	private string _el_category;
+	
+	private string _el_name;
+	
+	private string _el_brief;
+	
+	private string _el_link;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onel_idChanging(int value);
+    partial void Onel_idChanged();
+    partial void Onel_categoryChanging(string value);
+    partial void Onel_categoryChanged();
+    partial void Onel_nameChanging(string value);
+    partial void Onel_nameChanged();
+    partial void Onel_briefChanging(string value);
+    partial void Onel_briefChanged();
+    partial void Onel_linkChanging(string value);
+    partial void Onel_linkChanged();
+    #endregion
+	
+	public extlink()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_el_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int el_id
+	{
+		get
+		{
+			return this._el_id;
+		}
+		set
+		{
+			if ((this._el_id != value))
+			{
+				this.Onel_idChanging(value);
+				this.SendPropertyChanging();
+				this._el_id = value;
+				this.SendPropertyChanged("el_id");
+				this.Onel_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_el_category", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+	public string el_category
+	{
+		get
+		{
+			return this._el_category;
+		}
+		set
+		{
+			if ((this._el_category != value))
+			{
+				this.Onel_categoryChanging(value);
+				this.SendPropertyChanging();
+				this._el_category = value;
+				this.SendPropertyChanged("el_category");
+				this.Onel_categoryChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_el_name", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+	public string el_name
+	{
+		get
+		{
+			return this._el_name;
+		}
+		set
+		{
+			if ((this._el_name != value))
+			{
+				this.Onel_nameChanging(value);
+				this.SendPropertyChanging();
+				this._el_name = value;
+				this.SendPropertyChanged("el_name");
+				this.Onel_nameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_el_brief", DbType="VarChar(MAX)")]
+	public string el_brief
+	{
+		get
+		{
+			return this._el_brief;
+		}
+		set
+		{
+			if ((this._el_brief != value))
+			{
+				this.Onel_briefChanging(value);
+				this.SendPropertyChanging();
+				this._el_brief = value;
+				this.SendPropertyChanged("el_brief");
+				this.Onel_briefChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_el_link", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+	public string el_link
+	{
+		get
+		{
+			return this._el_link;
+		}
+		set
+		{
+			if ((this._el_link != value))
+			{
+				this.Onel_linkChanging(value);
+				this.SendPropertyChanging();
+				this._el_link = value;
+				this.SendPropertyChanged("el_link");
+				this.Onel_linkChanged();
 			}
 		}
 	}

@@ -39,6 +39,14 @@
             </tr>
             <tr>
                 <td>
+                    <asp:Label ID="lbl_brief" runat="server" Text="Brief:" AssociatedControlID="txt_brief" />
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_brief" runat="server" TextMode="MultiLine" Rows="4" Columns="50" />
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <asp:Label ID="lbl_link" runat="server" Text="Link URL:*" AssociatedControlID="txt_link" />
                 </td>
                 <td>
@@ -81,6 +89,14 @@
                 <td>
                     <asp:TextBox ID="txt_nameE" runat="server" Text='<%#Bind ("el_name") %>' Columns="50" />
                     <asp:RequiredFieldValidator ID="rfv_nameE" runat="server" ControlToValidate="txt_nameE" ErrorMessage="Link name is required." Display="None" ValidationGroup="edit" />
+                </td>
+            </tr>
+            <tr>    
+                 <td>
+                     <asp:Label ID="lbl_briefE" runat="server" Text="Brief:" AssociatedControlID="txt_briefE" />
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_briefE" runat="server" Text='<%#Bind ("el_brief") %>' TextMode="MultiLine" Rows="4" Columns="50" />
                 </td>
             </tr>
             <tr>    
