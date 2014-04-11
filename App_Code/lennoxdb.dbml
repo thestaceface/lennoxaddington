@@ -402,23 +402,7 @@
       <Column Name="doc_bio" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="doc_img" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="doc_dept" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="doctor_appointment" Member="appointments" ThisKey="doc_id" OtherKey="at_em_id" Type="appointment" />
       <Association Name="department_doctor" Member="department" ThisKey="doc_dept" OtherKey="dp_id" Type="department" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.appointment" Member="appointments">
-    <Type Name="appointment">
-      <Column Name="at_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="pat_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="at_p_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="at_clinic" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="at_em_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="at_reason" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="at_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="at_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-      <Column Name="at_doc_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="doctor_appointment" Member="doctor" ThisKey="at_em_id" OtherKey="doc_id" Type="doctor" IsForeignKey="true" />
-      <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.SlideImage" Member="SlideImages">
@@ -454,6 +438,31 @@
       <Column Name="el_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="el_brief" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="el_link" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.appointment" Member="appointments">
+    <Type Name="appointment">
+      <Column Name="at_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pat_name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="at_p_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="at_clinic" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="at_reason" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="at_date" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="at_time" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="at_doc_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="at_hcard" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="patient_appointment" Member="patient" ThisKey="at_p_id" OtherKey="pt_id" Type="patient" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Thank_Msg" Member="Thank_Msgs">
+    <Type Name="Thank_Msg">
+      <Column Name="th_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="th_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="th_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="th_eml" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="th_dept" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="th_smname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="th_msg" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
     </Type>
   </Table>
   <Function Name="dbo.WLTestProcedure01" Method="WLTestProcedure01">
