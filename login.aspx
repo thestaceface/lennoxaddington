@@ -2,7 +2,7 @@
 <%-- Page by Stacey Masson --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-    <asp:Login ID="lgn_main" runat="server" CreateUserUrl="~/register.aspx" CreateUserText="Register" DestinationPageUrl="~/home.aspx" />
+    <asp:Login ID="lgn_main" runat="server" CreateUserUrl="~/register.aspx" CreateUserText="Register" DestinationPageUrl="~/ps_slideImages.aspx" />
 </asp:Content>
 
 
