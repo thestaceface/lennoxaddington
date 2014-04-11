@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="direction.aspx.cs" Inherits="Default4" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="db_direction.aspx.cs" Inherits="Default4" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
@@ -199,7 +199,7 @@
         <br /><br />
               
         <%-- google map --%>
-        <div id ="DivGoogleMapCanvas" style="height:480px"></div>
+        <div id ="DivGoogleMapCanvas"></div>
 
         <br /><br />
 

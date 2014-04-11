@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="careerAdmin.aspx.cs" Inherits="Default2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="db_careerAdmin.aspx.cs" Inherits="Default2" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
@@ -120,7 +120,7 @@
                                 <td>
                                     <%-- description textbox and validation for update --%>
                                     <asp:Label ID="lbl_descU" runat="server" Text="Description" /><br />
-                                    <asp:TextBox ID="txt_descU" runat="server" Text='<%#Eval("pn_desc") %>' TextMode="MultiLine" />
+                                    <asp:TextBox ID="txt_descU" runat="server" Text='<%#Eval("pn_desc") %>' />
                                     <asp:RequiredFieldValidator ID="rfv_descU" runat="server" Text="*Required" ControlToValidate="txt_descU" ValidationGroup="update" />
                                 </td>
                             </tr>
@@ -128,7 +128,7 @@
                                 <td>
                                     <%-- name textbox and validation for update --%>
                                     <asp:Label ID="lbl_nameU" runat="server" Text="Job Title" /><br />
-                                    <asp:TextBox ID="txt_nameU" runat="server" Text='<%#Eval("pn_name") %>' />
+                                    <asp:TextBox ID="txt_nameU" runat="server" Text='<%#Eval("pn_name") %>' TextMode="MultiLine" />
                                     <asp:RequiredFieldValidator ID="rfv_nameU" runat="server" Text="*Required" ControlToValidate="txt_nameU" ValidationGroup="update" />
                                 </td>
                             </tr>
@@ -160,7 +160,7 @@
                                 <td>
                                     <%-- requirement textbox and validation for update --%>
                                     <asp:Label ID="lbl_reqU" runat="server" Text="Requirement" /><br />
-                                    <asp:TextBox ID="txt_reqU" runat="server" Text='<%#Eval("pn_requirements") %>' TextMode="MultiLine" />
+                                    <asp:TextBox ID="txt_reqU" runat="server" Text='<%#Eval("pn_requirements") %>' />
                                     <asp:RequiredFieldValidator ID="rfv_reqU" runat="server" Text="*Required" ControlToValidate="txt_reqU" ValidationGroup="update" />
                                 </td>
                             </tr>
@@ -168,7 +168,7 @@
                                 <td>
                                     <%-- education textbox and validation for update --%>
                                     <asp:Label ID="lbl_eduU" runat="server" Text="Education" /><br />
-                                    <asp:TextBox ID="txt_eduU" runat="server" Text='<%#Eval("pn_education") %>' TextMode="MultiLine" />
+                                    <asp:TextBox ID="txt_eduU" runat="server" Text='<%#Eval("pn_education") %>' />
                                     <asp:RequiredFieldValidator ID="rfv_eduU" runat="server" Text="*Required" ControlToValidate="txt_eduU" ValidationGroup="update" />
                                 </td>
                             </tr>
@@ -184,7 +184,7 @@
                                 <td>
                                     <%-- specialities textbox and validation for update --%>
                                     <asp:Label ID="lbl_specU" runat="server" Text="Specialities" /><br />
-                                    <asp:TextBox ID="txt_specU" runat="server" Text='<%#Eval("pn_specialities") %>' TextMode="MultiLine" />
+                                    <asp:TextBox ID="txt_specU" runat="server" Text='<%#Eval("pn_specialities") %>' />
                                     <asp:RequiredFieldValidator ID="rfv_specU" runat="server" Text="*Required" ControlToValidate="txt_specU" ValidationGroup="update" />
                                 </td>
                             </tr>
