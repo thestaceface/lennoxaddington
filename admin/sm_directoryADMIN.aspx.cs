@@ -86,7 +86,8 @@ public partial class sm_directoryADMIN : System.Web.UI.Page
     //controls panel visibility
     private void _panelControl(Panel pnl)
     {
-        _panelControl(pnl_new);
+        pnl_new.Visible = false;
+        pnl_edit.Visible = false;
         pnl.Visible = true;
     }
 

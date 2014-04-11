@@ -32,6 +32,13 @@
         padding:0px;
     }
 
+    #lnk_mobhome {
+        display:none;
+    }
+    #lnk_tabhome {
+        display:block;
+    }
+
     #mnu_1 {
         display:none;
     }
@@ -51,6 +58,8 @@
     #mobilemenu ul {
         max-height:400px;
         overflow-y:scroll;
+        position:fixed;
+        z-index:1;
     }
 
     #mobilemenu ul, #mobilemenu:active ul {
@@ -89,18 +98,27 @@
     #aside {
         width:100%;
         text-align:center;
-        min-height:100%;
         margin:0 auto;
+        background-color:#ececec;
+        padding-bottom:25px;
     }
 
     #aside1, #cph_head_mnu_1 {
         display:none;
     }
 
-    #aside2, #aside3, #aside4 {
-        width:200px;
-        min-height:200px;
+    #aside2, #aside3 {
+        min-width:350px;
+        min-height:300px;
         display:inline-block;
+        vertical-align:bottom;
+        background-color:white;
+        border:2px solid #8ed1e4;
+        border-radius:6px;
+    }
+
+    #aside3 {
+        margin-left:10px;
     }
 
     #legal {
@@ -116,7 +134,7 @@
         display:table;
         table-layout:fixed;
         max-height:100%;
-        margin-top:25px;
+        
         /*text-align:justify;*/
     }
 
@@ -219,6 +237,13 @@
         height:70px;
     }
 
+    #lnk_tabhome {
+        display:none;
+    }
+    #lnk_mobhome {
+        display:block;
+    }
+
     #content, #header {
         width:100%;
     }
@@ -253,6 +278,8 @@
         width:70%;
         border-radius:4px 0 4px 4px;
         list-style-type:none;
+        position:fixed;
+        z-index:1;
     }
 
     #mobilemenu li {

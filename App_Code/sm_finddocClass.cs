@@ -11,7 +11,7 @@ public class sm_finddocClass
     public IQueryable<doctor> getDoctors()
     {
         lennoxdbDataContext objDoc = new lennoxdbDataContext();
-        var allDoctors = objDoc.doctors.Select(x => x);
+        var allDoctors = objDoc.doctors.Select(x => x).OrderBy(x => x.doc_name);
         return allDoctors;
     }
 

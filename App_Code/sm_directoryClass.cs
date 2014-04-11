@@ -11,7 +11,7 @@ public class sm_directoryClass
     public IQueryable<office> getOffices()
     {
         lennoxdbDataContext objOff = new lennoxdbDataContext();
-        var allOffices = objOff.offices.Select(x => x);
+        var allOffices = objOff.offices.Select(x => x).OrderBy(x => x.of_title);
         return allOffices;
     }
 

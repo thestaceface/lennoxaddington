@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wl_cta_donate.ascx.cs" Inherits="wl_cta_donate" %>
 
-<asp:Panel ID="pnl_main" runat="server" BorderColor="Black" BorderWidth="1px" >
+<asp:Panel ID="pnl_main" runat="server">
 
     <asp:Label ID="lbl_donate" runat="server" Text="Donate to LACGH Today!<br />Make a Difference! " />
     <br />

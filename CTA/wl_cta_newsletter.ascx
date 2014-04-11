@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wl_cta_newsletter.ascx.cs" Inherits="wl_cta_newsletter" %>
 
 
-<asp:Panel ID="pnl_new" runat="server" BorderColor="Black" BorderWidth="1px" >
+<asp:Panel ID="pnl_new" runat="server">
 
             <asp:Label ID="lbl_newsletter" runat="server" Text="Newsletter Sign Up" />
             <br />
