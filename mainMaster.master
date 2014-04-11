@@ -74,6 +74,7 @@
                 <li><asp:HyperLink ID="lnk_stay" runat="server" Text="Your Hospital Stay" /></li>
                 <li><asp:HyperLink ID="lnk_thanks" runat="server" Text="Thank a Staff Member" NavigateUrl="~/ps_thanksform.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_card" runat="server" Text="Send an E-Card to a Patient" NavigateUrl="~/e_card.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_newsletter" runat="server" Text="Subscribe to our Newsletter" NavigateUrl="~/newsletter.aspx" /></li>
 
                 <li><asp:HyperLink ID="lnk_programs" runat="server" Text="Programs & Services" /></li>
                 <li><asp:HyperLink ID="lnk_account" runat="server" Text="Accountability" /></li>
