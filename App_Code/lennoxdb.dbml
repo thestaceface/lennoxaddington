@@ -94,6 +94,34 @@
       <Association Name="patient_patreport" Member="patient" ThisKey="pr_p_id" OtherKey="pt_custom_id" Type="patient" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.applicants" Member="applicants">
+    <Type Name="applicant">
+      <Column Name="ap_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ap_last" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ap_first" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ap_dob" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ap_gender" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="ap_tel" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_cell" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_street" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="ap_appt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="ap_city" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_province" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_country" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ap_type" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_pn_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ap_qualification" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_requirements" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_education" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_experience" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="ap_specialities" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_upload" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="position_applicant" Member="position" ThisKey="ap_pn_id" OtherKey="pn_id" Type="position" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.positions" Member="positions">
     <Type Name="position">
       <Column Name="pn_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -106,6 +134,7 @@
       <Column Name="pn_education" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="pn_experience" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="pn_specialities" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Association Name="position_applicant" Member="applicants" ThisKey="pn_id" OtherKey="ap_pn_id" Type="applicant" />
       <Association Name="position_employee" Member="employees" ThisKey="pn_id" OtherKey="em_position" Type="employee" />
       <Association Name="position_employee1" Member="employees1" ThisKey="pn_id" OtherKey="em_position" Type="employee" />
     </Type>
@@ -150,6 +179,26 @@
       <Column Name="ev_desc" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="true" />
       <Column Name="ev_media" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="ev_body" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Donation" Member="Donations">
+    <Type Name="Donation">
+      <Column Name="dn_id" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dn_last" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dn_first" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dn_middle" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="dn_dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="dn_gender" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="dn_tel" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="dn_cell" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="dn_street" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="dn_apt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="dn_city" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dn_province" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="dn_country" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="dn_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="dn_amount" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="dn_method" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.sliderimage" Member="sliderimages">
@@ -398,34 +447,6 @@
       <Association Name="department_sysinfo" Member="department" ThisKey="si_d_id" OtherKey="dp_id" Type="department" IsForeignKey="true" />
     </Type>
   </Table>
-<<<<<<< HEAD
-  <Table Name="dbo.donation" Member="donations">
-    <Type Name="donation">
-      <Column Name="dn_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="dn_title" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="dn_first" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="dn_last" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="dn_tel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="dn_cell" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="dn_street" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="dn_apt" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
-      <Column Name="dn_city" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="dn_province" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="dn_country" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="dn_amount" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="dn_postal" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
-      <Column Name="dn_email" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="dn_transaction" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.applicants" Member="applicants">
-    <Type Name="applicant">
-      <Column Name="ap_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ap_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="ap_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="ap_letter" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="ap_upload" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-=======
   <Table Name="dbo.extlinks" Member="extlinks">
     <Type Name="extlink">
       <Column Name="el_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -433,18 +454,6 @@
       <Column Name="el_name" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="el_brief" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="el_link" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Thank_Msg" Member="Thank_Msgs">
-    <Type Name="Thank_Msg">
-      <Column Name="th_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="th_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="th_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="th_eml" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="th_dept" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="th_smname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="th_msg" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
->>>>>>> 0e6ae7bcc07fa852e644095ef634140d6579a44e
     </Type>
   </Table>
   <Function Name="dbo.WLTestProcedure01" Method="WLTestProcedure01">
