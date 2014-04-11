@@ -5,7 +5,7 @@
     <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
      <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/ps_thanksformADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
 
-    <h1>Thank a Staff Member</h1><br /><br />
+   <br /><br />
     <%-- page instructions --%>
     <asp:Label ID="lbl_heading" runat="server" Text="Do you have a special thank you, you would like to pass on to one of our departments, staff members, physician’s or volunteers or a success story that you would like to share with us." />
     <br />
@@ -14,7 +14,7 @@
       <%-- initializing AJAX toolkit manager for calendar popout --%>         
     <AJAX:ToolkitScriptManager ID="tsm_main" runat="server" />
     <%--Form for sending thanks messages --%>
-    <table >
+    <table  >
         <tr>
             <td><asp:Label ID="lbl_date" runat="server" Text="Date" /></td>
             <td><asp:TextBox ID="txt_date" runat="server" />
