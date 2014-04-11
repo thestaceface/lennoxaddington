@@ -17,16 +17,39 @@ public partial class rf_waittime : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //_calculateWaittime(id);
-        lbl_wtime.Text = "Estimated waiting time is about " + " 2h15m. Valid at " + DateTime.Now.ToString() + ".";
+        _calculateWaittime(1);
+       _subRebind();
     }
 
     protected void _calculateWaittime(int id)
     {
-        var rec = WT.getsysinfoByID(id);
-        //How to get full record access here?
-        //How to refer following columns from the record here
-        //I want to calculate waittime using following columns from sysinfo table
-        // si_waittime = (si_numwaiting * si_avgtime) / si_numdoctor
+        IQueryable<sysinfo> rec = WT.getsysinfoByID(id);
+        if (rec.Count() > 0)
+        {
+            foreach (sysinfo obj in rec)
+            {             
+              var wait = (obj.si_avgtime * (obj.si_numregistered - obj.si_numattended)) / obj.si_numdoctor;
+              var hrs = wait / 60;
+              var mins = wait - (hrs * 60);
+              if (wait > 0)
+              {
+                  lbl_wtime.Text = "Estimated waiting time is about " + hrs.ToString() + "h" + mins.ToString() + "m. Valid at " + DateTime.Now.ToString() + ".";
+              }
+              else
+              {
+                  if (obj.si_waittime > 0)
+                  {
+                      var wait1 = obj.si_waittime;
+                      var hrs1 = wait1 / 60;
+                      var mins1 = wait1 - (hrs1 * 60);
+                      lbl_wtime.Text = "Estimated waiting time is about " + hrs1.ToString() + "h" + mins1.ToString() + "m. Valid at " + DateTime.Now.ToString() + ".";
+                  }
+                  else
+                  {
+                      lbl_wtime.Text = "Estimated waiting time is not available at this time. Please check again later.";
+                  }
+              }
+            }
+        }
     }
 }
