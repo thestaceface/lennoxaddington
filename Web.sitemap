@@ -16,11 +16,11 @@
         <siteMapNode url="" title="Foundation Events" description="Foundation Events" />
       </siteMapNode>
       <siteMapNode url="" title="News" description="News" />
-      <siteMapNode url="sm_events.aspx" title="Calendar of Events" description="Calendar of Events" />
+      <siteMapNode url="sm_events.aspx" title="Upcoming Events" description="Calendar of Events" />
       <siteMapNode url="~/contentMain.aspx?id=18" description="Our Hospital" title="Our Hospital" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=10" title="Patients and Visitors" description="Patients and visitors">
-      <siteMapNode url="sm_finddoc.aspx" title="Find a Doctor" description="Find a Doctor" />
+      <siteMapNode url="sm_finddoc.aspx" title="Our Doctors" description="Find a Doctor" />
       <siteMapNode url="" title="Request an Appointment" description="Request an Appointment" />
       <siteMapNode url="~/contentMain.aspx?id=15" title="Creating a Safe Environment" description="Creating a Safe Environment" />
       <siteMapNode url="~/contentMain.aspx?id=16" title="Patient Rights &amp; Responsibilities" description="Patient Rights &amp; Responsibilities" />

@@ -2,7 +2,7 @@
 <%-- Page by Stacey Masson --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-    <asp:Label ID="lbl_title" runat="server" Text="Edit Page - Find a Doctor" CssClass="admintitle" />
+    <asp:Label ID="lbl_title" runat="server" Text="Edit Page - Our Doctors" CssClass="admintitle" />
     <br /><br />
 
     <%-- page instructions --%>

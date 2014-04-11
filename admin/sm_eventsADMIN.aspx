@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
 
-    <asp:Label ID="lbl_name" runat="server" Text="Edit Page: Events Calendar" CssClass="admintitle" />
+    <asp:Label ID="lbl_name" runat="server" Text="Edit Page: Upcoming Events" CssClass="admintitle" />
     <%-- initializing AJAX toolkit manager for calendar popout --%>
     <ajax:ToolkitScriptManager ID="tsm_main" runat="server" />
     <br /><br />

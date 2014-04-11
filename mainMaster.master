@@ -38,12 +38,12 @@
             </div><%--Logo --%>
 
             <div id="address">
-                  <asp:Label ID="lbl_address" runat="server" Text="(555) 121 - 2121<br/><span>123 Fake Street, Napanee</span>" />
+                  <asp:Label ID="lbl_address" runat="server" Text="(555) 121 - 2121<br/><span>123 Fake Street, Napanee</span>" />              
             </div><%--address --%>
 
             <div class="clear" />
-
-            <div id="search">       
+                
+            <div id="search"> 
                 <asp:Label ID="lbl_search" runat="server" Text="search...." />       
     <asp:Image ID="img_search" runat="server" ImageUrl="~/Images/Search_Button.png" ImageAlign="Right" AlternateText="SearchImage" Height="30px" /><br /><br />
             </div><%--search --%>
@@ -213,6 +213,9 @@
             </div><%--footer_copyright--%>  
 
              <div id="footer_icons">
+                 <a href="#" style="color:white;text-decoration:none;"><span style="font-size:medium;">A</span>
+                <span style="font-size:large;">A</span>
+                <span style="font-size:larger;">A</span></a>
                 <asp:ImageButton ID="img_facebook" runat="server" ImageUrl="~/Images/Facebook_Icon.png" PostBackUrl="#" />
                 <asp:ImageButton ID="img_twitter" runat="server" ImageUrl="~/Images/Twitter_Icon.png" PostBackUrl="#" />
             </div><%--footer_icons --%>  
