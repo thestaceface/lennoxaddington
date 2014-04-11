@@ -9,6 +9,7 @@
         <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
+ 
         <table class="tables">
             <tr>
                 <td>
@@ -124,6 +125,7 @@
         <asp:Button ID="a" runat="server" Text=" send feedback" OnClick="subEmail" />
         <asp:Button ID="btn_cancel" runat="server" Text="Reset the form" OnCommand="subAdmin" CommandName="Cancel" CausesValidation="false" ValidationGroup="edit" CssClass="adminbuttons" />
         <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
+
     </asp:Panel>
     <br /><br />
     <asp:Label ID="msg" runat="server" />
