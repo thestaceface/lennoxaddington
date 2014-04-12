@@ -3,7 +3,7 @@
   <siteMapNode url="" title="Root" description="">
     <siteMapNode url="ps_slideImages.aspx" title="Home" description="Home page">
     </siteMapNode>
-    <siteMapNode url="~/aboutus.aspx" title="About Us" description="About the hospital page">
+    <siteMapNode url="" title="About Us" description="About the hospital page">
       <siteMapNode url="rf_findout.aspx" title="Find More Links" description="'Find Out More' Links" />
       <siteMapNode url="faq.aspx" title="FAQ" description="FAQ" />
       <siteMapNode url="contentMain.aspx?id=105" title="Board of Directors" description="Board of Directors">
@@ -18,6 +18,7 @@
       <siteMapNode url="" title="News" description="News" />
       <siteMapNode url="sm_events.aspx" title="Upcoming Events" description="Calendar of Events" />
       <siteMapNode url="~/contentMain.aspx?id=18" description="Our Hospital" title="Our Hospital" />
+      <siteMapNode url="~/aboutteam7.aspx" title="Team Seven Digital" description="Dev Team Description" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=10" title="Patients and Visitors" description="Patients and visitors">
       <siteMapNode url="sm_finddoc.aspx" title="Our Doctors" description="Find a Doctor" />
@@ -57,6 +58,7 @@
       <siteMapNode url="direction.aspx" title="Directions" description="Directions" />
       <siteMapNode url="sm_directory.aspx" title="Directory" description="Directory" />
       <siteMapNode url="rf_feedback.aspx" title="Feedback" description="Feedback" />
+      <siteMapNode url="newsletter.aspx" title="LACGH Newsletter" description="Newsletter" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

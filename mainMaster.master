@@ -35,7 +35,7 @@
        <%--<asp:ContentPlaceHolder id="cph_head" runat="server">--%>
 
             <div id="logo">
-               <asp:ImageButton ID="img_logo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/ps_slideImages.aspx" />  
+               <asp:HyperLink ID="img_logo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" NavigateUrl="~/ps_slideImages.aspx" />  
             </div><%--Logo --%>
 
             <div id="address">
