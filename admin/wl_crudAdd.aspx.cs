@@ -31,7 +31,7 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
     protected void subInsert(object sender, EventArgs e)
     {
         //_strMessage(objPage.commitInsert(int.Parse(ddl_sectionI.SelectedValue), txt_pagenameI.Text, cke_contentI.Text), "insert");
-
+        
         _strMessage2(objPage.commitAdd(int.Parse(ddl_sectionI.SelectedValue), txt_pagenameI.Text, cke_contentI.Text), "insert");
 
 
@@ -59,6 +59,8 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
 
             titleAtt.Value = txt_pagenameI.Text;
             urlAtt.Value = "contentMain.aspx?id=" + lastid;
+            string fullUrl = "/lennoxaddington/" + urlAtt.Value;
+            objPage.addURL(lastid, fullUrl);
             descAtt.Value = "";
             nsAtt.Value = "http://schemas.microsoft.com/AspNet/SiteMap-File-1.0";
             mynode.Attributes.Append(urlAtt);

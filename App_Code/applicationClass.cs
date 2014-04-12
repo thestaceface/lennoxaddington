@@ -43,14 +43,14 @@ public class applicationClass
             applicant objNewPro = new applicant();
             //set table columns to new values being  passed from *.aspx page
 
-            objNewPro.ap_name = _name;
-            objNewPro.ap_email = _email;
-            objNewPro.ap_letter = _letter;
-            objNewPro.ap_upload = _upload;
-            //insert command
-            objProdDC.applicants.InsertOnSubmit(objNewPro);
-            //commit insert against database
-            objProdDC.SubmitChanges();
+            //objNewPro.ap_name = _name;
+            //objNewPro.ap_email = _email;
+            //objNewPro.ap_letter = _letter;
+            //objNewPro.ap_upload = _upload;
+            ////insert command
+            //objProdDC.applicants.InsertOnSubmit(objNewPro);
+            ////commit insert against database
+            //objProdDC.SubmitChanges();
             return true;
         }
     }
@@ -60,13 +60,13 @@ public class applicationClass
         lennoxdbDataContext objProdDC = new lennoxdbDataContext();
         using (objProdDC)
         {
-            var objUpPro = objProdDC.applicants.Single(x => x.ap_id == _id);
-            objUpPro.ap_name = _name;
-            objUpPro.ap_email = _email;
-            objUpPro.ap_letter = _letter;
-            objUpPro.ap_upload = _upload;
-            //commit update against database
-            objProdDC.SubmitChanges();
+            //var objUpPro = objProdDC.applicants.Single(x => x.ap_id == _id);
+            //objUpPro.ap_name = _name;
+            //objUpPro.ap_email = _email;
+            //objUpPro.ap_letter = _letter;
+            //objUpPro.ap_upload = _upload;
+            ////commit update against database
+            //objProdDC.SubmitChanges();
             return true;
         }
     }

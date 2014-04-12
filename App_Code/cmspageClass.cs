@@ -32,9 +32,24 @@ public class cmspageClass
             objNewPage.cp_secid = _cp_secid;
             objNewPage.cp_pagename = _cp_pagename; //name of obj is going to be the parameter.. 
             objNewPage.cp_content = _cp_content;
+            objNewPage.cp_cta1 = 1;
+            objNewPage.cp_cta2 = 3;
             objPage.contentpages.InsertOnSubmit(objNewPage);  //insertonsubmit and insertallonsubmit.  insertonsubmit adds just one row.  insertall adds multiple rows.  
             objPage.SubmitChanges();//this commits the changes to the database.  kinda like databind method.
-            return objNewPage.cp_id; //true because it's a boolean.
+            return objNewPage.cp_id; 
+        }
+    }
+
+    public bool addURL(int _cp_id, string _cp_url)
+    {
+        lennoxdbDataContext objPage = new lennoxdbDataContext();
+        using (objPage)
+        {
+            contentpage objAddUrl = objPage.contentpages.Single(x => x.cp_id == _cp_id);
+            objAddUrl.cp_url = _cp_url;
+
+            objPage.SubmitChanges();
+            return true;
         }
     }
 
@@ -48,6 +63,20 @@ public class cmspageClass
             objUpdatePage.cp_secid = _cp_secid;
             objUpdatePage.cp_pagename = _cp_pagename;
             objUpdatePage.cp_content = _cp_content;
+
+            objPage.SubmitChanges();
+            return true;
+        }
+    }
+
+    public bool commitUpdateCTA(int _cp_id, int _cp_cta1, int _cp_cta2)
+    {
+        lennoxdbDataContext objPage = new lennoxdbDataContext();
+        using (objPage)
+        {
+            contentpage objUpdatePage = objPage.contentpages.Single(x => x.cp_id == _cp_id);
+            objUpdatePage.cp_cta1 = _cp_cta1;
+            objUpdatePage.cp_cta2 = _cp_cta2;
 
             objPage.SubmitChanges();
             return true;
@@ -104,8 +133,8 @@ public class cmspageClass
         }
 
     }
-
-    public List<WLTestProcedure03Result> getCPSPmerge(int _cp_id)
+    // Query is: SELECT * FROM contentpage JOIN sectionpage ON contentpage.cp_secid = sectionpage.sp_id WHERE cp_id = @parID
+    public List<WLTestProcedure03Result> getCPSPmerge(int _cp_id) //grabs specific row, needs an id
     {
         lennoxdbDataContext objPage = new lennoxdbDataContext();
         using (objPage)
@@ -115,7 +144,9 @@ public class cmspageClass
         }
         
     }
-    public List<WLTestProcedure04Result> getAllMerge()
+
+    // Query is: SELECT * FROM contentpage JOIN sectionpage ON contentpage.cp_secid = sectionpage.sp_id ORDER BY cp_secid
+    public List<WLTestProcedure04Result> getAllMerge() //grabs all, after tables merged.  orders by section
     {
         lennoxdbDataContext objPage = new lennoxdbDataContext();
         using (objPage)
