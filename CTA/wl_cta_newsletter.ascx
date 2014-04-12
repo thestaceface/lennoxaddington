@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wl_cta_newsletter.ascx.cs" Inherits="wl_cta_newsletter" %>
 
-
+<div id="aside2">
 <asp:Panel ID="pnl_new" runat="server">
 
             <asp:Label ID="lbl_newsletter" runat="server" Text="Newsletter Sign Up" />
@@ -21,6 +21,6 @@
 <br />
 <asp:hyperlink ID="hpl_subscribe" runat="server" Text="Subscribe" NavigateUrl="~/newsletter.aspx" />
 </asp:Panel>
-
+</div>
 
 
