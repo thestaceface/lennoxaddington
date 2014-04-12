@@ -140,28 +140,26 @@
           
             
             <div id="aside"> 
-<%--                Will's CTA testing area
-                <asp:Label ID="lbl_test" runat="server" />
-                <asp:Label ID="lbl_output" runat="server" />--%>
 
                <asp:DataList ID="dtl_edit" runat="server" OnItemDataBound="ctaLoader" >
                     <ItemTemplate>
-                        <%--<asp:Hiddenfield ID="hdf_idE" runat="server" Value='<%#Eval("cp_id") %>' /><br />--%>
+                        
                         <asp:HiddenField ID="hdf_cta1" runat="server" Value='<%#Eval("cp_cta1") %>' />
-                        <%--<asp:Label ID="lbl_cta2" runat="server" Text='<%# Eval("cp_cta2") %>' />--%>
+                        
                         <asp:HiddenField ID="hdf_cta2" runat="server" Value='<%#Eval("cp_cta2") %>' />
 
                     </ItemTemplate> 
                 </asp:DataList>
-               <%-- <asp:Label ID="lbl" runat="server" />--%>
-                <div id="aside2">
+               
+               
                   <asp:PlaceHolder ID="cta1" runat="server" />
-               </div>
-               <div id="aside3">
+               
+                
+               
                   <asp:PlaceHolder ID="cta2" runat="server" />
-               </div>
-                <div class="clear"></div>
-                               <%--need to create a method that grabs the url information for this page... and compares it to the lbl_test--%>
+               
+                
+                               
                 <asp:ContentPlaceHolder ID="cph_aside" runat="server">
                     
 

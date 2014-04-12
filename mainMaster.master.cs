@@ -24,18 +24,18 @@ public partial class MasterPage : System.Web.UI.MasterPage
         
 
     }
-    
-    private void _subRebind()  //binds the data to the pagelist.  not the form.  
-    {
-        Control cta1control;
-        cta1control = LoadControl("cta/wl_cta_faq.ascx");
-        cta1.Controls.Add(cta1control);
+
+    //private void _subRebind()  //binds the data to the pagelist.  not the form.  
+    //{
+    //    Control cta1control;
+    //    cta1control = LoadControl("cta/wl_cta_faq.ascx");
+    //    cta1.Controls.Add(cta1control);
 
 
-        Control cta2control;
-        cta2control = LoadControl("cta/wl_cta_faq.ascx");
-        cta2.Controls.Add(cta2control);
-    }
+    //    Control cta2control;
+    //    cta2control = LoadControl("cta/wl_cta_faq.ascx");
+    //    cta2.Controls.Add(cta2control);
+    //}
 
 
 
@@ -57,26 +57,29 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //lbl.Text = hdfCTA1.Value;
 
         switch (hdfCTA1.Value)
-            {
-                case "1":
-                    cta1control = LoadControl("cta/wl_cta_donate.ascx");
-                    cta1.Controls.Add(cta1control);
-                    break;
-                case "2":
-                    cta1control = LoadControl("cta/wl_cta_faq.ascx");
-                    cta1.Controls.Add(cta1control);
-                    break;
-                case "3":
-                    cta1control = LoadControl("cta/wl_cta_newsletter.ascx");
-                    cta1.Controls.Add(cta1control);
-                    break;
-                case "4":
-                    cta1control = LoadControl("cta/wl_cta_flushot.ascx");
-                    cta1.Controls.Add(cta1control);
-                    break;
-                default:
-                    break;
-              }
+        {
+            case "1":
+                cta1control = LoadControl("cta/wl_cta_donate.ascx");
+                cta1.Controls.Add(cta1control);
+                break;
+            case "2":
+                cta1control = LoadControl("cta/wl_cta_faq.ascx");
+                cta1.Controls.Add(cta1control);
+                break;
+            case "3":
+                cta1control = LoadControl("cta/wl_cta_newsletter.ascx");
+                cta1.Controls.Add(cta1control);
+                break;
+            case "4":
+                cta1control = LoadControl("cta/wl_cta_flushot.ascx");
+                cta1.Controls.Add(cta1control);
+                break;
+            default:
+                cta1control = LoadControl("cta/wl_cta_donate.ascx");
+                cta1.Controls.Add(cta1control);
+                break;
+        }
+
         switch (hdfCTA2.Value)
         {
             case "1":
@@ -96,6 +99,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 cta2.Controls.Add(cta2control);
                 break;
             default:
+                cta2control = LoadControl("cta/wl_cta_flushot.ascx");
+                cta2.Controls.Add(cta2control);
                 break;
         }
     }
