@@ -356,3 +356,13 @@ body {
     overflow: auto;
     padding-right:-80px;
 }
+
+/*-------------------Emergency Wait Time----Rezwanul Ferdous------------------*/
+
+.wt1 {
+    color:green;
+}
+
+.wt2 {
+    color:red;
+}
