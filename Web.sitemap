@@ -32,11 +32,11 @@
       <siteMapNode url="e_card.aspx" title="Send an E-Card to a Patient" description="Send and E-Card to a Patient" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=19" title="Programs and Services" description="Programs and services page">
-      <siteMapNode url="contentMain.aspx?id=98" title="Bone Mineral Densitometry" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+      <siteMapNode url="contentMain.aspx?id=101" title="Chemotherapy" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
       <siteMapNode url="contentMain.aspx?id=102" title="Day Surgery" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
       <siteMapNode url="contentMain.aspx?id=103" title="Diabetes Education Program" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
       <siteMapNode url="contentMain.aspx?id=99" title="Cardiopulmonary Services" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
-      <siteMapNode url="contentMain.aspx?id=101" title="Chemotherapy" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+      <siteMapNode url="contentMain.aspx?id=98" title="Bone Mineral Densitometry" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=20" title="Responsibilty and Accountability" description=" Responsibility and accountibility">
       <siteMapNode url="~/contentMain.aspx?id=13" title="Accessibility" description="Accessibility" />
@@ -60,6 +60,5 @@
       <siteMapNode url="rf_feedback.aspx" title="Feedback" description="Feedback" />
       <siteMapNode url="newsletter.aspx" title="LACGH Newsletter" description="Newsletter" />
     </siteMapNode>
-
   </siteMapNode>
 </siteMap>
