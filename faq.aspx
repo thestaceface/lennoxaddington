@@ -19,9 +19,9 @@
      
         <ItemTemplate>
              <br />
-            <asp:Label ID="lbl_title" runat="server" Text='<%#Eval("title") %>'/>
+            <asp:Label ID="lbl_title" runat="server" Text='<%#Eval("fa_question") %>'/>
             <br />
-             <asp:Label ID="lbl_content" runat="server" Text='<%#Eval("content") %>'/>
+             <asp:Label ID="lbl_content" runat="server" Text='<%#Eval("fa_answer") %>'/>
              <br />
         </ItemTemplate>
    
