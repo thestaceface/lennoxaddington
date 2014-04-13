@@ -75,6 +75,11 @@ body {
     color:#ececec;
 }
 
+#mnu_1 {
+    z-index:1;
+    position:absolute;
+}
+
 #navigation a:visited {
     color:white;
 }
@@ -97,7 +102,7 @@ body {
 }
 
 #content_main {
-    width:730px;
+    width:710px;
     /*border:1px solid #000;*/
     /*min-height:740px;*/
     min-height:100%;

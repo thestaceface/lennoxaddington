@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
   <siteMapNode url="" title="Root" description="">
+<<<<<<< HEAD
+    <siteMapNode url="ps_slideImages.aspx" title="Home" description="Home page"></siteMapNode>
+    <siteMapNode url="~/aboutus.aspx" title="About Us" description="About the hospital page">
+=======
     <siteMapNode url="ps_slideImages.aspx" title="Home" description="Home page">
     </siteMapNode>
     <siteMapNode url="" title="About Us" description="About the hospital page">
+>>>>>>> origin/master
       <siteMapNode url="rf_findout.aspx" title="Find More Links" description="'Find Out More' Links" />
       <siteMapNode url="faq.aspx" title="FAQ" description="FAQ" />
       <siteMapNode url="contentMain.aspx?id=105" title="Board of Directors" description="Board of Directors">
@@ -32,11 +37,20 @@
       <siteMapNode url="e_card.aspx" title="Send an E-Card to a Patient" description="Send and E-Card to a Patient" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=19" title="Programs and Services" description="Programs and services page">
+<<<<<<< HEAD
+      <siteMapNode url="~/contentMain.aspx?id=11" title="Our Hospital Foundation" description="Our Hospital Foundation" />
+      <siteMapNode url="contentMain.aspx?id=98" title="Bone Mineral Densitometry" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+      <siteMapNode url="contentMain.aspx?id=101" title="Chemotherapy" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+      <siteMapNode url="contentMain.aspx?id=102" title="Day Surgery" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+      <siteMapNode url="contentMain.aspx?id=103" title="Diabetes Education Program" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+      <siteMapNode url="contentMain.aspx?id=99" title="Cardiopulmonary Services" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+=======
       <siteMapNode url="contentMain.aspx?id=98" title="Bone Mineral Densitometry" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
       <siteMapNode url="contentMain.aspx?id=102" title="Day Surgery" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
       <siteMapNode url="contentMain.aspx?id=103" title="Diabetes Education Program" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
       <siteMapNode url="contentMain.aspx?id=99" title="Cardiopulmonary Services" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
-	  <siteMapNode url="contentMain.aspx?id=101" title="Chemotherapy" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+      <siteMapNode url="contentMain.aspx?id=101" title="Chemotherapy" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+>>>>>>> origin/master
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=20" title="Responsibilty and Accountability" description=" Responsibility and accountibility">
       <siteMapNode url="~/contentMain.aspx?id=13" title="Accessibility" description="Accessibility" />

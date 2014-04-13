@@ -3,12 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_content" Runat="Server">
 
     <h2>SiteMap Admin</h2>
+<<<<<<< HEAD
+    <asp:Button ID="btn" runat="server" OnClick="subSelect" text="select page to move " />
+    <asp:Button ID="btn2" runat="server" OnClick="moveToBottom" Text="move to bottom" Enabled="false" />
+    <asp:Button ID="btn_top" runat="server" OnClick"moveToTop" Text="move to top" Enabled="true" />
+=======
     <asp:HyperLink ID="hpl_toMain" runat="server" NavigateUrl="~/admin/wl_crudMain.aspx" Text="Return to Main Administration Page" />
     <br />
     <asp:Button ID="btn_select" runat="server" OnClick="subSelect" text="select page to move " />
     <asp:Button ID="btn_bottom" runat="server" OnClick="moveToBottom" Text="move to bottom" Enabled="false" />
     <asp:Button ID="btn_top" runat="server" OnClick="moveToTop" Text="move to top" Enabled="false" />
-    <asp:Label ID="lbl_output" runat="server" />
+>>>>>>> origin/master
     <asp:Label ID="lbl_output" runat="server" />
 
 <%--    <asp:Button ID="btn_first" runat="server" Text="First Node" OnClick="setFirst" />

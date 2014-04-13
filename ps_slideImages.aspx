@@ -2,6 +2,11 @@
 <%-- Page by Puneet Saini --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    <script type="text/javascript">
+        alert("Welcome! Please note that this website is a Humber College student project. The LACGH website can be found at http://www.lacgh.com");
+    </script>
+
+
  <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
      <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/ps_SlideImagesADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
 
