@@ -6,53 +6,53 @@ using System.Web;
 /// <summary>
 /// Summary description for ecardclass
 /// </summary>
-/*
+
 public class ecardclass
 {
     
-    public IQueryable<ecard> getnewsletters()
+    public IQueryable<ecard> getecards()
     {
         lennoxdbDataContext objecard = new lennoxdbDataContext();
         var allecards = objecard.ecards.Select(x => x);
         return allecards;
     }
 
-    public IQueryable<ecard> getnewsletterByID(int _id)
+    public IQueryable<ecard> getecardsByID(int _id)
     {
         lennoxdbDataContext objE = new lennoxdbDataContext();
-        var allnewsletters = objE.ecards.Where(x => x.fd_id == _id).Select(x => x);
-        return allecards;
+        var allecard = objE.ecards.Where(x => x.Id == _id).Select(x => x);
+        return allecard;
     }
 
-    public bool commitInsert(string _fd_subject, string _fd_last, string _fd_first, string _fd_email, string _fd_message)
+    public string commitInsert(string _e_subject, string _e_last, string _e_first, string _e_email, string _e_message)
     {
-        lennoxdbDataContext objN = new lennoxdbDataContext();
-        using (objE)
+        lennoxdbDataContext objI = new lennoxdbDataContext();
+        using (objI)
         {
             var objNewE = new ecard();
-            objNewE.fd_last = _fd_last;
-            objNewE.fd_first = _fd_first;
-            objNewE.fd_email = _fd_email;
-            objNewE.fd_message = _fd_message;
-            objNewE.fd_selector = DateTime.Now.ToString() + " - " + _fd_subject + " by " + _fd_first + " " + _fd_last;
-            objN.newsletters.InsertOnSubmit(objNewE);
-            objN.SubmitChanges();
-            return true;
+            objNewE.fname = _e_first;
+            objNewE.lname = _e_last;
+            objNewE.email = _e_email;
+            objNewE.subject = _e_subject;
+            objNewE.message = _e_message;
+            objI.ecards.InsertOnSubmit(objNewE);
+            objI.SubmitChanges();
+            return "Your message was sent successfully"; 
         }
     }
 
-    public bool commitUpdate(int _id, string _fd_subject, string _fd_last, string _fd_first, string _fd_email, string _fd_message)
+    public string commitUpdate(int _id, string _e_subject, string _e_last, string _e_first, string _e_email, string _e_message)
     {
-        lennoxdbDataContext objE = new lennoxdbDataContext();
-        using (objE)
+        lennoxdbDataContext objU = new lennoxdbDataContext();
+        using (objU)
         {
-            var objUpE = objE.ecards.Single(x => x._id == _id);
-            objUpE.fd_last = _fd_last;
-            objUpE.fd_first = _fd_first;
-            objUpE.fd_email = _fd_email;
-            objUpE.fd_message = _fd_message;
-            objE.SubmitChanges();
-            return true;
+            var objUpE = objU.ecards.Single(x => x.Id == _id);
+            objUpE.lname = _e_last;
+            objUpE.fname = _e_first;
+            objUpE.email = _e_email;
+            objUpE.message = _e_message;
+            objU.SubmitChanges();
+            return "Your update was successful";
         }
     }
 
@@ -61,11 +61,11 @@ public class ecardclass
         lennoxdbDataContext objE = new lennoxdbDataContext();
         using (objE)
         {
-            var objDelE = objE.newsletters.Single(x => x._id == _id);
-            objE.newsletters.DeleteOnSubmit(objDelE);
+            var objDelE = objE.ecards.Single(x => x.Id == _id);
+            objE.ecards.DeleteOnSubmit(objDelE);
             objE.SubmitChanges();
             return true;
         }
     } 
 }
-*/
+

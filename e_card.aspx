@@ -9,9 +9,9 @@
 <div>
 
 
-<asp:Panel ID="pnl_new" runat="server">
-   
-    
+
+<asp:Panel ID="pnl_new" runat="server" >
+ 
 <table>
 <tr>
     <td><asp:Label ID="lbl_new" runat="server" Text="Send an E-Card to a Patient" /></td>
@@ -42,7 +42,7 @@
 </td>
 <td>
 <asp:TextBox ID="emailTB" runat="server" />
-<asp:RequiredFieldValidator ID="rfv_email" runat="server" ControlToValidate="emailTB" ErrorMessage="Email is required." Display="None" ValidationGroup="insert" />
+<asp:RequiredFieldValidator ID="rfv_email" runat="server" ControlToValidate="emailTB" ErrorMessage="Email is required." ValidationGroup="insert" />
 <asp:RegularExpressionValidator ID="reg_email" runat="server" ControlToValidate="emailTB" ValidationExpression="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" ErrorMessage="Please enter a valid email address!" ValidationGroup="insert" />
 </td>
 </tr>
@@ -58,8 +58,8 @@
 
 </table>
 </asp:Panel>
+<asp:Button ID="btnSubscribe" runat="server" OnClick="send_Click" Text="Send E-Card" ValidationGroup="insert" />
 
-<asp:Button ID="btnSubscribe" runat="server" OnClick="send_Click" Text="Send E-Card" />
 
 </div>
 

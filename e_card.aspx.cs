@@ -9,110 +9,100 @@ using System.Net;
 
 public partial class e_card : System.Web.UI.Page
 { 
-    ecardclass E = new ecardclass();
-
-    protected void subCreate(object sender, EventArgs e)
-    {
-        pnl_new.Visible = true;
-    }
-
-    private void _subRebind()
-    {
-        pnl_new.Visible = true;
-        lNameTB.Text = String.Empty;
-        fNameTB.Text = String.Empty;
-        emailTB.Text = String.Empty;
-        txtMessage.Text = String.Empty;
-    }
-
-    private void _strMessage(bool flag, string str)
-    {
-        if (flag)
-        {
-            msg.Text = str + " : Successful";
-        }
-        else
-        {
-            msg.Text = str + " : Failed";
-        }
-    }
-
-    protected void subAdmin(object sender, CommandEventArgs e)
-    {
-        switch (e.CommandName)
-        {
-            case "Insert":
-                _strMessage(E.commitInsert(txtSubject.Text, lNameTB.Text, fNameTB.Text, emailTB.Text, txtMessage.Text), "Ecard Send");
-                _subRebind();
-                break;
-            case "Cancel":
-                _subRebind();
-                break;
-        }
-    }
-
-    protected void sendEmail(object sender, RepeaterCommandEventArgs e)
-    {
-        switch (e.CommandName)
-        {
-            case "Cancel":
-                _subRebind();
-                break;
-
-            case "Insert":
-                TextBox name = (TextBox)e.Item.FindControl("txt_appName");
-                TextBox email = (TextBox)e.Item.FindControl("txt_appEmail");
-                TextBox msg = (TextBox)e.Item.FindControl("txt_appMsg");
-                Label msg1 = (Label)e.Item.FindControl("aa");
-                FileUpload file = (FileUpload)e.Item.FindControl("fileupload1");
-                Label title = (Label)e.Item.FindControl("lbl_title");
-
-                Button send = (Button)e.Item.FindControl("btn_send");
-                Button back = (Button)e.Item.FindControl("btn_cancel");
+    ecardclass Eclass = new ecardclass();
 
 
-                MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("lacghhospitalproject@gmail.com");
-                mailMessage.To.Add("lacghhospitalproject@gmail.com");
-                mailMessage.Subject = "[Ecard : " + txtSubject.Text + "]";
+    //private void _subRebind()
+    //{
+    //    pnl_new.Visible = true;
+    //    lNameTB.Text = String.Empty;
+    //    fNameTB.Text = String.Empty;
+    //    emailTB.Text = String.Empty;
+    //    txtMessage.Text = String.Empty;
+    //}
 
-                if (file.HasFile)
-                {
-                    mailMessage.Attachments.Add(new Attachment(file.PostedFile.InputStream, file.FileName));
-                }
+    //private void _strMessage(bool flag, string str)
+    //{
+    //    if (flag)
+    //    {
+    //        lbl_msg.Text = str + " : Successful";
+    //    }
+    //    else
+    //    {
+    //        lbl_msg.Text = str + " : Failed";
+    //    }
+    //}
 
-                mailMessage.Body = "Sender Name : " + fNameTB.Text + " " + lNameTB.Text + "<br />"
-                    + "Sender Email " + emailTB.Text + "<br />"
-                    + "Message: " + txtMessage.Text;
+    //protected void subAdmin(object sender, CommandEventArgs e)
+    //{
+    //    switch (e.CommandName)
+    //    {
+    //        case "Insert":
+    //            _strMessage(Eclass.commitInsert(txtSubject.Text, lNameTB.Text, fNameTB.Text, emailTB.Text, txtMessage.Text), "Ecard Send");
+    //            _subRebind();
+    //            break;
+    //        case "Cancel":
+    //            _subRebind();
+    //            break;
+    //    }
+    //}
 
-                mailMessage.IsBodyHtml = true;
+//    protected void sendEmail(object sender, EventArgs e)
+//    {
 
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-                smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new System.Net.NetworkCredential("lacghhospitalproject@gmail.com", "lacghhospitalproject1!");
-                smtpClient.Send(mailMessage);
+//        TextBox name = (TextBox)e.Item.FindControl("txt_appName");
+//        TextBox email = (TextBox)e.Item.FindControl("txt_appEmail");
+//        TextBox msg = (TextBox)e.Item.FindControl("txt_appMsg");
+//        Label msg1 = (Label)e.Item.FindControl("aa");
+//        FileUpload file = (FileUpload)e.Item.FindControl("fileupload1");
+//        Label title = (Label)e.Item.FindControl("lbl_title");
 
-                msg1.Text = "Thank you to send an E-Card to a Patient";
-                name.Enabled = false;
-                email.Enabled = false;
-                msg.Enabled = false;
-                file.Enabled = false;
-                send.Enabled = false;
-                back.Text = "Ecard";
-
-                break;
-
-
-        }
-    }
-}
-
-
-//Other option 1//
-/*
+//        Button send = (Button)e.Item.FindControl("btn_send");
+//        Button back = (Button)e.Item.FindControl("btn_cancel");
 
 
-{
+//        MailMessage mailMessage = new MailMessage();
+//        mailMessage.From = new MailAddress("lacghhospitalproject@gmail.com");
+//        mailMessage.To.Add("lacghhospitalproject@gmail.com");
+//        mailMessage.Subject = "[Ecard : " + txtSubject.Text + "]";
+
+//        if (file.HasFile)
+//        {
+//            mailMessage.Attachments.Add(new Attachment(file.PostedFile.InputStream, file.FileName));
+//        }
+
+//        mailMessage.Body = "Sender Name : " + fNameTB.Text + " " + lNameTB.Text + "<br />"
+//            + "Sender Email " + emailTB.Text + "<br />"
+//            + "Message: " + txtMessage.Text;
+
+//        mailMessage.IsBodyHtml = true;
+
+//        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+//        smtpClient.EnableSsl = true;
+//        smtpClient.Credentials = new System.Net.NetworkCredential("lacghhospitalproject@gmail.com", "lacghhospitalproject1!");
+//        smtpClient.Send(mailMessage);
+
+//        msg1.Text = "Thank you to send an E-Card to a Patient";
+//        name.Enabled = false;
+//        email.Enabled = false;
+//        msg.Enabled = false;
+//        file.Enabled = false;
+//        send.Enabled = false;
+//        back.Text = "Ecard";
+
+//        //        break;
+
+
+//        //}
+//    }
+//}
+
+
+
+
+
+
+
     protected void send_Click(object sender, EventArgs e)
     {
         string fname = fNameTB.Text.ToString();
@@ -124,18 +114,19 @@ public partial class e_card : System.Web.UI.Page
         try
         {
             MailMessage m = new MailMessage();
-            m.From = new MailAddress("ybeedah@gmail.com");
+            m.From = new MailAddress("lacghhospitalproject@gmail.com");
             m.To.Add("misschiwawa@hotmail.com");
             m.Subject = "test";
             m.Body = "subject";
 
             SmtpClient client = new SmtpClient("smtp.gmail.com");
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("ybeedah@gmail.com", "password");
+            client.Credentials = new NetworkCredential("lacghhospitalproject@gmail.com", "lacghhospitalproject1!");
             client.Port = Convert.ToInt32("587");
             client.EnableSsl = true;
 
-            client.Send(m); 
+            client.Send(m);
+            lbl_msg.Text = Eclass.commitInsert(header, lname, fname, email, msg);
 
         }
         catch (Exception err)
@@ -146,17 +137,7 @@ public partial class e_card : System.Web.UI.Page
 
     }
 }
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- */
+
 //Other option 2//
     //protected void Page_Load(object sender, EventArgs e)
     //{
