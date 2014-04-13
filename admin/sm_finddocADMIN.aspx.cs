@@ -61,18 +61,18 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
                     else
                     {
                         //thrown when file too large
-                        lbl_upstatus.Text = "File must be less than 100kb";
+                        lbl_upstatus.Text = "<p style='color:red;'>File must be less than 100kb</p>";
                     }
                 }
                 else 
                 {
-                    lbl_upstatus.Text = "File must be .jpg format";
+                    lbl_upstatus.Text = "<p style='color:red;'>File must be .jpg format</p>";
                 }
             }
             catch (Exception ex)
             {
                 //thrown when any other error occurs
-                lbl_upstatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
+                lbl_upstatus.Text = "<p style='color:red;'>File could not be uploaded. The following error occured: " + ex.Message + "</p>";
             }
         }
     }
@@ -81,10 +81,10 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
     private void _strMessage(bool flag, string str)
     {
         if (flag) {
-            msg.Text = str + " record: Successful";
+            msg.Text = str + " record: <span style='color:green;'>Successful</span>";
         }
         else {
-            msg.Text = str + " record: Failed";
+            msg.Text = str + " record: <span style='color:red;'>Failed</span>";
         }
     }
 
@@ -153,18 +153,18 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
                             else
                             {
                                 //thrown if image too large
-                                updateStatus.Text = "File must be less than 100kb";
+                                updateStatus.Text = "<p style='color:red;'>File must be less than 100kb</p>";
                             }
                         }
                         else
                         {
-                            updateStatus.Text = "File must be .jpg format";
+                            updateStatus.Text = "<p style='color:red;'>File must be .jpg format</p>";
                         }
                     }
                     catch (Exception ex)
                     {
                         //thrown for any other error
-                        updateStatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
+                        updateStatus.Text = "<p style='color:red;'>File could not be uploaded. The following error occured: " + ex.Message + "</p>";
                     }
                 }
                 break;

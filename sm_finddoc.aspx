@@ -19,18 +19,16 @@
             <asp:HyperLink id="lnk_head" runat="server" NavigateUrl="#" text='<%#Eval ("doc_name") %>' />
         </HeaderTemplate>
         <ContentTemplate>
-            <asp:Label ID="lbl_name" runat="server" Text='<%#Eval ("doc_name") %>' />
-          
-            <%--<asp:Label ID="lbl_dept" runat="server" Text="Department: " />--%>
-            <%--<asp:Label ID="dept" runat="server" Text='<%#Eval ("dp_name") %>' />--%>
-            
-            <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("doc_img") %>' />
-            <div class="info">
-                <%#Eval ("doc_bio") %>
-                <br />
-                <asp:HyperLink ID="hpl_contact" runat="server" NavigateUrl="~/sm_directory.aspx" Text="Contact" />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:HyperLink ID="hpl_appt" runat="server" NavigateUrl="~/ps_appointment.aspx" Text="Book an Appointment" />
+            <div class="docbio">
+                <asp:Label ID="lbl_name" runat="server" Text='<%#Eval ("doc_name") %>' />            
+                <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("doc_img") %>' />
+                <div class="info">
+                    <%#Eval ("doc_bio") %>
+                    <br />
+                    <asp:HyperLink ID="hpl_contact" runat="server" NavigateUrl="~/sm_directory.aspx" Text="Contact" CssClass="doclinks" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:HyperLink ID="hpl_appt" runat="server" NavigateUrl="~/ps_appointment.aspx" Text="Book an Appointment" CssClass="doclinks" />
+            </div>
             </div>
 
         </ContentTemplate>

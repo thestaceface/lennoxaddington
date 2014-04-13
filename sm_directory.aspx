@@ -10,7 +10,7 @@
     <ajax:ToolkitScriptManager ID="tsm_main" runat="server" />
     <br /><br />
 
-    <asp:Label ID="lblpage" runat="server" Text="Select an office below to view its contact details." CssClass="lblpage" />
+    <asp:Label ID="lbl_page" runat="server" Text="Select an office below to view its contact details." CssClass="lblpage" />
     <br /><br />
 
     <%-- AJAX accordion containing contact records --%>

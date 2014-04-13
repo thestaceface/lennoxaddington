@@ -307,8 +307,14 @@ body {
 
 .info {
     margin-top:15px;
-    width:85%;
+    width:90%;
     margin-bottom:20px;
+}
+
+.doclinks {
+    text-align:right;
+    color:#6aabbf;
+    margin-top:8px;
 }
 
 .dir {
@@ -317,9 +323,9 @@ body {
     margin-top:15px;
 }
 
-.event {
+.event, .docbio {
     margin:20px 0 15px 40px;
-    width:75%;
+    width:90%;
 }
 
 .sidebarlinks {

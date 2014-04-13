@@ -10,7 +10,7 @@
     <ajax:ToolkitScriptManager ID="scm_events" runat="server" />
     <br /><br />
 
-    <asp:Label ID="lblpage" runat="server" Text="Select an event below to view more details." CssClass="lblpage" />
+    <asp:Label ID="lbl_page" runat="server" Text="Select an event below to view more details." CssClass="lblpage" />
     <br /><br />
     
     <%-- accordion containing events records --%>
@@ -22,7 +22,9 @@
         <ContentTemplate>
             <div class="event">
                 <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("ev_media") %>' />
-                <asp:Label ID="body" runat="server" Text='<%#Eval ("ev_body") %>' />
+                <div class="info">
+                    <asp:Label ID="body" runat="server" Text='<%#Eval ("ev_body") %>' />
+                </div>
             </div>
         </ContentTemplate>
     </ajax:Accordion>

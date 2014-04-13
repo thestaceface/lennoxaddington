@@ -11,7 +11,7 @@
       </siteMapNode>
       <siteMapNode url="contentMain.aspx?id=11" title="LACGH Foundation" description="LACGH Foundation">
         <siteMapNode url="" title="Contact the Foundation" description="Contact the Foundation" />
-        <siteMapNode url="" title="Donate" description="Donate" />
+        <siteMapNode url="~/db_donation.aspx" title="Donate" description="Donate" />
         <siteMapNode url="" title="Donor Recognition" description="Donor Recognition" />
         <siteMapNode url="" title="Foundation Events" description="Foundation Events" />
       </siteMapNode>
@@ -22,7 +22,7 @@
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=10" title="Patients and Visitors" description="Patients and visitors">
       <siteMapNode url="sm_finddoc.aspx" title="Our Doctors" description="Find a Doctor" />
-      <siteMapNode url="" title="Request an Appointment" description="Request an Appointment" />
+      <siteMapNode url="~/ps_appointment.aspx" title="Request an Appointment" description="Request an Appointment" />
       <siteMapNode url="~/contentMain.aspx?id=15" title="Creating a Safe Environment" description="Creating a Safe Environment" />
       <siteMapNode url="~/contentMain.aspx?id=16" title="Patient Rights &amp; Responsibilities" description="Patient Rights &amp; Responsibilities" />
       <siteMapNode url="" title="Your Hospital Stay" description="Your Hospital Stay" />
@@ -46,7 +46,7 @@
       <siteMapNode url="" title="Quality" description="Quality" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=36" title="Careers" description="Jobs page">
-      <siteMapNode url="career.aspx" title="Current Opportunities" description="Current Opportunities" />
+      <siteMapNode url="db_career.aspx" title="Current Opportunities" description="Current Opportunities" />
       <siteMapNode url="" title="Student Placements" description="Student Placements" />
       <siteMapNode url="" title="Volunteer Membership" description="Volunteer Membership" />
       <siteMapNode url="" title="Volunteer Programs" description="Volunteer Programs" />
@@ -55,7 +55,7 @@
       <siteMapNode url="~/contentMain.aspx?id=12" title="About Volunteer Services" description="" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=37" title="Contact Us" description=" Contact Us Page">
-      <siteMapNode url="direction.aspx" title="Directions" description="Directions" />
+      <siteMapNode url="db_direction.aspx" title="Directions" description="Directions" />
       <siteMapNode url="sm_directory.aspx" title="Directory" description="Directory" />
       <siteMapNode url="rf_feedback.aspx" title="Feedback" description="Feedback" />
       <siteMapNode url="newsletter.aspx" title="LACGH Newsletter" description="Newsletter" />

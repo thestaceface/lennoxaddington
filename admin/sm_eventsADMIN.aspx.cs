@@ -62,18 +62,18 @@ public partial class sm_eventsADMIN : System.Web.UI.Page
                     else
                     {
                         //thrown if image too large
-                        lbl_upstatus.Text = "File must be less than 100kb";
+                        lbl_upstatus.Text = "<p style='color:red;'>File must be less than 100kb</p>";
                     }
                 }
                 else
                 {
-                    lbl_upstatus.Text = "File must be .jpg format";
+                    lbl_upstatus.Text = "<p style='color:red;'>File must be .jpg format</p>";
                 }
             }
             catch (Exception ex)
             {
                 //thrown for any other error
-                lbl_upstatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
+                lbl_upstatus.Text = "<p style='color:red;'>File could not be uploaded. The following error occured: " + ex.Message + "</p>";
             }
         }
     }
@@ -84,11 +84,11 @@ public partial class sm_eventsADMIN : System.Web.UI.Page
     {
         if (flag)
         {
-            msg.Text = str + " event: Successful";
+            msg.Text = str + " event: <span style='color:green;'>Successful</span>";
         }
         else
         {
-            msg.Text = str + " event: Failed";
+            msg.Text = str + " event: <span style='color:red;'>Failed</span>";
         }
     }
 
@@ -157,18 +157,18 @@ public partial class sm_eventsADMIN : System.Web.UI.Page
                             else
                             {
                                 //thrown if image too large
-                                updateStatus.Text = "File must be less than 100kb";
+                                updateStatus.Text = "<p style='color:red;'>File must be less than 100kb</p>";
                             }
                         }
                         else
                         {
-                            updateStatus.Text = "File must be .jpg format";
+                            updateStatus.Text = "<p style='color:red;'>File must be .jpg format</p>";
                         }
                     }
                     catch (Exception ex)
                     {
                         //thrown for any other error
-                        updateStatus.Text = "File could not be uploaded. The following error occured: " + ex.Message;
+                        updateStatus.Text = "<p style='color:red;'>File could not be uploaded. The following error occured: " + ex.Message + "</p>";
                     }
                 }
                 break;

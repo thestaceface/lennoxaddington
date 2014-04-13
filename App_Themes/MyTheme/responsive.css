@@ -20,7 +20,6 @@
         width: 95%;
         min-height: 0px;
         border: 0px;
-        
     }
 
     #slider, #box {
@@ -249,11 +248,17 @@
     }
 
     #content_main {
-        text-align:center;
+        /*text-align:center;*/
         display:block;
         width:95%;
         min-height:0px;
         border:0px;
+        margin:0 auto;
+        margin-left:10px;
+    }
+
+    #cph_content_lbl_page {
+        margin-left:0;
     }
 
     #mobilemenu {
@@ -354,4 +359,33 @@
     #cph_content_pnl_all {
         width:90%;
     }
+
+    /*Stacey*/
+    .docaccon {
+        margin:0 auto;
+    }
+
+    div.info {
+        width:100%;
+    }
+
+    .docbio img {
+        float:none;
+        padding-bottom:15px;
+        padding-top:8px;
+        padding-left:20px;
+    }
+
+    .event img {
+        float:none;
+        padding-bottom:15px;
+        padding-top:15px;
+        margin-right:0;
+    }
+
+    .docbio, .event {
+        text-align:center;
+        margin:0 auto;
+    }
+
 }
