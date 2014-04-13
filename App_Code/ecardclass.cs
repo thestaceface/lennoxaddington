@@ -56,7 +56,7 @@ public class ecardclass
         }
     }
 
-    public bool commitDelete(int _id)
+    public string commitDelete(int _id)
     {
         lennoxdbDataContext objE = new lennoxdbDataContext();
         using (objE)
@@ -64,7 +64,7 @@ public class ecardclass
             var objDelE = objE.ecards.Single(x => x.Id == _id);
             objE.ecards.DeleteOnSubmit(objDelE);
             objE.SubmitChanges();
-            return true;
+            return "Your delete was successful";
         }
     } 
 }
