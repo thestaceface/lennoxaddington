@@ -9,7 +9,7 @@
     <asp:Button ID="btn_bottom" runat="server" OnClick="moveToBottom" Text="move to bottom" Enabled="false" />
     <asp:Button ID="btn_top" runat="server" OnClick="moveToTop" Text="move to top" Enabled="false" />
     <asp:Label ID="lbl_output" runat="server" />
-    <asp:Label ID="lbl_output" runat="server" />
+
 
 <%--    <asp:Button ID="btn_first" runat="server" Text="First Node" OnClick="setFirst" />
     <asp:Button Id="btn_second" runat="server" text="Second Node" OnClick="setSecond" />--%>

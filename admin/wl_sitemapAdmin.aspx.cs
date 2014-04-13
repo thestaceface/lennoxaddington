@@ -44,13 +44,13 @@ public partial class admin_wl_sitemapAdmin : System.Web.UI.Page
                 btn_top.Enabled = true;
                 lbl_output.Text = "";
             }
-            else if (countthis == 0)
+            else if (countthis == null)
             {
                 lbl_output.Text = "Please select the page you wish to move";
             }
             else
             {
-                lbl_output.Text = "Please select one only";
+                lbl_output.Text = "Please select one page only";
                 foreach (TreeNode node2 in TreeView1.CheckedNodes)
                 {
                     node2.Selected = false;
