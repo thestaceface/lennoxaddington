@@ -1,0 +1,113 @@
+﻿/* ------ Fonts ------ */
+@font-face {
+	font-family: Lato;
+	src: url(Fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+	font-family: Lato-Light;
+	src: url(Fonts/Lato-Italic.ttf);
+}
+
+@font-face {
+	font-family: Lato-Bold;
+    src: url(Fonts/Lato-Bold.ttf);
+}
+
+@font-face {
+	font-family: Lato-BoldItalic;
+	src: url(Fonts/Lato-BoldItalic.ttf);
+}
+
+@font-face {
+	font-family: TiWeb;
+	src: url(Fonts/TitilliumWeb-Regular.ttf);
+}
+
+@font-face {
+	font-family: TiWeb-Light;
+	src: url(Fonts/TitilliumWeb-Italic.ttf);
+}
+
+@font-face {
+	font-family: TiWeb-Bold;
+    src: url(Fonts/TitilliumWeb-Bold.ttf);
+}
+
+@font-face {
+    font-family: TiWeb-BoldItalic;
+    src: url(Fonts/TitilliumWeb-BoldItalic.ttf);
+}
+/* ------ Global ------ */
+
+* {
+    font-family: Lato;
+    font-weight: normal;
+}
+
+h1, h2, h3, h4 {
+    font-family: TiWeb-Bold;
+    padding-top:20px;
+}
+
+img {
+
+}
+
+li {
+    font-family: Lato;
+    
+}
+
+p {
+    font-family: Lato;
+    font-weight:normal;
+    padding: 10px 0px;
+}
+
+strong {
+    font-family: Lato-Bold;
+}
+
+ul {
+    padding-left:30px;
+
+}
+
+
+
+#mnu_1 {
+    font-family: TiWeb-Bold, Lato-Bold;
+    font-size: 16px;  
+    padding-left:15px;  
+}
+.mnu_1 {
+    font-family: TiWeb-Bold, Lato-Bold; 
+}
+
+#aside2 {
+    padding: 10px 0px;
+}
+
+#aside2 img {
+    padding: 0px 0px;
+    }
+
+#content img {
+
+}
+#content li {
+padding-top: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    #aside2, #aside3 {
+        min-width: 350px;
+        min-height: 300px;
+        display: inline-block;
+        vertical-align: top;
+        background-color: white;
+        border: 2px solid #8ed1e4;
+        border-radius: 6px;
+    }
+}

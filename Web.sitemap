@@ -7,7 +7,7 @@
       <siteMapNode url="rf_findout.aspx" title="Find More Links" description="'Find Out More' Links" />
       <siteMapNode url="faq.aspx" title="FAQ" description="FAQ" />
       <siteMapNode url="contentMain.aspx?id=105" title="Board of Directors" description="Board of Directors">
-        <siteMapNode url="" title="Board Meetings" description="Board Meetings" />
+        <siteMapNode url="contentMain.aspx?id=106" title="Board Meetings" description="Board Meetings" />
       </siteMapNode>
       <siteMapNode url="contentMain.aspx?id=11" title="LACGH Foundation" description="LACGH Foundation">
         <siteMapNode url="" title="Contact the Foundation" description="Contact the Foundation" />
