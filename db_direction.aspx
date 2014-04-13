@@ -163,8 +163,38 @@
 
     <div>
         <h1>Maps and Directions</h1>
-        <%-- to and from textboxes --%>
+        
+        <%-- Steps for direction --%>
+        <table class="tables">
+            <tr>
+                <td>
+                    <asp:Label ID="s1" runat="server" Text="Step 1:" />
+                </td>
+                <td>
+                    <asp:Label ID="step1" runat="server" Text="Click on 'Get Distance' button to get direction + distance." />
+                </td> 
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="s2" runat="server" Text="Step 2:" /> 
+                </td>
+                <td>
+                    <asp:Label ID="step2" runat="server" Text="Click on " />
+                    <asp:Image ID="imgstep1" runat="server" ImageUrl="~/Images/location.png" Width="20px" Height="20px" />
+                    <asp:Label ID="stepp2" runat="server" Text=" to get current location or enter a location." />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="s3" runat="server" Text="Step 3:" />
+                </td>
+                <td>
+                    <asp:Label ID="step3" runat="server" Text="Click on 'Get Direction' to view direction on map." />
+                </td> 
+            </tr>
+        </table>
 
+        <%-- to and from textboxes --%>
         <table class="tables">
             <tr>
                 <td>
@@ -185,14 +215,17 @@
                 <td>
                     <asp:TextBox ID="txtTo" runat="server"  Text="8 Richmond Park Drive, Napanee, ON K7R 2Z4"></asp:TextBox>
                 </td> 
+                <td>
+                    <%-- get direction --%>
+                    <asp:Button ID="btnDirections" runat="server" Text="Get Direction" OnClientClick="GetDirectionRoute(); return false" BorderColor="#8ed1e4" BorderWidth="2px" />
+                </td>
             </tr>
         </table>
 
         <%-- error message label --%>
         <asp:Label ID="error" runat="server" /><br />
         
-        <%-- 3 buttons - get direction, get distance and reset --%>
-        <asp:Button ID="btnDirections" runat="server" Text="Get Direction" OnClientClick="GetDirectionRoute(); return false" />
+        <%-- 2 buttons - get distance and reset --%>
         <asp:Button ID="btnGetDistance" runat="server" Text="Get Distance" OnClick="subGetDistance" />
         <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="subReset" />
 
