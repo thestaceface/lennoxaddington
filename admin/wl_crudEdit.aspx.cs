@@ -125,6 +125,7 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
                 btn_return.Visible = true;
                 pnl_pagelist.Visible = true;
                 _subRebind();
+                 Response.Redirect(Request.Url.AbsoluteUri);//this causes a refresh of the entire page... otherwise menu doesn't update until you browse to another page.
                 break;
 
             case "Delete_This":
@@ -147,8 +148,9 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
                     node.ParentNode.RemoveChild(node);
                 }
                 docDel.Save(Server.MapPath("../Web.sitemap"));
-
+                Response.Redirect(Request.Url.AbsoluteUri);//this causes a refresh of the entire page... otherwise menu doesn't update until you browse to another page.
                 break;
+
             case "Cancel_This":
                 _subRebind();
                 pnl_edit.Visible = false;

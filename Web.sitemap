@@ -25,7 +25,7 @@
       <siteMapNode url="~/ps_appointment.aspx" title="Request an Appointment" description="Request an Appointment" />
       <siteMapNode url="~/contentMain.aspx?id=15" title="Creating a Safe Environment" description="Creating a Safe Environment" />
       <siteMapNode url="~/contentMain.aspx?id=16" title="Patient Rights &amp; Responsibilities" description="Patient Rights &amp; Responsibilities" />
-      <siteMapNode url="" title="Your Hospital Stay" description="Your Hospital Stay" />
+      <siteMapNode url="contentMain.aspx?id=107" title="Your Hospital Stay" description="Your Hospital Stay" />
       <siteMapNode url="" title="Discharging From the Hospital" description="Discharging From the Hospital" />
       <siteMapNode url="" title="Patient Privacy Policy" description="Patient Privacy Policy" />
       <siteMapNode url="ps_thanksform.aspx" title="Thank a Staff Member" description="Thank a Staff Member" />

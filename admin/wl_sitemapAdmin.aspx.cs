@@ -74,6 +74,7 @@ public partial class admin_wl_sitemapAdmin : System.Web.UI.Page
         //target.AppendChild(mynode);
         down.ParentNode.AppendChild(mynode);
         doc.Save(Server.MapPath("../Web.sitemap"));
+        Response.Redirect(Request.Url.AbsoluteUri);//this causes a refresh of the entire page... otherwise menu doesn't update until you browse to another page.
     }
     protected void moveToTop(object sender, EventArgs e)
     {
@@ -88,6 +89,7 @@ public partial class admin_wl_sitemapAdmin : System.Web.UI.Page
         //target.AppendChild(mynode);
         down.ParentNode.PrependChild(mynode);
         doc.Save(Server.MapPath("../Web.sitemap"));
+        Response.Redirect(Request.Url.AbsoluteUri);//this causes a refresh of the entire page... otherwise menu doesn't update until you browse to another page.
     }
 
 }
@@ -95,7 +97,7 @@ public partial class admin_wl_sitemapAdmin : System.Web.UI.Page
 
 
 
-    //everything below here was experimenting and learning.
+    //everything below here was experimenting and learning.  could be useful for future phases
 
 
 
