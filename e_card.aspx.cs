@@ -72,8 +72,8 @@ public partial class e_card : System.Web.UI.Page
 
 
                 MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("ybeedah@gmail.com");
-                mailMessage.To.Add("ybeedah@gmail.com");
+                mailMessage.From = new MailAddress("lacghhospitalproject@gmail.com");
+                mailMessage.To.Add("lacghhospitalproject@gmail.com");
                 mailMessage.Subject = "[Ecard : " + txtSubject.Text + "]";
 
                 if (file.HasFile)
@@ -87,9 +87,9 @@ public partial class e_card : System.Web.UI.Page
 
                 mailMessage.IsBodyHtml = true;
 
-                SmtpClient smtpClient = new SmtpClient("smtpout.secureserver.net", 80);
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new System.Net.NetworkCredential("ybeedah@gmail.com", "password");
+                smtpClient.Credentials = new System.Net.NetworkCredential("lacghhospitalproject@gmail.com", "lacghhospitalproject1!");
                 smtpClient.Send(mailMessage);
 
                 msg1.Text = "Thank you to send an E-Card to a Patient";
