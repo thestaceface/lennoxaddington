@@ -145,7 +145,9 @@
 
     <%-- edit panel contains update form --%>
     <asp:Panel ID="pnl_edit" runat="server">
-        <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" Font-Underline="true" />
+        <asp:Label ID="lbl_edit" runat="server" Text="Update Information to display wait time" Font-Underline="true" />
+        <br />
+        <asp:Label ID="lbl_instuction" runat="server" />
         <br />
         <br />
         <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />

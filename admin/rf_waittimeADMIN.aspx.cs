@@ -28,6 +28,7 @@ public partial class Default2 : System.Web.UI.Page
     //resets fields and panel on page reload
     private void _subRebind()
     {
+        lbl_instuction.Text = "Note: Please Update number of Doctors on duty, Patients registered, Patients attended and Average time required per patient for calculated wait time. Update Patient registered with 0 and numbers in minutes in the Wait Time column to display manual wait time. You may update system message to display, if no information is available.";
         pnl_new.Visible = false;
         pnl_edit.Visible = false;
         txt_desc.Text = String.Empty;
