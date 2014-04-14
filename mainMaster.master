@@ -193,15 +193,15 @@
             <div id="footer_jobs" class="footersec">
                 <asp:Label ID="lbl_jobs" runat="server" Text="Jobs" /><br /><br />
                     <hr /><br />
-                <asp:HyperLink ID="lnk_jobs" runat="server" text="Current Openings" NavigateUrl="~/career.aspx" /><br /><br />
+                <asp:HyperLink ID="lnk_jobs" runat="server" text="Current Openings" NavigateUrl="~/db_career.aspx" /><br /><br />
                 <asp:HyperLink ID="lnk_volunteer" runat="server" Text="Volunteer" /><br /><br />
 
                 <br />
             </div><%--footer_links --%>  
 
             <div id="footer_contact" class="footersec">
-                <asp:Label ID="lbl_contact" runat="server" Text="Contact" /><br /><br /><hr /><br />
-                <asp:HyperLink ID="lnk_direction" runat="server" Text="Directions" NavigateUrl="~/direction.aspx"  /><br /><br />
+                <asp:Label ID="lbl_contact" runat="server" Text="Find Us" /><br /><br /><hr /><br />
+                <asp:HyperLink ID="lnk_direction" runat="server" Text="Directions" NavigateUrl="~/db_direction.aspx"  /><br /><br />
                 <asp:Label ID="lbl_add" runat="server" Text="123 Fake Street<br>Napanee, A0A 0A0<br>(555) 121-2121" /><br /><br />
                 <asp:Label ID="lbl_visitinghours" runat="server" Text="Visiting Hours" /><br />
                 <asp:Label ID="lbl_time" runat="server" Text="2:00 p.m. - 8:00 p.m." /><br /><br />
