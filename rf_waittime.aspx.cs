@@ -27,7 +27,7 @@ public partial class rf_waittime : System.Web.UI.Page
         if (rec.Count() > 0)
         {
             foreach (sysinfo obj in rec)
-            {             
+            { 
               var wait = (obj.si_avgtime * (obj.si_numregistered - obj.si_numattended)) / obj.si_numdoctor;
               var hrs = wait / 60;
               var mins = wait - (hrs * 60);
@@ -65,9 +65,9 @@ public partial class rf_waittime : System.Web.UI.Page
                   }
                   else
                   {
-                      lbl_wtime1.Text = "Estimated waiting time is not available at this time. Please check again later.";
-                      lbl_wtime1.Visible = true;
-                      lbl_wtime2.Visible = false;
+                      lbl_wtime2.Text = obj.si_message;
+                      lbl_wtime2.Visible = true;
+                      lbl_wtime1.Visible = false;
                   }
               }
             }

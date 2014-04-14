@@ -72,8 +72,7 @@ public partial class Default2 : System.Web.UI.Page
                 _subRebind();
                 break;
             case "Update":
-                _showUpdate(int.Parse(e.CommandArgument.ToString()));
-                
+                _showUpdate(int.Parse(e.CommandArgument.ToString()));               
                 break;
             case "Cancel":
                 _subRebind();
@@ -114,7 +113,7 @@ public partial class Default2 : System.Web.UI.Page
                 TextBox txtLupdate = (TextBox)e.Item.FindControl("txt_lupdateE");
                 TextBox txtMessage = (TextBox)e.Item.FindControl("txt_messageE");
                 TextBox txtUpdateby = (TextBox)e.Item.FindControl("txt_updatebyE");
-                HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
+                HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");               
                 int WTID = int.Parse(hdfID.Value.ToString());
                 _strMessage(WT.commitUpdate(WTID, txtDesc.Text, Int32.Parse(txtNumdoc.Text.ToString()), Int32.Parse(txtAvgtime.Text.ToString()), Int32.Parse(txtPatients.Text.ToString()), Int32.Parse(txtAttended.Text.ToString()), DateTime.Parse(txtDate.Text.ToString()), Int32.Parse(txtWaittime.Text.ToString()), Int32.Parse(txtWaiting.Text.ToString()), Int32.Parse(txtDept.Text.ToString()), DateTime.Parse(txtLupdate.Text.ToString()), txtMessage.Text, Int32.Parse(txtUpdateby.Text.ToString())), "Update");
                 _subRebind();

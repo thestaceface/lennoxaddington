@@ -4,6 +4,7 @@
     <br />
     <br />
     <asp:Label ID="lbl_page" runat="server" Text="Select a existing record from the menu on the right to edit " />
+    <%-- There is only one record in System Information table - which only need to update frequently - Insert new record is disabled intentionally --%>
     <%-- <asp:LinkButton ID="lnk_select" runat="server" Text=", or create a new record." OnClick="subCreate" /> --%>
     <br />
     <br />
@@ -36,12 +37,12 @@
                 <td>
                     <asp:TextBox ID="txt_desc" runat="server" Columns="40" /> 
                     <asp:RequiredFieldValidator ID="rfv_desc" runat="server" ControlToValidate="txt_desc" ErrorMessage="Description is required." Display="None" ValidationGroup="insert" />
-
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:label ID="lbl_numdoctor" runat="server" Text="#Doctors:" AssociatedControlID="txt_numdoctor" />
+                    <asp:label ID="lbl_numdoctor" runat="server" Text="#Doctors:*" AssociatedControlID="txt_numdoctor" />
+                    <asp:RequiredFieldValidator ID="rfv_numdoctor" runat="server" ControlToValidate="txt_numdoctor" ErrorMessage="Number of doctors on duty is required." Display="None" ValidationGroup="insert" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_numdoctor" runat="server" Columns="40" />
@@ -158,10 +159,12 @@
             </tr>
             <tr>    
                  <td>
-                     <asp:Label ID="lbl_numdoctorE" runat="server" Text="#Doctor:" AssociatedControlID="txt_numdoctorE" />
+                     <asp:Label ID="lbl_numdoctorE" runat="server" Text="#Doctor:*" AssociatedControlID="txt_numdoctorE" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_numdoctorE" runat="server" Text='<%#Bind ("si_numdoctor") %>' Columns="40" />
+                    <asp:RequiredFieldValidator ID="rfv_numdoctorE" runat="server" ControlToValidate="txt_numdoctorE" ErrorMessage="Number of doctors on duty is required." Display="None" ValidationGroup="edit" />
+                    <asp:RangeValidator ID="rnv_numdoctorE" runat="server" ControlToValidate="txt_numdoctorE" MaximumValue="99" MinimumValue="1" ErrorMessage="Doctors on duty must be greater than 0." Display="None" ValidationGroup="edit" /> 
                 </td>
             </tr>
             <tr>
@@ -249,6 +252,7 @@
                 <td>&nbsp;</td>
                 <td>
                     <asp:Button ID="btn_update" runat="server" Text="Update Record" CommandName="Update" ValidationGroup="edit" CssClass="adminbuttons" />
+                    <%-- There is only one record in System Information table - which only need to update frequently - Delte record is disabled intentionally --%>
                     <%--  <asp:Button ID="btn_delete" runat="server" Text="Delete Record" CommandName="Delete" ValidationGroup="edit" CssClass="adminbuttons" OnClientClick="return confirm('Delete?');" /> --%>
                     <asp:Button ID="btn_cancelE" runat="server" Text="Cancel" CommandName="Cancel" ValidationGroup="edit" CausesValidation="false" CssClass="adminbuttons" />
                 </td>
