@@ -111,6 +111,16 @@
 
                   DirectionsDisplay.setMap(map);
                   DirectionsDisplay.setPanel($("#DivDirectionRouteStatus")[0]);
+
+                  // set marker
+                  var marker = new google.maps.Marker
+                    (
+                        {
+                            position: new google.maps.LatLng(44.24031, -76.96587),
+                            map: map,
+                            title: 'Lennox Addington Hospital'
+                        }
+                    );
               }
               catch (E) {
                   alert(E.message);
