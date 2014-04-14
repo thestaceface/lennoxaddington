@@ -2,7 +2,9 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-    
+     <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/faqADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
+    <br />
+    <br />
 
     <ajax:ToolkitScriptManager id="tsm_main" runat="server" />
     <br /><br />

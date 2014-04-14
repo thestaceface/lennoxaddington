@@ -15,9 +15,9 @@ public partial class faq : System.Web.UI.Page
         acc.DataSource = Fobjclass.getAllData();
         acc.DataBind();
 
-        //if (!User.IsInRole("administrator"))
-        //{
-        //    lnk_admin.Visible = false;
-        //}
+        if (!User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
     }
 }

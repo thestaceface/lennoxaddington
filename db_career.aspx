@@ -6,7 +6,7 @@
     <%-- Page by Dharveen Beedah --%>
 
     <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
-    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/careerAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
+    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/db_careerAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
 
     <%-- panel for jobs --%>
     <asp:Panel ID="pnl_all" runat="server" GroupingText="CURRENT CAREER OPPORTUNITIES">

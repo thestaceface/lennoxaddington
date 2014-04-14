@@ -12,7 +12,7 @@
     <%-- password: yash7715776 --%>
 
         <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
-        <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/donationAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
+        <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/db_donationAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
 
         <h1>DONATION</h1>
         <asp:Label ID="lbl_new" runat="server" Text="Complete Donation Form and submit" Font-Underline="true" />

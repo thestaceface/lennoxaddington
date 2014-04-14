@@ -11,6 +11,14 @@ public partial class e_card : System.Web.UI.Page
 { 
     ecardclass Eclass = new ecardclass();
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
+    }
+
     protected void send_Click(object sender, EventArgs e)
     {
         string fname = fNameTB.Text.ToString();

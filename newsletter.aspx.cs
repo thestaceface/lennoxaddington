@@ -11,6 +11,14 @@ public partial class newsletter : System.Web.UI.Page
 {
     newsletterclass Nclass = new newsletterclass();
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
+    }
+
     protected void subscribe_Click(object sender, EventArgs e)
     {
         string fname = fNameTB.Text.ToString();

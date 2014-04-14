@@ -6,7 +6,7 @@
     <%-- Page by Dharveen Beedah --%>
 
     <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
-    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/directionAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
+    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/db_directionAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
 
     <%-- source http://kishor-naik-dotnet.blogspot.ca/2012/11/aspnet-google-map-v3-directions-in.html --%> 
     <%-- source http://www.sitepoint.com/working-with-geolocation-and-google-maps-api/ --%>
