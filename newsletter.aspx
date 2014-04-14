@@ -54,6 +54,10 @@
 <br />
 <asp:Button ID="btnSubscribe" runat="server" OnClick="subscribe_Click" Text="Subscribe" />
  <asp:Label runat="server" ID="lbl_msg" /> 
+    <br />
+    <br />
+     <%--I started the unsubscribe.aspx page--%>
+<%--<asp:LinkButton ID="btn_unsubscribe" runat="server" Text="unsubscribe" NavigateUrl="~/unsubscribe.aspx"--%>
 </div>
 </asp:PlaceHolder>
 <asp:PlaceHolder ID="successPH" runat="server" Visible="false">

@@ -7,9 +7,54 @@ using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Net;
 
-public partial class e_card : System.Web.UI.Page
-{ 
-    ecardclass E = new ecardclass();
+public partial class newsletter : System.Web.UI.Page
+{
+    newsletterclass Nclass = new newsletterclass();
+
+    protected void subscribe_Click(object sender, EventArgs e)
+    {
+        string fname = fNameTB.Text.ToString();
+        string lname = lNameTB.Text.ToString();
+        string email = emailTB.Text.ToString();
+
+        try
+        {
+            MailMessage m = new MailMessage();
+            m.From = new MailAddress("lacghhospitalproject@gmail.com");
+            m.To.Add("misschiwawa@hotmail.com");
+            m.Subject = "test";
+            m.Body = "subject";
+
+            SmtpClient client = new SmtpClient("smtp.gmail.com");
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("lacghhospitalproject@gmail.com", "lacghhospitalproject1!");
+            client.Port = Convert.ToInt32("587");
+            client.EnableSsl = true;
+
+            client.Send(m);
+            lbl_msg.Text = Nclass.commitInsert(lname, fname, email);
+
+        }
+        catch (Exception err)
+        {
+            lbl_msg.Text = err.Message.ToString();
+        }
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*{ 
+    newsclass E = new newsclass();
 
     protected void subCreate(object sender, EventArgs e)
     {
@@ -22,18 +67,17 @@ public partial class e_card : System.Web.UI.Page
         lNameTB.Text = String.Empty;
         fNameTB.Text = String.Empty;
         emailTB.Text = String.Empty;
-        txtMessage.Text = String.Empty;
     }
 
     private void _strMessage(bool flag, string str)
     {
         if (flag)
         {
-            msg.Text = str + " : Successful";
+            lbl_msg.Text = str + " : Successful";
         }
         else
         {
-            msg.Text = str + " : Failed";
+            lbl_msg.Text = str + " : Failed";
         }
     }
 
@@ -105,7 +149,7 @@ public partial class e_card : System.Web.UI.Page
 
         }
     }
-}
+} */
 
 
 //Other option 1//

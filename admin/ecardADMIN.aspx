@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="ecardADMIN.aspx.cs" Inherits="_Default" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="ecardADMIN.aspx.cs" Inherits="ecardADMIN" EnableEventValidation="false" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
 
@@ -12,7 +12,7 @@
         <table class="tables">
             <tr>
                 <td>
-                    <asp:Label ID="lbl_subject" runat="server" Text="Subject:*" AssociatedControlID="txt_subjectI" />
+                    <asp:Label ID="lbl_subjectI" runat="server" Text="Subject:*" AssociatedControlID="txt_subjectI" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_subjectI" runat="server" Columns="40" />
@@ -59,15 +59,16 @@
                 </td> 
             </tr>
             <tr><td>&nbsp;</td></tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>
+            <tr><td>&nbsp;</td><td>
+          
              
                     
-                    <asp:Button ID="btn_insert" runat="server" Text="Insert Record" OnClick="subInsert" CssClass="adminbuttons" />
+                    <asp:Button ID="btn_insert" runat="server" Text="Insert New Record" OnClick="subInsert" CssClass="adminbuttons" />
                     <asp:Button ID="btn_insertC" runat="server" Text="Cancel" onClick="subCancel" CausesValidation="false" CssClass="adminbuttons" />
-        </table>
 
+         </td></tr>
+        </table>
+    <br />
 
 
 
@@ -131,9 +132,7 @@
                 </td> 
             </tr>
             <tr><td>&nbsp;</td></tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>
+            <tr><td>&nbsp;</td><td>
              
                     <asp:Button ID="btn_delete" runat="server" Text="Delete Record" CommandName="Delete" CssClass="adminbuttons" OnClientClick="return confirm('Delete?');" />
                     <asp:Button ID="btn_update" runat="server" Text="Update Record" CommandName="Update" CssClass="adminbuttons" />

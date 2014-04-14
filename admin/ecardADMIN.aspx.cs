@@ -5,15 +5,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _Default : System.Web.UI.Page
+public partial class ecardADMIN : System.Web.UI.Page
 {
-    ecardclass Eobj = new ecardclass(); 
+    ecardclass Eobj = new ecardclass();
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
-            _subRebind(); 
+            _subRebind();
         }
 
     }
@@ -26,7 +26,7 @@ public partial class _Default : System.Web.UI.Page
         txt_firstI.Text = "";
         txt_lastI.Text = "";
         txt_messageI.Text = "";
-        txt_subjectI.Text = ""; 
+        txt_subjectI.Text = "";
     }
 
 
@@ -34,9 +34,10 @@ public partial class _Default : System.Web.UI.Page
     {
 
         lbl_msg.Text = "subUpDel";
-        switch (e.CommandName){
+        switch (e.CommandName)
+        {
             case "Update":
-                
+
                 HiddenField hdfIdU = (HiddenField)e.Item.FindControl("hdf_idE");
                 TextBox txtsubject = (TextBox)e.Item.FindControl("txt_subjectE");
                 TextBox txtlname = (TextBox)e.Item.FindControl("txt_lastE");
@@ -46,27 +47,27 @@ public partial class _Default : System.Web.UI.Page
                 lbl_msg.Text = Eobj.commitUpdate(Int32.Parse(hdfIdU.Value.ToString()), txtsubject.Text.ToString(), txtlname.Text.ToString(),
                     txtfname.Text.ToString(), txtemail.Text.ToString(), txtmsg.Text.ToString());
                 _subRebind();
-                    break;
+                break;
             case "Cancel":
-                 _subRebind();
-                break; 
+                _subRebind();
+                break;
             case "Delete":
-                HiddenField hdfIdD =  (HiddenField)e.Item.FindControl("hdf_idE");
+                HiddenField hdfIdD = (HiddenField)e.Item.FindControl("hdf_idE");
                 lbl_msg.Text = Eobj.commitDelete(Int32.Parse(hdfIdD.Value.ToString()));
-                _subRebind(); 
-                break; 
+                _subRebind();
+                break;
         }
-      
+
     }
 
     protected void subCancel(object sender, EventArgs e)
     {
-        _subRebind(); 
+        _subRebind();
     }
 
     protected void subInsert(object sender, EventArgs e)
     {
         lbl_msg.Text = Eobj.commitInsert(txt_subjectI.Text.ToString(), txt_lastI.Text.ToString(), txt_firstI.Text.ToString(), txt_emailI.Text.ToString(), txt_messageI.Text.ToString());
-        _subRebind(); 
+        _subRebind();
     }
 }

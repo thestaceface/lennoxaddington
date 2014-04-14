@@ -6,54 +6,56 @@ using System.Web;
 /// <summary>
 /// Summary description for faqclass
 /// </summary>
-/*
+
 public class faqclass
 {
-    public IQueryable<faq> getAllData()
+    public IQueryable<faqanswer> getAllData()
     {
         lennoxdbDataContext faqObj = new lennoxdbDataContext();
-        var allData = faqObj.faqs.Select(x => x);
+        var allData = faqObj.faqanswers.Select(x => x);
         return allData; 
     }
 
-    public bool updateData(int _id, string _title, string _content)
+    public string commitUpdate(int _id, string _fa_category, string _fa_question, string _fa_answer)
     {
         lennoxdbDataContext faqObjU = new lennoxdbDataContext();
         using (faqObjU)
         {
-            var objUpFaq = faqObjU.faqs.Single(x => x.Id == _id);
-            objUpFaq.title = _title;
-            objUpFaq.content = _content;
-            faqObjU.SubmitChanges(); 
-            return true;
+            var objUpFaq = faqObjU.faqanswers.Single(x => x.fa_id == _id);
+            objUpFaq.fa_category = _fa_category;
+            objUpFaq.fa_question = _fa_question;
+            objUpFaq.fa_answer = _fa_answer;
+            faqObjU.SubmitChanges();
+            return "Your update was successful";
         }
     }
 
-    public bool insertData(string _title, string _content)
+    public string commitInsert(string _fa_category, string _fa_question, string _fa_answer)
     {
         lennoxdbDataContext faqObjI = new lennoxdbDataContext();
         using (faqObjI)
         {
-            var objInsertFaq = new faq();
-            objInsertFaq.title = _title;
-            objInsertFaq.content = _content;
-            faqObjI.faqs.InsertOnSubmit(objInsertFaq);
+            var objInsertFaq = new faqanswer();
+            objInsertFaq.fa_category = _fa_category;
+            objInsertFaq.fa_question = _fa_question;
+            objInsertFaq.fa_answer = _fa_answer;
+            faqObjI.faqanswers.InsertOnSubmit(objInsertFaq);
             faqObjI.SubmitChanges();
-            return true; 
+            return "Your message was sent successfully";
         }
 
     }
 
-    public bool commitDelete(int _id)
+    public string commitDelete(int _id)
     {
         lennoxdbDataContext faqObjD = new lennoxdbDataContext();
         using (faqObjD)
         {
-            var objDelFaq = faqObjD.faqs.Single(x => x.Id == _id);
-            faqObjD.faqs.DeleteOnSubmit(objDelFaq);
+            var objDelFaq = faqObjD.faqanswers.Single(x => x.fa_id == _id);
+            faqObjD.faqanswers.DeleteOnSubmit(objDelFaq);
             faqObjD.SubmitChanges();
-            return true;
+            return "Your delete was successful";
         }
     }
 }
- */
+

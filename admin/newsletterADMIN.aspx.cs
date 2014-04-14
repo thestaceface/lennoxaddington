@@ -7,103 +7,62 @@ using System.Web.UI.WebControls;
 
 public partial class newsletterADMIN : System.Web.UI.Page
 {
-    newsclass N = new newsclass();
+    newsletterclass Eobj = new newsletterclass();
 
-    protected void subCreate(object sender, EventArgs e)
+    protected void Page_Load(object sender, EventArgs e)
     {
-        pnl_new.Visible = true;
-        pnl_edit.Visible = false;
-        msg.Text = string.Empty;
-    }
-
-    protected void subEdit(object sender, EventArgs e)
-    {
-        pnl_edit.Visible = true;
-        pnl_new.Visible = false;
-    }
-
-    private void _subRebind()
-    {
-        pnl_new.Visible = false;
-        pnl_edit.Visible = false;
-        txt_subject.Text = String.Empty;
-        txt_last.Text = String.Empty;
-        txt_first.Text = String.Empty;
-        txt_email.Text = String.Empty;
-        txt_message.Text = String.Empty;
-        rpt_select.DataSource = N.getFeedbacks();
-        rpt_select.DataBind();
-    }
-
-    private void _strMessage(bool flag, string str)
-    {
-        if (flag)
+        if (!Page.IsPostBack)
         {
-            msg.Text = str + " record: Successful";
+            _subRebind();
         }
-        else
-        {
-            msg.Text = str + " record: Failed";
-        }
+
     }
 
-    protected void subAdmin(object sender, CommandEventArgs e)
+    protected void _subRebind()
     {
-        switch (e.CommandName)
-        {
-            case "Insert":
-                _strMessage(N.commitInsert(txt_subject.Text, txt_last.Text, txt_first.Text, txt_email.Text, txt_message.Text), "Insert");
-                _subRebind();
-                break;
-            case "Update":
-                _showUpdate(int.Parse(e.CommandArgument.ToString()));
-
-                break;
-            case "Cancel":
-                _subRebind();
-                break;
-        }
-    }
-
-    private void _showUpdate(int id)
-    {
-        _panelControl(pnl_edit);
-        msg.Text = string.Empty;
-        newsclass FB = new newsclass();
-        rpt_edit.DataSource = FB.getnewsletterByID(id);
+        rpt_edit.DataSource = Eobj.getnewsletter();
         rpt_edit.DataBind();
+        txt_fnameI.Text = "";
+        txt_lnameI.Text = "";
+        txt_emailI.Text = "";
     }
 
-    private void _panelControl(Panel pnl)
-    {
-        pnl_edit.Visible = false;
-        pnl_new.Visible = false;
-        pnl.Visible = true;
-    }
 
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)
     {
+
+        lbl_msg.Text = "subUpDel";
         switch (e.CommandName)
         {
             case "Update":
-                TextBox txtSubject = (TextBox)e.Item.FindControl("txt_subjectE");
-                TextBox txtLast = (TextBox)e.Item.FindControl("txt_LastE");
-                TextBox txtFirst = (TextBox)e.Item.FindControl("txt_firstE");
-                TextBox txtEmail = (TextBox)e.Item.FindControl("txt_emailE");
-                TextBox txtMessage = (TextBox)e.Item.FindControl("txt_messageE");
-                HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
-                int FBID = int.Parse(hdfID.Value.ToString());
-                _strMessage(N.commitUpdate(FBID, txtSubject.Text, txtLast.Text, txtFirst.Text, txtEmail.Text, txtMessage.Text), "Update");
-                _subRebind();
-                break;
-            case "Delete":
-                int _doc_id = int.Parse(((HiddenField)e.Item.FindControl("hdf_idE")).Value);
-                _strMessage(N.commitDelete(_doc_id), "Delete");
+
+                HiddenField hdfIdU = (HiddenField)e.Item.FindControl("hdf_idE");     
+                TextBox txtlname = (TextBox)e.Item.FindControl("txt_lastE");
+                TextBox txtfname = (TextBox)e.Item.FindControl("txt_firstE");
+                TextBox txtemail = (TextBox)e.Item.FindControl("txt_emailE");
+                lbl_msg.Text = Eobj.commitUpdate(Int32.Parse(hdfIdU.Value.ToString()), txtfname.Text.ToString(), txtlname.Text.ToString(), txtemail.Text.ToString());
                 _subRebind();
                 break;
             case "Cancel":
                 _subRebind();
                 break;
+            case "Delete":
+                HiddenField hdfIdD = (HiddenField)e.Item.FindControl("hdf_idE");
+                lbl_msg.Text = Eobj.commitDelete(Int32.Parse(hdfIdD.Value.ToString()));
+                _subRebind();
+                break;
         }
+
+    }
+
+    protected void subCancel(object sender, EventArgs e)
+    {
+        _subRebind();
+    }
+
+    protected void subInsert(object sender, EventArgs e)
+    {
+        lbl_msg.Text = Eobj.commitInsert(txt_fnameI.Text.ToString(), txt_lnameI.Text.ToString(), txt_emailI.Text.ToString());
+        _subRebind();
     }
 }

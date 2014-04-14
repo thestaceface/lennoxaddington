@@ -12,16 +12,16 @@ public partial class unsubscribe : System.Web.UI.Page
     }
     protected void unsubscribe_Click(object sender, EventArgs e)
     {
-        Newsletter nl = new Newsletter();
+        newsletter nl = new newsletter();
         if (!IsValid)
         {
             return;
         }
         else
         {
-            nl.Email = emailTB.Text;
-            nl.Subscribe = false;
-            nl.UpdateSubscribers();
+            nl.email = emailTB.Text;
+            //nl.subscribe = false;
+            //nl.UpdateSubscribers();
             successPH.Visible = true;
             formPH.Visible = false;
         }
