@@ -4,23 +4,44 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+//Rezwanul Ferdous 824-259-246
  
 public partial class rf_waittime : System.Web.UI.Page
 {
-    rf_waittimeClass WT = new rf_waittimeClass(); 
-    
+    //creating instance of the class file
+    rf_waittimeClass WT = new rf_waittimeClass();  
 
     private void _subRebind() 
     {
+        //Disclaimer public notice text initiallizing
         lbl_disc.Text = "Disclaimer: This is an estimate wait time. It may not be accurate as patients will be attending by the doctor on priority basis after primary assesment. Hostipital staff will determine the priority and attention that required to be provided. You have to wait for the patient name to be called. Your cooperation will be highly appreciated. Thank you.";
     }
 
+    //Calculating wait time during page load
     protected void Page_Load(object sender, EventArgs e)
     {
         _calculateWaittime(1);
        _subRebind();
+       //if user is logged in as administrator, edit button is visible
+       if (!User.IsInRole("administrator"))
+       {
+           lnk_admin.Visible = false;
+       }
     }
 
+    //Auto re-calculating wait time based on the timer setting
+    protected void subTick(object sender, EventArgs e)//
+    {
+        _calculateWaittime(1);
+        _subRebind();
+    }
+
+    /*function to calculate wait time based on information available
+     *Function will calculate wait time by (average wait time * patients waiting) / Number of Doctors on duty
+     *Function will check manual wait time if above calculation return 0
+     *Display system message for "Information not available", if manual wait time not entered.
+     *Message will display in different label for green and red color based on wait time > 3 hours
+     */ 
     protected void _calculateWaittime(int id)
     {
         IQueryable<sysinfo> rec = WT.getsysinfoByID(id);

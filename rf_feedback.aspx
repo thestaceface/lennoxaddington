@@ -5,7 +5,7 @@
     <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
     <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/rf_feedbackADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
     <asp:Panel ID="pnl_new" runat="server">
-      <%-- users instructions to complete for and submit--%>
+      <%-- users instructions to complete feedback form and submit--%>
         <asp:Label ID="lbl_new" runat="server" Text="Complete Feedback Form and submit" Font-Underline="true" />
         <br />
         <br />

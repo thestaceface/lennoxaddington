@@ -49,6 +49,11 @@ public partial class rf_feedback : System.Web.UI.Page
             ddl_category.Items.Add("Others");
             _subRebind();
         }
+        //if user is logged in as administrator, edit button is visible
+        if (!User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
     }
 
     //returns a message notifying user of success or failure committing changes to DB
