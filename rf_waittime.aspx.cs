@@ -14,7 +14,7 @@ public partial class rf_waittime : System.Web.UI.Page
     private void _subRebind() 
     {
         //Disclaimer public notice text initiallizing
-        lbl_disc.Text = "Disclaimer: This is an estimate wait time. It may not be accurate as patients will be attending by the doctor on priority basis after primary assesment. Hostipital staff will determine the priority and attention that required to be provided. You have to wait for the patient name to be called. Your cooperation will be highly appreciated. Thank you.";
+        lbl_disc.Text = "Disclaimer: This is an estimated wait time. It may not be accurate as patients will be attending by the doctor on priority basis after primary assesment. Hostipital staff will determine the priority and attention that required to be provided. You may have to wait for the patient name to be called. Your cooperation will be highly appreciated. Thank you.";
     }
 
     //Calculating wait time during page load
