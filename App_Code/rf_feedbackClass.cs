@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+//Rezwanul Ferdous - 824-259-246
 
 public class rf_feedbackClass
 {
+    //gets all Feedback records
     public IQueryable<feedback> getFeedbacks()
     {
         lennoxdbDataContext objFeedback = new lennoxdbDataContext();
@@ -13,13 +15,15 @@ public class rf_feedbackClass
         return allFeedbacks;
     }
 
+    //gets feedback record based on an ID parameter
     public IQueryable<feedback> getFeedbackByID(int _id)
     {
         lennoxdbDataContext objFB = new lennoxdbDataContext();
-        var allFeedbacks = objFB.feedbacks.Where(x => x.fd_id == _id).Select(x => x);
-        return allFeedbacks;
+        var oneFeedbacks = objFB.feedbacks.Where(x => x.fd_id == _id).Select(x => x);
+        return oneFeedbacks;
     }
 
+    //function to inserts values to Database
     public bool commitInsert(string _fd_category, string _fd_subject, string _fd_last, string _fd_first, string _fd_tel, string _fd_email, string _fd_street, string _fd_appt, string _fd_city, string _fd_province, string _fd_country, string _fd_message) 
     {
         lennoxdbDataContext objFB = new lennoxdbDataContext();
@@ -45,6 +49,7 @@ public class rf_feedbackClass
         }
     }
 
+    //function toupdates values in Database where admin selected ID matches
     public bool commitUpdate(int _fd_id, string _fd_category, string _fd_subject, string _fd_last, string _fd_first, string _fd_tel, string _fd_email, string _fd_street, string _fd_appt, string _fd_city, string _fd_province, string _fd_country, string _fd_message)
     {
         lennoxdbDataContext objFB = new lennoxdbDataContext();
@@ -68,6 +73,7 @@ public class rf_feedbackClass
         }
     }
 
+    //function to deletes record from Database where selected ID matches
     public bool commitDelete(int _fd_id)
     {
         lennoxdbDataContext objFB = new lennoxdbDataContext();

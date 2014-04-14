@@ -12,7 +12,7 @@ public partial class rf_waittime : System.Web.UI.Page
 
     private void _subRebind() 
     {
-        lbl_disc.Text = "Disclaimer: This is an estimate wait time. It may not be accurate as patients will be attending by the doctor on priority sequence after primary assesment. Hostipital staff will determine the priority and attention that required to be provided. Please wait for the patient name to be called. Your cooperation will be highly appreciated. Thank you.";
+        lbl_disc.Text = "Disclaimer: This is an estimate wait time. It may not be accurate as patients will be attending by the doctor on priority basis after primary assesment. Hostipital staff will determine the priority and attention that required to be provided. You have to wait for the patient name to be called. Your cooperation will be highly appreciated. Thank you.";
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -53,12 +53,12 @@ public partial class rf_waittime : System.Web.UI.Page
                       var wait1 = obj.si_waittime;
                       var hrs1 = wait1 / 60;
                       var mins1 = wait1 - (hrs1 * 60);
-                      lbl_wtime1.Text = "1Estimated waiting time is about " + hrs1.ToString() + "h" + mins1.ToString() + "m. Valid at " + DateTime.Now.ToString() + ".";
+                      lbl_wtime1.Text = "Estimated waiting time is about " + hrs1.ToString() + "h" + mins1.ToString() + "m. Valid at " + DateTime.Now.ToString() + ".";
                       lbl_wtime1.Visible = true;
                       lbl_wtime2.Visible = false;
                       if (hrs > 2 || hrs1 > 2)
                       {
-                          lbl_wtime2.Text = "2Estimated waiting time is about " + hrs1.ToString() + "h" + mins1.ToString() + "m. Valid at " + DateTime.Now.ToString() + ".";
+                          lbl_wtime2.Text = "Estimated waiting time is about " + hrs1.ToString() + "h" + mins1.ToString() + "m. Valid at " + DateTime.Now.ToString() + ".";
                           lbl_wtime2.Visible = true;
                           lbl_wtime1.Visible = false;
                       }

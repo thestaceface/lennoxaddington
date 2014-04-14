@@ -1,17 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="rf_waittimeADMIN.aspx.cs" Inherits="Default2" Debug="true" %>
+<%-- Rezwanul Ferdous 824-259-246 --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <br />
     <br />
+    <%-- page instructions --%>
     <asp:Label ID="lbl_page" runat="server" Text="Select a existing record from the menu on the right to edit " />
     <%-- There is only one record in System Information table - which only need to update frequently - Insert new record is disabled intentionally --%>
+    <%-- Functionality for adding new record is here for future use, if any other clinic or department needs to process wait time too --%>
     <%-- <asp:LinkButton ID="lnk_select" runat="server" Text=", or create a new record." OnClick="subCreate" /> --%>
     <br />
     <br />
     <hr /> 
     <br />
+    <%-- success/failure message goes here --%>
     <asp:Label ID="msg" runat="server" /> 
     <br />
+    <%-- new panel contains create new record form --%>
     <asp:Panel ID="pnl_new" runat="server">
         <asp:Label ID="lbl_new" runat="server" Text="Add a New Record" Font-Underline="true" />
         <br />
@@ -50,7 +55,8 @@
             </tr>
             <tr>
                 <td>
-                    <asp:label ID="lbl_aavgtime" runat="server" Text="Average Time:" AssociatedControlID="txt_avgtime" />
+                    <asp:label ID="lbl_avgtime" runat="server" Text="Average Time:*" AssociatedControlID="txt_avgtime" />
+                    <asp:RequiredFieldValidator ID="rfv_avgtime" runat="server" ControlToValidate="txt_avgtime" ErrorMessage="Average time is required." Display="None" ValidationGroup="insert" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_avgtime" runat="server" Columns="40" />
@@ -133,10 +139,11 @@
         <br />
         <asp:Button ID="btn_insert" runat="server" Text="Insert Record" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" CssClass="adminbuttons" />
         <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnCommand="subAdmin" CommandName="Cancel" CausesValidation="false" ValidationGroup="edit" CssClass="adminbuttons" />
+        <%-- validation summary messages for insert validation group --%>
         <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
     </asp:Panel>
 
-
+    <%-- edit panel contains update form --%>
     <asp:Panel ID="pnl_edit" runat="server">
         <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" Font-Underline="true" />
         <br />
@@ -144,6 +151,8 @@
         <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
+        <%-- Record description,number of doctors on duty and average has required field validators, and any other necessary validation --%>
+        <%-- Other fields are optional thus validation is not required --%>
         <table class="tables">
             <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subUpDel">
                 <ItemTemplate>
@@ -170,6 +179,7 @@
             <tr>
                 <td>
                     <asp:Label ID="lbl_avgtimeE" runat="server" Text="Average Time:" AssociatedControlID="txt_avgtimeE" />
+                    <asp:RequiredFieldValidator ID="rfv_avgtimeE" runat="server" ControlToValidate="txt_avgtimeE" ErrorMessage="Average time is required." Display="None" ValidationGroup="edit" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_avgtimeE" runat="server" Text='<%#Bind ("si_avgtime") %>' Columns="40" />
@@ -261,6 +271,7 @@
             <tr><td>&nbsp;</td></tr>
                 </ItemTemplate>
             </asp:Repeater>
+            <%-- validation summary messages for edit validation group --%>
             <asp:ValidationSummary ID="vds_edit" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="edit" />
         </table>
             <br />
@@ -272,8 +283,10 @@
     <asp:Label ID="lbl_select" runat="server" Text="Emergency Wait Time" CssClass="sidebarlbl" />
     <br />
     <br />
+    <%-- sidebar contains record titles to select for editing --%>
     <asp:Repeater ID="rpt_select" runat="server">
         <ItemTemplate>
+            <%-- clicking a record opens form in main content populated with record's data for update --%>
             <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("si_desc") %>' CommandName="Update" CommandArgument='<%#Eval ("si_id") %>' OnCommand="subAdmin" CssClass="sidebarlinks" />
             <br />
             <br />

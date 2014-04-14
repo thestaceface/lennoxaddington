@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+//Rezwanul Ferdous - 824-259-246
 
 public partial class Default3 : System.Web.UI.Page
 {
-    rf_findoutClass Ext = new rf_findoutClass(); 
+    //creating new instance of class
+    rf_findoutClass Ext = new rf_findoutClass();
 
+    //visible panel true and false for creating new record
     protected void subCreate(object sender, EventArgs e)
     {
         pnl_new.Visible = true;
@@ -16,12 +19,14 @@ public partial class Default3 : System.Web.UI.Page
         msg.Text = string.Empty;
     }
 
+    //visible panel true and false for update existing record
     protected void subEdit(object sender, EventArgs e)
     {
         pnl_edit.Visible = true;
         pnl_new.Visible = false;
     }
 
+    //resets fields and panel on page reload
     private void _subRebind()
     {
         pnl_new.Visible = false;
@@ -34,11 +39,12 @@ public partial class Default3 : System.Web.UI.Page
         rpt_select.DataBind();
     }
 
+    //page reset
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
-            // Set types of category        
+            // Set types of category on page load for the first time      
             ddl_category.Items.Add("Medical Institution");
             ddl_category.Items.Add("Disease");
             ddl_category.Items.Add("Medical Terms");
@@ -48,6 +54,7 @@ public partial class Default3 : System.Web.UI.Page
         }
     }
 
+    //returns a message notifying user of success or failure committing changes to DB
     private void _strMessage(bool flag, string str)
     {
         if (flag)
@@ -60,6 +67,7 @@ public partial class Default3 : System.Web.UI.Page
         }
     }
 
+    //Execute commands based on button clicked - if insert executes the insert and calls the _strMessage function, if update calls the _showUpdate function, if cancel, calls reset
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         switch (e.CommandName)
@@ -77,6 +85,7 @@ public partial class Default3 : System.Web.UI.Page
         }
     }
 
+    //called by subAdmin function - makes edit panel and form visible with values from the selected row from the table
     private void _showUpdate(int id)
     {
         _panelControl(pnl_edit);
@@ -86,6 +95,7 @@ public partial class Default3 : System.Web.UI.Page
         rpt_edit.DataBind();
     }
 
+    //controls required panel visibility
     private void _panelControl(Panel pnl)
     {
         pnl_edit.Visible = false;
@@ -93,6 +103,7 @@ public partial class Default3 : System.Web.UI.Page
         pnl.Visible = true;
     }
 
+    //called in edit panel and form - case update commits update and calls _strMessage function, delete deletes record and calls _strMessage. cancel calls reset
     protected void subUpDel(object sender, RepeaterCommandEventArgs e)
     {
         switch (e.CommandName)

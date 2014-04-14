@@ -1,16 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="rf_feedbackADMIN.aspx.cs" Inherits="Default2" %>
+<%-- Rezwanul Ferdous 824-259-246 --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <br />
     <br />
     <asp:Label ID="lbl_page" runat="server" Text="Select a Feedback record from the menu on the right to edit an existing record. " />
+    <%-- Create new record intentionally disabled for the admin as it will be done by the public page --%>
     <%-- <asp:LinkButton ID="lnk_select" runat="server" Text="or, create a new record." OnClick="subCreate" /> --%>
     <br />
     <br />
     <hr />
     <br />
+    <%-- success/failure message goes here --%>
     <asp:Label ID="msg" runat="server" />
     <br />
+    <%-- new panel contains create new record form --%>
     <asp:Panel ID="pnl_new" runat="server">
         <asp:Label ID="lbl_new" runat="server" Text="Add a New Record" Font-Underline="true" />
         <br />
@@ -18,6 +22,7 @@
         <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
+        <%-- Record columns with required field validators, and any other necessary validation --%>
         <table class="tables"> 
             <tr>
                 <td>
@@ -131,10 +136,11 @@
         <br />
         <asp:Button ID="btn_insert" runat="server" Text="Insert Record" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" CssClass="adminbuttons" />
         <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnCommand="subAdmin" CommandName="Cancel" CausesValidation="false" ValidationGroup="edit" CssClass="adminbuttons" />
+        <%-- validation summary messages for insert validation group --%>
         <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
     </asp:Panel>
 
-
+    <%-- edit panel contains update form --%>
     <asp:Panel ID="pnl_edit" runat="server">
         <asp:Label ID="lbl_edit" runat="server" Text="Update Existing Record" Font-Underline="true" />
         <br />
@@ -142,6 +148,7 @@
         <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
+        <%-- Record loaded to form for update with required field validators, and any other necessary validation --%>
         <table class="tables">
             <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subUpDel">
                 <ItemTemplate>
@@ -259,6 +266,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
+                    <%-- Update feedback record also disabled intentionally - Admin only review and delete the record, if required --%>
                     <%-- <asp:Button ID="btn_update" runat="server" Text="Update Record" CommandName="Update" ValidationGroup="edit" CssClass="adminbuttons" /> --%>
                     <asp:Button ID="btn_delete" runat="server" Text="Delete Record" CommandName="Delete" ValidationGroup="edit" CssClass="adminbuttons" OnClientClick="return confirm('Delete?');" />
                     <asp:Button ID="btn_cancelE" runat="server" Text="Cancel" CommandName="Cancel" ValidationGroup="edit" CausesValidation="false" CssClass="adminbuttons" />
@@ -268,6 +276,7 @@
             <tr><td>&nbsp;</td></tr>
                 </ItemTemplate>
             </asp:Repeater>
+            <%-- validation summary messages for edit validation group --%>
             <asp:ValidationSummary ID="vds_edit" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="edit" />
         </table>
             <br />
@@ -279,8 +288,10 @@
     <asp:Label ID="lbl_select" runat="server" Text="Feedback" CssClass="sidebarlbl" />
     <br />
     <br />
+    <%-- sidebar contains record titles to select for editing --%>
     <asp:Repeater ID="rpt_select" runat="server">
         <ItemTemplate>
+            <%-- clicking a record opens form in main content populated with record's data for delete --%>
             <asp:LinkButton ID="lnk_select" runat="server" Text='<%#Eval ("fd_selector") %>' CommandName="Update" CommandArgument='<%#Eval ("fd_id") %>' OnCommand="subAdmin" CssClass="sidebarlinks" />
             <br />
             <br />

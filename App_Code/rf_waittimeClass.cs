@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+//Rezwanul Ferdous - 824-259-246
+
 public class rf_waittimeClass
 {
+    //gets all System Information records
     public IQueryable<sysinfo> getsysinfos()
     {
         lennoxdbDataContext objsysinfo = new lennoxdbDataContext();
@@ -12,6 +15,7 @@ public class rf_waittimeClass
         return allsysinfos;
     }
 
+    //gets system information for emergency wait time based on an ID parameter
     public IQueryable<sysinfo> getsysinfoByID(int _id)
     {
         lennoxdbDataContext objWT = new lennoxdbDataContext();
@@ -19,6 +23,7 @@ public class rf_waittimeClass
         return onesysinfo;
     }
 
+    //function to inserts values to Database
     public bool commitInsert(string _si_desc, Int32 _si_numdoctor, Int32 _si_avgtime, Int32 _si_numregistered, Int32 _si_numattended, DateTime _si_today, Int32 _waittime, Int32 _si_numwaiting, Int32 _si_d_id, DateTime _si_lupdate, string _si_message, Int32 _si_updateby) 
     {
         lennoxdbDataContext objWT = new lennoxdbDataContext();
@@ -43,6 +48,7 @@ public class rf_waittimeClass
         }
     }
 
+    //function toupdates values in Database where admin selected ID matches
     public bool commitUpdate(int _si_id, string _si_desc, Int32 _si_numdoctor, Int32 _si_avgtime, Int32 _si_numregistered, Int32 _si_numattended, DateTime _si_today, Int32 _waittime, Int32 _si_numwaiting, Int32 _si_d_id, DateTime _si_lupdate, string _si_message, Int32 _si_updateby)
     {
         lennoxdbDataContext objWT = new lennoxdbDataContext();
@@ -66,6 +72,7 @@ public class rf_waittimeClass
         }
     }
 
+    //function to deletes record from Database where selected ID matches
     public bool commitDelete(int _si_id)
     {
         lennoxdbDataContext objWT = new lennoxdbDataContext();

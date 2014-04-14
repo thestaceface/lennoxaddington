@@ -1,15 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="rf_feedback.aspx.cs" Inherits="rf_feedback" %>
+<%-- Rezwanul Ferdous 824-259-246 --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
     <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/rf_feedbackADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
     <asp:Panel ID="pnl_new" runat="server">
+      <%-- users instructions to complete for and submit--%>
         <asp:Label ID="lbl_new" runat="server" Text="Complete Feedback Form and submit" Font-Underline="true" />
         <br />
         <br />
         <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
- 
+
+     <%-- Dislaying the form in a table to capture users feedback--%>
+     <%-- Some columns values are optional and several columns are with required and pattern validation check --%>
         <table class="tables">
             <tr>
                 <td>
@@ -122,12 +127,13 @@
         </table>
         <br />
         <asp:Button ID="btn_insert" runat="server" Text="Send your feedback" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" CssClass="adminbuttons" />
-        <asp:Button ID="a" runat="server" Text=" send feedback" OnClick="subEmail" />
         <asp:Button ID="btn_cancel" runat="server" Text="Reset the form" OnCommand="subAdmin" CommandName="Cancel" CausesValidation="false" ValidationGroup="edit" CssClass="adminbuttons" />
+        <%-- validation summary for the insert group --%>
         <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
 
     </asp:Panel>
     <br /><br />
+    <%-- message of success failure to commit to DB goes here --%>
     <asp:Label ID="msg" runat="server" />
     <br />
 </asp:Content>

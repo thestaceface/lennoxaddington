@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="rf_findout.aspx.cs" Inherits="rf_findout" %>
-
+<%-- Rezwanul Ferdous 824-259-246 --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
     <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/rf_findoutADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
+
+    <%-- initializing AJAX Toolkit --%>   
     <ajax:ToolkitScriptManager ID="tsm_main" runat="server" />
     <br />
     <br />
@@ -10,6 +13,7 @@
     <br />
     <br />
 
+    <%-- AJAX accordion to display find out more records --%>
     <ajax:Accordion ID="acc" runat="server" FadeTransitions="true" TransitionDuration="500" RequireOpenedPane="false" HeaderCssClass="docacchead" ContentCssClass="docacccon" SelectedIndex="-1" CssClass="acc">
         <HeaderTemplate>
             <asp:HyperLink ID="lnk_head" runat="server" NavigateUrl="#" Text='<%#Eval ("el_name") %>' />
