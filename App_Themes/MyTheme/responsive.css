@@ -17,9 +17,17 @@
 
     #content_main {
         margin-bottom:25px;
-        width: 95%;
+        width: 100%;
         min-height: 0px;
         border: 0px;
+        margin-left:0;
+        margin:0 auto;
+    }
+
+    #nivo-slider {
+        width:90%;
+        margin:0 auto;
+    
     }
 
     #slider, #box {
@@ -156,6 +164,11 @@
 
     #footer_icons {
         float:right;
+        width:50px;
+    }
+
+    #footer_copyright {
+        width:630px;
     }
 
     /* yash */
