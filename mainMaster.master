@@ -55,14 +55,13 @@
                 <div id="navigation">  
                     <%--  ---------------- mobile header -------------%>
             <div id="mobilelogo">
-                <asp:ImageButton ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/Home.aspx" /> 
+                <asp:ImageButton ID="img_mobilelogo" runat="server" ImageUrl="~/Images/Logo.png" AlternateText="Logo" PostBackUrl="~/ps_slideImages.aspx" /> 
             </div>
 
             <div id="mobilemenu">
             <asp:ImageButton ID="img_mobilemenu" runat="server" ImageUrl="~/Images/menu.gif" PostBackUrl="#" />
             <ul>
-                <li><asp:HyperLink ID="lnk_tabhome" runat="server" Text="Home" NavigateUrl="~/ps_slideImages.aspx" /></li>
-                <li><asp:HyperLink ID="lnk_mobhome" runat="server" Text="Home" NavigateUrl="~/Home.aspx" /></li>
+                <li><asp:HyperLink ID="lnk_home" runat="server" Text="Home" NavigateUrl="~/ps_slideImages.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_about" runat="server" Text="About Us" NavigateUrl="~/contentMain.aspx?id=18" /></li>
                 <li><asp:HyperLink ID="lnk_faq" runat="server" Text="FAQ" NavigateUrl="~/faq.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_findout" runat="server" Text="'Find Out More' Links" NavigateUrl="~/rf_findout.aspx" /></li>
@@ -72,6 +71,7 @@
                 <li><asp:HyperLink ID="lnk_news" runat="server" Text="News" /></li>
                 <li><asp:HyperLink ID="lnk_events" runat="server" Text="Upcoming Events" NavigateUrl="~/sm_events.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_patients" runat="server" Text="Patients & Visitors" NavigateUrl="#" /></li>
+                <li><asp:HyperLink ID="lnk_emerg" runat="server" Text="ER Wait Time" NavigateUrl="~/rf_waittime.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_doctor" runat="server" Text="Our Doctors" NavigateUrl="~/sm_finddoc.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_appoint" runat="server" Text="Request an Appointment" NavigateUrl="~/ps_appointment.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_safe" runat="server" Text="Creating a Safe Environment" /></li>
@@ -80,7 +80,6 @@
                 <li><asp:HyperLink ID="lnk_thanks" runat="server" Text="Thank a Staff Member" NavigateUrl="~/ps_thanksform.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_card" runat="server" Text="Send an E-Card to a Patient" NavigateUrl="~/e_card.aspx" /></li>
                 <li><asp:HyperLink ID="lnk_newsletter" runat="server" Text="Subscribe to our Newsletter" NavigateUrl="~/newsletter.aspx" /></li>
-
                 <li><asp:HyperLink ID="lnk_programs" runat="server" Text="Programs & Services" /></li>
                 <li><asp:HyperLink ID="lnk_account" runat="server" Text="Accountability" /></li>
                 <li><asp:HyperLink ID="lnk_careers" runat="server" Text="Available Careers" NavigateUrl="~/db_career.aspx" /></li>

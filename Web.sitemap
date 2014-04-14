@@ -21,6 +21,7 @@
       <siteMapNode url="~/aboutteam7.aspx" title="Team Seven Digital" description="Dev Team Description" />
     </siteMapNode>
     <siteMapNode url="~/contentMain.aspx?id=10" title="Patients and Visitors" description="Patients and visitors">
+      <siteMapNode url="~/rf_waittime.aspx" title="ER Wait Time" description="ER Wait Time" />
       <siteMapNode url="sm_finddoc.aspx" title="Our Doctors" description="Find a Doctor" />
       <siteMapNode url="~/ps_appointment.aspx" title="Request an Appointment" description="Request an Appointment" />
       <siteMapNode url="~/contentMain.aspx?id=15" title="Creating a Safe Environment" description="Creating a Safe Environment" />

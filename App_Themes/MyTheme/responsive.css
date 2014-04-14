@@ -39,13 +39,6 @@
         padding:0px;
     }
 
-    #lnk_mobhome {
-        display:none;
-    }
-    #lnk_tabhome {
-        display:block;
-    }
-
     #mnu_1 {
         display:none;
     }
@@ -242,19 +235,12 @@
         clear:both;
     }
 
-    #aside, #aside1, #aside2, #aside3, #aside4, #search, #address, #slider, #footer_jobs, #footer_services, #footer_links, #footer_contact, #footer_copyright, #footer_icons, #slider, #box, #logo {
+    #aside, #aside1, #aside2, #aside3, #aside4, #search, #address, #slider, #footer_jobs, #footer_services, #footer_links, #footer_contact, #footer_copyright, #footer_icons, #slider, #box, #logo, #nivo-slider, #nivo-controlNav, .slider-wrapper {
         display:none;
     }
 
     #navigation {
         height:70px;
-    }
-
-    #lnk_tabhome {
-        display:none;
-    }
-    #lnk_mobhome {
-        display:block;
     }
 
     #content, #header {
