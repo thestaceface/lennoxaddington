@@ -211,9 +211,9 @@
             <div id="legal">
             <div id="footer_copyright">
                 <asp:Label ID="lbl_footer" runat="server" Text="&copy 2014 Beedah, Bernard, Ferdous, Lin, Masson, Saini" /> 
-                &nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;
                 <asp:HyperLink ID="HyperLink1" runat="server" Text="Privacy Policy" NavigateUrl="#"  />                
-                &nbsp;&nbsp;&nbsp;  
+                &nbsp;&nbsp;  
                 <asp:HyperLink ID="HyperLink2" runat="server" Text="Terms of Use" NavigateUrl="#"  />
             </div><%--footer_copyright--%>  
 
