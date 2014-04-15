@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.375, 27.875" name="lennoxdb">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.375, 25" name="lennoxdb">
   <DataContextMoniker Name="/lennoxdbDataContext" />
   <nestedChildShapes>
     <classShape Id="06ce2d00-d3c0-477a-a458-46d497c5c042" absoluteBounds="7.75, 0.75, 2, 1.9631982421875">
@@ -101,7 +101,7 @@
         <elementListCompartment Id="79bda3ef-1682-4579-bcae-6cc7960d2969" absoluteBounds="3.015, 1.335, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 1.76524983723958); (3 : 1.76524983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 1.76524983723958); (3 : 1.76524983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/aspnet_User/aspnet_User_aspnet_Membership" />
       <nodes>
         <classShapeMoniker Id="901f9c0e-93f2-4d61-9465-4745c4dae683" />
@@ -155,14 +155,14 @@
         <elementListCompartment Id="65178a6c-3df7-4265-947f-50aa725dd30c" absoluteBounds="0.515, 3.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.5 : 4.5); (1.5 : 4.19399251302083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.5 : 4.5); (1.5 : 4.19399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/aspnet_Role/aspnet_Role_aspnet_UsersInRole" />
       <nodes>
         <classShapeMoniker Id="5a5aa964-8d37-4783-829a-5e7e6aeb59dc" />
         <classShapeMoniker Id="1665254f-eaea-4d8d-be43-4a3044580de1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.5 : 2.65549967447917); (1.5 : 3)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.5 : 2.65549967447917); (1.5 : 3)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/aspnet_User/aspnet_User_aspnet_UsersInRole" />
       <nodes>
         <classShapeMoniker Id="901f9c0e-93f2-4d61-9465-4745c4dae683" />
@@ -280,10 +280,10 @@
         <classShapeMoniker Id="ba3d0e60-a1d6-4d6e-9dd5-d09fe47a88d1" />
       </nodes>
     </associationConnector>
-    <classShape Id="0c0660f9-ddf7-4add-a372-72dc06a5e0d9" absoluteBounds="7.625, 23, 2, 1.5785953776041666">
+    <classShape Id="0c0660f9-ddf7-4add-a372-72dc06a5e0d9" absoluteBounds="7.625, 22.5, 2, 1.5785953776041666">
       <DataClassMoniker Name="/lennoxdbDataContext/SlideImage" />
       <nestedChildShapes>
-        <elementListCompartment Id="3deb02e6-130a-4468-a2bc-0b66ee382e8c" absoluteBounds="7.64, 23.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3deb02e6-130a-4468-a2bc-0b66ee382e8c" absoluteBounds="7.64, 22.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="80f70d19-06a4-4818-b385-d83e0cd8de6e" absoluteBounds="5.375, 17, 2, 1.7708968098958331">
@@ -298,17 +298,17 @@
         <elementListCompartment Id="9c789290-5224-4bcc-8349-aa276ea43d7e" absoluteBounds="5.39, 8.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 10.6723046875); (5.375 : 10.6723046875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 10.6723046875); (3.91666666666667 : 10.6723046875 : JumpStart); (4.08333333333333 : 10.6723046875 : JumpEnd); (5.375 : 10.6723046875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/patient/patient_appointment" />
       <nodes>
         <classShapeMoniker Id="d665e37c-0b96-485a-801c-6c3119efef0c" />
         <classShapeMoniker Id="54add513-481c-46ae-94a3-e7f461376b99" />
       </nodes>
     </associationConnector>
-    <classShape Id="5a1315c2-a0d6-4ecc-a68e-ad0f61163a68" absoluteBounds="4.75, 25.5, 2, 2.1554996744791666">
+    <classShape Id="5a1315c2-a0d6-4ecc-a68e-ad0f61163a68" absoluteBounds="5.375, 22.625, 2, 2.1554996744791666">
       <DataClassMoniker Name="/lennoxdbDataContext/Thank_Msg" />
       <nestedChildShapes>
-        <elementListCompartment Id="03ce4f05-f963-4727-b412-fdbde57ca0f1" absoluteBounds="4.765, 25.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="03ce4f05-f963-4727-b412-fdbde57ca0f1" absoluteBounds="5.39, 23.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="c1dc7f69-2902-41fb-8eef-c46b8dcb47ef" absoluteBounds="5.375, 12.25, 2, 1.7708968098958331">
@@ -354,7 +354,7 @@
         <elementListCompartment Id="9857e5e0-9b0a-4827-913d-0b5a863517a1" absoluteBounds="7.64, 11.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(9.75 : 4.09001455801505); (9.942 : 4.09001455801505); (9.942 : 12.0997580957288); (9.625 : 12.0997580957288)]" manuallyRouted="true" fixedFrom="Caller" fixedTo="Caller">
+    <associationConnector edgePoints="[(9.75 : 4.09001455801505); (9.942 : 4.09001455801505); (9.942 : 12.0997580957288); (9.625 : 12.0997580957288)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/lennoxdbDataContext/department/department_sysinfo" />
       <nodes>
         <classShapeMoniker Id="d147e2ef-6c20-4f54-90a6-7c61c8fb2e40" />

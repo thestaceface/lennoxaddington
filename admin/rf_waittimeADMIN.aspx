@@ -153,7 +153,7 @@
         <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />
         <br />
         <br />
-        <%-- Record description,number of doctors on duty and average has required field validators, and any other necessary validation --%>
+        <%-- Record description,number of doctors on duty and average has required field validators, and range validation --%>
         <%-- Other fields are optional thus validation is not required --%>
         <table class="tables">
             <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subUpDel">
@@ -193,6 +193,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txt_patientE" runat="server" Text='<%#Bind ("si_numregistered") %>' Columns="40" />
+                    <asp:RangeValidator ID="rnv_patientE" runat="server" ControlToValidate="txt_patientE" MaximumValue="9999" MinimumValue="0" ErrorMessage="Patient register must be between 0-9999." Display="None" ValidationGroup="edit" /> 
                 </td>
             </tr>
             <tr>    
@@ -201,14 +202,16 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txt_attendedE" runat="server" Text='<%#Bind ("si_numattended") %>' Columns="40" />
+                    <asp:RangeValidator ID="rnv_attendedE" runat="server" ControlToValidate="txt_attendedE" MaximumValue="9999" MinimumValue="0" ErrorMessage="Patient attended must be between 0-9999." Display="None" ValidationGroup="edit" /> 
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_dateE" runat="server" Text="Todays Date:" AssociatedControlID="txt_dateE" />
+                    <asp:Label ID="lbl_dateE" runat="server" Text="Todays Date:*" AssociatedControlID="txt_dateE" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_dateE" runat="server" Text='<%#Bind ("si_today", "{0:d}") %>' Columns="40" />
+                    <asp:RequiredFieldValidator ID="rfv_dateE" runat="server" ControlToValidate="txt_dateE" ErrorMessage="Valid date MM/DD/YYYY is required." Display="None" ValidationGroup="edit" />
                 </td>
             </tr>
             <tr>
@@ -225,6 +228,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txt_waitingE" runat="server" Text='<%#Bind ("si_numwaiting") %>' Columns="40" />
+                    <asp:RangeValidator ID="rnv_waitingE" runat="server" ControlToValidate="txt_waitingE" MaximumValue="9999" MinimumValue="0" ErrorMessage="Patient waiting must be between 0-9999." Display="None" ValidationGroup="edit" /> 
                 </td> 
             </tr>
             <tr>
@@ -241,6 +245,7 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txt_lupdateE" runat="server" Text='<%#Bind ("si_lupdate", "{0:d}") %>' Columns="40" />
+                    <asp:RequiredFieldValidator ID="rfv_lupdateE" runat="server" ControlToValidate="txt_lupdateE" ErrorMessage="Valid update date MM/DD/YYYY is required." Display="None" ValidationGroup="edit" />
                 </td> 
             </tr>
             </tr>
@@ -249,11 +254,12 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txt_messageE" runat="server" Text='<%#Bind ("si_message") %>' TextMode="multiline" Columns="40" Rows="5" />
+                    <asp:RequiredFieldValidator ID="rfv_messageE" runat="server" ControlToValidate="txt_messageE" ErrorMessage="Message is required." Display="None" ValidationGroup="edit" />
                 </td> 
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lbl_updatebyE" runat="server" text="Update By:*" AssociatedControlID="txt_updatebyE" />
+                    <asp:Label ID="lbl_updatebyE" runat="server" text="Update By:" AssociatedControlID="txt_updatebyE" />
                 </td>
                 <td>
                     <asp:TextBox ID="txt_updatebyE" runat="server" Text='<%#Bind ("si_updateby") %>' Columns="40" />
