@@ -167,11 +167,10 @@
 
     /* yash */
     #DivGoogleMapCanvas {
-        height:100%;
-        width:90%;
+        width:96%;
+        height:400px;
         display:block;
-        /*overflow: auto;*/
-        /*padding-right:40px;*/
+        margin-left:20px;
     }
 
     #cph_content_pnl_all {
@@ -349,11 +348,10 @@
 
     /* yash */
     #DivGoogleMapCanvas {
-        height:100%;
         width:90%;
+        height:300px;
         display:block;
-        /*overflow: auto;*/
-        /*padding-right:40px;*/
+        margin-left:20px;
     }
 
     #cph_content_pnl_all {
