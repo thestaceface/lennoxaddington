@@ -20,7 +20,7 @@ public partial class contentMain : System.Web.UI.Page
         cmspageClass objCMS = new cmspageClass();
         if (Request.QueryString.Get("id") != null)
         {
-            int id = Convert.ToInt32(Request.QueryString.Get("id"));
+            int id = Convert.ToInt32(Request.QueryString.Get("id"));//this is where the magic happens.  get the id from the url!  use the id to get the page.  bind.  yay.
             rpt_one.DataSource = objCMS.getPageById(id);
             rpt_one.DataBind();
         }
@@ -33,17 +33,19 @@ public partial class contentMain : System.Web.UI.Page
     //    rpt_list.DataBind();
 
     //}
-    protected void subSelect(object sender, RepeaterItemEventArgs e)
-    {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
-            LinkButton lkb_title = (LinkButton)e.Item.FindControl("lkb_title");
-            contentpage Item = (contentpage)e.Item.DataItem;
-            lkb_title.PostBackUrl = customizedURL(Item.cp_pagename, Item.cp_id);
-        }
-    }
 
-    public static string customizedURL(string title, int id)
+    //old code, for when i had a test repeater list of linkbuttons to denote pages.  
+    //protected void subSelect(object sender, RepeaterItemEventArgs e)
+    //{
+    //    if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+    //    {
+    //        LinkButton lkb_title = (LinkButton)e.Item.FindControl("lkb_title");
+    //        contentpage Item = (contentpage)e.Item.DataItem;
+    //        lkb_title.PostBackUrl = customizedURL(Item.cp_pagename, Item.cp_id);
+    //    }
+    //}
+
+    public static string customizedURL(string title, int id)//didn't actually get url to work the way i wanted.  had to resort to id
     {
         string strTitle = title.Trim();
         strTitle = strTitle.Replace("c#", "C-Sharp");

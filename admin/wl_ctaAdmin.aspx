@@ -5,7 +5,7 @@
 
     <h2>CTA administration</h2>
     <asp:Hyperlink runat="server" ID="hpl_toAdmin" Text="Go Back To Admin Main" NavigateUrl="~/admin/wl_crudMain.aspx"    />
-    <asp:Repeater ID="rpt_cta" runat="server" OnItemCommand="subCommand" >
+    <asp:Repeater ID="rpt_cta" runat="server" OnItemCommand="subCommand" > <%--very standard fare repeater display--%>
         <HeaderTemplate>
             <table>   
                 <thead>
@@ -31,12 +31,12 @@
                 
                 <td>
                     <asp:TextBox ID="txt_cta1" runat="server" Width="40"  Text='<%#Bind("cp_cta1") %>' />
-                    <asp:RangeValidator ID="rv_txtCta1" runat="server"  Text="Please input a value between 1-5" ControlToValidate="txt_cta1" MaximumValue="5" MinimumValue="1" Display="Dynamic" />               
+                    <asp:RangeValidator ID="rv_txtCta1" runat="server"  Text="Please input a value between 1-4" ControlToValidate="txt_cta1" MaximumValue="4" MinimumValue="1" Display="Dynamic" />               
                 </td>
                
                 <td>
                     <asp:TextBox ID="txt_cta2" runat="server" Width="40" Text='<%#Bind("cp_cta2") %>' />
-                    <asp:RangeValidator ID="rv_txtCta2" runat="server" Text="Please input a value between 1-5" ControlToValidate="txt_cta2" MaximumValue="5" MinimumValue="1" Display="Dynamic" />
+                    <asp:RangeValidator ID="rv_txtCta2" runat="server" Text="Please input a value between 1-4" ControlToValidate="txt_cta2" MaximumValue="4" MinimumValue="1" Display="Dynamic" />
                 </td>
                 
                 <td>
@@ -53,7 +53,7 @@
 
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="cph_aside" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="cph_aside" Runat="Server"> <%--this is where the example ctas will display--%>
     <h2>Legend</h2>
     <h3>CTA 1</h3>
     <cta:Donate ID="cta_donate" runat="server" />

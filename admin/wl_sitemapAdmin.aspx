@@ -11,11 +11,6 @@
     <asp:Label ID="lbl_output" runat="server" />
 
 
-<%--    <asp:Button ID="btn_first" runat="server" Text="First Node" OnClick="setFirst" />
-    <asp:Button Id="btn_second" runat="server" text="Second Node" OnClick="setSecond" />--%>
-
-
-
 <asp:Panel ID="firstpanel" runat="server">
     <asp:TreeView ID="TreeView1" Runat="Server" DataSourceID="SiteMapDataSource1" ShowCheckBoxes="All" SelectedNodeStyle-BackColor="green" EnableViewState="true" SelectedNodeStyle-BorderWidth="2"   >
 
@@ -27,7 +22,8 @@
     <asp:BulletedList id="bl_sitemap" runat="server" BulletStyle="Numbered" />
 </asp:Panel>
 
-<%--<asp:Panel ID="secondpanel" runat="server">
+<%--originally thought of putting two panels up.  one for node to move.  one for location to move to.  too hard--%>
+<%--<asp:Panel ID="secondpanel" runat="server">  
     <asp:TreeView ID="TreeView2" Runat="Server" DataSourceID="SiteMapDataSource2" ShowCheckBoxes="All" SelectedNodeStyle-BackColor="green" EnableViewState="true" SelectedNodeStyle-BorderWidth="2"  >
     </asp:TreeView>
 

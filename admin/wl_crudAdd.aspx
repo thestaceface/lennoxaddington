@@ -19,6 +19,7 @@
         <asp:RequiredFieldValidator ID="rfv_descI" runat="server" Text="*Required" ControlToValidate="cke_contentI" ValidationGroup="insert" ErrorMessage="Please insert content" ForeColor="Red" />
         <CKEditor:CKEditorControl ID="cke_contentI" runat="server" BasePath="~/ckeditor/" ></CKEditor:CKEditorControl>
         <br />
+        <%--this is saved for a later implementation phase--%>
 
         <%--        <asp:Label ID="lbl_urlI" runat="server" Text="Enter Page URL" />
         <asp:TextBox ID="txt_urlI" runat="server" />

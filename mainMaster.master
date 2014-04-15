@@ -141,26 +141,21 @@
             
             <div id="aside"> 
 
-
+                <%--This section is for Will's CTA feature--%>
                <asp:DataList ID="dtl_edit" runat="server" OnItemDataBound="ctaLoader" >
                     <ItemTemplate>
 
-                        <asp:HiddenField ID="hdf_cta1" runat="server" Value='<%#Eval("cp_cta1") %>' />
-
+                        <asp:HiddenField ID="hdf_cta1" runat="server" Value='<%#Eval("cp_cta1") %>' /><%--this holds the id of the cta to be loaded in the placeholder, below.--%>
                         <asp:HiddenField ID="hdf_cta2" runat="server" Value='<%#Eval("cp_cta2") %>' />
 
                     </ItemTemplate> 
                 </asp:DataList>
 
-                  <asp:PlaceHolder ID="cta1" runat="server" />
-
+                  <asp:PlaceHolder ID="cta1" runat="server" /><%--this is where the cta will load--%>
                   <asp:PlaceHolder ID="cta2" runat="server" />
 
                 <asp:ContentPlaceHolder ID="cph_aside" runat="server">
-                    
 
-    
-            
                 </asp:ContentPlaceHolder>
             </div><%--aside --%>              
                 

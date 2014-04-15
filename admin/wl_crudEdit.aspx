@@ -21,14 +21,14 @@
         </HeaderTemplate>
         <ItemTemplate>
 
-            <tr runat="server" id="row">
+            <tr runat="server" id="row"> <%--defining row to identify where to look for the highlights--%>
                 <td>
                     <asp:HiddenField ID="hdf_id" runat="server" Value='<%#Eval("cp_id") %>' />
                     <asp:Linkbutton ID="lkb_pagename" runat="server" Text='<%#Eval("cp_pagename") %>' CommandName="Select" OnCommand="subSelect" CommandArgument='<%#Eval("cp_id") %>'  />
                 </td>
 
                 <td>
-                    <%--<asp:Label ID="lbl_section" runat="server" Text='<%#Eval("cp_secid") %>' />--%>
+                    <%--<asp:Label ID="lbl_section" runat="server" Text='<%#Eval("cp_secid") %>' />--%>  <%--used for testing purposes--%>
                     <asp:HiddenField ID="hdf_section" runat="server" Value='<%#Eval("cp_secid") %>' />
                     <asp:Label ID="lbl_section_name" runat="server" Text='<%#Eval("sp_name") %>' />
                 </td>
@@ -50,7 +50,6 @@
 
 <asp:Panel ID="pnl_edit" runat="server" Visible="false">
     <asp:Repeater ID="rpt_edit" runat="server" OnItemCommand="subAdmin" OnItemDataBound="repeaterDDL">   
-    <%--<asp:Repeater ID="rpd_edit" runat="server">--%>  
         <ItemTemplate>
             <asp:Hiddenfield ID="hdf_idE" runat="server" Value='<%#Eval("cp_id") %>' /><br />
 
@@ -82,29 +81,3 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_aside" Runat="Server">
 
 </asp:Content>
-
-
- <%--   <asp:ListView ID="ltv_pages" runat="server">
-        <LayoutTemplate>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Action</td>
-                        <td><asp:LinkButton ID="lkb_sortPage" runat="server" Text="Name" CommandName="Sort" CommandArgument="cp_pagename" /></td>
-                        <td><asp:LinkButton ID="lkb_sortSection" runat="server" Text="Section" CommandName="Sort" CommandArgument="cp_secID" /></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <asp:PlaceHolder ID="ItemPlaceholder" runat="server" />
-                </tbody>
-            </table>
-        </LayoutTemplate>
-        <ItemTemplate>
-            <tr>
-                <td><asp:LinkButton ID="lkb_select" runat="server" Text="Select" CommandName="Select" /></td>
-                <td><%#Eval("cp_pagename") %></td>
-                <td><%#Eval("cp_secid") %></td>
-            </tr>
-        </ItemTemplate>
-
-    </asp:ListView>--%>

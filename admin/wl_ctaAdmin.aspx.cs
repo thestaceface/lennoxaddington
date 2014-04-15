@@ -27,34 +27,34 @@ public partial class admin_wl_ctaAdmin : System.Web.UI.Page
     {
         switch (e.CommandName)
         {
-            case "Update":
-                //HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_id");
-                //TextBox txtCTA1 = (TextBox)e.Item.FindControl("txt_cta1");
-                //TextBox txtCTA2 = (TextBox)e.Item.FindControl("txt_cta2");
-                //int ctaid = int.Parse(hdfID.Value);
-                //int cta1 = int.Parse(txtCTA1.Text);
-                //int cta2 = int.Parse(txtCTA2.Text);
-                //_strMessage(objPage.commitUpdateCTA(ctaid, cta1, cta2), "update");
-                //_subRebind();
-                _subUpdate(e);
+            case "Update"://just one case because there's no need for adding or deleting.  
+                HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_id");
+                TextBox txtCTA1 = (TextBox)e.Item.FindControl("txt_cta1");
+                TextBox txtCTA2 = (TextBox)e.Item.FindControl("txt_cta2");
+                int ctaid = int.Parse(hdfID.Value);
+                int cta1 = int.Parse(txtCTA1.Text);
+                int cta2 = int.Parse(txtCTA2.Text);
+                _strMessage(objPage.commitUpdateCTA(ctaid, cta1, cta2), "update");
+                _subRebind();
+                //_subUpdate(e); //no need for this.  
                 break;
 
         }
     }
 
-    private void _subUpdate(RepeaterCommandEventArgs e)
-    {
-        HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_id");
-        Label lblID = (Label)e.Item.FindControl("lbl_id");
-        TextBox txtCTA1 = (TextBox)e.Item.FindControl("txt_cta1");
-        TextBox txtCTA2 = (TextBox)e.Item.FindControl("txt_cta2");
-        int lblid = int.Parse(lblID.Text);
-        int ctaid = int.Parse(hdfID.Value);
-        int cta1 = int.Parse(txtCTA1.Text);
-        int cta2 = int.Parse(txtCTA2.Text);
-        _strMessage(objPage.commitUpdateCTA(lblid, cta1, cta2), "update");
-        _subRebind();
-    }
+    //private void _subUpdate(RepeaterCommandEventArgs e)
+    //{
+    //    HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_id");
+    //    Label lblID = (Label)e.Item.FindControl("lbl_id");
+    //    TextBox txtCTA1 = (TextBox)e.Item.FindControl("txt_cta1");
+    //    TextBox txtCTA2 = (TextBox)e.Item.FindControl("txt_cta2");
+    //    int lblid = int.Parse(lblID.Text);
+    //    int ctaid = int.Parse(hdfID.Value);
+    //    int cta1 = int.Parse(txtCTA1.Text);
+    //    int cta2 = int.Parse(txtCTA2.Text);
+    //    _strMessage(objPage.commitUpdateCTA(lblid, cta1, cta2), "update");
+    //    _subRebind();
+    //}
 
 
     private void _strMessage(bool flag, string str)

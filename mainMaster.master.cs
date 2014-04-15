@@ -18,7 +18,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             lnk_admin.Visible = false;
         }
 
-        dtl_edit.DataSource = objPage.getPageByUrl(pageurl);
+        dtl_edit.DataSource = objPage.getPageByUrl(pageurl);//find this page in the database by url.  why url and not id?  because then i can define ctas for non-contentMain pages, as long as i have the right urls
         dtl_edit.DataBind();
 
         
@@ -42,21 +42,21 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void ctaLoader(object sender, DataListItemEventArgs e)
     {
-        //Repeater blah = new Repeater();
+        //Repeater blah = new Repeater();//used in testing
         //Label hmm = (Label)e.Item.FindControl("lbl_cta1");
         //lbl.Text = hmm.Text;
         
-        //Repeater sideRepeater = new Repeater();
+        //Repeater sideRepeater = new Repeater();//used in testing
         Control cta1control;
         Control cta2control;
-        //Label lblCTA1 = (Label)e.Item.FindControl("lbl_cta1");
+        //Label lblCTA1 = (Label)e.Item.FindControl("lbl_cta1");//used in testing
         //Label lblCTA2 = (Label)e.Item.FindControl("lbl_cta2");
 
         HiddenField hdfCTA1 = (HiddenField)e.Item.FindControl("hdf_cta1");
         HiddenField hdfCTA2 = (HiddenField)e.Item.FindControl("hdf_cta2");
         //lbl.Text = hdfCTA1.Value;
 
-        switch (hdfCTA1.Value)
+        switch (hdfCTA1.Value)//hidden value... activates a cta depending on the cta_id
             {
                 case "1":
                     cta1control = LoadControl("cta/wl_cta_donate.ascx");

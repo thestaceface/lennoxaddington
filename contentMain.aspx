@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="contentMain.aspx.cs" Inherits="contentMain" Theme="WLTheme" %>
+﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="contentMain.aspx.cs" Inherits="contentMain" Theme="WLTheme" %>--%>
+<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="contentMain.aspx.cs" Inherits="contentMain" %>
 
 
-<asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server"><%--this page will hold the information pulled from the contentpage database table!--%>
 
     <asp:Repeater ID="rpt_one" runat="server" >
         <ItemTemplate>
@@ -18,22 +19,7 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_aside" Runat="Server">
-<%--    <asp:Repeater ID="rpt_list" runat="server" OnItemDataBound="subSelect">
-        <HeaderTemplate>
-            <table class="gridtable">
-            <tr>
-                <th>list of pages (for my testing)... until i figure out the menu</th>
-            </tr>
-        </HeaderTemplate>
-        <ItemTemplate>
-            <tr>
-                <td><asp:LinkButton id="lkb_title" runat="server" Text='<%#Eval("cp_pagename") %>'></asp:LinkButton></td>
-            </tr>
-        </ItemTemplate>
-        <FooterTemplate>
-            </table>
-        </FooterTemplate>
-    </asp:Repeater>--%>
+
 </asp:Content>
 
 

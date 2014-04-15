@@ -1,5 +1,6 @@
-﻿/* ------ Fonts ------ */
-@font-face {
+﻿/*originally had theme for contentMain.aspx pages... but then consistency was an issue, so i abandoned this work for the sake of unity with the group*/
+/* ------ Fonts ------ */
+/*@font-face {
 	font-family: Lato;
 	src: url(Fonts/Lato-Regular.ttf);
 }
@@ -37,16 +38,17 @@
 @font-face {
     font-family: TiWeb-BoldItalic;
     src: url(Fonts/TitilliumWeb-BoldItalic.ttf);
-}
+}*/
 /* ------ Global ------ */
 
 * {
-    font-family: Lato;
+    /*font-family: Lato;*/
     font-weight: normal;
+    letter-spacing: -.3px; /*this fixes the problem for spacing in chrome*/
 }
 
 h1, h2, h3, h4 {
-    font-family: TiWeb-Bold;
+    /*font-family: TiWeb-Bold;*/
     padding-top:20px;
 }
 
@@ -55,18 +57,18 @@ img {
 }
 
 li {
-    font-family: Lato;
+    /*font-family: Lato;*/
     
 }
 
 p {
-    font-family: Lato;
+    /*font-family: Lato;*/
     font-weight:normal;
     padding: 10px 0px;
 }
 
 strong {
-    font-family: Lato-Bold;
+    /*font-family: Lato-Bold;*/
 }
 
 ul {
@@ -77,12 +79,12 @@ ul {
 
 
 #mnu_1 {
-    font-family: TiWeb-Bold, Lato-Bold;
+    /*font-family: TiWeb-Bold, Lato-Bold;*/
     font-size: 16px;  
     padding-left:15px;  
 }
 .mnu_1 {
-    font-family: TiWeb-Bold, Lato-Bold; 
+    /*font-family: TiWeb-Bold, Lato-Bold;*/ 
 }
 
 #aside2 {
@@ -100,7 +102,7 @@ ul {
 padding-top: 10px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {  /*for the responsiveness issues*/
     #aside2, #aside3 {
         min-width: 350px;
         min-height: 300px;

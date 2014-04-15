@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wl_cta_newsletter.ascx.cs" Inherits="wl_cta_newsletter" %>
 
-<div id="aside2">
+<div id="aside2"><%--no actual functionality.  just a conceptual placeholder to redirect to proper page--%>
     <asp:Panel ID="pnl_new" runat="server">
 
                 <asp:Label ID="lbl_newsletter" runat="server" Text="Newsletter Sign Up" />

@@ -19,7 +19,7 @@ public class ctaClass
         return onePage;
     }
 
-    public IQueryable<contentpage> getPageByUrl(string _cp_url)
+    public IQueryable<contentpage> getPageByUrl(string _cp_url)//this is for for ctas.
     {
         lennoxdbDataContext objPage = new lennoxdbDataContext();
         var onePage = objPage.contentpages.Where(x => x.cp_url == _cp_url).Select(x => x);

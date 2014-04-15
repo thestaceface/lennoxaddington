@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wl_cta_donate.ascx.cs" Inherits="wl_cta_donate" EnableTheming="true"  %>
-<div id="aside2">
+<div id="aside2"><%--no actual functionality.  just a conceptual placeholder to redirect to proper page--%>
     <asp:Panel ID="pnl_main" runat="server">
 
         <asp:Label ID="lbl_donate" runat="server" Text="Donate to LACGH Today!<br />Make a Difference! " />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Xml.Linq;
+using System.Xml.Linq;  //gurpal mentioned it's ok if it's not database driven if i tried to use linq to xml.  
 using System.Xml;
 
 public partial class admin_wl_sitemapAdmin : System.Web.UI.Page
@@ -27,8 +27,8 @@ public partial class admin_wl_sitemapAdmin : System.Web.UI.Page
            .Where(x => x.Name == "title")
            .Select(x => x.Value).Count();
 
-        lbl_test.Text = urlCount.ToString();
-        
+        //lbl_test.Text = urlCount.ToString();  
+        //this was to test out querying the sitemap.  works, but with treeview, had a hard time.  
     }
 
     protected void subSelect(object sender, EventArgs e)
@@ -37,17 +37,17 @@ public partial class admin_wl_sitemapAdmin : System.Web.UI.Page
         foreach (TreeNode node in TreeView1.CheckedNodes)
         {
             countthis += 1;
-            if (countthis == 1)
+            if (countthis == 1)//make sure there's only one selected.
             {
                 node.Selected = true;
                 btn_bottom.Enabled = true;
                 btn_top.Enabled = true;
                 lbl_output.Text = "";
             }
-            else if (countthis == null)
-            {
-                lbl_output.Text = "Please select the page you wish to move";
-            }
+            //else if (countthis == null) //doesn't work
+            //{
+            //    lbl_output.Text = "Please select the page you wish to move";
+            //}
             else
             {
                 lbl_output.Text = "Please select one page only";
@@ -98,10 +98,6 @@ public partial class admin_wl_sitemapAdmin : System.Web.UI.Page
 
 
     //everything below here was experimenting and learning.  could be useful for future phases
-
-
-
-
 
     //protected void setFirst(object sender, EventArgs e)
     //{

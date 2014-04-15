@@ -24,7 +24,7 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
         rpt_pagelist.DataBind();   
     }
 
-    protected void repeaterDDL(object sender, RepeaterItemEventArgs e)
+    protected void repeaterDDL(object sender, RepeaterItemEventArgs e) //binds section names to the dropdownlist.
     {
         HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
         DropDownList listitems = e.Item.FindControl("ddl_sectionE") as DropDownList;
@@ -40,21 +40,21 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
     {
         //_subRebind();
         int filterID = int.Parse(e.CommandArgument.ToString());
-        rpt_edit.DataSource = objPage.getCPSPmerge(Convert.ToInt32(filterID));
+        rpt_edit.DataSource = objPage.getCPSPmerge(Convert.ToInt32(filterID)); //note, this is using a stored procedure... because of a merged table.
         rpt_edit.DataBind();
 
         lbl_result.Text = string.Empty;
         btn_edit.Visible = true;
 
-        //This is the code For Removing all style of Repeater Item
+        //This is the code For Adding/Removing all style of Repeater Item
         foreach (RepeaterItem item in rpt_pagelist.Items)
         {
             LinkButton previous = item.FindControl("lkb_pagename") as LinkButton;
-            (previous.NamingContainer.FindControl("row") as System.Web.UI.HtmlControls.HtmlContainerControl).Attributes.Remove("style");
+            (previous.NamingContainer.FindControl("row") as System.Web.UI.HtmlControls.HtmlContainerControl).Attributes.Remove("style"); //removes style.  notice "row"
             previous.Attributes.Remove("style");
         }
         LinkButton temp = (sender as LinkButton);
-        temp.Attributes.Add("style", "color:green  !important;");
+        temp.Attributes.Add("style", "color:green  !important;"); //adds the style
         (temp.NamingContainer.FindControl("row") as System.Web.UI.HtmlControls.HtmlContainerControl).Attributes.Add("style", "background-color:#BADFCE !important;");
     }
 
@@ -83,13 +83,13 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
                 HiddenField hdfSecID = (HiddenField)e.Item.FindControl("hdf_secIDE"); //this is the old secID
                 int secID = int.Parse(hdfSecID.Value.ToString()); //for old secID
 
-                XmlDocument docD = new XmlDocument();
+                XmlDocument docD = new XmlDocument(); //this portion of code is the beginning of the deleting from sitemap stuff
                 docD.Load(Server.MapPath("../Web.sitemap"));
                 XmlNodeList nlist = docD.DocumentElement.ChildNodes[0].ChildNodes[secID].ChildNodes; //second last childnodes has to be secid
                 foreach (XmlNode noded in nlist)
                 {
                     if (noded.Attributes["url"].Value == ("contentMain.aspx?id=" + hdfID.Value.ToString()))  //value has to equal contentMain.aspx?id= + id
-                        noded.ParentNode.RemoveChild(noded);
+                        noded.ParentNode.RemoveChild(noded); //this is where delete from sitemap happens
                 }
 
                 docD.Save(Server.MapPath("../Web.sitemap"));
@@ -97,7 +97,7 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
  
                 _strMessage(objPage.commitUpdate(pageID, ddlSecValue, txtPagename.Text, txtContent.Text), "update");
 
-                XmlDocument doc = new XmlDocument();
+                XmlDocument doc = new XmlDocument(); //adding things to sitemap begins here.
                 doc.Load(Server.MapPath("../Web.sitemap"));
                 XmlNode mynode = doc.CreateNode(XmlNodeType.Element, "siteMapNode", null);
 
@@ -119,7 +119,8 @@ public partial class admin_wl_crudEdit : System.Web.UI.Page
                 XmlNode target = doc.DocumentElement.ChildNodes[0].ChildNodes[menuSection];
 
                 target.AppendChild(mynode);
-                doc.Save(Server.MapPath("../Web.sitemap"));
+                doc.Save(Server.MapPath("../Web.sitemap")); //adding things to sitemap ends here
+
                 pnl_edit.Visible = false;
                 btn_edit.Visible = false;
                 btn_return.Visible = true;
