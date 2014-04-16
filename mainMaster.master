@@ -180,7 +180,7 @@
                 <hr /><br />
                 <asp:HyperLink ID="lnk_feedback" runat="server" Text="Feedback" NavigateUrl="~/rf_feedback.aspx"  /><br /><br />
                  <asp:HyperLink ID="lnk_staff" runat="server" Text="Thank a Staff Member" NavigateUrl="~/ps_thanksform.aspx"  /><br /><br />
-                 <asp:HyperLink ID="lnk_appointment" runat="server" Text="Book an Appointment"  /><br /><br />
+                 <asp:HyperLink ID="lnk_appointment" runat="server" Text="Book an Appointment" NavigateUrl="~/ps_appointment.aspx"  /><br /><br />
                  <asp:HyperLink ID="lnk_ecard" runat="server" Text="Send an E-Card" NavigateUrl="~/e_card.aspx"  /><br /><br />
             </div><%--footer_services --%>  
 
@@ -195,7 +195,7 @@
 
             <div id="footer_contact" class="footersec">
                 <asp:Label ID="lbl_contact" runat="server" Text="Find Us" /><br /><br /><hr /><br />
-                <asp:HyperLink ID="lnk_direction" runat="server" Text="Directions" NavigateUrl="~/db_direction.aspx"  /><br /><br />
+                <asp:HyperLink ID="lnk_direction" runat="server" Text="Directions" NavigateUrl="~/db_direction.aspx" /><br /><br />
                 <asp:Label ID="lbl_add" runat="server" Text="123 Fake Street<br>Napanee, A0A 0A0<br>(555) 121-2121" /><br /><br />
                 <asp:Label ID="lbl_visitinghours" runat="server" Text="Visiting Hours" /><br />
                 <asp:Label ID="lbl_time" runat="server" Text="2:00 p.m. - 8:00 p.m." /><br /><br />

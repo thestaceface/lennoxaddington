@@ -76,7 +76,7 @@ body {
 }
 
 #mnu_1 {
-    z-index:5;
+    z-index:10;
     position:absolute;
 }
 
