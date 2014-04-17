@@ -216,7 +216,11 @@
     #mobilebuttons li {
         margin-top:15px;
         width:100%;
+        list-style:none;
+    }
 
+    #mobilebutton ul {
+     list-style:none;
     }
 
     #mobilebuttons li a {
@@ -256,6 +260,11 @@
         margin-left:10px;
     }
 
+    #slider-wrapper {
+        z-index:1;
+        position:absolute;
+    }
+
     #cph_content_lbl_page {
         margin-left:0;
     }
@@ -283,7 +292,7 @@
         border-radius:4px 0 4px 4px;
         list-style-type:none;
         position:fixed;
-        z-index:1;
+        z-index:10;
     }
 
     #mobilemenu li {

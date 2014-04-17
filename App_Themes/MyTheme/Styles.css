@@ -80,6 +80,11 @@ body {
     position:absolute;
 }
 
+.has-popup {
+    z-index:10;
+    position:absolute;
+}
+
 #navigation a:visited {
     color:white;
 }
@@ -122,10 +127,12 @@ body {
     display:none;
 }
 
-#slider {
+#slider-wrapper {
      width:730px;
     border :0px solid #000;
     min-height:200px;
+    z-index:1;
+    position:absolute;
 }
 
 
