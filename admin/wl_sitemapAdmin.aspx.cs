@@ -84,7 +84,7 @@ public partial class admin_wl_sitemapAdmin : System.Web.UI.Page
         XmlNode mynode = doc.SelectSingleNode("//*[@title='" + selnode.Text + "']");//this grabs the node that has Home as a title. .. using xpath
 
         //XmlNode target = doc.SelectSingleNode("//*[@title='Donate']");//this grabs the node that has Donate as a title. .. using xpath
-        XmlNode down = mynode.NextSibling; //this would grab mynode's immediate next sibling.  
+        XmlNode down = mynode.PreviousSibling; //this would grab mynode's immediate next sibling.  
 
         //target.AppendChild(mynode);
         down.ParentNode.PrependChild(mynode);

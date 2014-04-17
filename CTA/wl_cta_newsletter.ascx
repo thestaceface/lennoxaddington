@@ -7,18 +7,10 @@
                 <br />
                 <asp:Image ID="img_newsletter" runat="server" ImageUrl="~/Images/cta_newsletter.jpg" />
                 <br />
-                <asp:Label ID="lbl_name" runat="server" Text="Name:" />
-                <asp:TextBox ID="txt_name" runat="server" />
-                <br />
-
-                <asp:Label ID="lbl_email" runat="server" Text="Email:" />
-                <asp:TextBox ID="txt_email" runat="server" />
-                <br />
-            
-                <asp:Label ID="lbl_subs" runat="server" for="newsletter">Subscribe to our newsletter?</asp:Label>
-    <asp:CheckBox ID="subscribeChkBox" runat="server"/>
+                <asp:Label ID="lbl_blurb" runat="server" Text="Register for the Lennox Addington County General Hospital e-Newsletter to get the latest health information, news and events!" />
+                
     <br /><br />
-    <asp:hyperlink ID="hpl_subscribe" runat="server" Text="Subscribe" NavigateUrl="~/newsletter.aspx" />
+    <asp:hyperlink ID="hpl_subscribe" runat="server" Text="Subscribe Now" NavigateUrl="~/newsletter.aspx" />
     </asp:Panel>
 </div>
 

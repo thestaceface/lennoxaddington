@@ -3,7 +3,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server"><%--this page will hold the information pulled from the contentpage database table!--%>
-
+<%--    <div id="rpt_cm">--%>
     <asp:Repeater ID="rpt_one" runat="server" >
         <ItemTemplate>
             <br />
@@ -15,7 +15,7 @@
         <asp:Label ID="lbl_lastup" runat="server" Text='<%# Eval("cp_lastupdate") %>' />
         </ItemTemplate>
     </asp:Repeater>
-
+<%--    </div>--%>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_aside" Runat="Server">

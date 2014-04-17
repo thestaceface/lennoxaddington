@@ -5,6 +5,8 @@
 <h2>Add A Page</h2>
 
     <asp:Label ID="lbl_result" runat="server" ForeColor="Green" /><%--shows success or failure on insert--%>
+    <br />
+    <asp:Button ID="btn_reload" runat="server" Text="Click Here To Refresh Navigation Menu" OnClick="_subReload" Visible="false" />
 
     <asp:Panel ID="pnl_add" runat="server"><%--disappears on successful add--%>
 

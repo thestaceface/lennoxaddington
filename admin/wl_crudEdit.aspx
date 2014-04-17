@@ -6,6 +6,9 @@
     <h2>Edit A Page</h2>
     <asp:Label ID="lbl_result" runat="server" ForeColor="Green" /><%--shows success or failure on update--%>
     <br />
+
+    <asp:Button ID="btn_reload" runat="server" Text="Click Here To Refresh Navigation Menu" OnClick="_subReload" Visible="false" />
+    <br />
     <asp:Panel ID="pnl_pagelist" runat="server">
     <h2>Page Listing</h2>
         <br />

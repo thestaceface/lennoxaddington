@@ -17,7 +17,10 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
             _subRebind();//binds the ddl datasource
         }
     }
-
+    protected void _subReload(object sender, EventArgs e)
+    {
+        Response.Redirect(Request.Url.AbsoluteUri);//this causes a refresh of the entire page... otherwise menu doesn't update until you browse to another page.
+    }
     private void _subRebind()
     {
         ddl_sectionI.DataSource = objPage.getSections();//gets section names from database
@@ -33,7 +36,7 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
         //_strMessage(objPage.commitInsert(int.Parse(ddl_sectionI.SelectedValue), txt_pagenameI.Text, cke_contentI.Text), "insert"); //this is the old way.
         
         _strMessage2(objPage.commitAdd(int.Parse(ddl_sectionI.SelectedValue), txt_pagenameI.Text, cke_contentI.Text), "insert");
-        Response.Redirect(Request.Url.AbsoluteUri);//this causes a refresh of the entire page... otherwise menu doesn't update until you browse to another page.
+        
 
 
     }
@@ -45,7 +48,7 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
             lbl_result.Text = "Page " + str + " was successful";
             pnl_add.Visible = false;
             pnl_addMore.Visible = true;
-            lbl_result.Text += lastid;
+            //lbl_result.Text += lastid;
 
             XmlDocument doc = new XmlDocument(); 
             doc.Load(Server.MapPath("../Web.sitemap"));
@@ -72,7 +75,8 @@ public partial class admin_wl_crudAdd : System.Web.UI.Page
 
             target.AppendChild(mynode);  //add the node!
 
-            doc.Save(Server.MapPath("../Web.sitemap"));  
+            doc.Save(Server.MapPath("../Web.sitemap"));
+            btn_reload.Visible = true;
         }
         else
         {

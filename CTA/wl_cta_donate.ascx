@@ -6,11 +6,7 @@
         <br />
         <asp:Image ID="img_donate" runat="server" ImageUrl="~/Images/cta_donate.jpg"  />
         <br />
-        <asp:Label ID="lbl_amt" runat="server" Text="Amount $: " AssociatedControlID="txt_amt" />
-        <br />
-        <asp:TextBox ID="txt_amt" runat="server"  />
-        <asp:RequiredFieldValidator ID="rfv_amt" runat="server" ControlToValidate="txt_amt" />
-
+        <asp:Label ID="lbl_amt" runat="server" Text="Cash Gifts go towards the purchase of hospital equipment and capital improvements. They may be unrestricted or designated to the area of choice."  /><br />
         <asp:HyperLink runat="server" ID="hpl_donate" Text="Donate Now!" NavigateUrl="~/db_donation.aspx"  />
     </asp:Panel>
 </div>

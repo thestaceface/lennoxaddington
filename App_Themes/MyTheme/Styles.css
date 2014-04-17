@@ -377,3 +377,22 @@ body {
 .wt2 {
     color:red;
 }
+
+/*-------------- contentMain ------------------*/
+#content_main {
+
+}
+#content_main p {
+    font-weight: normal;
+}
+#content_main li {
+    margin-left: 20px;
+    font-weight: normal;
+}
+#content_main #rpt_one img {
+    padding: 10px;
+}
+
+#content_main h1,#content_main h2,#content_main h3 {
+        padding:5px 0px;
+    }

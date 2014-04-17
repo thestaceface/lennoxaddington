@@ -16,7 +16,10 @@ public partial class admin_wl_ctaAdmin : System.Web.UI.Page
             _subRebind();
         }
     }
-   
+    protected void subTest(object sender, EventArgs e)
+    {
+        lbl_success.Text = "test";
+    }
     private void _subRebind()
     {
         rpt_cta.DataSource = objPage.getPages();
@@ -61,11 +64,11 @@ public partial class admin_wl_ctaAdmin : System.Web.UI.Page
     {
         if (flag)
         {
-            lbl_result.Text = "Page " + str + " was successful";
+            lbl_success.Text = "Page " + str + " was successful";
         }
         else
         {
-            lbl_result.Text = "Sorry, unable to " + str + " page";
+            lbl_success.Text = "Sorry, unable to " + str + " page";
         }
     }
 
