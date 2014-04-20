@@ -32,7 +32,7 @@ public partial class Default4 : System.Web.UI.Page
         rpt_all.DataBind();
         _panelControl(pnl_all);
 
-        pnl_distance.Visible = false;
+        //pnl_distance.Visible = false;
     }
 
     // panel control to make panel visible or not
@@ -48,11 +48,5 @@ public partial class Default4 : System.Web.UI.Page
         txtFrom.Text = string.Empty;
         txtTo.Text = string.Empty;
         pnl_distance.Visible = false;
-    }
-
-    // button to make distance panel visible
-    protected void subGetDistance(object sender, EventArgs e)
-    {
-        pnl_distance.Visible = true;
     }
 }

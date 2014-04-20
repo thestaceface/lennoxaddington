@@ -6,7 +6,7 @@
     <%-- Page by Dharveen Beedah --%>
 
     <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
-    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/db_directionAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
+    <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/directionAdmin.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
 
     <%-- source http://kishor-naik-dotnet.blogspot.ca/2012/11/aspnet-google-map-v3-directions-in.html --%> 
     <%-- source http://www.sitepoint.com/working-with-geolocation-and-google-maps-api/ --%>
@@ -100,7 +100,7 @@
 
               try {
                   DirectionsDisplay = new google.maps.DirectionsRenderer();
-                  var LatitudeLongitude = new google.maps.LatLng(44.24031, -76.96587);
+                  var LatitudeLongitude = new google.maps.LatLng(43.728544, -79.607913);
                   var GoogleMapOptions =
                   {
                       zoom: 10,
@@ -116,7 +116,7 @@
                   var marker = new google.maps.Marker
                     (
                         {
-                            position: new google.maps.LatLng(44.24031, -76.96587),
+                            position: new google.maps.LatLng(43.728544, -79.607913),
                             map: map,
                             title: 'Lennox Addington Hospital'
                         }
@@ -163,7 +163,7 @@
               catch (E) {
                   alert(E.message);
               }
-
+              document.getElementById('<%=pnl_distance.ClientID%>').style.display = ""; 
           }
 
         // initialize google map when page load
@@ -172,33 +172,26 @@
     </script>
 
     <div>
+        <h1>Maps and Directions</h1>
         
         <%-- Steps for direction --%>
         <table class="tables">
             <tr>
                 <td>
-                    <asp:Label ID="s1" runat="server" Text="Step 1:" />
+                    <asp:Label ID="s1" runat="server" Text="Step 1:" /> 
                 </td>
                 <td>
-                    <asp:Label ID="step1" runat="server" Text="Click on 'Get Distance' button to get direction + distance." />
-                </td> 
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="s2" runat="server" Text="Step 2:" /> 
-                </td>
-                <td>
-                    <asp:Label ID="step2" runat="server" Text="Click on " />
+                    <asp:Label ID="step1" runat="server" Text="Click on " />
                     <asp:Image ID="imgstep1" runat="server" ImageUrl="~/Images/location.png" Width="20px" Height="20px" />
-                    <asp:Label ID="stepp2" runat="server" Text=" to get current location or enter a location." />
+                    <asp:Label ID="stepp1" runat="server" Text=" to get current location or enter a location." />
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="s3" runat="server" Text="Step 3:" />
+                    <asp:Label ID="s2" runat="server" Text="Step 2:" />
                 </td>
                 <td>
-                    <asp:Label ID="step3" runat="server" Text="Click on 'Get Direction' to view direction on map." />
+                    <asp:Label ID="step2" runat="server" Text="Click on 'Get Direction' to view direction on map." />
                 </td> 
             </tr>
         </table>
@@ -222,11 +215,7 @@
                     To: 
                 </td>
                 <td>
-                    <asp:TextBox ID="txtTo" runat="server"  Text="8 Richmond Park Drive, Napanee, ON K7R 2Z4"></asp:TextBox>
-                </td> 
-                <td>
-                    <%-- get direction --%>
-                    <asp:Button ID="btnDirections" runat="server" Text="Get Direction" OnClientClick="GetDirectionRoute(); return false" BorderColor="#8ed1e4" BorderWidth="2px" />
+                    <asp:TextBox ID="txtTo" runat="server"  Text="205 Humber College Boulevard, University of Guelph-Humber, Etobicoke, ON M9W 5L7, Canada"></asp:TextBox>
                 </td>
             </tr>
         </table>
@@ -234,9 +223,11 @@
         <%-- error message label --%>
         <asp:Label ID="error" runat="server" /><br />
         
-        <%-- 2 buttons - get distance and reset --%>
-        <asp:Button ID="btnGetDistance" runat="server" Text="Get Distance" OnClick="subGetDistance" />
-        <asp:Button ID="btnReset" runat="server" Text="Reset" OnClick="subReset" />
+        <%-- 2 buttons - get direction and reset --%>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnDirection" runat="server" Text="Get Direction" OnClientClick="GetDirectionRoute(); return false" BorderColor="#8ed1e4" BorderWidth="2px" />
+        &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnReset" runat="server" Text="Reset" BorderColor="#8ed1e4" BorderWidth="2px" OnClick="subReset" />
 
         <br /><br />
               
@@ -246,7 +237,7 @@
         <br /><br />
 
         <%-- get distance panel --%>
-        <asp:Panel ID="pnl_distance" runat="server">
+        <asp:Panel ID="pnl_distance" runat="server" style="display:none">
             <div id ="DivDirectionRouteStatus" style="height:480px;overflow: auto">Distance</div>
             <br /><br />
         </asp:Panel>
