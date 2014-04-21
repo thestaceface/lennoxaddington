@@ -392,8 +392,10 @@ body {
 #content_main p {
     font-weight: normal;
 }
+
 #content_main li {
     margin-left: 20px;
+    padding-bottom: 5px;
     font-weight: normal;
 }
 #content_main #rpt_one img {
@@ -403,3 +405,19 @@ body {
 #content_main h1,#content_main h2,#content_main h3 {
         padding:5px 0px;
     }
+
+.cta_style {
+    padding:10px;
+    font-weight: normal;
+}
+.cta_style span {
+    padding:5px 0px;
+}
+
+.cta_link {
+    font-size: x-large;
+}
+
+.cta_style img {
+    padding:7px;
+}
