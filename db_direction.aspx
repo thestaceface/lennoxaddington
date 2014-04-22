@@ -172,7 +172,6 @@
     </script>
 
     <div>
-        <h1>Maps and Directions</h1>
         
         <%-- Steps for direction --%>
         <table class="tables">
