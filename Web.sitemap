@@ -43,7 +43,7 @@
       <siteMapNode url="" title="Being Accountable" description="Being Accountable" />
       <siteMapNode url="" title="Quality" description="Quality" />
     </siteMapNode>
-    <siteMapNode url="contentMain.aspx?id=36" title="Careers" description="Jobs page">
+    <siteMapNode url="" title="Careers" description="Jobs page">
       <siteMapNode url="db_career.aspx" title="Current Opportunities" description="Current Opportunities" />
       <siteMapNode url="" title="Student Placements" description="Student Placements" />
       <siteMapNode url="" title="Volunteer Membership" description="Volunteer Membership" />
@@ -52,7 +52,7 @@
       <siteMapNode url="" title="Volunteer Services Officers" description="Volunteer Services Officers" />
       <siteMapNode url="contentMain.aspx?id=12" title="About Volunteer Services" description="" />
     </siteMapNode>
-    <siteMapNode url="contentMain.aspx?id=37" title="Contact Us" description=" Contact Us Page">
+    <siteMapNode url="" title="Contact Us" description=" Contact Us Page">
       <siteMapNode url="db_direction.aspx" title="Directions" description="Directions" />
       <siteMapNode url="sm_directory.aspx" title="Directory" description="Directory" />
       <siteMapNode url="rf_feedback.aspx" title="Feedback" description="Feedback" />

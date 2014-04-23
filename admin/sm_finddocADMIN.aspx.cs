@@ -15,6 +15,8 @@ public partial class sm_finddocADMIN : System.Web.UI.Page
     {
         _panelControl(pnl_new);
         msg.Text = string.Empty;
+        lbl_filename.Text = string.Empty;
+        lbl_upstatus.Text = string.Empty;
     }
 
     //resets all fields on page (re)load
