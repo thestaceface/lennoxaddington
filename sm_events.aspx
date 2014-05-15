@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_events.aspx.cs" Inherits="sm_events" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="sm_events.aspx.cs" Inherits="sm_events" %>
 <%-- Page by Stacey Masson --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">

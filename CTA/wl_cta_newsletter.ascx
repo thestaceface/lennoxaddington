@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wl_cta_newsletter.ascx.cs" Inherits="wl_cta_newsletter" %>
 
-<div class="medium-6 columns">
+<div class="large-12 medium-6 columns">
 <div id="aside2"><%--no actual functionality.  just a conceptual placeholder to redirect to proper page--%>
     <asp:Panel ID="pnl_new" runat="server" CssClass="cta_style">
 

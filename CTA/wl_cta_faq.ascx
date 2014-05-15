@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wl_cta_faq.ascx.cs" Inherits="CTA_wl_cta_faq" %>
 
-<div class="medium-6 columns">
+<div class="large-12 medium-6 columns">
 <div id="aside2"><%--no actual functionality.  just a conceptual placeholder to redirect to proper page--%>
     <asp:Panel ID="pnl_faq" runat="server" CssClass="cta_style">
         <asp:Label runat="server" ID="lbl_faq" Text="   Frequently Asked Questions" Font-Size="Larger" />

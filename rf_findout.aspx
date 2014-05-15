@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="rf_findout.aspx.cs" Inherits="rf_findout" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="rf_findout.aspx.cs" Inherits="rf_findout" %>
 <%-- Rezwanul Ferdous 824-259-246 --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">

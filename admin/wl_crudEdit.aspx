@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="wl_crudEdit.aspx.cs" Inherits="admin_wl_crudEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="wl_crudEdit.aspx.cs" Inherits="admin_wl_crudEdit" %>
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %><%--register CKEditor for use for main content--%>
 
 

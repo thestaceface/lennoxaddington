@@ -11,8 +11,8 @@ public partial class ps_slideImage : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //getting all the images and binding to DB
-        rpt_main.DataSource = obj.getImages();
-        rpt_main.DataBind();
+        //rpt_main.DataSource = obj.getImages();
+        //rpt_main.DataBind();
 
         //if user is logged in as administrator, edit button is visible
         if (!User.IsInRole("administrator"))

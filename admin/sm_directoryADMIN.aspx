@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="sm_directoryADMIN.aspx.cs" Inherits="sm_directoryADMIN" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="sm_directoryADMIN.aspx.cs" Inherits="sm_directoryADMIN" %>
 <%-- Page by Stacey Masson --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
@@ -22,6 +22,9 @@
 
         <asp:Label ID="lbl_req" runat="server" text="Fields marked with * are required." />
         <br /><br />
+
+         <%-- validation summary for insert group --%>
+        <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
 
         <%-- type, name, and fax are optional fields. everything else has required field validators, and any other necessary validation --%>
         <table class="tables">
@@ -88,12 +91,18 @@
                     <asp:RequiredFieldValidator ID="rfv_loc" runat="server" ControlToValidate="txt_loc" ErrorMessage="Location is required." Display="None" ValidationGroup="insert" />
                 </td> 
             </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <asp:Button ID="btn_insert" runat="server" Text="Insert Record" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" CssClass="adminbuttons" />
+        <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnCommand="subAdmin" CommandName="Cancel" CausesValidation="false" ValidationGroup="edit" CssClass="adminbuttons" />
+                </td>
+            </tr>
         </table>
         <br />
-        <asp:Button ID="btn_insert" runat="server" Text="Insert Record" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" CssClass="adminbuttons" />
-        <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnCommand="subAdmin" CommandName="Cancel" CausesValidation="false" ValidationGroup="edit" CssClass="adminbuttons" />
-        <%-- validation summary for insert group --%>
-        <asp:ValidationSummary ID="vds_insert" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="insert" />
+        
+       
+        
     </asp:Panel>
 
     <%-- panel contains update form --%>
@@ -103,6 +112,10 @@
 
         <asp:Label ID="lbl_req2" runat="server" text="Fields marked with * are required." />
         <br /><br />
+
+
+        <%-- validation summary for edit group --%>
+            <asp:ValidationSummary ID="vds_edit" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="edit" />
 
         <%-- as above, type, name, and fax are optional --%>
         <table class="tables">
@@ -172,7 +185,7 @@
                     <asp:RequiredFieldValidator ID="rfv_locE" runat="server" ControlToValidate="txt_locE" ErrorMessage="Location is required." Display="None" ValidationGroup="edit" />
                 </td> 
             </tr>
-            <tr><td>&nbsp;</td></tr>
+           
             <tr>
                 <td>&nbsp;</td>
                 <td>
@@ -181,12 +194,8 @@
                     <asp:Button ID="btn_cancelE" runat="server" Text="Cancel" CommandName="Cancel" ValidationGroup="edit" CausesValidation="false" CssClass="adminbuttons" />
                 </td>
             </tr>
-            <tr><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td></tr>
             </ItemTemplate>
         </asp:Repeater>
-            <%-- validation summary for edit group --%>
-            <asp:ValidationSummary ID="vds_edit" runat="server" ShowMessageBox="true" HeaderText="Please Note:" ValidationGroup="edit" />
         </table>
             <br /><br />
     </asp:Panel>

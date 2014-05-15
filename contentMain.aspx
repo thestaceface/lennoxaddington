@@ -1,5 +1,5 @@
 ﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="contentMain.aspx.cs" Inherits="contentMain" Theme="WLTheme" %>--%>
-<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="contentMain.aspx.cs" Inherits="contentMain" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="contentMain.aspx.cs" Inherits="contentMain" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server"><%--this page will hold the information pulled from the contentpage database table!--%>

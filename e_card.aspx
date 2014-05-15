@@ -1,4 +1,4 @@
-<%@ Page Language="C#"  MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="e_card.aspx.cs" Inherits="e_card" %>
+<%@ Page Language="C#"  MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="e_card.aspx.cs" Inherits="e_card" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">

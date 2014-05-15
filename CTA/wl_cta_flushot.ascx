@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="wl_cta_flushot.ascx.cs" Inherits="wl_cta_flushot" %>
 
+<div class="large-12 medium-6 columns">
 <div id="aside2"><%--no actual functionality.  just a conceptual placeholder to redirect to proper page--%>
     <asp:Panel ID="pnl_flu" runat="server" CssClass="cta_style">
         <asp:Label ID="lbl_flu" Text="Flu Season Is Here!<br />" runat="server" Font-Size="Larger" />
@@ -9,3 +10,4 @@
 
     </asp:Panel>
 </div>
+    </div>

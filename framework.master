@@ -15,6 +15,9 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css' />
     <link href="App_Themes/Stacey/main.css" rel="stylesheet" />
     <link href="App_Themes/Stacey/foundation.css" rel="stylesheet" />
+    <link href="App_Themes/Stacey/jquery.bxslider.css" rel="stylesheet" />
+     <script src="Scripts/jquery1-11-0min.js"></script>
+    <script src="Scripts/jquery.bxslider.min.js"></script>
     <title>Lennox Addington</title>
 </head>
 
@@ -25,22 +28,102 @@
     
         <header>
             <div class="row">
-                <div class="large-6 medium-6 small-12 columns logo">
+                <div class="large-12 medium-12 small-12 columns logo">
                     <asp:HyperLink ID="img_logo" runat="server" ImageUrl="~/Images/Logo.png" NavigateUrl="~/ps_slideImages.aspx" />
                 </div>
-                <div class="large-6 medium-6 small-12 columns address">
+                <%--<div class="large-6 medium-6 small-12 columns address">
                     <asp:Label ID="lbl_address" runat="server" Text="(555) 121-2121<br /><span>123 Fake Street, Napanee</span>" />
-                </div>
+                </div>--%>
             </div>
 
-            <nav>
-                <div class="row">
-                    <div class="large-12 columns nav">      
-                         <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
-            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="15px" DynamicHoverStyle-BackColor="#004059" StaticEnableDefaultPopOutImage="false" DynamicPopOutImageUrl="~/Images/menuarrow.png" DynamicMenuItemStyle-BackColor="#6aabbf" DynamicMenuItemStyle-ForeColor="White" DynamicMenuItemStyle-VerticalPadding="10px" DynamicMenuItemStyle-HorizontalPadding="12px" Font-Bold="true" />   
-                    </div>
-                </div>
+            <%--<nav>--%>
+                <%--<div class="row">
+                    <div class="large-12 columns nav">    --%>  
+                        <%--<asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
+
+                        <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="15px" DynamicHoverStyle-BackColor="#004059" StaticEnableDefaultPopOutImage="false" DynamicPopOutImageUrl="~/Images/menuarrow.png" DynamicMenuItemStyle-BackColor="#6aabbf" DynamicMenuItemStyle-ForeColor="White" DynamicMenuItemStyle-VerticalPadding="10px" DynamicMenuItemStyle-HorizontalPadding="12px" Font-Bold="true" />--%>   
+
+            <nav class="top-bar" data-topbar>
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a href="#"></a></h1>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+                </ul>
+                <section class="top-bar-section">
+                    <!-- Right Nav Section -->
+                    <ul class="right">
+                        <li class="has-dropdown">
+                        <a href="#">About Us</a>
+                        <ul class="dropdown">
+                            <li><a href="aboutteam7.aspx">Team Seven Digital</a></li>
+                            <li><a href="#">Our Hospital</a></li>
+                            <li><a href="#">Board of Directors</a></li>
+                            <li><a href="#">LACGH Foundation</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="sm_events.aspx">Upcoming Events</a></li>
+                            <li><a href="faq.aspx">FAQ</a></li>
+                            <li><a href="rf_findout.aspx">Find Out More</a></li>
+                        </ul>
+                        </li>
+                        <li class="has-dropdown">
+                        <a href="#">Patients</a>
+                        <ul class="dropdown">
+                            <li><a href="rf_waittime.aspx">ER Wait Time</a></li>
+                            <li><a href="sm_finddoc.aspx">Our Doctors</a></li>
+                            <li><a href="ps_appointment.aspx">Book an Appointment</a></li>
+                            <li><a href="#">Your Hospital Stay</a></li>
+                            <li><a href="#">Patient Policies</a></li>
+                            <li><a href="ps_thanksform.aspx">Thank a Staff Member</a></li>
+                            <li><a href="e_card.aspx">Send an E-Card to a Patient</a></li>
+                        </ul>
+                        </li>
+                        <li class="has-dropdown">
+                        <a href="#">Services</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Bone Mineral Densitometry</a></li>
+                            <li><a href="#">Cardiopulmonary Services</a></li>
+                            <li><a href="#">Chemotherapy</a></li>
+                            <li><a href="#">Day Surgery</a></li>
+                            <li><a href="#">Diabetes Education Program</a></li>
+                            <li><a href="#">Pharmacy Services</a></li>
+                            <li><a href="#">Respiratory Therapy</a></li>
+                        </ul>
+                        </li>
+                        <li class="has-dropdown">
+                        <a href="#">Policies</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Accessibility</a></li>
+                            <li><a href="#">Public Reporting</a></li>
+                            <li><a href="#">Infection Control</a></li>
+                            <li><a href="#">Being Accountable</a></li>
+                            <li><a href="#">Quality</a></li>
+                        </ul>
+                        </li>
+                        <li class="has-dropdown">
+                        <a href="#">Get Involved</a>
+                        <ul class="dropdown">
+                            <li><a href="db_career.aspx">Current Opportunities</a></li>
+                            <li><a href="#">Volunteer</a></li>
+                            <li><a href="#">Student Placements</a></li>
+                        </ul>
+                        </li>  
+                        <li class="has-dropdown">
+                        <a href="#">Contact Us</a>
+                        <ul class="dropdown">
+                            <li><a href="db_direction.aspx">Directions</a></li>
+                            <li><a href="sm_directory.aspx">Directory</a></li>
+                            <li><a href="rf_feedback.aspx">Feedback</a></li>
+                            <li><a href="newsletter.aspx">Subscribe to our Newsletter</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </section>
             </nav>
+
+                <%--    </div>
+                </div>--%>
+            <%--</nav>--%>
         </header>
 
         <div id="content">
@@ -125,9 +208,9 @@
     </div> <%--/wrapper--%>
     </form>
     
-
-    <script src="Scripts/vendor/jquery.js"></script>
+   
     <script src="Scripts/foundation.min.js"></script>
+    
     <script>
         $(document).foundation();
     </script>

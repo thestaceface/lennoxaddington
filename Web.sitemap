@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
   <siteMapNode url="" title="Root" description="">
-    <siteMapNode url="ps_slideImages.aspx" title="Home" description="Home page">
+    <siteMapNode url="ps_slideImages.aspx" title=" " description="Home page">
     </siteMapNode>
     <siteMapNode url="" title="About Us" description="About the hospital page">
       <siteMapNode url="~/aboutteam7.aspx" title="Team Seven Digital" description="Dev Team Description" />

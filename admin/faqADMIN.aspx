@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="faqADMIN.aspx.cs" Inherits="faqADMIN" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="faqADMIN.aspx.cs" Inherits="faqADMIN" EnableEventValidation="false" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
 
