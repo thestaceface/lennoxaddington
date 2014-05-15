@@ -61,9 +61,10 @@
 
                     </ItemTemplate> 
                 </asp:DataList>
-
-                  <asp:PlaceHolder ID="cta1" runat="server" /><%--this is where the cta will load--%>
-                  <asp:PlaceHolder ID="cta2" runat="server" />
+                    <div class="medium-12 small-12 columns">
+                        <asp:PlaceHolder ID="cta1" runat="server" /><%--this is where the cta will load--%>
+                    </div>
+                        <asp:PlaceHolder ID="cta2" runat="server" />
 
                 <asp:ContentPlaceHolder ID="cph_aside" runat="server"></asp:ContentPlaceHolder>
                     </aside>

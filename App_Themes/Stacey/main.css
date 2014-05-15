@@ -100,7 +100,7 @@ nav a, nav a:visited, nav a:hover {
 .cta_style {
     padding:10px;
     font-weight: normal;
-
+    min-height:280px;
 }
 .cta_style span {
     padding:5px 0px;
