@@ -1,0 +1,245 @@
+﻿* {
+    padding:0px;
+    margin:0px;
+}
+
+p {
+    padding-bottom:10px;
+}
+
+#wrapper {
+    margin:0 auto;
+    max-width:1100px;
+}
+
+body {
+    background-color:white;
+    font-family: 'Lato', sans-serif;
+}
+
+header {
+    height:160px;
+    font-family: Lato, sans-serif;
+    background-color:#8ed1e4;
+}
+
+.logo img {
+    width:300px;
+    float:left;
+}
+
+.logo {
+    margin-top:30px;
+}
+
+.address {
+    float:right;
+    margin-top:50px;
+    color:#606465;
+    text-align:right;
+    font-weight:bold;
+}
+
+nav {
+    text-align:center;
+    height:50px;
+    background-color:#6aabbf;
+    float:left;
+    width:100%;
+    padding:10px 0;
+    margin:30px 0;
+}
+
+nav a, nav a:visited, nav a:hover {
+    color:white;
+}
+
+/*Need to set z-index for dynamic menu & slider*/
+
+.smp, .admintitle{
+    display:block;
+    margin-bottom:15px;
+    color:#6aabbf;
+    font-size:x-large;
+    font-weight:bold;
+}
+
+#content {
+    min-height:100%;
+    background:#ececec;
+}
+
+.content {
+    float:left;
+    margin-top:10px;
+    color:#2b2b2b;
+    padding-bottom:25px;
+}
+
+.aside {
+    margin-top:20px;
+    float:right;
+    background-color:#ececec;
+    padding-bottom:25px;
+}
+
+.aside a {
+    color:#6aabbf;
+    text-decoration:none;
+}
+
+#aside2 {
+    border:2px solid #8ed1e4;
+    color:#2b2b2b;
+    text-align:center;
+    border-radius:6px;
+    margin-bottom:15px;
+    background-color:white;
+}
+
+.cta_style {
+    padding:10px;
+    font-weight: normal;
+
+}
+.cta_style span {
+    padding:5px 0px;
+}
+
+.cta_link {
+    font-size: x-large;
+}
+
+.cta_style img {
+    padding:7px;
+    max-width:200px;
+}
+
+#dtl_edit {
+    display:none;
+}
+
+footer {
+    background-color:#202020;
+    color:white;
+    text-align:center;
+}
+
+.footer {
+    margin-top:25px;
+}
+
+.footer a, .footer a:visited, .footer a:hover, .footer span {
+    display:block;
+    margin-bottom:4px;
+    color:white;
+}
+
+.bottom {
+    text-align:left;
+    margin:10px 0;
+}
+
+.bottom a, .bottom span {
+    margin-right:20px;    
+    font-size:smaller;
+}
+
+.social {
+    float:right;
+    text-align:right;
+    margin-bottom:8px;
+}
+
+.access span:first-child, .services span:first-child, .jobs span:first-child, .contact span:first-child {
+    border-bottom:1px solid white;
+    padding-bottom:7px;
+    margin-bottom:18px;
+    font-weight:bold;
+}
+
+.access, .services, .jobs, .contact {
+    margin-bottom:25px;
+}
+
+
+/*------------PAGES-------------*/
+
+.lblpage {
+    
+}
+
+.acc {
+    width:75%;
+    margin:0 auto;
+}
+
+.docacchead {
+    background-color:#8ed1e4;
+    padding:10px;
+    margin:10px;
+    text-align:center;
+    color:#202020;
+}
+
+.docacchead a {
+    width:100%;
+    text-decoration:none;
+    color:#202020;
+    display:block;
+    font-weight:bold;
+}
+
+.docaccon img {
+    float:left;
+    max-width:200px;
+}
+
+#lbl_name {
+    font-size:large;
+    margin-top:20px;
+}
+
+.info {
+    margin:15px 0 20px 0;
+    width:90%;
+}
+
+.doclinks {
+    text-align:right;
+    color:#6aabbf;
+    margin-top:8px;
+}
+
+.dir {
+    text-align:center;
+    margin:15px 0 20px 0;
+}
+
+.event, .docbio {
+    margin:20px 0 15px 0;
+}
+
+.sidebarlinks {
+    
+}
+
+.sidebarlbl {
+    padding-top:25px;
+}
+
+.adminbuttons {
+   
+}
+
+.adminlink {
+    float:right;
+    text-decoration:none;
+    border:2px solid #6aabbf;
+    color:white;
+    padding:5px 5px 0 5px;
+    background-color:#8ed1e4;
+}
+
+
+

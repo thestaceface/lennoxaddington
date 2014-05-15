@@ -1,0 +1,134 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="framework.master.cs" Inherits="framework" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="Images/favicon.ico" rel="shortcut icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css' />
+    <link href="App_Themes/Stacey/main.css" rel="stylesheet" />
+    <link href="App_Themes/Stacey/foundation.css" rel="stylesheet" />
+    <title>Lennox Addington</title>
+</head>
+
+<body>
+    
+    <form id="form1" runat="server">
+    <div id="wrapper">
+    
+        <header>
+            <div class="row">
+                <div class="large-6 medium-6 small-12 columns logo">
+                    <asp:HyperLink ID="img_logo" runat="server" ImageUrl="~/Images/Logo.png" NavigateUrl="~/ps_slideImages.aspx" />
+                </div>
+                <div class="large-6 medium-6 small-12 columns address">
+                    <asp:Label ID="lbl_address" runat="server" Text="(555) 121-2121<br /><span>123 Fake Street, Napanee</span>" />
+                </div>
+            </div>
+
+            <nav>
+                <div class="row">
+                    <div class="large-12 columns nav">      
+                         <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
+            <asp:Menu ID="mnu_1" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticMenuItemStyle-HorizontalPadding="15px" DynamicHoverStyle-BackColor="#004059" StaticEnableDefaultPopOutImage="false" DynamicPopOutImageUrl="~/Images/menuarrow.png" DynamicMenuItemStyle-BackColor="#6aabbf" DynamicMenuItemStyle-ForeColor="White" DynamicMenuItemStyle-VerticalPadding="10px" DynamicMenuItemStyle-HorizontalPadding="12px" Font-Bold="true" />   
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div id="content">
+            <div class="row">
+                <div class="large-8 medium-12 small-12 columns content">
+                    <asp:SiteMapPath ID="smp_main" runat="server" ParentLevelsDisplayed="0" CssClass="smp" />
+
+                    <asp:ContentPlaceHolder id="cph_content" runat="server"></asp:ContentPlaceHolder>
+                </div>
+
+                <div class="large-4 medium-12 small-12 columns aside">
+                    <aside>
+                        <asp:DataList ID="dtl_edit" runat="server" OnItemDataBound="ctaLoader" >
+                    <ItemTemplate>
+
+                        <asp:HiddenField ID="hdf_cta1" runat="server" Value='<%#Eval("cp_cta1") %>' /><%--this holds the id of the cta to be loaded in the placeholder, below.--%>
+                        <asp:HiddenField ID="hdf_cta2" runat="server" Value='<%#Eval("cp_cta2") %>' />
+
+                    </ItemTemplate> 
+                </asp:DataList>
+
+                  <asp:PlaceHolder ID="cta1" runat="server" /><%--this is where the cta will load--%>
+                  <asp:PlaceHolder ID="cta2" runat="server" />
+
+                <asp:ContentPlaceHolder ID="cph_aside" runat="server"></asp:ContentPlaceHolder>
+                    </aside>
+                </div>
+            </div>
+
+            <asp:ContentPlaceHolder ID="cph_footer" runat="server">
+            <footer>
+                <div class="row">
+                    <div class="large-3 columns footer access">
+                        <asp:Label ID="lbl_access" runat="server" Text="Access" />
+                        <asp:LoginStatus ID="lgs_main" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/ps_slideImages.aspx" /><br />
+                        <asp:LoginName ID="lgn_main" runat="server" FormatString="Logged in as: {0}" /><br />
+                        <asp:HyperLink ID="lnk_admin" runat="server" Text="Admin Page" NavigateUrl="~/admin/wl_crudMain.aspx" />
+                    </div>
+
+                    <div class="large-3 columns footer services">
+                        <asp:Label ID="lbl_services" runat="server" Text="Services" />
+                        <asp:HyperLink ID="lnk_feedback" runat="server" Text="Feedback" NavigateUrl="~/rf_feedback.aspx" /><br />
+                        <asp:HyperLink ID="lnk_staff" runat="server" Text="Thank a Staff Member" NavigateUrl="~/ps_thanksform.aspx" /><br />
+                        <asp:HyperLink ID="lnk_appt" runat="server" Text="Book an Appointment" NavigateUrl="~/ps_appointment.aspx" /><br />
+                        <asp:HyperLink ID="lnk_ecard" runat="server" Text="Send an E-Card" NavigateUrl="~/e_card.aspx" />
+                    </div>
+
+                    <div class="large-3 columns footer jobs">
+                        <asp:Label ID="lbl_jobs" runat="server" Text="Work With Us" />
+                        <asp:HyperLink ID="lnk_jobs" runat="server" Text="Current Opportunities" NavigateUrl="~/db_career.aspx" /><br />
+                        <asp:HyperLink ID="lnk_volunteer" runat="server" Text="Volunteer" NavigateUrl="#" />
+                    </div>
+
+                    <div class="large-3 columns footer contact">
+                        <asp:Label ID="lbl_contact" runat="server" Text="Find Us" />
+                        <asp:HyperLink ID="lnk_directions" runat="server" Text="Directions" NavigateUrl="~/db_direction.aspx" /><br />
+                        <asp:Label ID="lbl_addr" runat="server" Text="123 Fake Street<br>Napanee, A0A 0A0<br>(555) 121-2121" /><br />
+                        <asp:Label ID="lbl_visit" runat="server" Text="Visiting Hours<br />2:00 pm - 8:00 pm" /><br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-5 medium-12 small-12 columns bottom">
+                        <asp:Label ID="lbl_copy" runat="server" Text="&copy 2014 Beedah, Bernard, Ferdous, Lin, Masson, Saini" />
+                    </div>
+                    <div class="large-4 medium-12 small-12 columns bottom">
+                        <asp:Hyperlink ID="lnk_privacy" runat="server" Text="Privacy Policy" NavigateUrl="#" />
+                        <asp:HyperLink ID="lnk_terms" runat="server" Text="Terms of Use" NavigateUrl="#" />
+                    </div>
+                    <div class="large-3 medium-12 small-12 columns social">
+                        <asp:ImageButton ID="img_facebook" runat="server" ImageUrl="~/Images/Facebook_Icon.png" PostBackUrl="#" />
+                <asp:ImageButton ID="img_twitter" runat="server" ImageUrl="~/Images/Twitter_Icon.png" PostBackUrl="#" />
+                    </div>
+                    
+                </div>
+            </footer>
+            </asp:ContentPlaceHolder>
+
+        </div> <%--/content--%>
+        
+    </div> <%--/wrapper--%>
+    </form>
+    
+
+    <script src="Scripts/vendor/jquery.js"></script>
+    <script src="Scripts/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>

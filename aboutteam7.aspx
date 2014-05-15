@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.master" AutoEventWireup="true" CodeFile="aboutteam7.aspx.cs" Inherits="aboutteam7" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="aboutteam7.aspx.cs" Inherits="aboutteam7" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
     <asp:Label ID="lbl_title" runat="server" Text=" (About the Project)" CssClass="admintitle" />

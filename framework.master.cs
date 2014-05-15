@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class MasterPage : System.Web.UI.MasterPage
+public partial class framework : System.Web.UI.MasterPage
 {
     ctaClass objPage = new ctaClass();
 
@@ -13,18 +13,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         string pageurl = Request.Url.PathAndQuery;
 
-        //if (!Page.User.IsInRole("administrator"))
-        //{
-        //    lnk_admin.Visible = false;
-        //}
+        if (!Page.User.IsInRole("administrator"))
+        {
+            lnk_admin.Visible = false;
+        }
 
         dtl_edit.DataSource = objPage.getPageByUrl(pageurl);//find this page in the database by url.  why url and not id?  because then i can define ctas for non-contentMain pages, as long as i have the right urls
         dtl_edit.DataBind();
-
-        
-
     }
-    
+
     private void _subRebind()  //binds the data to the pagelist.  not the form.  
     {
         Control cta1control;
@@ -37,15 +34,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         cta2.Controls.Add(cta2control);
     }
 
-
-
-
     protected void ctaLoader(object sender, DataListItemEventArgs e)
     {
         //Repeater blah = new Repeater();//used in testing
         //Label hmm = (Label)e.Item.FindControl("lbl_cta1");
         //lbl.Text = hmm.Text;
-        
+
         //Repeater sideRepeater = new Repeater();//used in testing
         Control cta1control;
         Control cta2control;
@@ -57,26 +51,26 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //lbl.Text = hdfCTA1.Value;
 
         switch (hdfCTA1.Value)//hidden value... activates a cta depending on the cta_id
-            {
-                case "1":
-                    cta1control = LoadControl("cta/wl_cta_donate.ascx");
-                    cta1.Controls.Add(cta1control);
-                    break;
-                case "2":
-                    cta1control = LoadControl("cta/wl_cta_faq.ascx");
-                    cta1.Controls.Add(cta1control);
-                    break;
-                case "3":
-                    cta1control = LoadControl("cta/wl_cta_newsletter.ascx");
-                    cta1.Controls.Add(cta1control);
-                    break;
-                case "4":
-                    cta1control = LoadControl("cta/wl_cta_flushot.ascx");
-                    cta1.Controls.Add(cta1control);
-                    break;
-                default:
-                    break;
-              }
+        {
+            case "1":
+                cta1control = LoadControl("cta/wl_cta_donate.ascx");
+                cta1.Controls.Add(cta1control);
+                break;
+            case "2":
+                cta1control = LoadControl("cta/wl_cta_faq.ascx");
+                cta1.Controls.Add(cta1control);
+                break;
+            case "3":
+                cta1control = LoadControl("cta/wl_cta_newsletter.ascx");
+                cta1.Controls.Add(cta1control);
+                break;
+            case "4":
+                cta1control = LoadControl("cta/wl_cta_flushot.ascx");
+                cta1.Controls.Add(cta1control);
+                break;
+            default:
+                break;
+        }
         switch (hdfCTA2.Value)
         {
             case "1":
