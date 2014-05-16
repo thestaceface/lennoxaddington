@@ -53,7 +53,7 @@ nav {
     background-color:#6aabbf;
     float:left;
     width:100%;
-    padding:10px 0;
+    /*padding:10px 0;*/
     margin-top:-10px;
     z-index:99;
 }
@@ -144,6 +144,10 @@ footer {
     color:white;
 }
 
+.footer a, .footer a:visited, .footer a:hover {
+     text-decoration:underline;   
+}
+
 .bottom {
     text-align:left;
     margin:10px 0;
@@ -185,8 +189,8 @@ footer {
 
 .docacchead {
     background-color:#8ed1e4;
-    padding:10px;
-    margin:10px;
+    padding:10px 0;
+    margin:10px 0;
     text-align:center;
     color:#202020;
 }
@@ -199,19 +203,22 @@ footer {
     font-weight:bold;
 }
 
-.docaccon img {
+.accimg {
     float:left;
     max-width:200px;
+    width:20%;
 }
 
-#lbl_name {
+/*.lbl_name {
     font-size:large;
     margin-top:20px;
-}
+    margin-left:30px;
+}*/
 
 .info {
     margin:15px 0 20px 0;
-    width:90%;
+    width:70%;
+    float:right;
 }
 
 .doclinks {
@@ -236,10 +243,6 @@ footer {
 .sidebarlbl {
     padding-top:25px;
     font-weight:bold;
-}
-
-.adminbuttons {
-    
 }
 
 .adminlink, .adminbuttons {

@@ -21,7 +21,7 @@
         </HeaderTemplate>
         <ContentTemplate>
             <div class="event">
-                <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("ev_media") %>' />
+                <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("ev_media") %>' CssClass="accimg" />
                 <div class="info">
                     <asp:Label ID="body" runat="server" Text='<%#Eval ("ev_body") %>' />
                 </div>

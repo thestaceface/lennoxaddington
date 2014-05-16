@@ -18,17 +18,16 @@
         <HeaderTemplate>
             <asp:HyperLink id="lnk_head" runat="server" NavigateUrl="#" text='<%#Eval ("doc_name") %>' />
         </HeaderTemplate>
-        <ContentTemplate>
-            <div class="docbio">
-                <asp:Label ID="lbl_name" runat="server" Text='<%#Eval ("doc_name") %>' />            
-                <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("doc_img") %>' />
+        <ContentTemplate>     
+                <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("doc_img") %>' CssClass="accimg" />
+                <%--<asp:Label ID="lbl_name" runat="server" Text='<%#Eval ("doc_name") %>' CssClass="lbl_name" />--%>    
                 <div class="info">
                     <%#Eval ("doc_bio") %>
+                    <br />
                     <br />
                     <asp:HyperLink ID="hpl_contact" runat="server" NavigateUrl="~/sm_directory.aspx" Text="Contact" CssClass="doclinks" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:HyperLink ID="hpl_appt" runat="server" NavigateUrl="~/ps_appointment.aspx" Text="Book an Appointment" CssClass="doclinks" />
-            </div>
             </div>
 
         </ContentTemplate>

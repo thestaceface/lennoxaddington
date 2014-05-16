@@ -111,9 +111,9 @@
                 </td>
                 <td>
                     <asp:TextBox ID="txt_dateE" runat="server" Text='<%#Bind ("ev_date", "{0:d}") %>' />
-                    <ajax:CalendarExtender ID="cal_edit" runat="server" TargetControlID="txt_dateE" FirstDayOfWeek="Sunday" Format="dd/MM/yyyy" />
+                    <ajax:CalendarExtender ID="cal_edit" runat="server" TargetControlID="txt_dateE" FirstDayOfWeek="Sunday" Format="yyyy-MM-dd" />
                     <asp:RequiredFieldValidator ID="rfv_dateE" runat="server" ControlToValidate="txt_dateE" ErrorMessage="Date is required." Display="None" ValidationGroup="edit" />
-                    <asp:CompareValidator ID="cmv_dateE" runat="server" ControlToValidate="txt_dateE" Operator="DataTypeCheck" Type="Date" ErrorMessage="Please use valid date format: dd/mm/yyyy" Display="None" ValidationGroup="edit" />
+                    <asp:CompareValidator ID="cmv_dateE" runat="server" ControlToValidate="txt_dateE" Operator="DataTypeCheck" Type="Date" ErrorMessage="Please use valid date format: yyyy-MM-dd" Display="None" ValidationGroup="edit" />
                 </td>
             </tr>
                 <td>
