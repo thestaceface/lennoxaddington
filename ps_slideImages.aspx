@@ -8,7 +8,7 @@
 
 
  <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
-     <asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/ps_SlideImagesADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />
+     <%--<asp:HyperLink ID="lnk_admin" runat="server" Text="Edit Page" NavigateUrl="~/admin/ps_SlideImagesADMIN.aspx" CssClass="adminlink" ImageUrl="~/Images/admingear.png" />--%>
 
     <img class="homeimg" src="Images/lacgh.jpg" />
     <div class="panel">

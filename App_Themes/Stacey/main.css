@@ -178,10 +178,6 @@ footer {
 
 /*------------PAGES-------------*/
 
-.lblpage {
-    
-}
-
 .acc {
     width:75%;
     margin:0 auto;
@@ -189,18 +185,18 @@ footer {
 
 .docacchead {
     background-color:#8ed1e4;
-    padding:10px 0;
-    margin:10px 0;
     text-align:center;
     color:#202020;
 }
 
-.docacchead a {
+.docacchead a, .docacchead a:hover {
+    display:block;
+    padding:10px 0;
+    margin:10px 0;
     width:100%;
     text-decoration:none;
     color:#202020;
     display:block;
-    font-weight:bold;
 }
 
 .accimg {

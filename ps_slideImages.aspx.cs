@@ -15,9 +15,9 @@ public partial class ps_slideImage : System.Web.UI.Page
         //rpt_main.DataBind();
 
         //if user is logged in as administrator, edit button is visible
-        if (!User.IsInRole("administrator"))
-        {
-            lnk_admin.Visible = false;
-        }
+        //if (!User.IsInRole("administrator"))
+        //{
+        //    lnk_admin.Visible = false;
+        //}
     }
 }
