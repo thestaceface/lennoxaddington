@@ -2,9 +2,9 @@
 <%-- Page by Puneet Saini --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         alert("Welcome! Please note that this website is a Humber College student project. The LACGH website can be found at http://www.lacgh.com");
-    </script>
+    </script>--%>
 
 
  <%-- if user is logged in as an administrator, edit button is visible. otherwise, not displayed --%>
@@ -37,6 +37,11 @@
             });
         });
 
+        $(document).ready(function () {
+            $(window).bind("load", function () {
+                alert("Welcome! Please note that this website is a Humber College student project. The LACGH website can be found at http://www.lacgh.com");
+            });
+        });
     </script>
     
     
