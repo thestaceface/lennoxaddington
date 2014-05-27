@@ -13,7 +13,6 @@ p {
 }
 
 body {
-    /*background-color:red;*/
     font-family: 'Lato', sans-serif;
 }
 
@@ -22,7 +21,6 @@ body {
 }
 
 header {
-    /*height:160px;*/
     height:100%;
     font-family: Lato, sans-serif;
     background-color:#8ed1e4;
@@ -53,7 +51,6 @@ nav {
     background-color:#6aabbf;
     float:left;
     width:100%;
-    /*padding:10px 0;*/
     margin-top:-10px;
     z-index:99;
 }
@@ -61,8 +58,6 @@ nav {
 nav a, nav a:visited, nav a:hover {
     color:white;
 }
-
-/*Need to set z-index for dynamic menu & slider*/
 
 .smp, .admintitle{
     display:block;
@@ -88,7 +83,6 @@ nav a, nav a:visited, nav a:hover {
 .aside {
     margin-top:40px;
     float:right;
-    /*background-color:#f3f3f3;*/
     padding-bottom:25px;
 }
 
@@ -205,12 +199,6 @@ footer {
     width:20%;
 }
 
-/*.lbl_name {
-    font-size:large;
-    margin-top:20px;
-    margin-left:30px;
-}*/
-
 .info {
     margin:15px 0 20px 0;
     width:70%;
@@ -230,10 +218,6 @@ footer {
 
 .event, .docbio {
     margin:20px 0 15px 0;
-}
-
-.sidebarlinks {
-    
 }
 
 .sidebarlbl {
@@ -257,6 +241,7 @@ footer {
 
 .home, #home {
     color:#6aabbf;
+    font-size:22px;
 }
 
 .homeimg {

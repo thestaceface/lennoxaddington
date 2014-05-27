@@ -13,8 +13,8 @@
     <img class="homeimg" src="Images/lacgh.jpg" />
     <div class="panel">
     <h4 class="home" id="home">Welcome to Lennox & Addington County General Hospital</h4>
-    <p>The Internet King? I wonder if he could provide faster nudity&hellip; &hellip;And the fluffy kitten played with that ball of string all through the night. On a lighter note, a Kwik-E-Mart clerk was brutally murdered last night. Don't kid yourself, Jimmy. If a cow ever got the chance, he'd eat you and everyone you care about!</p>
-    <p>I'm normally not a praying man, but if you're up there, please save me, Superman. When will I learn? The answers to life's problems aren't at the bottom of a bottle, they're on TV! I can't go to juvie. They use guys like me as currency. Homer no function beer well without. Oh, so they have Internet on computers now! Whoa, slow down there, maestro. There's a *New* Mexico?</p>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
         </div>
     <br />
     <h5 class="home">What's New at LACGH</h5>
