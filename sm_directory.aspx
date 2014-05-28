@@ -34,5 +34,33 @@
         </ContentTemplate>
     </ajax:Accordion>
 
+<%--    <asp:Repeater ID="acc" runat="server">
+        <ItemTemplate>
+            <div class="record">
+                <%--<div class="title">
+                <asp:HyperLink ID="lnk_head" runat="server" NavigateUrl="#" Text='<%#Eval ("of_title") %>' CssClass="acctitle" />
+                <%--</div>
+
+                <div class="body">
+                    <asp:Label ID="type" runat="server" Text='<%#Eval ("of_contacttype") %>' Font-Bold="true" ForeColor="#6aabbf" /> 
+                        <asp:Label ID="contact" runat="server" Text='<%#Eval ("of_contact") %>' /><br />
+                    <asp:Label ID="lbltel" runat="server" Text="Telephone" Font-Bold="true" ForeColor="#6aabbf" />
+                        <asp:Label ID="tel" runat="server" Text='<%#Eval ("of_tel") %>' /><br />
+                    <asp:Label ID="lblfax" runat="server" Text="Fax" Font-Bold="true" ForeColor="#6aabbf" /> 
+                        <asp:Label ID="fax" runat="server" Text='<%#Eval ("of_fax") %>' /><br />
+                    <asp:Label ID="lblemail" runat="server" Text="Email" Font-Bold="true" ForeColor="#6aabbf" />
+                        <asp:Label ID="email" runat="server" Text='<%#Eval ("of_email") %>' /><br />
+                    <asp:Label ID="lblloc" runat="server" Text="Location" Font-Bold="true" ForeColor="#6aabbf" />
+                        <asp:Label ID="location" runat="server" Text='<%#Eval ("of_location") %>' />
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+    
+    
+    <script>
+
+    </script>--%>
+
 </asp:Content>
 
