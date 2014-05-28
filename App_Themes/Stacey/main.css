@@ -197,12 +197,18 @@ footer {
     float:left;
     max-width:200px;
     width:20%;
+    margin-right:20px;
+    margin-bottom:30px;
 }
 
 .info {
     margin:15px 0 20px 0;
     width:70%;
     float:right;
+}
+
+.clear {
+    clear:both;
 }
 
 .doclinks {
@@ -218,6 +224,8 @@ footer {
 
 .event, .docbio {
     margin:20px 0 15px 0;
+    padding-bottom:30px;
+    margin-bottom:30px;
 }
 
 .sidebarlbl {

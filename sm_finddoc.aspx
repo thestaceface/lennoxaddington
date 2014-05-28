@@ -14,14 +14,14 @@
     <br /><br />
 
     <%-- accordion containing doctor records --%>
-    <ajax:Accordion ID="acc" runat="server" FadeTransitions="true" TransitionDuration="500" RequireOpenedPane="false" HeaderCssClass="docacchead" ContentCssClass="docacccon" SelectedIndex="-1">
+<%--    <ajax:Accordion ID="acc" runat="server" FadeTransitions="true" TransitionDuration="500" RequireOpenedPane="false" HeaderCssClass="docacchead" ContentCssClass="docacccon" SelectedIndex="-1">
         <HeaderTemplate>
             <asp:HyperLink id="lnk_head" runat="server" NavigateUrl="#" text='<%#Eval ("doc_name") %>' />
         </HeaderTemplate>
         <ContentTemplate>     
-                <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("doc_img") %>' CssClass="accimg" />
+                <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("doc_img") %>' CssClass="accimg" />--%>
                 <%--<asp:Label ID="lbl_name" runat="server" Text='<%#Eval ("doc_name") %>' CssClass="lbl_name" />--%>    
-                <div class="info">
+<%--                <div class="info">
                     <%#Eval ("doc_bio") %>
                     <br />
                     <br />
@@ -31,7 +31,39 @@
             </div>
 
         </ContentTemplate>
-    </ajax:Accordion>
+    </ajax:Accordion>--%>
+
+
+    <asp:Repeater ID="docacc" runat="server">
+        <ItemTemplate>
+            <div class="docacchead">
+                <asp:HyperLink id="lnk_head" runat="server" NavigateUrl="#" text='<%#Eval ("doc_name") %>' />
+            </div>
+
+            <div class="docacccon">
+                <asp:Image ID="img" runat="server" ImageUrl='<%#Eval ("doc_img") %>' CssClass="accimg" />
+                <%--<asp:Label ID="lbl_name" runat="server" Text='<%#Eval ("doc_name") %>' CssClass="lbl_name" />--%>    
+                <div class="info">
+                    <%#Eval ("doc_bio") %>
+                    <br />
+                    <br />
+                    <asp:HyperLink ID="hpl_contact" runat="server" NavigateUrl="~/sm_directory.aspx" Text="Contact" CssClass="doclinks" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:HyperLink ID="hpl_appt" runat="server" NavigateUrl="~/ps_appointment.aspx" Text="Book an Appointment" CssClass="doclinks" />
+                </div>
+            </div>
+            <div class="clear"></div>
+        </ItemTemplate>
+    </asp:Repeater>
+
+    <script>
+        $(function () {
+            $('.docacccon').hide();
+            $('.docacchead').on('click', function () {
+                $('+ div', this).slideToggle();
+            });
+        });
+    </script>
 
 </asp:Content>
 

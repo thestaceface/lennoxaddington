@@ -14,7 +14,7 @@
     <br /><br />
 
     <%-- AJAX accordion containing contact records --%>
-    <ajax:Accordion ID="acc" runat="server" FadeTransitions="true" TransitionDuration="500" RequireOpenedPane="false" HeaderCssClass="docacchead" ContentCssClass="docacccon" SelectedIndex="-1" CssClass="acc">
+<%--    <ajax:Accordion ID="acc" runat="server" FadeTransitions="true" TransitionDuration="500" RequireOpenedPane="false" HeaderCssClass="docacchead" ContentCssClass="docacccon" SelectedIndex="-1" CssClass="acc">
         <HeaderTemplate>
             <asp:HyperLink ID="lnk_head" runat="server" NavigateUrl="#" Text='<%#Eval ("of_title") %>' />
         </HeaderTemplate>
@@ -32,16 +32,15 @@
                     <asp:Label ID="location" runat="server" Text='<%#Eval ("of_location") %>' />
             </div>
         </ContentTemplate>
-    </ajax:Accordion>
+    </ajax:Accordion>--%>
 
-<%--    <asp:Repeater ID="acc" runat="server">
+    <asp:Repeater ID="diracc" runat="server">
         <ItemTemplate>
-            <div class="record">
-                <%--<div class="title">
-                <asp:HyperLink ID="lnk_head" runat="server" NavigateUrl="#" Text='<%#Eval ("of_title") %>' CssClass="acctitle" />
-                <%--</div>
-
-                <div class="body">
+            <div class="acc">
+                <div class="docacchead">
+                    <asp:HyperLink ID="lnk_head" runat="server" NavigateUrl="javascript:void(0);" Text='<%#Eval ("of_title") %>' />
+                </div>
+                <div class="dir">
                     <asp:Label ID="type" runat="server" Text='<%#Eval ("of_contacttype") %>' Font-Bold="true" ForeColor="#6aabbf" /> 
                         <asp:Label ID="contact" runat="server" Text='<%#Eval ("of_contact") %>' /><br />
                     <asp:Label ID="lbltel" runat="server" Text="Telephone" Font-Bold="true" ForeColor="#6aabbf" />
@@ -59,8 +58,13 @@
     
     
     <script>
-
-    </script>--%>
+        $(function () {
+            $('.dir').hide();
+            $('.docacchead').on('click', function () {
+                $('+ div', this).slideToggle();
+            });
+        });
+    </script>
 
 </asp:Content>
 
