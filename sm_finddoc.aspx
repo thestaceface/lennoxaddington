@@ -37,7 +37,7 @@
     <asp:Repeater ID="docacc" runat="server">
         <ItemTemplate>
             <div class="docacchead">
-                <asp:HyperLink id="lnk_head" runat="server" NavigateUrl="#" text='<%#Eval ("doc_name") %>' />
+                <asp:HyperLink id="lnk_head" runat="server" NavigateUrl="javascript:void(0);" text='<%#Eval ("doc_name") %>' />
             </div>
 
             <div class="docacccon">

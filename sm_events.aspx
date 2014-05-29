@@ -34,8 +34,8 @@
         <ItemTemplate>
             <div class="acc">
                 <div class="docacchead">
-                    <asp:Hyperlink ID="date" runat="server" NavigateUrl="#" Text='<%#Eval ("ev_date", "{0:d}") %>' /> 
-                    <asp:HyperLink ID="title" runat="server" NavigateUrl="#" text='<%#Eval ("ev_title") %>' />
+                    <asp:Hyperlink ID="date" runat="server" NavigateUrl="javascript:void(0);" Text='<%#Eval ("ev_date", "{0:d}") %>' /> 
+                    <asp:HyperLink ID="title" runat="server" NavigateUrl="javascript:void(0);" text='<%#Eval ("ev_title") %>' />
                 </div>
 
                 <div class="event">
