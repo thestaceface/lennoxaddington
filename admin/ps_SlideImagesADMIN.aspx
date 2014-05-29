@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="ps_SlideImagesADMIN.aspx.cs" Inherits="ps_SlideImages" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="admin.master" AutoEventWireup="true" CodeFile="ps_SlideImagesADMIN.aspx.cs" Inherits="ps_SlideImages" %>
 
 <%-- Page by Puneet Saini --%>
 

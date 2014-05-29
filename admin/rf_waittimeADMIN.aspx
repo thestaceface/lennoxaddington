@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="rf_waittimeADMIN.aspx.cs" Inherits="Default2" Debug="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="admin.master" AutoEventWireup="true" CodeFile="rf_waittimeADMIN.aspx.cs" Inherits="Default2" Debug="true" %>
 <%-- Rezwanul Ferdous 824-259-246 --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">

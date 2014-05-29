@@ -1,7 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="sm_directoryADMIN.aspx.cs" Inherits="sm_directoryADMIN" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="admin.master" AutoEventWireup="true" CodeFile="sm_directoryADMIN.aspx.cs" Inherits="sm_directoryADMIN" %>
 <%-- Page by Stacey Masson --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
+    <script src="../Scripts/jquery1-11-0min.js"></script>
+    <script src="../Scripts/foundation.min.js"></script>
+
 
     <asp:Label ID="lbl_head" runat="server" Text="Edit Page: Directory" CssClass="admintitle" />
     <br /><br />

@@ -1,9 +1,9 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="framework.master.cs" Inherits="framework" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="framework" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <link href="Images/favicon.ico" rel="shortcut icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lt IE 9]>
@@ -13,9 +13,9 @@
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css' />
-    <link href="App_Themes/Stacey/main.css" rel="stylesheet" />
-    <link href="App_Themes/Stacey/foundation.css" rel="stylesheet" />
-    <link href="App_Themes/Stacey/jquery.bxslider.css" rel="stylesheet" />
+    <link href="../App_Themes/Stacey/main.css" rel="stylesheet" />
+    <link href="../App_Themes/Stacey/foundation.css" rel="stylesheet" />
+    <link href="../App_Themes/Stacey/jquery.bxslider.css" rel="stylesheet" />
     <script src="Scripts/jquery1-11-0min.js"></script>
     <script src="Scripts/jquery.bxslider.min.js"></script>
     <title>Lennox Addington</title>
@@ -56,26 +56,26 @@
                         <li class="has-dropdown">
                         <a href="#">About Us</a>
                         <ul class="dropdown">
-                            <li><a href="aboutteam7.aspx">Team Seven Digital</a></li>
+                            <li><a href="../aboutteam7.aspx">Team Seven Digital</a></li>
                             <li><a href="#">Our Hospital</a></li>
                             <li><a href="#">Board of Directors</a></li>
                             <li><a href="#">LACGH Foundation</a></li>
                             <li><a href="#">News</a></li>
-                            <li><a href="sm_events.aspx">Upcoming Events</a></li>
-                            <li><a href="faq.aspx">FAQ</a></li>
-                            <li><a href="rf_findout.aspx">Find Out More</a></li>
+                            <li><a href="../sm_events.aspx">Upcoming Events</a></li>
+                            <li><a href="../faq.aspx">FAQ</a></li>
+                            <li><a href="../rf_findout.aspx">Find Out More</a></li>
                         </ul>
                         </li>
                         <li class="has-dropdown">
                         <a href="#">Patients</a>
                         <ul class="dropdown">
-                            <li><a href="rf_waittime.aspx">ER Wait Time</a></li>
-                            <li><a href="sm_finddoc.aspx">Our Doctors</a></li>
-                            <li><a href="ps_appointment.aspx">Book an Appointment</a></li>
+                            <li><a href="../rf_waittime.aspx">ER Wait Time</a></li>
+                            <li><a href="../sm_finddoc.aspx">Our Doctors</a></li>
+                            <li><a href="../ps_appointment.aspx">Book an Appointment</a></li>
                             <li><a href="#">Your Hospital Stay</a></li>
                             <li><a href="#">Patient Policies</a></li>
-                            <li><a href="ps_thanksform.aspx">Thank a Staff Member</a></li>
-                            <li><a href="e_card.aspx">Send an E-Card to a Patient</a></li>
+                            <li><a href="../ps_thanksform.aspx">Thank a Staff Member</a></li>
+                            <li><a href="../e_card.aspx">Send an E-Card to a Patient</a></li>
                         </ul>
                         </li>
                         <li class="has-dropdown">
@@ -103,7 +103,7 @@
                         <li class="has-dropdown">
                         <a href="#">Get Involved</a>
                         <ul class="dropdown">
-                            <li><a href="db_career.aspx">Current Opportunities</a></li>
+                            <li><a href="../db_career.aspx">Current Opportunities</a></li>
                             <li><a href="#">Volunteer</a></li>
                             <li><a href="#">Student Placements</a></li>
                         </ul>
@@ -111,10 +111,10 @@
                         <li class="has-dropdown">
                         <a href="#">Contact Us</a>
                         <ul class="dropdown">
-                            <li><a href="db_direction.aspx">Directions</a></li>
-                            <li><a href="sm_directory.aspx">Directory</a></li>
-                            <li><a href="rf_feedback.aspx">Feedback</a></li>
-                            <li><a href="newsletter.aspx">Subscribe to our Newsletter</a></li>
+                            <li><a href="../db_direction.aspx">Directions</a></li>
+                            <li><a href="../sm_directory.aspx">Directory</a></li>
+                            <li><a href="../rf_feedback.aspx">Feedback</a></li>
+                            <li><a href="../newsletter.aspx">Subscribe to our Newsletter</a></li>
                         </ul>
                         </li>
                     </ul>

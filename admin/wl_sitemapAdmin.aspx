@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="wl_sitemapAdmin.aspx.cs" Inherits="admin_wl_sitemapAdmin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="admin.master" AutoEventWireup="true" CodeFile="wl_sitemapAdmin.aspx.cs" Inherits="admin_wl_sitemapAdmin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_content" Runat="Server">
 

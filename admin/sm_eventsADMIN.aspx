@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="sm_eventsADMIN.aspx.cs" Inherits="sm_eventsADMIN" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="admin.master" AutoEventWireup="true" CodeFile="sm_eventsADMIN.aspx.cs" Inherits="sm_eventsADMIN" %>
 <%-- Page by Stacey Masson --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
@@ -40,10 +40,10 @@
                      <asp:Label ID="lbl_date" runat="server" Text="Event Date:*" AssociatedControlID="txt_date" />
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_date" runat="server" ToolTip="Format: dd/mm/yyyy" />
-                    <ajax:CalendarExtender ID="cal_new" runat="server" TargetControlID="txt_date" FirstDayOfWeek="Sunday" Format="dd/MM/yyyy" />
+                    <asp:TextBox ID="txt_date" runat="server" ToolTip="Format: yyyy/mm/dd" />
+                    <%--<ajax:CalendarExtender ID="cal_new" runat="server" TargetControlID="txt_date" FirstDayOfWeek="Sunday" Format="dd/MM/yyyy" />--%>
                     <asp:RequiredFieldValidator ID="rfv_date" runat="server" ControlToValidate="txt_date" ErrorMessage="Date is required." Display="None" ValidationGroup="insert" />
-                    <asp:CompareValidator ID="cmv_date" runat="server" ControlToValidate="txt_date" Operator="DataTypeCheck" Type="Date" ErrorMessage="Please use valid date format: dd/mm/yyyy" Display="None" ValidationGroup="insert" />
+                    <asp:CompareValidator ID="cmv_date" runat="server" ControlToValidate="txt_date" Operator="DataTypeCheck" Type="Date" ErrorMessage="Please use valid date format: yyyy/mm/dd" Display="None" ValidationGroup="insert" />
                 </td>
             </tr>
             <tr>

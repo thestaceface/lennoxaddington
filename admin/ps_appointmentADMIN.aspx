@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/framework.master" AutoEventWireup="true" CodeFile="ps_appointmentADMIN.aspx.cs" Inherits="ps_appointmentADMIN" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="admin.master" AutoEventWireup="true" CodeFile="ps_appointmentADMIN.aspx.cs" Inherits="ps_appointmentADMIN" %>
 <%-- Page by Puneet Saini --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_content" Runat="Server">
