@@ -35,6 +35,7 @@
       <siteMapNode url="contentMain.aspx?id=112" title="Pharmacy Services" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
       <siteMapNode url="contentMain.aspx?id=98" title="Bone Mineral Densitometry" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
       <siteMapNode url="contentMain.aspx?id=101" title="Chemotherapy" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
+      <siteMapNode url="contentMain.aspx?id=121" title="Emergency Services" description="" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" />
     </siteMapNode>
     <siteMapNode url="contentMain.aspx?id=20" title="Responsibilty &amp; Accountability" description=" Responsibility and accountibility">
       <siteMapNode url="contentMain.aspx?id=13" title="Accessibility" description="Accessibility" />
